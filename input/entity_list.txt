@@ -1,0 +1,150 @@
+U.S.	1	1
+Friday	1	2
+Libya	1	3
+Williams	1	4
+Gadhafi	1	5
+Anthony	1	6
+Libyan	1	7
+Michigan	1	8
+Protesters	1	9
+American	1	10
+No.	1	11
+Google	1	12
+It&rsquo	1	13
+Mizioch	1	14
+Nets	1	15
+Washington	1	16
+Apollo	1	17
+Ecuador	1	18
+Democrats	1	19
+United States	1	20
+Comments	1	21
+Hocutt	1	22
+Obama	1	23
+Clearwire	1	24
+America	1	25
+Mr. Stein	1	26
+Van Winkle	1	27
+Christchurch	1	28
+Tripoli	1	29
+Americans	1	30
+He&rsquo	1	31
+Jackson	1	32
+Thursday	1	33
+Mr. Galliano	1	34
+Aldawsari	1	35
+Saleh	1	36
+Gabbert	1	37
+Perplexus	1	38
+Jacoby	1	39
+Davis	1	40
+Chinese	1	41
+New Jersey	1	42
+Johnson	1	43
+Wal-Mart	1	44
+Ingram	1	45
+Kennedy	1	46
+Carney	1	47
+Australia	1	48
+HP	1	49
+Ms. Stewart	1	50
+Egypt	2	1
+Egyptian	2	2
+Mubarak	2	3
+Facebook	2	4
+Egyptians	2	5
+Libya	2	6
+Muslim Brotherhood	2	7
+Google	2	8
+Protesters	2	9
+Wael Ghonim	2	10
+American	2	11
+Tunisia	2	12
+U.S.	2	13
+Cairo	2	14
+Israel	2	15
+Tahrir Square	2	16
+Arab	2	17
+United States	2	18
+Bahrain	2	19
+Demonstrators	2	20
+Libyan	2	21
+Kamel	2	22
+Friday	2	23
+Internet	2	24
+Feb.	2	25
+Gadafy	2	26
+Americans	2	27
+Russia	2	28
+Indonesia	2	29
+Muslims	2	30
+The Egyptian	2	31
+Cameron	2	32
+Ghonim	2	33
+North Africa	2	34
+Hosni Mubarak	2	35
+Obama	2	36
+America	2	37
+The United States	2	38
+Tripoli	2	39
+Khaled	2	40
+Philippines	2	41
+Iran	2	42
+Comments	2	43
+The Brotherhood	2	44
+It&rsquo	2	45
+Middle East	2	46
+TV	2	47
+Iranian	2	48
+Gaddafi	2	49
+Chinese	2	50
+Watson	3	1
+IBM	3	2
+Australia	3	3
+Libya	3	4
+Comments	3	5
+Duann	3	6
+Kaymer	3	7
+Boeing	3	8
+AIG	3	9
+Holmes	3	10
+Ogilvy	3	11
+American	3	12
+U.S.	3	13
+Mahan	3	14
+Thursday	3	15
+Steinhubl	3	16
+America	3	17
+Tripoli	3	18
+Republicans	3	19
+Bubba Watson	3	20
+Haddin	3	21
+Johnson	3	22
+Ken Jennings	3	23
+Florida	3	24
+Grady	3	25
+Nathan McCullum	3	26
+Thiesfeld	3	27
+Google	3	28
+Facebook	3	29
+EADS	3	30
+Reading Recovery	3	31
+State Farm	3	32
+Arimura	3	33
+Britain&rsquo	3	34
+Washington	3	35
+Tigers	3	36
+Watson&rsquo	3	37
+Henjak	3	38
+Siegel	3	39
+Pearson	3	40
+Deep Blue	3	41
+CSU	3	42
+Howard	3	43
+Dr. Watson	3	44
+Zags	3	45
+Raquel	3	46
+Knopf	3	47
+Tuesday	3	48
+Kuchar	3	49
+Passan	3	50
