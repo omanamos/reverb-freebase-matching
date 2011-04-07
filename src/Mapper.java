@@ -1,5 +1,8 @@
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -8,16 +11,18 @@ import java.util.Scanner;
 public class Mapper {
 	public static final String FREEBASE_ENTITIES = "output.fbid-prominence.sorted";
 	public static final String REVERB_ENTITIES = "input/entity_list.txt";
+	public static final String OUTPUT = "output.txt";
 	
-	public static void main(String[] args) throws FileNotFoundException{
+	public static void main(String[] args) throws IOException{
 		List<Entity> fb = loadFreebaseEntities(FREEBASE_ENTITIES);
 		List<String> rv = loadReverbEntities(REVERB_ENTITIES);
 		
+		BufferedWriter w = new BufferedWriter(new FileWriter(new File(OUTPUT)));
 		for(String rvEnt : rv){
-			System.out.println(rvEnt);
+			w.write(rvEnt + "\n");
 			for(Entity ent : fb){
 				if(ent.contents.contains(rvEnt)){
-					System.out.println("\t" + ent);
+					w.write("\t" + ent + "\n");
 				}
 			}
 		}
