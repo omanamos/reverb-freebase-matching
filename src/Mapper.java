@@ -82,6 +82,7 @@ public class Mapper {
 		List<String> rv = loadReverbEntities(REVERB_ENTITIES);
 		
 		BufferedWriter w = new BufferedWriter(new FileWriter(new File(m.OUTPUT)));
+		long start = System.currentTimeMillis();
 		int cnt = 0;
 		for(String rvEnt : rv){
 			w.write(rvEnt + "\n");
@@ -93,6 +94,12 @@ public class Mapper {
 			cnt++;
 			System.out.println((100 * cnt / (double)rv.size()) + "%");
 		}
+		
+		long totalTime = System.currentTimeMillis() - start;
+		double timePerEntry = totalTime / (cnt * 1000);
+		System.out.println("Average time per entry = " + timePerEntry);
+		double entryPerSecond = 1.0 / timePerEntry;
+		System.out.println("Processed ~" + entryPerSecond + " entries per second");
 		
 		long total = m.c1 + m.c2 + m.c3 + m.c4;
 		System.out.println("Time spent computing Substring(A,B) = " + m.c1 + " (" + (100 * m.c1 / total) + "%).");

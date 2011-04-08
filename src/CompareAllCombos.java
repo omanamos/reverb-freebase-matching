@@ -5,7 +5,7 @@ public class CompareAllCombos {
 
 	public static void main(String[] args) throws FileNotFoundException{
 		
-		for(File in : new File("output").listFiles()){
+		for(File in : new File("../output").listFiles()){
 			Map<String, List<String>> matches = Utils.parseOutputFile(in);
 			
 			List<String> noMatches = new ArrayList<String>();

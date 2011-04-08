@@ -3,10 +3,12 @@ public class Entity {
 	
 	public final String id;
 	public final String contents;
+	public final Integer inlinks;
 	
-	public Entity(String id, String contents){
+    public Entity(String id, String contents, Integer inlinks){
 		this.id = id;
 		this.contents = contents;
+		this.inlinks = inlinks;
 	}
 	
 	public static Entity fromString(String s){
