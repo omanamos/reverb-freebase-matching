@@ -1,0 +1,5 @@
+Using all 4 methods:
+Time spent computing Substring(A,B) = 18582427338 (3%).
+Time spent computing Substring(B,A) = 6403526508 (1%).
+Time spent computing Distance(A,B) = 83969904954 (15%).
+Time spent computing Acronym(A,B) = 444674494549 (80%).
