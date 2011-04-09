@@ -1,2 +1,6 @@
 *.class
 *.zip
+input/*
+bin/*
+output/*
+.*
