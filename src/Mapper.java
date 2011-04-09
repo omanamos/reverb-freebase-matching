@@ -8,25 +8,27 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Mapper {
-	public static final String FREEBASE_ENTITIES = "output.fbid-prominence.sorted";
-	public static final String REVERB_ENTITIES = "input/entity_list.txt";
+	public static final String FREEBASE_ENTITIES = "../output.fbid-prominence.sorted";
+	public static final String REVERB_ENTITIES = "../input/entity_list.txt";
 	private final String OUTPUT;
 	private final boolean SUB_AB;
 	private final boolean SUB_BA;
 	private final boolean DIST;
 	private final boolean ACRO;
-	
+	private final int MAX;
+
 	private long c1 = 0;
 	private long c2 = 0;
 	private long c3 = 0;
 	private long c4 = 0;
 	
-	public Mapper(boolean subAB, boolean subBA, boolean dist, boolean acro, String output){
+	public Mapper(boolean subAB, boolean subBA, boolean dist, boolean acro, String output, int max){
 		this.SUB_AB = subAB;
 		this.SUB_BA = subBA;
 		this.DIST = dist;
 		this.ACRO = acro;
 		this.OUTPUT = output;
+		this.MAX = max
 	}
 	
 	public static void main(String[] args) throws IOException{
@@ -35,6 +37,7 @@ public class Mapper {
 		boolean dist = true;
 		boolean acro = true;
 		String output = "output/output.txt";
+		int maxNumMatches = 5;
 		
 		//Parse arguments
 		if(args.length > 1){
@@ -42,7 +45,7 @@ public class Mapper {
 			int p = Integer.parseInt(args[0]);
 			subAB = false;
 			
-			while(p != 0){
+			while(p >= 1){
 				
 				int tmp = p % 10;
 				
@@ -63,32 +66,43 @@ public class Mapper {
 						System.out.println("Invalid arguments");
 						return;
 				}
-				
-				tmp = p / 10;
+				p = p / 10;
 			}
 			
-			if(args.length == 2){
+			if(args.length > 1){
 				output = args[1];
-			}else if(args.length != 0){
-				System.out.println("Invalid arguments");
-				return;
+				
+				if(args.length == 3){
+					maxNumMatches = Integer.parseInt(args[2]);
+				}else if(args.length != 0){
+					System.out.println("Invalid arguments");
+					return;
+				}
 			}
 		}
 		
-		Mapper m = new Mapper(subAB, subBA, dist, acro, output); 
+		Mapper m = new Mapper(subAB, subBA, dist, acro, output, maxNumMatches); 
 		
-		
+		System.out.print("Loading Freebase Entity List...");
 		List<Entity> fb = loadFreebaseEntities(FREEBASE_ENTITIES);
+		System.out.println("Complete!");
+
+		System.out.print("Loading Reverb Entity List...");
 		List<String> rv = loadReverbEntities(REVERB_ENTITIES);
-		
+		System.out.println("Complete!");
+
 		BufferedWriter w = new BufferedWriter(new FileWriter(new File(m.OUTPUT)));
 		long start = System.currentTimeMillis();
 		int cnt = 0;
 		for(String rvEnt : rv){
+			int matchCnt = 0;
 			w.write(rvEnt + "\n");
 			for(Entity ent : fb){
 				if(m.matches(ent.contents, rvEnt)){
 					w.write("\t" + ent + "\n");
+					matchCnt++;
+					if(matchCnt == m.MAX)
+						break;
 				}
 			}
 			cnt++;

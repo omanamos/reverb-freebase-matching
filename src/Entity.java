@@ -13,10 +13,10 @@ public class Entity {
 	
 	public static Entity fromString(String s){
 		String[] tmp = s.split("\t");
-		return new Entity(tmp[0], tmp[2]);
+		return new Entity(tmp[0], tmp[2], Integer.parseInt(tmp[1]));
 	}
 	
 	public String toString(){
-		return this.id + " " + this.contents;
+		return this.id + " " + this.contents + " " + inlinks;
 	}
 }
