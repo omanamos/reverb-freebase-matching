@@ -12,7 +12,7 @@ public class Acronym {
 		
 		str = str.trim().toUpperCase();
 		
-		String[] strParts = str.split("( |_)");
+		String[] strParts = str.split("( |_|-)");
 		String[] acrParts = parseAcronym(acronym);
 		
 		if(acrParts.length > strParts.length) return false;

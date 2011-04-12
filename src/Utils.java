@@ -11,14 +11,23 @@ import com.wcohen.ss.CharMatchScore;
 
 
 public class Utils {
+	
 	public static <E> void printList(Iterable<E> c){
+		Utils.printList(c, "");
+	}
+	
+	public static <E> void printList(Iterable<E> c, String indent){
 		for(E e : c)
-			System.out.println(e);
+			System.out.println(indent + e);
 	}
 	
 	public static <E> void printList(E[] c){
+		Utils.printList(c, "");
+	}
+	
+	public static <E> void printList(E[] c, String indent){
 		for(E e : c)
-			System.out.println(e);
+			System.out.println(indent + e);
 	}
 	
 	public static double stringDistance(String s1, String s2){

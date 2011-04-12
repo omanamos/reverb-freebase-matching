@@ -8,8 +8,8 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Mapper {
-	public static final String FREEBASE_ENTITIES = "../output.fbid-prominence.sorted";
-	public static final String REVERB_ENTITIES = "../input/entity_list.txt";
+	public static final String FREEBASE_ENTITIES = "output.fbid-prominence.sorted";
+	public static final String REVERB_ENTITIES = "input/entity_list.txt";
 	private final String OUTPUT;
 	private final boolean SUB_AB;
 	private final boolean SUB_BA;
@@ -94,24 +94,39 @@ public class Mapper {
 		BufferedWriter w = new BufferedWriter(new FileWriter(new File(m.OUTPUT)));
 		long start = System.currentTimeMillis();
 		int cnt = 0;
+		int lastEntFoundTotal = 0;
+		
 		for(String rvEnt : rv){
+			int curEntNum = 0;
 			int matchCnt = 0;
+			List<String> matches = new ArrayList<String>();
 			w.write(rvEnt + "\n");
+			w.flush();
 			for(Entity ent : fb){
-				if(m.matches(ent.contents, rvEnt)){
+				curEntNum++;
+				if(m.matches(ent.contents, rvEnt, ((double)curEntNum) / fb.size())){
 					w.write("\t" + ent + "\n");
 					matchCnt++;
+					matches.add(ent.contents);
 					if(matchCnt == m.MAX)
 						break;
 				}
 			}
 			cnt++;
-			System.out.println((100 * cnt / (double)rv.size()) + "%");
+			lastEntFoundTotal += curEntNum;
+			System.out.println(rvEnt + " matches:");
+			Utils.printList(matches, "\t");
+			System.out.println("\t" + (100 * cnt / (double)rv.size()) + "% @ depth = " + curEntNum + " (" + ((double)curEntNum) / fb.size() + ")");
 		}
+		
+		System.out.println();
+		System.out.println();
+		System.out.println("Average depth that the nth match was found at = " + ((double)lastEntFoundTotal) / cnt);
 		
 		long totalTime = System.currentTimeMillis() - start;
 		double timePerEntry = totalTime / (cnt * 1000);
-		System.out.println("Average time per entry = " + timePerEntry);
+		System.out.println("Total Time for " + cnt + " entries = " + totalTime / 1000 + " seconds");
+		System.out.println("Average time per entry = " + timePerEntry + " seconds");
 		double entryPerSecond = 1.0 / timePerEntry;
 		System.out.println("Processed ~" + entryPerSecond + " entries per second");
 		
@@ -122,7 +137,7 @@ public class Mapper {
 		System.out.println("Time spent computing Acronym(A,B) = " + m.c4 + " (" + (100 * m.c4 / total) + "%).");
 	}
 	
-	private boolean matches(String fbEnt, String rvEnt){
+	private boolean matches(String fbEnt, String rvEnt, double pt){
 		boolean rtn = false;
 		
 		if(SUB_AB){
