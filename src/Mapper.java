@@ -28,7 +28,7 @@ public class Mapper {
 		this.DIST = dist;
 		this.ACRO = acro;
 		this.OUTPUT = output;
-		this.MAX = max
+		this.MAX = max;
 	}
 	
 	public static void main(String[] args) throws IOException{
