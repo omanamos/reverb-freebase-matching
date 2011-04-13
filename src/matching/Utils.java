@@ -1,3 +1,4 @@
+package matching;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -11,6 +12,17 @@ import com.wcohen.ss.CharMatchScore;
 
 
 public class Utils {
+	
+	public static Integer getInteger(String msg, Scanner s){
+		Integer rtn = null;
+		while(rtn == null){
+			System.out.print(msg);
+			try{
+				rtn = Integer.parseInt(s.nextLine());
+			}catch(Exception e){}
+		}
+		return rtn;
+	}
 	
 	public static <E> void printList(Iterable<E> c){
 		Utils.printList(c, "");

@@ -1,4 +1,9 @@
+package analysis;
+
 import java.util.*;
+
+import matching.Acronym;
+import matching.Utils;
 
 import com.wcohen.ss.AffineGap;
 import com.wcohen.ss.CharMatchScore;
@@ -7,10 +12,25 @@ public class Test {
 	
 	public static void main(String[] args){
 		//testAffine();
-		testAcronym();
+		//testAcronym();
 		//testDistance();
+		buildList();
 	}
 	
+	public static void buildList(){
+		Scanner in = new Scanner(System.in);
+		Set<String> set = new HashSet<String>();
+		do {
+			System.out.println("Input String: ");
+			String s1 = in.nextLine();
+			if(!s1.isEmpty()){
+				set.add(s1);
+			}else
+				break;
+		} while(true);
+		
+		Utils.printList(set);
+	}
 	
 	public static void testDistance(){
 		Scanner in = new Scanner(System.in);
