@@ -1,9 +1,12 @@
 package analysis;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
+
+import wrappers.Result;
 
 import matching.Utils;
 
@@ -16,7 +19,10 @@ public class Finder {
 		}
 		
 		File input = new File(args[0]);
-		Map<String, List<String>> matches = Utils.parseOutputFile(input);
+		List<Result> tmp = Utils.parseOutputFile(input);
+		Map<String, Result> matches = new HashMap<String, Result>();
+		for(Result r : tmp)
+			matches.put(r.query, r);
 		
 		Scanner in = new Scanner(System.in);
 		

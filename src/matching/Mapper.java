@@ -10,6 +10,8 @@ import java.util.List;
 import java.util.Scanner;
 
 import wrappers.Entity;
+import wrappers.Result;
+import wrappers.PerformanceFactor;
 
 public class Mapper {
 	public static final String FREEBASE_ENTITIES = "output.fbid-prominence.sorted";
@@ -20,8 +22,8 @@ public class Mapper {
 		boolean subBA = true;
 		boolean dist = true;
 		boolean acro = true;
-		String output = "output/output.txt";
-		int maxMatches = 5;
+		String output = "output/tmp.txt";
+		int maxMatches = 500;
 		
 		//Parse arguments
 		if(args.length > 1){
@@ -65,16 +67,12 @@ public class Mapper {
 			}
 		}
 		
-		System.out.print("Loading Freebase Entity List...");
 		Freebase fb = loadFreebaseEntities(FREEBASE_ENTITIES, subAB, subBA, dist, acro);
-		System.out.println("Complete!");
-
-		System.out.print("Loading Reverb Entity List...");
 		List<String> rv = loadReverbEntities(REVERB_ENTITIES);
-		System.out.println("Complete!");
 
 		BufferedWriter w = new BufferedWriter(new FileWriter(new File(output)));
-		long start = System.currentTimeMillis();
+		long totalTime = 0;
+		PerformanceFactor pf = new PerformanceFactor();
 		int cnt = 0;
 		int lastEntFoundTotal = 0;
 		
@@ -82,30 +80,37 @@ public class Mapper {
 			w.write(rvEnt + "\n");
 			w.flush();
 			
-			Integer depth = 0;
-			List<Entity> matches = fb.getMatches(rvEnt, maxMatches, depth);
-			for(Entity match : matches){
+			long timer = System.currentTimeMillis();
+			Result res = fb.getMatches(rvEnt, maxMatches, pf);
+			totalTime += System.currentTimeMillis() - timer;
+			
+			for(Entity match : res){
 				w.write("\t" + match + "\n");
 				w.flush();
 			}
 			
 			cnt++;
-			lastEntFoundTotal += depth;
+			lastEntFoundTotal += pf.depth;
 			System.out.println(rvEnt + " matches:");
-			Utils.printList(matches, "\t");
-			System.out.println("\t" + (100 * cnt / (double)rv.size()) + "% @ depth = " + depth + " (" + ((double)depth) / fb.size() + ")");
+			Utils.printList(res, "\t");
+			System.out.println("\t" + (100 * cnt / (double)rv.size()) + "% @ depth = " + pf + " (" + ((double)pf.depth) / fb.size() + ")");
+			
 		}
 		
 		System.out.println();
 		System.out.println();
 		System.out.println("Average depth that the nth match was found at = " + ((double)lastEntFoundTotal) / cnt);
 		
-		long totalTime = System.currentTimeMillis() - start;
-		double timePerEntry = totalTime / (cnt * 1000);
+		double timePerEntry = (double)totalTime / (cnt * 1000.0);
 		System.out.println("Total Time for " + cnt + " entries = " + totalTime / 1000 + " seconds");
 		System.out.println("Average time per entry = " + timePerEntry + " seconds");
 		double entryPerSecond = 1.0 / timePerEntry;
 		System.out.println("Processed ~" + entryPerSecond + " entries per second");
+		System.out.println("Average time for one match = " + pf.totalTime / lastEntFoundTotal);
+		System.out.println("Max time for one match = " + pf.maxTimer / 1000);
+		System.out.println("Min time for one match = " + pf.minTimer / 1000);
+		System.out.println();
+		System.out.println();
 		
 		long total = fb.c1 + fb.c2 + fb.c3 + fb.c4;
 		System.out.println("Time spent computing Substring(A,B) = " + fb.c1 + " (" + (100 * fb.c1 / total) + "%).");
@@ -115,19 +120,23 @@ public class Mapper {
 	}
 	
 	public static List<String> loadReverbEntities(String fileName) throws FileNotFoundException{
+		System.out.print("Loading Reverb Entity List...");
 		List<String> rtn = new ArrayList<String>();
 		Scanner s = new Scanner(new File(fileName));
 		while(s.hasNextLine())
 			rtn.add(s.nextLine().split("\t")[0]);
+		System.out.println("Complete!");
 		return rtn;
 	}
 	
 	public static Freebase loadFreebaseEntities(String fileName, boolean subAB, boolean subBA, boolean dist, boolean acro) throws FileNotFoundException{
+		System.out.print("Loading Freebase...");
 		Freebase fb = new Freebase(subAB, subBA, dist, acro);
 		Scanner s = new Scanner(new File(fileName));
 		int offset = 0;
 		while(s.hasNextLine())
 			fb.add(Entity.fromString(s.nextLine(), offset++));
+		System.out.println("Complete!");
 		return fb;
 	}
 }

@@ -4,7 +4,9 @@ import java.io.*;
 import java.util.*;
 
 import wrappers.Entity;
+import wrappers.Result;
 import wrappers.Tuple;
+import wrappers.PerformanceFactor;
 
 import matching.Freebase;
 import matching.Mapper;
@@ -108,9 +110,9 @@ public class Parser {
 			if(conf.equals("y"))
 				return e;
 		}else{
-			List<Entity> ents = fb.getMatches(key, 1, 0);
-			if(ents.size() != 0){
-				e = ents.get(0);
+			Result res = fb.getMatches(key, 1, new PerformanceFactor());
+			if(res.size() != 0){
+				e = res.sampleMatch();
 				System.out.print("Match " + key + " with " + e.contents + "(y/n)? ");
 				conf = s.nextLine().trim();
 				if(conf.equals("y"))

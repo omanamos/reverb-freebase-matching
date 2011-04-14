@@ -27,6 +27,11 @@ public class Entity {
 		return new Entity(tmp[0], tmp[2], Integer.parseInt(tmp[1]), offset);
 	}
 	
+	public static Entity fromOutputString(String s){
+		String[] tmp = s.trim().split("\t");
+		return new Entity(tmp[0], tmp[1], Integer.parseInt(tmp[2]));
+	}
+	
 	public String toString(){
 		return this.id + "\t" + this.contents + "\t" + inlinks;
 	}

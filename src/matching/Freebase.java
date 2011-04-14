@@ -7,6 +7,8 @@ import java.util.List;
 import java.util.Map;
 
 import wrappers.Entity;
+import wrappers.Result;
+import wrappers.PerformanceFactor;
 
 
 public class Freebase implements Iterable<Entity>{
@@ -46,17 +48,26 @@ public class Freebase implements Iterable<Entity>{
 		contentLookup.put(e.contents, e);
 	}
 	
-	public List<Entity> getMatches(String key, int maxMatches, Integer depth){
-		List<Entity> rtn = new ArrayList<Entity>();
+	public Result getMatches(String key, int maxMatches, PerformanceFactor pf){
+		Result rtn = new Result(key);
 		int matches = 0;
-		depth = 0;
+		pf.depth = 0;
+		long timer = 0;
+		
 		for(Entity ent : this){
-			depth++;
-			if(this.matches(ent.contents, key, ((double)depth) / this.size())){
+			pf.depth++;
+			timer = System.nanoTime();
+			if(this.matches(ent.contents, key, ((double)pf.depth) / this.size())){
+				timer = System.nanoTime() - timer;
+				pf.updateTimer(timer);
+				
 				matches++;
 				rtn.add(ent);
 				if(maxMatches != -1 && matches == maxMatches)
 					break;
+			}else{
+				timer = System.nanoTime() - timer;
+				pf.updateTimer(timer);
 			}
 		}
 		return rtn;

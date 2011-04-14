@@ -1,17 +1,26 @@
 package matching;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Scanner;
+
+import wrappers.Entity;
+import wrappers.Result;
 
 import com.wcohen.ss.AffineGap;
 import com.wcohen.ss.CharMatchScore;
 
 
 public class Utils {
+	
+	public static String join(String[] arr, String delim){
+		String rtn = "";
+		for(String s : arr)
+			rtn += s + delim;
+		return rtn.substring(0, rtn.length() - delim.length());
+	}
 	
 	public static Integer getInteger(String msg, Scanner s){
 		Integer rtn = null;
@@ -80,21 +89,29 @@ public class Utils {
 		return (s1.length() + s2.length()) / 2.0 - (double)lcs;
 	}
 	
-	public static Map<String, List<String>> parseOutputFile(File input) throws FileNotFoundException{
-		Map<String, List<String>> rtn = new HashMap<String, List<String>>();
+	public static List<Result> parseOutputFile(File input) throws FileNotFoundException{
+		return parseOutputFile(input, null);
+	}
+	
+	public static List<Result> parseOutputFile(File input, Freebase fb) throws FileNotFoundException{
+		System.out.print("Parsing " + input.getName() + " output...");
+		List<Result> rtn = new ArrayList<Result>();
 		
 		Scanner s = new Scanner(input);
-		String curKey = null;
+		Result curKey = null;
 		while(s.hasNextLine()){
 			String line = s.nextLine();
 			if(curKey != null && line.startsWith("\t")){
-				rtn.get(curKey).add(line);
+				Entity e = Entity.fromOutputString(line);
+				e = fb == null ? e : fb.find(e.id);
+				curKey.add(e);
 			}else if(!line.isEmpty()){
-				curKey = line;
-				rtn.put(curKey, new ArrayList<String>());
+				if(curKey != null) rtn.add(curKey);
+				curKey = new Result(line);
 			}
 		}
 		
+		System.out.println("Complete!");
 		return rtn;
 	}
 }
