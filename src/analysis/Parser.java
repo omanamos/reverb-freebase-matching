@@ -4,6 +4,7 @@ import java.io.*;
 import java.util.*;
 
 import wrappers.Entity;
+import wrappers.Options;
 import wrappers.Result;
 import wrappers.Tuple;
 import wrappers.PerformanceFactor;
@@ -12,7 +13,9 @@ import matching.Freebase;
 import matching.Mapper;
 import matching.Utils;
 
-
+/**
+ * This script helps manually label any reverb entities to their correct freebase matches.
+ */
 public class Parser {
 	
 	public static void main(String[] args) throws IOException{
@@ -30,7 +33,7 @@ public class Parser {
 		List<Tuple> badRv = new ArrayList<Tuple>();
 		Map<String, String> other = new HashMap<String, String>();
 		
-		Freebase fb = Mapper.loadFreebaseEntities(Mapper.FREEBASE_ENTITIES, true, true, true, true);
+		Freebase fb = Mapper.loadFreebaseEntities(Mapper.FREEBASE_ENTITIES, Options.getDefaults());
 		
 		while(s.hasNextLine()){
 			Tuple t = Tuple.fromString(s.nextLine());

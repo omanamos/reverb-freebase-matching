@@ -18,4 +18,8 @@ public class PerformanceFactor {
 		this.minTimer = this.minTimer == -1 ? timer : Math.min(this.minTimer, timer);
 		this.totalTime += timer;
 	}
+	
+	public String toString(){
+		return depth + "";
+	}
 }

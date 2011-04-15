@@ -10,7 +10,9 @@ import wrappers.Result;
 
 import matching.Utils;
 
-
+/**
+ * This script searches an output file for given reverb entity and outputs the matches for that inputed. Infinite loops.
+ */
 public class Finder {
 	public static void main(String[] args) throws FileNotFoundException{
 		if(args.length != 1){

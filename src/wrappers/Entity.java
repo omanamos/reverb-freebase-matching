@@ -5,11 +5,14 @@ public class Entity {
 	public final String id;
 	public final String contents;
 	public final Integer inlinks;
+	/**
+	 * depth in freebase
+	 */
 	public final Integer offset;
-	
-	public Entity(String contents){
-		this(null, contents, null, null);
-	}
+	/**
+	 * Acronym for this entity, null if none exists or isn't known
+	 */
+	public String acronym;
 	
 	public Entity(String id, String contents, Integer inlinks){
 		this(id, contents, inlinks, null);
@@ -20,7 +23,12 @@ public class Entity {
 		this.contents = contents;
 		this.inlinks = inlinks;
 		this.offset = offset;
+		this.acronym = null;
 	}
+    
+    public boolean hasAcronym(){
+    	return this.acronym != null;
+    }
 	
 	public static Entity fromString(String s, Integer offset){
 		String[] tmp = s.split("\t");
