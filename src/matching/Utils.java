@@ -15,6 +15,11 @@ import com.wcohen.ss.CharMatchScore;
 
 public class Utils {
 	
+	public static String cleanString(String str){
+		
+		return str.replaceAll("(,|.|'|&rsquo|\\(.*\\))", "").trim();
+	}
+	
 	public static String join(String[] arr, String delim){
 		String rtn = "";
 		for(String s : arr)
@@ -34,12 +39,21 @@ public class Utils {
 	}
 	
 	public static <E> void printList(Iterable<E> c){
-		Utils.printList(c, "");
+		Utils.printList(c, "", -1);
 	}
 	
 	public static <E> void printList(Iterable<E> c, String indent){
-		for(E e : c)
+		Utils.printList(c, indent, -1);
+	}
+	
+	public static <E> void printList(Iterable<E> c, String indent, int limit){
+		int i = 0;
+		for(E e : c){
+			if(limit != -1 && i >= limit)
+				break;
 			System.out.println(indent + e);
+			i++;
+		}
 	}
 	
 	public static <E> void printList(E[] c){

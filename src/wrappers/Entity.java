@@ -1,9 +1,12 @@
 package wrappers;
 
-public class Entity {
+import matching.Utils;
+
+public class Entity implements Comparable<Entity>{
 	
 	public final String id;
 	public final String contents;
+	public final String cleanedContents;
 	public final Integer inlinks;
 	/**
 	 * depth in freebase
@@ -13,6 +16,10 @@ public class Entity {
 	 * Acronym for this entity, null if none exists or isn't known
 	 */
 	public String acronym;
+	
+	public Entity(String id){
+		this(id, null, null, null);
+	}
 	
 	public Entity(String id, String contents, Integer inlinks){
 		this(id, contents, inlinks, null);
@@ -24,6 +31,7 @@ public class Entity {
 		this.inlinks = inlinks;
 		this.offset = offset;
 		this.acronym = null;
+		this.cleanedContents = Utils.cleanString(this.contents);
 	}
     
     public boolean hasAcronym(){
@@ -42,5 +50,21 @@ public class Entity {
 	
 	public String toString(){
 		return this.id + "\t" + this.contents + "\t" + inlinks;
+	}
+	
+	public int hashCode(){
+		return this.id.hashCode();
+	}
+	
+	public boolean equals(Object obj){
+		if(obj instanceof Entity)
+			return ((Entity)obj).id.equals(this.id);
+		else
+			return false;
+	}
+
+	@Override
+	public int compareTo(Entity other) {
+		return -this.inlinks.compareTo(other.inlinks);
 	}
 }

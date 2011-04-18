@@ -7,7 +7,6 @@ import wrappers.Entity;
 import wrappers.Options;
 import wrappers.Result;
 import wrappers.Tuple;
-import wrappers.PerformanceFactor;
 
 import matching.Freebase;
 import matching.Mapper;
@@ -33,7 +32,7 @@ public class Parser {
 		List<Tuple> badRv = new ArrayList<Tuple>();
 		Map<String, String> other = new HashMap<String, String>();
 		
-		Freebase fb = Mapper.loadFreebaseEntities(Mapper.FREEBASE_ENTITIES, Options.getDefaults());
+		Freebase fb = Freebase.loadFreebaseEntities(Options.getDefaults());
 		
 		while(s.hasNextLine()){
 			Tuple t = Tuple.fromString(s.nextLine());
@@ -113,7 +112,7 @@ public class Parser {
 			if(conf.equals("y"))
 				return e;
 		}else{
-			Result res = fb.getMatches(key, 1, new PerformanceFactor());
+			Result res = fb.getMatches(key);
 			if(res.size() != 0){
 				e = res.sampleMatch();
 				System.out.print("Match " + key + " with " + e.contents + "(y/n)? ");

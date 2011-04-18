@@ -19,10 +19,10 @@ public class Analyze {
 
 	public static void main(String[] args) throws FileNotFoundException{
 		//Ouput file to analyze
-		String fileName = "output/output-full-1234.txt";
+		String fileName = "output/output-full-2.0.txt";
 		
 		//Load in freebase
-		Freebase fb = Mapper.loadFreebaseEntities(Mapper.FREEBASE_ENTITIES, Options.getDefaults());
+		Freebase fb = Freebase.loadFreebaseEntities(Options.getDefaults());
 		
 		Map<String, String> correctMatches = loadCorrectMatches(fb);
 		//Map<String, String> missingMatches = loadMissingMatches();

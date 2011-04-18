@@ -15,7 +15,7 @@ public class Options {
 		SUB_BA = true;
 		DIST = true;
 		ACRO_AB = true;
-		ACRO_BA = true;
+		ACRO_BA = false;
 		OUTPUT = "output/output.txt";
 		MAX_MATCHES = -1;
 	}

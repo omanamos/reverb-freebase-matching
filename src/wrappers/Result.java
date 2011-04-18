@@ -1,11 +1,10 @@
 package wrappers;
 
-import java.util.ArrayList;
-import java.util.Collections;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
-import java.util.List;
 import java.util.Map;
+import java.util.PriorityQueue;
 
 /**
  * Wraps a set of matches found in Freebase for a given query. Allows for quick id lookup. Also provides other functionality.
@@ -13,12 +12,12 @@ import java.util.Map;
 public class Result implements Iterable<Entity>{
 	
 	public final String query;
-	private List<Entity> matches;
+	private PriorityQueue<Entity> matches;
 	private Map<String, Entity> idLookup;
 	
 	public Result(String query){
 		this.query = query;
-		this.matches = new ArrayList<Entity>();
+		this.matches = new PriorityQueue<Entity>();
 		this.idLookup = new HashMap<String, Entity>();
 	}
 	
@@ -26,15 +25,20 @@ public class Result implements Iterable<Entity>{
 	 * @param e Matched Entity to add to this Result
 	 */
 	public void add(Entity e){
-		this.matches.add(e);
-		this.idLookup.put(e.id, e);
+		if(!this.idLookup.containsKey(e.id)){
+			this.matches.add(e);
+			this.idLookup.put(e.id, e);
+		}
 	}
 	
 	/**
-	 * @return an unmodifiable list of matches
+	 * @param c collection of Entities to add
 	 */
-	public List<Entity> getMatches(){
-		return Collections.unmodifiableList(this.matches);
+	public void add(Collection<Entity> c){
+		if(c != null){
+			for(Entity e : c)
+				this.add(e);
+		}
 	}
 	
 	/**
@@ -87,7 +91,7 @@ public class Result implements Iterable<Entity>{
 	public Entity sampleMatch(){
 		if(this.matches.isEmpty())
 			throw new IllegalStateException("No match available to sample.");
-		return this.matches.get(0);
+		return this.matches.peek();
 	}
 
 	public Iterator<Entity> iterator() {

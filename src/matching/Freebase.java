@@ -1,20 +1,25 @@
 package matching;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Scanner;
 
 import wrappers.Entity;
 import wrappers.Options;
 import wrappers.Result;
-import wrappers.PerformanceFactor;
 
 /**
  * This class manages and searches the set of Freebase entities.
  */
 public class Freebase implements Iterable<Entity>{
+	
+	public static final String FREEBASE_ENTITIES = "output.fbid-prominence.sorted";
+	public static final String WIKI_ALIASES = "output.wiki-aliases.sorted";
 	
 	/**
 	 * Specifies which matching combinations to use.
@@ -30,106 +35,76 @@ public class Freebase implements Iterable<Entity>{
 	
 	
 	private List<Entity> entities;
-	private Map<String, Entity> idLookup;
-	private Map<String, Entity> contentLookup;
+	private Map<String, List<Entity>> aliases;
 	
 	public Freebase(Options opt){
 		this.opt = opt;
-		
-		entities = new ArrayList<Entity>();
-		idLookup = new HashMap<String, Entity>();
-		contentLookup = new HashMap<String, Entity>();
+		this.entities = new ArrayList<Entity>();
+		this.aliases = new HashMap<String, List<Entity>>();
 	}
+	
 	
 	/**
 	 * @param e Entity to add to Freebase
 	 */
 	public void add(Entity e){
-		entities.add(e);
-		idLookup.put(e.id, e);
-		
-		//Shouldn't need a check, but in case there are duplicate Freebase entities, pick the one with the highest inlinks
-		if(contentLookup.containsKey(e.contents)){
-			if(e.inlinks > contentLookup.get(e.contents).inlinks)
-				e = contentLookup.get(e.contents);
-		}
-		contentLookup.put(e.contents, e);
-		
-		if(this.opt.ACRO_AB)
-			e.acronym = Acronym.computeAcronym(e.contents);
-	}
-	
-	/**
-	 * @param query entity to search for matches for
-	 * @param maxMatches maximum number of matches to return
-	 * @param pf used for performance benchmarks
-	 * @return {@link Result} containing any matches found
-	 */
-	public Result getMatches(String query, int maxMatches, PerformanceFactor pf){
-		Result rtn = new Result(query);
-		int matches = 0;
-		pf.depth = 0;
-		long timer = 0;
-		
-		for(Entity ent : this){
-			pf.depth++;
-			timer = System.nanoTime();
-			if(this.matches(ent, query, ((double)pf.depth) / this.size())){
-				timer = System.nanoTime() - timer;
-				pf.updateTimer(timer);
-				
-				matches++;
-				rtn.add(ent);
-				if(maxMatches != -1 && matches == maxMatches)
-					break;
-			}else{
-				timer = System.nanoTime() - timer;
-				pf.updateTimer(timer);
+		if(e != null){
+			this.entities.add(e);
+			
+			if(!this.aliases.containsKey(e.id))
+				this.aliases.put(e.id, new ArrayList<Entity>());
+			this.aliases.get(e.id).add(e);
+			
+			if(!this.aliases.containsKey(e.contents))
+				this.aliases.put(e.contents, new ArrayList<Entity>());
+			this.aliases.get(e.contents).add(e);
+			
+			if(this.opt.SUB_AB){
+				String[] parts = e.contents.split("( |_|-|,)");
+				if(parts.length > 1){
+					for(String word : parts){
+						if(word.length() > 3){
+							if(!this.aliases.containsKey(word))
+								this.aliases.put(word, new ArrayList<Entity>());
+							this.aliases.get(word).add(e);
+						}
+					}
+				}
+			}
+			
+			if(this.opt.ACRO_AB){
+				String acronym = Acronym.computeAcronym(e.contents);
+				if(acronym != null){
+					if(!this.aliases.containsKey(acronym))
+						this.aliases.put(acronym, new ArrayList<Entity>());
+					this.aliases.get(acronym).add(e);
+				}
 			}
 		}
-		return rtn;
+	}
+	
+	public Result getMatches(String query){
+		Result res = new Result(query);
+		
+		res.add(this.aliases.get(query));
+		
+		if(this.opt.ACRO_AB){
+			String acronym = Acronym.computeAcronym(query);
+			res.add(this.aliases.get(acronym));
+		}
+		
+		return res;
 	}
 	
 	/**
-	 * @param fbEnt entity in Freebase
-	 * @param rvEnt entity in Reverb
-	 * @param pt current percent of Freebase entities searched
-	 * @return true if the two entities match, false otherwise
+	 * Resets all timers to 0.
 	 */
-	private boolean matches(Entity fbEnt, String rvEnt, double pt){
-		boolean rtn = false;
-		
-		if(this.opt.SUB_AB){
-			long start = System.nanoTime();
-			rtn = rtn || fbEnt.contents.contains(rvEnt);
-			this.c1 += System.nanoTime() - start;
-		}
-		
-		if(this.opt.SUB_BA && !rtn && fbEnt.contents.length() > 1){
-			long start = System.nanoTime();
-			rtn = rtn || rvEnt.contains(fbEnt.contents);
-			this.c2 += System.nanoTime() - start;
-		}
-		
-		if(this.opt.DIST && !rtn){
-			long start = System.nanoTime();
-			rtn = rtn || Utils.stringDistance(fbEnt.contents, rvEnt, 10) < (fbEnt.contents.length() + rvEnt.length()) / 6 + 1;
-			this.c3 += System.nanoTime() - start;
-		}
-		
-		if(this.opt.ACRO_AB && !rtn && pt < 0.2){
-			long start = System.nanoTime();
-			rtn = rtn || fbEnt.hasAcronym() && Acronym.acrMatch(rvEnt, fbEnt.acronym); //Acronym.cleanAcronym(rvEnt).equals(fbEnt.acronym);
-			this.c4 += System.nanoTime() - start;
-		}
-		
-		if(this.opt.ACRO_BA && !rtn){
-			long start = System.nanoTime();
-			rtn = rtn || Acronym.matches(fbEnt.contents, rvEnt);
-			this.c5 += System.nanoTime() - start;
-		}
-		
-		return rtn;
+	public void resetTiming(){
+		this.c1 = 0;
+		this.c2 = 0;
+		this.c3 = 0;
+		this.c4 = 0;
+		this.c5 = 0;
 	}
 	
 	/**
@@ -137,7 +112,7 @@ public class Freebase implements Iterable<Entity>{
 	 * @return Entity with the given id, null if none exists
 	 */
 	public Entity find(String id){
-		return this.idLookup.get(id);
+		return this.aliases.get(id) != null ? this.aliases.get(id).get(0) : null;
 	}
 	
 	/**
@@ -145,7 +120,7 @@ public class Freebase implements Iterable<Entity>{
 	 * @return Entity with the given contents, null if none exists
 	 */
 	public Entity search(String ent){
-		return contentLookup.get(ent);
+		return this.aliases.get(ent) != null ? this.aliases.get(ent).get(0) : null;
 	}
 	
 	/**
@@ -158,4 +133,39 @@ public class Freebase implements Iterable<Entity>{
 	public Iterator<Entity> iterator() {
 		return this.entities.iterator();
 	}
+	
+	public static Freebase loadFreebaseEntities(Options opt) throws FileNotFoundException{
+		System.out.print("Loading Freebase...");
+		
+		Freebase fb = new Freebase(opt);
+		Scanner s = new Scanner(new File(FREEBASE_ENTITIES));
+		int offset = 0;
+		
+		while(s.hasNextLine())
+			fb.add(Entity.fromString(s.nextLine(), offset++));
+		
+		System.out.println("Complete!");
+		
+		System.out.print("Loading Wiki Aliases...");
+		
+		s = new Scanner(new File(WIKI_ALIASES));
+		while(s.hasNextLine()){
+			String[] parts = s.nextLine().split("\t");
+			Entity e = fb.find(parts[3]);
+			if(e != null)
+				fb.add(e, parts[0]);
+		}
+		
+		System.out.println("Complete!");
+		return fb;
+	}
+	
+	private void add(Entity e, String alias){
+		if(e != null){
+			if(!this.aliases.containsKey(alias))
+				this.aliases.put(alias, new ArrayList<Entity>());
+			this.aliases.get(alias).add(e);
+		}
+	}
+	
 }
