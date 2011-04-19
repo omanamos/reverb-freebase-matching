@@ -1,0 +1,62 @@
+Reverb Entity	Actual Entity	Prominence
+Arimura	Chie Arimura	-1
+Williams	Deron Williams	71
+Democrats	United States Democratic Party	9681
+HP	Hewlett-Packard	1334
+Jackson		-2
+Khaled	Khaled Kamel	-1
+Knopf	Ginny Knopf	-1
+Carney	Jay Carney	8
+Nathan McCullum	Nathan McCullum	12
+Zags	Gonzaga University	330
+Jacoby	Susan Jacoby	10
+Dr. Watson	IBM Watson	1
+CSU	Cleveland State University	1074
+American	United States	375357
+Holmes	J.B. Holmes	-2
+Gadhafi	Muammar al-Gaddafi	379
+Grady	Grady Memorial Hospital	37
+Aldawsari	Khalid Aldawsari	-1
+Feb.	February	2702
+Kamel	Khaled Kamel	-1
+AIG	American International Group	211
+No.		-2
+TV	Television	1933
+Tahrir Square	Tahrir Square, Alexandria	-3
+Passan		-2
+Pearson	Tony Pearson	6
+Gadafy	Muammar al-Gaddafi	379
+Thiesfeld	Lindsey Thiesfeld	-1
+Siegel	Eliot Siegel	-1
+Chinese	China	39313
+Saleh		-2
+Ms. Stewart	Elizabeth Stewart	-1	
+He&rsquo		-2
+Mahan	Hunter Mahan	22
+The Brotherhood	Muslim Brotherhood	391
+Davis	Baron Davis	120
+Van Winkle	Old Rip Van Winkle	-3
+Anthony	Carmelo Anthony	208
+Britain&rsquo	Great Britain	12848
+Kennedy		-2
+Watson	IBM Watson	1
+Mizioch	Peter John Mizioch	-1
+Demonstrators		-2
+Raquel	Raquel Maldonado	-1
+Howard	Hersha Howard	-1
+Duann	Jennifer Duann	-1
+Mr. Stein	Lorin Stein	-3
+Wael Ghonim	Wael Ghonim	-3
+Washington	Washington, D.C.	-3
+Steinhubl	Mark Steinhubl	-1
+Ghonim	Wael Ghonim	-3
+Ingram	Mark Ingram	37
+It&rsquo		-2
+Mr. Galliano	John Galliano	133
+Johnson	Mitchell Johnson	-3
+Watson&rsquo	IBM Watson	1
+America	United States	375357
+Perplexus	Perplexus	-3
+Apollo	Apollo 18	-3
+Republicans	United States Republican Party	7285
+Americans	United States	375357
