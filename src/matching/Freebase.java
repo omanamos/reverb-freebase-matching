@@ -21,19 +21,13 @@ public class Freebase implements Iterable<Entity>{
 	public static final String FREEBASE_ENTITIES = "output.fbid-prominence.sorted";
 	public static final String WIKI_ALIASES = "output.wiki-aliases.sorted";
 	
+	private static final int ACRO_THRESHOLD = 20;
+	
 	/**
 	 * Specifies which matching combinations to use.
 	 */
 	private final Options opt;
 
-	//USED FOR PERFORMANCE BENCHMARKING
-	public long c1 = 0;
-	public long c2 = 0;
-	public long c3 = 0;
-	public long c4 = 0;
-	public long c5 = 0;
-	
-	
 	private List<Entity> entities;
 	private Map<String, List<Entity>> aliases;
 	
@@ -59,6 +53,13 @@ public class Freebase implements Iterable<Entity>{
 				this.aliases.put(e.contents, new ArrayList<Entity>());
 			this.aliases.get(e.contents).add(e);
 			
+			if(e.cleanedContents.endsWith("s")){
+				String stub = e.cleanedContents.substring(0, e.cleanedContents.length() - 1);
+				if(!this.aliases.containsKey(stub))
+					this.aliases.put(stub, new ArrayList<Entity>());
+				this.aliases.get(stub).add(e);
+			}
+			
 			if(this.opt.SUB_AB){
 				String[] parts = e.contents.split("( |_|-|,)");
 				if(parts.length > 1){
@@ -72,7 +73,7 @@ public class Freebase implements Iterable<Entity>{
 				}
 			}
 			
-			if(this.opt.ACRO_AB){
+			if(this.opt.ACRO_AB && e.inlinks >= ACRO_THRESHOLD){
 				String acronym = Acronym.computeAcronym(e.contents);
 				if(acronym != null){
 					if(!this.aliases.containsKey(acronym))
@@ -88,23 +89,26 @@ public class Freebase implements Iterable<Entity>{
 		
 		res.add(this.aliases.get(query));
 		
-		if(this.opt.ACRO_AB){
-			String acronym = Acronym.computeAcronym(query);
-			res.add(this.aliases.get(acronym));
+		if(query.endsWith("s")){
+			String stub = query.substring(0, query.length() - 1);
+			res.add(this.aliases.get(stub));
+		}
+		
+		if(this.opt.SUB_AB){
+			String[] parts = query.split("( |_|-|,)");
+			if(parts.length > 1){
+				for(String word : parts){
+					if(word.length() > 3)
+						res.add(this.aliases.get(word));
+				}
+			}
+		}
+		
+		if(this.opt.ACRO_AB && Acronym.isAcronym(query)){
+			res.add(this.aliases.get(Acronym.cleanAcronym(query)));
 		}
 		
 		return res;
-	}
-	
-	/**
-	 * Resets all timers to 0.
-	 */
-	public void resetTiming(){
-		this.c1 = 0;
-		this.c2 = 0;
-		this.c3 = 0;
-		this.c4 = 0;
-		this.c5 = 0;
 	}
 	
 	/**

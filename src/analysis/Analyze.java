@@ -19,7 +19,7 @@ public class Analyze {
 
 	public static void main(String[] args) throws FileNotFoundException{
 		//Ouput file to analyze
-		String fileName = "output/output-full-2.0.txt";
+		String fileName = "output/output-full-3.0.txt";
 		
 		//Load in freebase
 		Freebase fb = Freebase.loadFreebaseEntities(Options.getDefaults());

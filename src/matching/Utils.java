@@ -17,7 +17,7 @@ public class Utils {
 	
 	public static String cleanString(String str){
 		
-		return str.replaceAll("(,|.|'|&rsquo|\\(.*\\))", "").trim();
+		return str.replaceAll("(,|\\.|'|&rsquo|\\(.*\\))", "").trim();
 	}
 	
 	public static String join(String[] arr, String delim){

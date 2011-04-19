@@ -17,8 +17,6 @@ public class Mapper {
 	public static final String REVERB_ENTITIES = "input/entity_list.txt";
 
 	public static void main(String[] args) throws IOException{
-		System.out.println();
-		System.out.println();
 		Options opt;
 		try {
 			opt = new Options(args);
@@ -35,12 +33,12 @@ public class Mapper {
 		long totalTime = 0;
 		
 		for(String rvEnt : rv){
-			rvEnt = Utils.cleanString(rvEnt);
+			String cleanRvEnt = Utils.cleanString(rvEnt);
 			w.write(rvEnt + "\n");
 			w.flush();
 			
 			long timer = System.currentTimeMillis();
-			Result res = fb.getMatches(rvEnt);
+			Result res = fb.getMatches(cleanRvEnt);
 			totalTime += System.currentTimeMillis() - timer;
 			
 			for(Entity match : res){
@@ -57,13 +55,13 @@ public class Mapper {
 		
 		System.out.println();
 		double timePerEntry = (double)totalTime / (rvCnt * 1000.0);
-		System.out.println("Total Time for " + rvCnt + " entries = " + totalTime / 1000 + " seconds");
+		System.out.println("Total Time for " + rvCnt + " entries = " + totalTime + "ms");
 		System.out.println("\tAverage time per entry = " + timePerEntry + " seconds");
 		double entryPerSecond = 1.0 / timePerEntry;
 		System.out.println("\tProcessed " + entryPerSecond + " entries per second");
-		System.out.println();
 		
 		/*
+		System.out.println();
 		long total = fb.c1 + fb.c2 + fb.c3 + fb.c4 + fb.c5;
 		System.out.println("Time Division:");
 		System.out.println("\tTime spent computing Substring(A,B) = " + fb.c1 / 1000000000 + "s (" + (100 * fb.c1 / total) + "%).");
@@ -72,6 +70,8 @@ public class Mapper {
 		System.out.println("\tTime spent computing Acronym(A,B) = " + fb.c4 / 1000000000 + "s (" + (100 * fb.c4 / total) + "%).");
 		System.out.println("\tTime spent computing Acronym(B,A) = " + fb.c5 / 1000000000 + "s (" + (100 * fb.c5 / total) + "%).");
 		*/
+		System.out.println();
+		System.out.println();
 	}
 	
 	public static List<String> loadReverbEntities(String fileName) throws FileNotFoundException{
