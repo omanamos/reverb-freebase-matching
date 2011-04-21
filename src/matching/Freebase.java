@@ -87,11 +87,11 @@ public class Freebase implements Iterable<Entity>{
 	public Result getMatches(String query){
 		Result res = new Result(query);
 		
-		res.add(this.aliases.get(query));
+		res.add(this.aliases.get(query), Result.EXACT_STRING_MATCH);
 		
 		if(query.endsWith("s")){
 			String stub = query.substring(0, query.length() - 1);
-			res.add(this.aliases.get(stub));
+			res.add(this.aliases.get(stub), Result.EXACT_STRING_MATCH);
 		}
 		
 		if(this.opt.SUB_AB){
@@ -99,13 +99,13 @@ public class Freebase implements Iterable<Entity>{
 			if(parts.length > 1){
 				for(String word : parts){
 					if(word.length() > 3)
-						res.add(this.aliases.get(word));
+						res.add(this.aliases.get(word), Result.EXACT_SUBS_MATCH);
 				}
 			}
 		}
 		
 		if(this.opt.ACRO_AB && Acronym.isAcronym(query)){
-			res.add(this.aliases.get(Acronym.cleanAcronym(query)));
+			res.add(this.aliases.get(Acronym.cleanAcronym(query)), Result.EXACT_ABBRV_MATCH);
 		}
 		
 		return res;

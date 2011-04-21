@@ -47,8 +47,9 @@ public class Mapper {
 			}
 			
 			rvCnt++;
-			System.out.println(rvEnt + " matches:");
-			Utils.printList(res, "\t", 5);
+			System.out.println(res);
+			//System.out.println(rvEnt + " matches:");
+			//Utils.printList(res, "\t", 5);
 			System.out.println("\t" + (100 * rvCnt / (double)rv.size()) + "%");
 			
 		}

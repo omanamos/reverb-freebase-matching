@@ -1,43 +1,66 @@
 package wrappers;
 
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.PriorityQueue;
+import java.util.*;
+import analysis.Analyze;
 
 /**
  * Wraps a set of matches found in Freebase for a given query. Allows for quick id lookup. Also provides other functionality.
  */
 public class Result implements Iterable<Entity>{
-	
+
+	public static final int EXACT_STRING_MATCH = 0;
+	public static final int EXACT_SUBS_MATCH = 1;
+	public static final int EXACT_ABBRV_MATCH = 2;
+
 	public final String query;
 	private PriorityQueue<Entity> matches;
 	private Map<String, Entity> idLookup;
+
+	private Set<Entity> exactStringMatches;
+	private Map<Entity, Integer> exactSubsMatches;
+	private Set<Entity> exactAbbrvMatches;
 	
 	public Result(String query){
 		this.query = query;
 		this.matches = new PriorityQueue<Entity>();
 		this.idLookup = new HashMap<String, Entity>();
+
+		this.exactStringMatches = new HashSet<Entity>();
+		this.exactSubsMatches = new HashMap<Entity, Integer>();
+		this.exactAbbrvMatches = new HashSet<Entity>();
 	}
 	
 	/**
 	 * @param e Matched Entity to add to this Result
 	 */
-	public void add(Entity e){
+	public void add(Entity e, int matchType){
 		if(!this.idLookup.containsKey(e.id)){
 			this.matches.add(e);
 			this.idLookup.put(e.id, e);
+		}
+
+		switch(matchType){
+		case EXACT_STRING_MATCH:
+			this.exactStringMatches.add(e);
+			break;
+		case EXACT_SUBS_MATCH:
+			if(!this.exactSubsMatches.containsKey(e))
+				this.exactSubsMatches.put(e, 0);
+			this.exactSubsMatches.put(e, this.exactSubsMatches.get(e) + 1);
+			break;
+		case EXACT_ABBRV_MATCH:
+			this.exactAbbrvMatches.add(e);
+			break;
 		}
 	}
 	
 	/**
 	 * @param c collection of Entities to add
 	 */
-	public void add(Collection<Entity> c){
+	public void add(Collection<Entity> c, int matchType){
 		if(c != null){
 			for(Entity e : c)
-				this.add(e);
+				this.add(e, matchType);
 		}
 	}
 	
@@ -114,5 +137,38 @@ public class Result implements Iterable<Entity>{
 		}else{
 			return false;
 		}
+	}
+
+	public String toString(){
+		String s = query + " matches:\n";
+		int cnt = 0;
+		String correctID = null; 
+		try{
+			correctID = Analyze.loadCorrectMatches().get(this.query);
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+
+		for(Entity e : this){
+			if(e.id == correctID)
+				correctID = null;
+			s += "\t" + e.contents + "\t" + e.inlinks + "\t" + 
+				(this.exactStringMatches.contains(e) ? 1 : 0) + "\t" + 
+				(this.exactSubsMatches.containsKey(e) ? this.exactSubsMatches.get(e) : 0) + "\t" + 
+				(this.exactAbbrvMatches.contains(e) ? 1 : 0) + "\n";
+			cnt++;
+			if(cnt == 5)
+				break;
+		}
+
+		if(correctID != null){
+			Entity e = this.getMatch(correctID);
+			s += "\t" + e.contents + "\t" + e.inlinks + "\t" + 
+				(this.exactStringMatches.contains(e) ? 1 : 0) + "\t" + 
+				(this.exactSubsMatches.containsKey(e) ? this.exactSubsMatches.get(e) : 0) + "\t" + 
+				(this.exactAbbrvMatches.contains(e) ? 1 : 0) + "\n";
+		}
+		
+		return s;
 	}
 }

@@ -118,7 +118,7 @@ public class Utils {
 			if(curKey != null && line.startsWith("\t")){
 				Entity e = Entity.fromOutputString(line);
 				e = fb == null ? e : fb.find(e.id);
-				curKey.add(e);
+				curKey.add(e, -1);
 			}else if(!line.isEmpty()){
 				if(curKey != null) rtn.add(curKey);
 				curKey = new Result(line);

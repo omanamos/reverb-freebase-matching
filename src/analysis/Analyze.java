@@ -24,7 +24,7 @@ public class Analyze {
 		//Load in freebase
 		Freebase fb = Freebase.loadFreebaseEntities(Options.getDefaults());
 		
-		Map<String, String> correctMatches = loadCorrectMatches(fb);
+		Map<String, String> correctMatches = loadCorrectMatches();
 		//Map<String, String> missingMatches = loadMissingMatches();
 		
 		List<Result> results = Utils.parseOutputFile(new File(fileName), fb);
@@ -53,7 +53,7 @@ public class Analyze {
 	 * @return Reverb Entity -> id of correct Freebase match
 	 * @throws FileNotFoundException
 	 */
-	private static Map<String, String> loadCorrectMatches(Freebase fb) throws FileNotFoundException{
+	public static Map<String, String> loadCorrectMatches() throws FileNotFoundException{
 		Map<String, String> rtn = new HashMap<String, String>();
 		Scanner s = new Scanner(new FileReader(new File("output/keys/match-lookup.txt")));
 		
