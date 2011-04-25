@@ -1,0 +1,1 @@
+jar cfev ../mapper.jar matching.Mapper `find . -name "*.class"`
