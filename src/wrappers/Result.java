@@ -69,7 +69,7 @@ public class Result implements Iterable<Entity>{
 	 * @return true if contains a match that has the given id
 	 */
 	public boolean hasMatch(String id){
-		return this.idLookup.containsKey(id);
+		return id != null && this.idLookup.containsKey(id);
 	}
 	
 	/**
@@ -78,7 +78,7 @@ public class Result implements Iterable<Entity>{
 	 * @throws IllegalArgumentException if no match exists in this Result that has the given id
 	 */
 	public Entity getMatch(String id){
-		if(!this.idLookup.containsKey(id))
+		if(!this.hasMatch(id))
 			throw new IllegalArgumentException("No match exists for that id.");
 		return this.idLookup.get(id);
 	}
@@ -148,27 +148,30 @@ public class Result implements Iterable<Entity>{
 		}catch(Exception e){
 			e.printStackTrace();
 		}
-
-		for(Entity e : this){
-			if(e.id.equals(correctID))
-				correctID = null;
-			s += e.contents + "," + e.inlinks + "," + 
-				(this.exactStringMatches.contains(e) ? 1 : 0) + "," + 
-				(this.exactSubsMatches.containsKey(e) ? this.exactSubsMatches.get(e) : 0) + "," + 
-				(this.exactAbbrvMatches.contains(e) ? 1 : 0) + "," + 
-				(e.id.equals(correctID) ? 1 : 0) + "\n";
-			cnt++;
-			if(cnt == 5)
-				break;
-		}
-
-		if(correctID != null){
-			Entity e = this.getMatch(correctID);
-			s += e.contents + "," + e.inlinks + "," + 
-				(this.exactStringMatches.contains(e) ? 1 : 0) + "," + 
-				(this.exactSubsMatches.containsKey(e) ? this.exactSubsMatches.get(e) : 0) + "," + 
-				(this.exactAbbrvMatches.contains(e) ? 1 : 0) + "," + 
-				1 + "\n";
+		
+		if(this.hasMatch(correctID)){
+		
+			for(Entity e : this){
+				if(e.id.equals(correctID))
+					correctID = null;
+				s += e.id + "," + e.inlinks + "," + 
+					(this.exactStringMatches.contains(e) ? 1 : 0) + "," + 
+					(this.exactSubsMatches.containsKey(e) ? this.exactSubsMatches.get(e) : 0) + "," + 
+					(this.exactAbbrvMatches.contains(e) ? 1 : 0) + "," + 
+					(e.id.equals(correctID) ? 1 : 0) + "\n";
+				cnt++;
+				if(cnt == 5)
+					break;
+			}
+			
+			if(correctID != null){
+				Entity e = this.getMatch(correctID);
+				s += e.id + "," + e.inlinks + "," + 
+					(this.exactStringMatches.contains(e) ? 1 : 0) + "," + 
+					(this.exactSubsMatches.containsKey(e) ? this.exactSubsMatches.get(e) : 0) + "," + 
+					(this.exactAbbrvMatches.contains(e) ? 1 : 0) + "," + 
+					1 + "\n";
+			}
 		}
 		
 		return s;
