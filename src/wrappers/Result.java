@@ -140,7 +140,6 @@ public class Result implements Iterable<Entity>{
 	}
 
 	public String toString(){
-		String s = query + " matches:\n";
 		int cnt = 0;
 		String correctID = null; 
 		try{
@@ -150,12 +149,13 @@ public class Result implements Iterable<Entity>{
 		}
 
 		for(Entity e : this){
-			if(e.id == correctID)
+			if(e.id.equals(correctID))
 				correctID = null;
-			s += "\t" + e.contents + "\t" + e.inlinks + "\t" + 
-				(this.exactStringMatches.contains(e) ? 1 : 0) + "\t" + 
-				(this.exactSubsMatches.containsKey(e) ? this.exactSubsMatches.get(e) : 0) + "\t" + 
-				(this.exactAbbrvMatches.contains(e) ? 1 : 0) + "\n";
+			s += e.contents + "," + e.inlinks + "," + 
+				(this.exactStringMatches.contains(e) ? 1 : 0) + "," + 
+				(this.exactSubsMatches.containsKey(e) ? this.exactSubsMatches.get(e) : 0) + "," + 
+				(this.exactAbbrvMatches.contains(e) ? 1 : 0) + "," + 
+				(e.id.equals(correctID) ? 1 : 0) + "\n";
 			cnt++;
 			if(cnt == 5)
 				break;
@@ -163,10 +163,11 @@ public class Result implements Iterable<Entity>{
 
 		if(correctID != null){
 			Entity e = this.getMatch(correctID);
-			s += "\t" + e.contents + "\t" + e.inlinks + "\t" + 
-				(this.exactStringMatches.contains(e) ? 1 : 0) + "\t" + 
-				(this.exactSubsMatches.containsKey(e) ? this.exactSubsMatches.get(e) : 0) + "\t" + 
-				(this.exactAbbrvMatches.contains(e) ? 1 : 0) + "\n";
+			s += e.contents + "," + e.inlinks + "," + 
+				(this.exactStringMatches.contains(e) ? 1 : 0) + "," + 
+				(this.exactSubsMatches.containsKey(e) ? this.exactSubsMatches.get(e) : 0) + "," + 
+				(this.exactAbbrvMatches.contains(e) ? 1 : 0) + "," + 
+				1 + "\n";
 		}
 		
 		return s;

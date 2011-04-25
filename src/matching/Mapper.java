@@ -28,7 +28,18 @@ public class Mapper {
 		List<String> rv = loadReverbEntities(REVERB_ENTITIES);
 
 		BufferedWriter w = new BufferedWriter(new FileWriter(new File(opt.OUTPUT)));
+		BufferedWriter td = new BufferedWriter(new FileWriter(new File("ml/data.arff")));
 		
+		td.write("@relation thresholds\n");
+		td.write("@attribute contents string\n");
+		td.write("@attribute inlinks numeric\n");
+		td.write("@attribute strMatches numeric\n");
+		td.write("@attribute subMatches numeric\n");
+		td.write("@attribute abbrMatch numeric\n");
+		td.write("@attribute class numeric\n");
+		td.write("@data\n");
+		td.flush();
+
 		int rvCnt = 0;
 		long totalTime = 0;
 		
@@ -47,9 +58,10 @@ public class Mapper {
 			}
 			
 			rvCnt++;
+			
+			td.write(res.toString());
+			td.flush();
 			System.out.println(res);
-			//System.out.println(rvEnt + " matches:");
-			//Utils.printList(res, "\t", 5);
 			System.out.println("\t" + (100 * rvCnt / (double)rv.size()) + "%");
 			
 		}

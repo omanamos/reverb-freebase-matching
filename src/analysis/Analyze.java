@@ -25,7 +25,6 @@ public class Analyze {
 		Freebase fb = Freebase.loadFreebaseEntities(Options.getDefaults());
 		
 		Map<String, String> correctMatches = loadCorrectMatches();
-		//Map<String, String> missingMatches = loadMissingMatches();
 		
 		List<Result> results = Utils.parseOutputFile(new File(fileName), fb);
 		Set<Result> uniqueResults = new HashSet<Result>();
@@ -55,19 +54,12 @@ public class Analyze {
 	 */
 	public static Map<String, String> loadCorrectMatches() throws FileNotFoundException{
 		Map<String, String> rtn = new HashMap<String, String>();
-		Scanner s = new Scanner(new FileReader(new File("output/keys/match-lookup.txt")));
+		Scanner s = new Scanner(new FileReader(new File("data/keys/match-lookup.txt")));
 		
 		while(s.hasNextLine()){
 			String[] parts = s.nextLine().split("\t");
 			rtn.put(parts[0], parts[1]);
 		}
-		
-		return rtn;
-	}
-	
-	@SuppressWarnings("unused")
-	private static Map<String, String> loadMissingMatches(){
-		Map<String, String> rtn = new HashMap<String, String>();
 		
 		return rtn;
 	}

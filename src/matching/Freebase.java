@@ -18,8 +18,8 @@ import wrappers.Result;
  */
 public class Freebase implements Iterable<Entity>{
 	
-	public static final String FREEBASE_ENTITIES = "output.fbid-prominence.sorted";
-	public static final String WIKI_ALIASES = "output.wiki-aliases.sorted";
+	public static final String FREEBASE_ENTITIES = "data/output.fbid-prominence.sorted";
+	public static final String WIKI_ALIASES = "data/output.wiki-aliases.sorted";
 	
 	private static final int ACRO_THRESHOLD = 20;
 	
