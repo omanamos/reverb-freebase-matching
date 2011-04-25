@@ -28,7 +28,7 @@ public class Mapper {
 		List<String> rv = loadReverbEntities(REVERB_ENTITIES);
 
 		BufferedWriter w = new BufferedWriter(new FileWriter(new File(opt.OUTPUT)));
-		BufferedWriter td = new BufferedWriter(new FileWriter(new File("ml/data.arff")));
+		BufferedWriter td = new BufferedWriter(new FileWriter(new File("data/ml/data.arff")));
 		
 		td.write("@relation thresholds\n");
 		td.write("@attribute contents string\n");
