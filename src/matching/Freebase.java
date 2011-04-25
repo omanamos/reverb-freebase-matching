@@ -85,7 +85,7 @@ public class Freebase implements Iterable<Entity>{
 	}
 	
 	public Result getMatches(String query){
-		Result res = new Result(query);
+		Result res = new Result(Utils.cleanString(query), query);
 		
 		res.add(this.aliases.get(query), Result.EXACT_STRING_MATCH);
 		

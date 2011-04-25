@@ -13,6 +13,7 @@ public class Result implements Iterable<Entity>{
 	public static final int EXACT_ABBRV_MATCH = 2;
 
 	public final String query;
+	public final String dirtyQuery;
 	private PriorityQueue<Entity> matches;
 	private Map<String, Entity> idLookup;
 
@@ -20,8 +21,9 @@ public class Result implements Iterable<Entity>{
 	private Map<Entity, Integer> exactSubsMatches;
 	private Set<Entity> exactAbbrvMatches;
 	
-	public Result(String query){
+	public Result(String query, String dirtyQuery){
 		this.query = query;
+		this.dirtyQuery = dirtyQuery;
 		this.matches = new PriorityQueue<Entity>();
 		this.idLookup = new HashMap<String, Entity>();
 
@@ -144,7 +146,7 @@ public class Result implements Iterable<Entity>{
 		int cnt = 0;
 		String correctID = null; 
 		try{
-			correctID = Analyze.loadCorrectMatches().get(this.query);
+			correctID = Analyze.loadCorrectMatches().get(this.dirtyQuery);
 		}catch(Exception e){
 			e.printStackTrace();
 		}
@@ -152,13 +154,13 @@ public class Result implements Iterable<Entity>{
 		if(this.hasMatch(correctID)){
 		
 			for(Entity e : this){
-				if(e.id.equals(correctID))
-					correctID = null;
 				s += e.id + "," + e.inlinks + "," + 
 					(this.exactStringMatches.contains(e) ? 1 : 0) + "," + 
 					(this.exactSubsMatches.containsKey(e) ? this.exactSubsMatches.get(e) : 0) + "," + 
 					(this.exactAbbrvMatches.contains(e) ? 1 : 0) + "," + 
 					(e.id.equals(correctID) ? 1 : 0) + "\n";
+				if(e.id.equals(correctID))
+					correctID = null;
 				cnt++;
 				if(cnt == 5)
 					break;

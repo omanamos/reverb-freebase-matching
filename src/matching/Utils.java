@@ -121,7 +121,7 @@ public class Utils {
 				curKey.add(e, -1);
 			}else if(!line.isEmpty()){
 				if(curKey != null) rtn.add(curKey);
-				curKey = new Result(line);
+				curKey = new Result(line, cleanString(line));
 			}
 		}
 		

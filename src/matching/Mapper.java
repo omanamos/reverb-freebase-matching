@@ -44,12 +44,11 @@ public class Mapper {
 		long totalTime = 0;
 		
 		for(String rvEnt : rv){
-			String cleanRvEnt = Utils.cleanString(rvEnt);
 			w.write(rvEnt + "\n");
 			w.flush();
 			
 			long timer = System.currentTimeMillis();
-			Result res = fb.getMatches(cleanRvEnt);
+			Result res = fb.getMatches(rvEnt);
 			totalTime += System.currentTimeMillis() - timer;
 			
 			for(Entity match : res){
