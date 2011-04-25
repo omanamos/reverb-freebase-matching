@@ -140,6 +140,7 @@ public class Result implements Iterable<Entity>{
 	}
 
 	public String toString(){
+		String s = "";
 		int cnt = 0;
 		String correctID = null; 
 		try{
