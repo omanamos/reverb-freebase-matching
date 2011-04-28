@@ -52,6 +52,7 @@ public class Test {
 		} while(cont);
 	}
 
+	@SuppressWarnings("unchecked")
 	public static void testJazzy() throws IOException, FileNotFoundException{
 		Scanner in = new Scanner(System.in);
 		System.out.print("Loading Dictionary...");
@@ -63,11 +64,15 @@ public class Test {
 			String line = in.nextLine();
 		    
 			long timer = System.nanoTime();
-			List<String> lst = (List<String>)dict.getSuggestions(line, 10);
+			List<Word> lst = (List<Word>)dict.getSuggestions(line, 0);
 			timer = System.nanoTime() - timer;
 			
 			System.out.println("Found " + lst.size() + " matches in " + timer / 1000000 + "ms: ");
-			Utils.printList(lst);
+			
+			for(Word w : lst){
+				System.out.println(w.getWord() + " " + w.getCost());
+			}
+			
 			System.out.println();
 		} while(true);
 	}
