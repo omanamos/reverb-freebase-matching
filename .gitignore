@@ -2,4 +2,4 @@
 *.zip
 input/*
 .*
-*.jar
+mapper.jar
