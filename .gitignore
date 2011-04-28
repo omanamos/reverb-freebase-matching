@@ -4,3 +4,5 @@ input/*
 .*
 *.jar
 bin/*
+mapper.jar
+
