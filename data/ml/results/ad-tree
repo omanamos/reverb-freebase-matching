@@ -1,0 +1,69 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.trees.ADTree -B 10 -E -3
+Relation:     thresholds-weka.filters.unsupervised.attribute.Remove-R1
+Instances:    475
+Attributes:   5
+              inlinks
+              strMatches
+              subMatches
+              abbrMatch
+              class
+Test mode:    10-fold cross-validation
+
+=== Classifier model (full training set) ===
+
+Alternating decision tree:
+
+: -0.657
+|  (1)inlinks < 3035.5: -0.176
+|  |  (4)inlinks < 23: 0.746
+|  |  (4)inlinks >= 23: -0.142
+|  |  |  (7)inlinks < 1289.5: -0.113
+|  |  |  (7)inlinks >= 1289.5: 0.47
+|  (1)inlinks >= 3035.5: 0.511
+|  |  (8)inlinks < 4624.5: 0.679
+|  |  |  (10)inlinks < 4049: -0.326
+|  |  |  (10)inlinks >= 4049: 0.863
+|  |  (8)inlinks >= 4624.5: -0.229
+|  |  |  (9)inlinks < 14674.5: -0.362
+|  |  |  (9)inlinks >= 14674.5: 0.545
+|  (2)strMatches < 0.5: -0.857
+|  |  (5)inlinks < 413.5: 0.43
+|  |  (5)inlinks >= 413.5: -1.273
+|  (2)strMatches >= 0.5: 0.114
+|  |  (3)subMatches < 0.5: -0.081
+|  |  (3)subMatches >= 0.5: 1.424
+|  |  (6)inlinks < 23020: -0.017
+|  |  (6)inlinks >= 23020: 1.322
+Legend: -ve = 0, +ve = 1
+Tree size (total number of nodes): 31
+Leaves (number of predictor nodes): 21
+
+Time taken to build model: 0.36 seconds
+
+=== Stratified cross-validation ===
+=== Summary ===
+
+Correctly Classified Instances         400               84.2105 %
+Incorrectly Classified Instances        75               15.7895 %
+Kappa statistic                          0.3995
+Mean absolute error                      0.3208
+Root mean squared error                  0.371 
+Relative absolute error                 96.284  %
+Root relative squared error             91.0003 %
+Total Number of Instances              475     
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 0.976     0.66       0.847     0.976     0.907      0.765    0
+                 0.34      0.024      0.791     0.34      0.476      0.765    1
+Weighted Avg.    0.842     0.526      0.835     0.842     0.816      0.765
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 366   9 |   a = 0
+  66  34 |   b = 1
+

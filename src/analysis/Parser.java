@@ -32,7 +32,7 @@ public class Parser {
 		List<Tuple> badRv = new ArrayList<Tuple>();
 		Map<String, String> other = new HashMap<String, String>();
 		
-		Freebase fb = Freebase.loadFreebaseEntities(Options.getDefaults());
+		Freebase fb = Freebase.loadFreebaseEntities(Options.getDefaults(), true);
 		
 		while(s.hasNextLine()){
 			Tuple t = Tuple.fromString(s.nextLine());

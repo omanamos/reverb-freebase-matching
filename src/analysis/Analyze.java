@@ -22,7 +22,7 @@ public class Analyze {
 		String fileName = "output/output-full-3.0.txt";
 		
 		//Load in freebase
-		Freebase fb = Freebase.loadFreebaseEntities(Options.getDefaults());
+		Freebase fb = Freebase.loadFreebaseEntities(Options.getDefaults(), true);
 		
 		Map<String, String> correctMatches = loadCorrectMatches();
 		

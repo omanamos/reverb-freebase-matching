@@ -154,7 +154,7 @@ public class Result implements Iterable<Entity>{
 		if(this.hasMatch(correctID)){
 		
 			for(Entity e : this){
-				s += e.id + "," + e.inlinks + "," + 
+				s += "\"" + e.contents + "\"," + e.inlinks + "," + 
 					(this.exactStringMatches.contains(e) ? 1 : 0) + "," + 
 					(this.exactSubsMatches.containsKey(e) ? this.exactSubsMatches.get(e) : 0) + "," + 
 					(this.exactAbbrvMatches.contains(e) ? 1 : 0) + "," + 
@@ -168,7 +168,7 @@ public class Result implements Iterable<Entity>{
 			
 			if(correctID != null){
 				Entity e = this.getMatch(correctID);
-				s += e.id + "," + e.inlinks + "," + 
+				s += "\"" + e.contents + "\"," + e.inlinks + "," + 
 					(this.exactStringMatches.contains(e) ? 1 : 0) + "," + 
 					(this.exactSubsMatches.containsKey(e) ? this.exactSubsMatches.get(e) : 0) + "," + 
 					(this.exactAbbrvMatches.contains(e) ? 1 : 0) + "," + 

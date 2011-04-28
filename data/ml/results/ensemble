@@ -1,0 +1,52 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.meta.EnsembleSelection -W /home/namos/Ensemble-1 -P rmse -A forward -B 10 -V 0.25 -E 0.5 -H 100 -I 1.0 -X 1 -R -G -S 1
+Relation:     thresholds-weka.filters.unsupervised.attribute.Remove-R1
+Instances:    475
+Attributes:   5
+              inlinks
+              strMatches
+              subMatches
+              abbrMatch
+              class
+Test mode:    10-fold cross-validation
+
+=== Classifier model (full training set) ===
+
+113 weka.classifiers.trees.REPTree -M 2 -V 0.0010 -N 3 -S 1 -L -1
+32 weka.classifiers.trees.REPTree -M 2 -V 0.0010 -N 3 -S 2 -L -1
+212 weka.classifiers.trees.REPTree -M 2 -V 0.0010 -N 3 -S 3 -L -1
+13 weka.classifiers.trees.REPTree -M 2 -V 0.0010 -N 3 -S 4 -L -1
+8 weka.classifiers.trees.REPTree -M 2 -V 0.0010 -N 3 -S 5 -L -1
+98 weka.classifiers.trees.REPTree -M 2 -V 0.0010 -N 3 -S 6 -L -1
+93 weka.classifiers.trees.REPTree -M 2 -V 0.0010 -N 3 -S 7 -L -1
+277 weka.classifiers.trees.REPTree -M 2 -V 0.0010 -N 3 -S 8 -L -1
+
+
+Time taken to build model: 2.7 seconds
+
+=== Stratified cross-validation ===
+=== Summary ===
+
+Correctly Classified Instances         404               85.0526 %
+Incorrectly Classified Instances        71               14.9474 %
+Kappa statistic                          0.4367
+Mean absolute error                      0.2437
+Root mean squared error                  0.349 
+Relative absolute error                 73.1285 %
+Root relative squared error             85.6061 %
+Total Number of Instances              475     
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 0.979     0.63       0.853     0.979     0.912      0.755    0
+                 0.37      0.021      0.822     0.37      0.51       0.755    1
+Weighted Avg.    0.851     0.502      0.847     0.851     0.827      0.755
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 367   8 |   a = 0
+  63  37 |   b = 1
+

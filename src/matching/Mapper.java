@@ -24,7 +24,7 @@ public class Mapper {
 			return;
 		}
 		
-		Freebase fb = Freebase.loadFreebaseEntities(opt);
+		Freebase fb = Freebase.loadFreebaseEntities(opt, true);
 		List<String> rv = loadReverbEntities(REVERB_ENTITIES);
 
 		BufferedWriter w = new BufferedWriter(new FileWriter(new File(opt.OUTPUT)));

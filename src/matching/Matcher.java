@@ -16,7 +16,7 @@ public class Matcher {
 			return;
 		}
 		
-		Freebase fb = Freebase.loadFreebaseEntities(opt);
+		Freebase fb = Freebase.loadFreebaseEntities(opt, true);
 		
 		String line = "";
 		Scanner s = new Scanner(System.in);

@@ -36,38 +36,44 @@ public class Freebase implements Iterable<Entity>{
 		this.entities = new ArrayList<Entity>();
 		this.aliases = new HashMap<String, List<Entity>>();
 	}
-	
-	
+
+	public void add(Entity e){
+		this.add(e, true);
+	}
+
 	/**
 	 * @param e Entity to add to Freebase
+	 * @param loadAliases loads aliases of the given entity to allow searching if true
 	 */
-	public void add(Entity e){
+	public void add(Entity e, boolean loadAliases){
 		if(e != null){
 			this.entities.add(e);
-			
-			if(!this.aliases.containsKey(e.id))
-				this.aliases.put(e.id, new ArrayList<Entity>());
-			this.aliases.get(e.id).add(e);
 			
 			if(!this.aliases.containsKey(e.contents))
 				this.aliases.put(e.contents, new ArrayList<Entity>());
 			this.aliases.get(e.contents).add(e);
 			
-			if(e.cleanedContents.endsWith("s")){
-				String stub = e.cleanedContents.substring(0, e.cleanedContents.length() - 1);
-				if(!this.aliases.containsKey(stub))
-					this.aliases.put(stub, new ArrayList<Entity>());
-				this.aliases.get(stub).add(e);
-			}
-			
-			if(this.opt.SUB_AB){
-				String[] parts = e.contents.split("( |_|-|,)");
-				if(parts.length > 1){
-					for(String word : parts){
-						if(word.length() > 3){
-							if(!this.aliases.containsKey(word))
-								this.aliases.put(word, new ArrayList<Entity>());
-							this.aliases.get(word).add(e);
+			if(loadAliases){
+				if(!this.aliases.containsKey(e.id))
+					this.aliases.put(e.id, new ArrayList<Entity>());
+				this.aliases.get(e.id).add(e);
+				
+				if(e.cleanedContents.endsWith("s")){
+					String stub = e.cleanedContents.substring(0, e.cleanedContents.length() - 1);
+					if(!this.aliases.containsKey(stub))
+						this.aliases.put(stub, new ArrayList<Entity>());
+					this.aliases.get(stub).add(e);
+				}
+				
+				if(this.opt.SUB_AB){
+					String[] parts = e.contents.split("( |_|-|,)");
+					if(parts.length > 1){
+						for(String word : parts){
+							if(word.length() > 3){
+								if(!this.aliases.containsKey(word))
+									this.aliases.put(word, new ArrayList<Entity>());
+								this.aliases.get(word).add(e);
+							}
 						}
 					}
 				}
@@ -138,7 +144,7 @@ public class Freebase implements Iterable<Entity>{
 		return this.entities.iterator();
 	}
 	
-	public static Freebase loadFreebaseEntities(Options opt) throws FileNotFoundException{
+	public static Freebase loadFreebaseEntities(Options opt, boolean loadAliases) throws FileNotFoundException{
 		System.out.print("Loading Freebase...");
 		
 		Freebase fb = new Freebase(opt);
@@ -146,21 +152,24 @@ public class Freebase implements Iterable<Entity>{
 		int offset = 0;
 		
 		while(s.hasNextLine())
-			fb.add(Entity.fromString(s.nextLine(), offset++));
+			fb.add(Entity.fromString(s.nextLine(), offset++), loadAliases);
 		
 		System.out.println("Complete!");
 		
-		System.out.print("Loading Wiki Aliases...");
-		
-		s = new Scanner(new File(WIKI_ALIASES));
-		while(s.hasNextLine()){
-			String[] parts = s.nextLine().split("\t");
-			Entity e = fb.find(parts[3]);
-			if(e != null)
-				fb.add(e, parts[0]);
+		if(loadAliases){
+			System.out.print("Loading Wiki Aliases...");
+			
+			s = new Scanner(new File(WIKI_ALIASES));
+			while(s.hasNextLine()){
+				String[] parts = s.nextLine().split("\t");
+				Entity e = fb.find(parts[3]);
+				if(e != null)
+					fb.add(e, parts[0]);
+			}
+			
+			System.out.println("Complete!");
 		}
-		
-		System.out.println("Complete!");
+
 		return fb;
 	}
 	
