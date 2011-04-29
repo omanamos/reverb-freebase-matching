@@ -3,6 +3,23 @@ package analysis;
 import java.io.*;
 import java.util.*;
 
+import org.apache.lucene.analysis.standard.StandardAnalyzer;
+import org.apache.lucene.document.Document;
+import org.apache.lucene.document.Field;
+import org.apache.lucene.index.CorruptIndexException;
+import org.apache.lucene.index.IndexReader;
+import org.apache.lucene.index.IndexWriter;
+import org.apache.lucene.index.IndexWriterConfig;
+import org.apache.lucene.queryParser.ParseException;
+import org.apache.lucene.queryParser.QueryParser;
+import org.apache.lucene.search.IndexSearcher;
+import org.apache.lucene.search.Query;
+import org.apache.lucene.search.ScoreDoc;
+import org.apache.lucene.search.TopDocs;
+import org.apache.lucene.store.LockObtainFailedException;
+import org.apache.lucene.store.SimpleFSDirectory;
+import org.apache.lucene.util.Version;
+
 import matching.*;
 
 import com.wcohen.ss.AffineGap;
@@ -14,7 +31,9 @@ public class Test {
 	
 	public static void main(String[] args) throws IOException, FileNotFoundException{
 		Scanner s = new Scanner(System.in);
-		System.out.print("Enter code (1 = testAffine, 2 = testAcronym, 3 = testDistance, 4 = buildList, 5 = timingTests, 6 = buildJazzy, 7 = testJazzy): ");
+		System.out.print("Enter code (1 = testAffine, 2 = testAcronym, 3 = testDistance, 4 = buildList, \n\t\t\t" +
+									 "5 = timingTests, 6 = buildJazzy, 7 = testJazzy, 8 = createIndex, \n\t\t\t" +
+									 "9 = searchIndex): ");
 		
 		boolean cont = false;
 		do{
@@ -42,6 +61,12 @@ public class Test {
 				case 7:
 					testJazzy();
 					break;
+				case 8:
+					createIndex();
+					break;
+				case 9:
+					searchIndex();
+					break;
 				default:
 					throw new Exception();
 				}
@@ -51,12 +76,69 @@ public class Test {
 			}
 		} while(cont);
 	}
+	
+	public static void createIndex() throws CorruptIndexException, LockObtainFailedException, IOException {
+		IndexWriter indexWriter = new IndexWriter(new SimpleFSDirectory(new File("index")), new IndexWriterConfig(Version.LUCENE_31, new StandardAnalyzer(Version.LUCENE_31)));
+		Scanner in = new Scanner(new File("data/jazzy-top-300k.dict"));
+		
+		while(in.hasNextLine()){
+			//String[] parts = in.nextLine().split("\t");
+			Document document = new Document();
+			
+			document.add(new Field("entity", in.nextLine(), Field.Store.YES, Field.Index.ANALYZED));
+			//document.add(new Field("inlinks", parts[1], Field.Store.YES, Field.Index.NO));
+			//document.add(new Field("id", parts[0], Field.Store.YES, Field.Index.NO));
+			
+			indexWriter.addDocument(document);
+		}
+		
+		indexWriter.optimize();
+		indexWriter.close();
+	}
+	
+	public static void searchIndex() throws IOException, ParseException{
+		Scanner in = new Scanner(System.in);
+		System.out.print("Loading Dictionary...");
+		//SpellChecker dict = new SpellChecker(new RAMDirectory());
+		IndexReader r = IndexReader.open(new SimpleFSDirectory(new File("index")));
+		IndexSearcher s = new IndexSearcher(r);
+		QueryParser p = new QueryParser(Version.LUCENE_31, "entity", new StandardAnalyzer(Version.LUCENE_31));
+		//dict.indexDictionary(new LuceneDictionary(r, "entity"));
+		System.out.println("Complete!");
+		
+		do {
+			System.out.print("Enter word: ");
+			String line = in.nextLine();
+		    
+			long timer = System.nanoTime();
+			Query query = p.parse(line);
+			TopDocs lst = s.search(query, 10);
+			timer = System.nanoTime() - timer;
+			
+			System.out.println("Found " + lst.totalHits + " matches in " + timer / 1000000 + "ms: ");
+			
+			for(ScoreDoc d : lst.scoreDocs)
+				System.out.println(s.doc(d.doc).get("entity") + " " + d.score);
+			
+			/*long timer = System.nanoTime();
+			String[] similar = dict.suggestSimilar(line, 10);
+			timer = System.nanoTime() - timer;
+			
+			System.out.println("Found " + similar.length + " matches in " + timer / 1000000 + "ms: ");
+			
+			for(String s : similar){
+				System.out.println(s);
+			}*/
+			
+			System.out.println();
+		} while(true);
+	}
 
 	@SuppressWarnings("unchecked")
 	public static void testJazzy() throws IOException, FileNotFoundException{
 		Scanner in = new Scanner(System.in);
 		System.out.print("Loading Dictionary...");
-		SpellDictionaryHashMap dict = new SpellDictionaryHashMap(new BufferedReader(new FileReader(new File("data/jazzy.dict"))));
+		SpellDictionaryHashMap dict = new SpellDictionaryHashMap(new BufferedReader(new FileReader(new File("data/jazzy-top-300k.dict"))));
 		System.out.println("Complete!");
 
 		do {
@@ -79,9 +161,10 @@ public class Test {
 
 	public static void buildJazzy() throws IOException{
 		Scanner in = new Scanner(new File(Freebase.FREEBASE_ENTITIES));
-		BufferedWriter dictOut = new BufferedWriter(new FileWriter(new File("data/jazzy.dict")));
+		BufferedWriter dictOut = new BufferedWriter(new FileWriter(new File("data/jazzy-top-300k.dict")));
 		Set<String> dict = new HashSet<String>();
-
+		int cnt = 0;
+		
 		while(in.hasNextLine()){
 			String ent = in.nextLine().split("\t")[2];
 			if(!dict.contains(ent)){
@@ -96,6 +179,9 @@ public class Test {
 					dictOut.write(s + "\n");
 				}
 			}
+			cnt++;
+			if(cnt > 300000)
+				break;
 		}
 	}
 	

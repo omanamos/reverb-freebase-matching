@@ -15,6 +15,16 @@ import com.wcohen.ss.CharMatchScore;
 
 public class Utils {
 	
+	public List<String> getAliases(String entity){
+		List<String> rtn = new ArrayList<String>();
+		
+		rtn.add(entity);
+		for(String s : Utils.cleanString(entity).split("( |_|-|,)"))
+			if(s.length() > 3)
+				rtn.add(s);
+		return rtn;
+	}
+	
 	public static String cleanString(String str){
 		
 		return str.replaceAll("(,|\\.|'|&rsquo|\\(.*\\))", "").trim();
