@@ -2,7 +2,6 @@
 *.zip
 input/*
 .*
-*.jar
 bin/*
 mapper.jar
 index/*
