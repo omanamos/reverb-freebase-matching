@@ -39,12 +39,19 @@ public class PropertyConfiguration extends Configuration {
 
   public PropertyConfiguration() {
     prop = new Properties();
+    InputStream in = null;
     try {
       filename = getClass().getClassLoader().getResource("com/swabunga/spell/engine/configuration.properties");
-      InputStream in = filename.openStream();
+      in = filename.openStream();
       prop.load(in);
     } catch (Exception e) {
       System.out.println("Could not load Properties file :\n" + e);
+    }finally{
+    	try {
+			in.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
     }
   }
 
