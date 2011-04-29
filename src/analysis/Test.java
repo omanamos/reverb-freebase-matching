@@ -16,7 +16,10 @@ import org.apache.lucene.search.IndexSearcher;
 import org.apache.lucene.search.Query;
 import org.apache.lucene.search.ScoreDoc;
 import org.apache.lucene.search.TopDocs;
+import org.apache.lucene.search.spell.LuceneDictionary;
+import org.apache.lucene.search.spell.SpellChecker;
 import org.apache.lucene.store.LockObtainFailedException;
+import org.apache.lucene.store.RAMDirectory;
 import org.apache.lucene.store.SimpleFSDirectory;
 import org.apache.lucene.util.Version;
 
@@ -31,13 +34,12 @@ public class Test {
 	
 	public static void main(String[] args) throws IOException, FileNotFoundException{
 		Scanner s = new Scanner(System.in);
-		System.out.print("Enter code (1 = testAffine, 2 = testAcronym, 3 = testDistance, 4 = buildList, \n\t\t\t" +
-									 "5 = timingTests, 6 = buildJazzy, 7 = testJazzy, 8 = createIndex, \n\t\t\t" +
-									 "9 = searchIndex): ");
 		
 		boolean cont = false;
 		do{
-			
+			System.out.print("Enter code (1 = testAffine, 2 = testAcronym, 3 = testDistance, 4 = buildList, \n\t\t\t" +
+										 "5 = timingTests, 6 = buildJazzy, 7 = testJazzy, 8 = createIndex, \n\t\t\t" +
+										 "9 = searchIndex, 10 = spellIndex): ");
 			try{
 				switch(Integer.parseInt(s.nextLine())){
 				case 1:
@@ -66,6 +68,9 @@ public class Test {
 					break;
 				case 9:
 					searchIndex();
+					break;
+				case 10:
+					spellIndex();
 					break;
 				default:
 					throw new Exception();
@@ -120,7 +125,22 @@ public class Test {
 			for(ScoreDoc d : lst.scoreDocs)
 				System.out.println(s.doc(d.doc).get("entity") + " " + d.score);
 			
-			/*long timer = System.nanoTime();
+			System.out.println();
+		} while(true);
+	}
+	
+	public static void spellIndex() throws IOException, ParseException{
+		Scanner in = new Scanner(System.in);
+		System.out.print("Loading Dictionary...");
+		SpellChecker dict = new SpellChecker(new RAMDirectory());
+		IndexReader r = IndexReader.open(new SimpleFSDirectory(new File("index")));
+		dict.indexDictionary(new LuceneDictionary(r, "entity"));
+		System.out.println("Complete!");
+		
+		do {
+			System.out.print("Enter word: ");
+			String line = in.nextLine();
+			long timer = System.nanoTime();
 			String[] similar = dict.suggestSimilar(line, 10);
 			timer = System.nanoTime() - timer;
 			
@@ -128,7 +148,7 @@ public class Test {
 			
 			for(String s : similar){
 				System.out.println(s);
-			}*/
+			}
 			
 			System.out.println();
 		} while(true);
