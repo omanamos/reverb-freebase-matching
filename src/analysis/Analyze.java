@@ -19,10 +19,10 @@ public class Analyze {
 
 	public static void main(String[] args) throws FileNotFoundException{
 		//Ouput file to analyze
-		String fileName = "output/output-full-3.0.txt";
+		String fileName = "output/output-full-v5.3.txt";
 		
 		//Load in freebase
-		Freebase fb = Freebase.loadFreebaseEntities(Options.getDefaults(), true);
+		Freebase fb = Freebase.loadFreebaseEntities(Options.getDefaults(), false);
 		
 		Map<String, String> correctMatches = loadCorrectMatches();
 		
@@ -30,7 +30,7 @@ public class Analyze {
 		Set<Result> uniqueResults = new HashSet<Result>();
 		
 		for(Result res : results){
-			if(!uniqueResults.contains(res)){
+			if(correctMatches.containsKey(res.query) && !uniqueResults.contains(res)){
 				String correctID = correctMatches.get(res.query);
 				if(res.hasMatch(correctID)){
 					Entity e = res.getMatch(correctID);
@@ -60,6 +60,20 @@ public class Analyze {
 			String[] parts = s.nextLine().split("\t");
 			rtn.put(parts[0], parts[1]);
 		}
+		
+		return rtn;
+	}
+	
+	public static Set<String> loadImpossibleMatches() throws FileNotFoundException{
+		Set<String> rtn = new HashSet<String>();
+		
+		Scanner s = new Scanner(new FileReader(new File("data/keys/bad-reverb-entities.txt")));
+		while(s.hasNextLine())
+			rtn.add(s.nextLine().split("\t")[0]);
+		
+		s = new Scanner(new FileReader(new File("data/keys/not-in-freebase.txt")));
+		while(s.hasNextLine())
+			rtn.add(s.nextLine().split("\t")[0]);
 		
 		return rtn;
 	}

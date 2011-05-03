@@ -4,12 +4,15 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
+import java.util.Set;
 
 import wrappers.Entity;
+import wrappers.MatchType;
 import wrappers.Options;
 import wrappers.Result;
 
@@ -23,18 +26,24 @@ public class Freebase implements Iterable<Entity>{
 	
 	private static final int ACRO_THRESHOLD = 20;
 	
-	/**
-	 * Specifies which matching combinations to use.
-	 */
-	private final Options opt;
-
 	private List<Entity> entities;
-	private Map<String, List<Entity>> aliases;
+	private Map<String, Entity> idLookup;
 	
-	public Freebase(Options opt){
-		this.opt = opt;
+	private Map<String, Set<Entity>> exactStringLookup;
+	private Map<String, Set<Entity>> cleanedStringLookup;
+	private Map<String, Set<Entity>> exactSubsLookup;
+	private Map<String, Set<Entity>> exactAbbrvLookup;
+	private Map<String, Set<Entity>> wikiLookup;
+	
+	public Freebase(){
 		this.entities = new ArrayList<Entity>();
-		this.aliases = new HashMap<String, List<Entity>>();
+		
+		this.idLookup = new HashMap<String, Entity>();
+		this.exactStringLookup = new HashMap<String, Set<Entity>>();
+		this.cleanedStringLookup = new HashMap<String, Set<Entity>>();
+		this.exactAbbrvLookup = new HashMap<String, Set<Entity>>();
+		this.exactSubsLookup = new HashMap<String, Set<Entity>>();
+		this.wikiLookup = new HashMap<String, Set<Entity>>();
 	}
 
 	public void add(Entity e){
@@ -49,72 +58,98 @@ public class Freebase implements Iterable<Entity>{
 		if(e != null){
 			this.entities.add(e);
 			
-			if(!this.aliases.containsKey(e.contents))
-				this.aliases.put(e.contents, new ArrayList<Entity>());
-			this.aliases.get(e.contents).add(e);
+			if(!this.exactStringLookup.containsKey(e.contents))
+				this.exactStringLookup.put(e.contents, new HashSet<Entity>());
+			this.exactStringLookup.get(e.contents).add(e);
+			
+			this.idLookup.put(e.id, e);
 			
 			if(loadAliases){
-				if(!this.aliases.containsKey(e.id))
-					this.aliases.put(e.id, new ArrayList<Entity>());
-				this.aliases.get(e.id).add(e);
-				
-				if(e.cleanedContents.endsWith("s")){
-					String stub = e.cleanedContents.substring(0, e.cleanedContents.length() - 1);
-					if(!this.aliases.containsKey(stub))
-						this.aliases.put(stub, new ArrayList<Entity>());
-					this.aliases.get(stub).add(e);
+				if(e.contents.endsWith("s")){
+					String stub = e.contents.substring(0, e.contents.length() - 1);
+					if(!this.exactStringLookup.containsKey(stub))
+						this.exactStringLookup.put(stub, new HashSet<Entity>());
+					this.exactStringLookup.get(stub).add(e);
 				}
 				
-				if(this.opt.SUB_AB){
-					String[] parts = e.contents.split("( |_|-|,)");
-					if(parts.length > 1){
-						for(String word : parts){
-							if(word.length() > 3){
-								if(!this.aliases.containsKey(word))
-									this.aliases.put(word, new ArrayList<Entity>());
-								this.aliases.get(word).add(e);
-							}
+				if(!e.noCleaning){
+					if(!this.cleanedStringLookup.containsKey(e.cleanedContents))
+						this.cleanedStringLookup.put(e.cleanedContents, new HashSet<Entity>());
+					this.cleanedStringLookup.get(e.cleanedContents).add(e);
+					
+					if(e.cleanedContents.endsWith("s")){
+						String stub = e.cleanedContents.substring(0, e.cleanedContents.length() - 1);
+						if(!this.cleanedStringLookup.containsKey(stub))
+							this.cleanedStringLookup.put(stub, new HashSet<Entity>());
+						this.cleanedStringLookup.get(stub).add(e);
+					}
+				}
+				
+				String[] parts = e.cleanedContents.split("( |_|-|,)");
+				if(parts.length > 1){
+					for(String word : parts){
+						if(word.length() > 3){
+							if(!this.exactSubsLookup.containsKey(word))
+								this.exactSubsLookup.put(word, new HashSet<Entity>());
+							this.exactSubsLookup.get(word).add(e);
 						}
+					}
+				}
+				
+				if(e.inlinks >= ACRO_THRESHOLD){
+					String acronym = Acronym.computeAcronym(e.contents);
+					if(acronym != null){
+						if(!this.exactAbbrvLookup.containsKey(acronym))
+							this.exactAbbrvLookup.put(acronym, new HashSet<Entity>());
+						this.exactAbbrvLookup.get(acronym).add(e);
 					}
 				}
 			}
 			
-			if(this.opt.ACRO_AB && e.inlinks >= ACRO_THRESHOLD){
-				String acronym = Acronym.computeAcronym(e.contents);
-				if(acronym != null){
-					if(!this.aliases.containsKey(acronym))
-						this.aliases.put(acronym, new ArrayList<Entity>());
-					this.aliases.get(acronym).add(e);
-				}
-			}
 		}
 	}
 	
 	public Result getMatches(String query){
 		Result res = new Result(Utils.cleanString(query), query);
 		
-		res.add(this.aliases.get(query), Result.EXACT_STRING_MATCH);
+		loadMatches(query, res);
+		
+		//if(res.size(50) < 1){
+			
+		//}
+		
+		res.sort(true);
+		return res;
+	}
+	
+	private void loadMatches(String query, Result res){
+		res.add(this.exactStringLookup.get(query), MatchType.EXACT);
+		
+		res.add(this.cleanedStringLookup.get(query), MatchType.CLEANED);
 		
 		if(query.endsWith("s")){
 			String stub = query.substring(0, query.length() - 1);
-			res.add(this.aliases.get(stub), Result.EXACT_STRING_MATCH);
+			res.add(this.exactStringLookup.get(stub), MatchType.EXACT);
+			res.add(this.exactSubsLookup.get(stub), MatchType.SUB);
 		}
 		
-		if(this.opt.SUB_AB){
-			String[] parts = query.split("( |_|-|,)");
-			if(parts.length > 1){
-				for(String word : parts){
-					if(word.length() > 3)
-						res.add(this.aliases.get(word), Result.EXACT_SUBS_MATCH);
-				}
+		res.add(this.wikiLookup.get(query), MatchType.WIKI);
+		
+		res.add(this.exactSubsLookup.get(Utils.cleanString(query)), MatchType.SUB);
+		
+		String[] parts = query.split("( |_|-|,)");
+		if(parts.length > 1){
+			for(String word : parts){
+				if(word.length() > 3)
+					res.add(this.exactSubsLookup.get(word), MatchType.SUB);
 			}
 		}
 		
-		if(this.opt.ACRO_AB && Acronym.isAcronym(query)){
-			res.add(this.aliases.get(Acronym.cleanAcronym(query)), Result.EXACT_ABBRV_MATCH);
+		if(Acronym.isAcronym(query)){
+			res.add(this.exactAbbrvLookup.get(Acronym.cleanAcronym(query)), MatchType.ABBRV);
 		}
 		
-		return res;
+		res.sort(true);
 	}
 	
 	/**
@@ -122,7 +157,7 @@ public class Freebase implements Iterable<Entity>{
 	 * @return Entity with the given id, null if none exists
 	 */
 	public Entity find(String id){
-		return this.aliases.get(id) != null ? this.aliases.get(id).get(0) : null;
+		return this.idLookup.get(id);
 	}
 	
 	/**
@@ -130,7 +165,12 @@ public class Freebase implements Iterable<Entity>{
 	 * @return Entity with the given contents, null if none exists
 	 */
 	public Entity search(String ent){
-		return this.aliases.get(ent) != null ? this.aliases.get(ent).get(0) : null;
+		Set<Entity> s = this.exactStringLookup.get(ent);
+		if(s == null) return null;
+		
+		for(Entity e : s)
+			return e;
+		return null;
 	}
 	
 	/**
@@ -147,12 +187,17 @@ public class Freebase implements Iterable<Entity>{
 	public static Freebase loadFreebaseEntities(Options opt, boolean loadAliases) throws FileNotFoundException{
 		System.out.print("Loading Freebase...");
 		
-		Freebase fb = new Freebase(opt);
+		Freebase fb = new Freebase();
 		Scanner s = new Scanner(new File(FREEBASE_ENTITIES));
 		int offset = 0;
+		int max = 50000;
 		
-		while(s.hasNextLine())
-			fb.add(Entity.fromString(s.nextLine(), offset++), loadAliases);
+		while(s.hasNextLine()){
+			Entity e = Entity.fromString(s.nextLine(), offset++);
+			e.normInlinks = Math.min(1.0, (double)e.inlinks / (double)max);
+			fb.add(e, loadAliases);
+		}
+		s.close();
 		
 		System.out.println("Complete!");
 		
@@ -166,6 +211,7 @@ public class Freebase implements Iterable<Entity>{
 				if(e != null)
 					fb.add(e, parts[0]);
 			}
+			s.close();
 			
 			System.out.println("Complete!");
 		}
@@ -175,9 +221,9 @@ public class Freebase implements Iterable<Entity>{
 	
 	private void add(Entity e, String alias){
 		if(e != null){
-			if(!this.aliases.containsKey(alias))
-				this.aliases.put(alias, new ArrayList<Entity>());
-			this.aliases.get(alias).add(e);
+			if(!this.wikiLookup.containsKey(alias))
+				this.wikiLookup.put(alias, new HashSet<Entity>());
+			this.wikiLookup.get(alias).add(e);
 		}
 	}
 	

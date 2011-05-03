@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Scanner;
 
 import wrappers.Entity;
+import wrappers.MatchType;
 import wrappers.Result;
 
 import com.wcohen.ss.AffineGap;
@@ -127,10 +128,17 @@ public class Utils {
 			String line = s.nextLine();
 			if(curKey != null && line.startsWith("\t")){
 				Entity e = Entity.fromOutputString(line);
-				e = fb == null ? e : fb.find(e.id);
-				curKey.add(e, -1);
+				Entity tmp = fb.find(e.id);
+				if(tmp != null){
+					tmp.score = e.score;
+					e = tmp;
+				}
+				curKey.add(e, MatchType.EXACT);
 			}else if(!line.isEmpty()){
-				if(curKey != null) rtn.add(curKey);
+				if(curKey != null){
+					curKey.sort(false);
+					rtn.add(curKey);
+				}
 				curKey = new Result(line, cleanString(line));
 			}
 		}
