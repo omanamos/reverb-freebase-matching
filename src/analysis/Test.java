@@ -86,6 +86,7 @@ public class Test {
 	public static void createIndex() throws CorruptIndexException, LockObtainFailedException, IOException {
 		IndexWriter indexWriter = new IndexWriter(new SimpleFSDirectory(new File("index")), new IndexWriterConfig(Version.LUCENE_31, new StandardAnalyzer(Version.LUCENE_31)));
 		Scanner in = new Scanner(new File("data/jazzy-top-300k.dict"));
+		int i = 0;
 		
 		while(in.hasNextLine()){
 			//String[] parts = in.nextLine().split("\t");
@@ -96,6 +97,8 @@ public class Test {
 			//document.add(new Field("id", parts[0], Field.Store.YES, Field.Index.NO));
 			
 			indexWriter.addDocument(document);
+			if(i > 300000)
+				break;
 		}
 		
 		indexWriter.optimize();

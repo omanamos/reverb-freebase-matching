@@ -17,7 +17,7 @@ import wrappers.Result;
  */
 public class Analyze {
 
-	public static void main(String[] args) throws FileNotFoundException{
+	public static void main(String[] args) throws IOException{
 		//Ouput file to analyze
 		String fileName = "output/output-full-v5.3.txt";
 		

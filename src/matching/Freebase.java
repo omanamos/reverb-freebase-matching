@@ -1,7 +1,7 @@
 package matching;
 
 import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -10,6 +10,13 @@ import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 import java.util.Set;
+
+import org.apache.lucene.index.IndexReader;
+import org.apache.lucene.search.spell.LuceneDictionary;
+import org.apache.lucene.search.spell.SpellChecker;
+import org.apache.lucene.search.spell.StringDistance;
+import org.apache.lucene.store.RAMDirectory;
+import org.apache.lucene.store.SimpleFSDirectory;
 
 import wrappers.Entity;
 import wrappers.MatchType;
@@ -23,19 +30,24 @@ public class Freebase implements Iterable<Entity>{
 	
 	public static final String FREEBASE_ENTITIES = "data/output.fbid-prominence.sorted";
 	public static final String WIKI_ALIASES = "data/output.wiki-aliases.sorted";
-	
 	private static final int ACRO_THRESHOLD = 20;
 	
+	//Lookup and storage
 	private List<Entity> entities;
 	private Map<String, Entity> idLookup;
 	
+	//Exact Matching
 	private Map<String, Set<Entity>> exactStringLookup;
 	private Map<String, Set<Entity>> cleanedStringLookup;
 	private Map<String, Set<Entity>> exactSubsLookup;
 	private Map<String, Set<Entity>> exactAbbrvLookup;
 	private Map<String, Set<Entity>> wikiLookup;
 	
-	public Freebase(){
+	//Partial Matching
+	private SpellChecker dict;
+	private StringDistance dist;
+	
+	public Freebase() throws IOException{
 		this.entities = new ArrayList<Entity>();
 		
 		this.idLookup = new HashMap<String, Entity>();
@@ -44,6 +56,12 @@ public class Freebase implements Iterable<Entity>{
 		this.exactAbbrvLookup = new HashMap<String, Set<Entity>>();
 		this.exactSubsLookup = new HashMap<String, Set<Entity>>();
 		this.wikiLookup = new HashMap<String, Set<Entity>>();
+		
+		System.out.print("Loading Lucene Index...");
+		this.dict = new SpellChecker(new RAMDirectory());
+		this.dict.indexDictionary(new LuceneDictionary(IndexReader.open(new SimpleFSDirectory(new File("index"))), "entity"));
+		this.dist = dict.getStringDistance();
+		System.out.println("Complete!");
 	}
 
 	public void add(Entity e){
@@ -114,12 +132,20 @@ public class Freebase implements Iterable<Entity>{
 		
 		loadMatches(query, res);
 		
-		//if(res.size(50) < 1){
-			
-		//}
+		if(res.size(50) < 1){
+			try {
+				loadPartialMatches(query, res);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
 		
 		res.sort(true);
 		return res;
+	}
+	
+	private void loadPartialMatches(String query, Result res) throws IOException{
+		String[] similar = dict.suggestSimilar(query, 5);
 	}
 	
 	private void loadMatches(String query, Result res){
@@ -184,7 +210,7 @@ public class Freebase implements Iterable<Entity>{
 		return this.entities.iterator();
 	}
 	
-	public static Freebase loadFreebaseEntities(Options opt, boolean loadAliases) throws FileNotFoundException{
+	public static Freebase loadFreebaseEntities(Options opt, boolean loadAliases) throws IOException{
 		System.out.print("Loading Freebase...");
 		
 		Freebase fb = new Freebase();
