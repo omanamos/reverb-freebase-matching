@@ -7,6 +7,9 @@ import java.util.List;
 import java.util.Scanner;
 
 import wrappers.Entity;
+import wrappers.Match;
+import wrappers.MatchType;
+import wrappers.Query;
 import wrappers.Result;
 
 import com.wcohen.ss.AffineGap;
@@ -15,7 +18,19 @@ import com.wcohen.ss.CharMatchScore;
 
 public class Utils {
 	
-	public List<String> getAliases(String entity){
+	public static String camelize(String str){
+		String rtn = "";
+		String[] parts = str.split(" ");
+		
+		for(String s : parts){
+			s = Character.toUpperCase(s.charAt(0)) + s.substring(1);
+			rtn += s + " ";
+		}
+		
+		return rtn.substring(0, rtn.length() - 1);
+	}
+	
+	public static List<String> getAliases(String entity){
 		List<String> rtn = new ArrayList<String>();
 		
 		rtn.add(entity);
@@ -26,7 +41,6 @@ public class Utils {
 	}
 	
 	public static String cleanString(String str){
-		
 		return str.replaceAll("(,|\\.|'|&rsquo|\\(.*\\))", "").trim();
 	}
 	
@@ -127,11 +141,18 @@ public class Utils {
 			String line = s.nextLine();
 			if(curKey != null && line.startsWith("\t")){
 				Entity e = Entity.fromOutputString(line);
-				e = fb == null ? e : fb.find(e.id);
-				curKey.add(e, -1);
+				Entity tmp = fb.find(e.id);
+				if(tmp != null){
+					tmp.score = e.score;
+					e = tmp;
+				}
+				curKey.add(new Match(curKey.q, e, MatchType.EXACT));
 			}else if(!line.isEmpty()){
-				if(curKey != null) rtn.add(curKey);
-				curKey = new Result(line, cleanString(line));
+				if(curKey != null){
+					curKey.sort(false);
+					rtn.add(curKey);
+				}
+				curKey = new Result(new Query(line));
 			}
 		}
 		

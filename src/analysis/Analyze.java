@@ -17,12 +17,12 @@ import wrappers.Result;
  */
 public class Analyze {
 
-	public static void main(String[] args) throws FileNotFoundException{
+	public static void main(String[] args) throws IOException{
 		//Ouput file to analyze
-		String fileName = "output/output-full-3.0.txt";
+		String fileName = "output/output-full-v5.3.txt";
 		
 		//Load in freebase
-		Freebase fb = Freebase.loadFreebaseEntities(Options.getDefaults(), true);
+		Freebase fb = Freebase.loadFreebaseEntities(Options.getDefaults(), false);
 		
 		Map<String, String> correctMatches = loadCorrectMatches();
 		
@@ -30,17 +30,17 @@ public class Analyze {
 		Set<Result> uniqueResults = new HashSet<Result>();
 		
 		for(Result res : results){
-			if(!uniqueResults.contains(res)){
-				String correctID = correctMatches.get(res.query);
+			if(correctMatches.containsKey(res.q.orig) && !uniqueResults.contains(res)){
+				String correctID = correctMatches.get(res.q.orig);
 				if(res.hasMatch(correctID)){
 					Entity e = res.getMatch(correctID);
 					
 					int fbDepth = e.offset + 1;
 					int resDepth = res.getDepth(correctID);
 					
-					System.out.println(res.query + "\t" + fbDepth + "\t" + resDepth);
+					System.out.println(res.q.orig + "\t" + fbDepth + "\t" + resDepth);
 				}else{
-					System.out.println(res.query + "\t" + Integer.MAX_VALUE + "\t" + Integer.MAX_VALUE);
+					System.out.println(res.q.orig + "\t" + Integer.MAX_VALUE + "\t" + Integer.MAX_VALUE);
 				}
 				uniqueResults.add(res);
 			}
@@ -60,6 +60,20 @@ public class Analyze {
 			String[] parts = s.nextLine().split("\t");
 			rtn.put(parts[0], parts[1]);
 		}
+		
+		return rtn;
+	}
+	
+	public static Set<String> loadImpossibleMatches() throws FileNotFoundException{
+		Set<String> rtn = new HashSet<String>();
+		
+		Scanner s = new Scanner(new FileReader(new File("data/keys/bad-reverb-entities.txt")));
+		while(s.hasNextLine())
+			rtn.add(s.nextLine().split("\t")[0]);
+		
+		s = new Scanner(new FileReader(new File("data/keys/not-in-freebase.txt")));
+		while(s.hasNextLine())
+			rtn.add(s.nextLine().split("\t")[0]);
 		
 		return rtn;
 	}

@@ -1,6 +1,6 @@
 Iran	/m/03shp	Iran	19349
 Philippines	/m/05v8c	Philippines	24505
-The Egyptian	/m/02k54	Egypt	17294
+The Egyptian	/m/025tvhm	Egyptians	913
 Williams	/m/06p0q8	Deron Williams	71
 Democrats	/m/0d075m	United States Democratic Party	10445
 Ecuador	/m/02k1b	Ecuador	9119
@@ -26,7 +26,7 @@ Middle East	/m/04wsz	Middle East	7613
 Dr. Watson	/m/05zrtqm	IBM Watson	1
 CSU	/m/01nhgd	Cleveland State University	1088
 Comments	/m/01s2x	Comment	17
-American	/m/09c7w0	United States	424605
+American	/m/04q7gbh	Americans	6
 Henjak	/m/03yf8c0	Ivan Henjak	4
 Kaymer	/m/02x68s2	Martin Kaymer	17
 Libya	/m/04gqr	Libya	4393
@@ -45,7 +45,7 @@ Gaddafi	/m/0dxvs	Muammar al-Gaddafi	662
 Feb.	/m/02xx5	February	2724
 State Farm	/m/03dnbx	State Farm Insurance	82
 Muslim Brotherhood	/m/056rs	Muslim Brotherhood	409
-Egyptian	/m/02k54	Egypt	17294
+Egyptian	/m/025tvhm	Egyptians	913
 AIG	/m/02l48d	American International Group	257
 Michigan	/m/04rrx	Michigan	15034
 New Jersey	/m/05fjf	New Jersey	17870
@@ -76,7 +76,7 @@ Egyptians	/m/025tvhm	Egyptians	913
 Tigers	/m/02d02	Detroit Tigers	6002
 Cameron	/m/0266lb	David Cameron	499
 Ingram	/m/04tdqf	Mark Ingram	37
-Iranian	/m/03shp	Iran	19349
+Iranian	/m/04nrnz	Iranian peoples	726
 Hocutt	/m/0b8x4d	Kirby Hocutt	10
 Nets	/m/0jm3b	New Jersey Nets	1743
 Boeing	/m/0178g	Boeing	2161
@@ -86,7 +86,7 @@ Watson&rsquo	/m/05zrtqm	IBM Watson	1
 America	/m/09c7w0	United States	424605
 Republicans	/m/07wbk	United States Republican Party	7743
 Russia	/m/06bnz	Russia	43559
-Americans	/m/09c7w0	United States	424605
+Americans	/m/04q7gbh	Americans	6
 Google	/m/045c7b	Google	3063
 Gabbert	/m/07kjlws	Blaine Gabbert	2
 The United States	/m/09c7w0	United States	424605

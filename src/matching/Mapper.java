@@ -34,7 +34,9 @@ public class Mapper {
 		td.write("@attribute contents string\n");
 		td.write("@attribute inlinks numeric\n");
 		td.write("@attribute strMatches numeric\n");
+		td.write("@attribute cleanMatch numeric\n");
 		td.write("@attribute subMatches numeric\n");
+		td.write("@attribute wikiMatch numeric\n");
 		td.write("@attribute abbrMatch numeric\n");
 		td.write("@attribute class numeric\n");
 		td.write("@data\n");
@@ -52,7 +54,7 @@ public class Mapper {
 			totalTime += System.currentTimeMillis() - timer;
 			
 			for(Entity match : res){
-				w.write("\t" + match + "\n");
+				w.write("\t" + match.toOutputString() + "\n");
 				w.flush();
 			}
 			
@@ -60,8 +62,8 @@ public class Mapper {
 			
 			td.write(res.toString());
 			td.flush();
-			System.out.println(res.query + " matches: ");
-			System.out.println(res);
+			System.out.println(res.q.orig + " matches: ");
+			System.out.println(res.toOutputString());
 			System.out.println("\t" + (100 * rvCnt / (double)rv.size()) + "%");
 			
 		}

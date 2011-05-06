@@ -18,6 +18,7 @@ import org.apache.lucene.search.ScoreDoc;
 import org.apache.lucene.search.TopDocs;
 import org.apache.lucene.search.spell.LuceneDictionary;
 import org.apache.lucene.search.spell.SpellChecker;
+import org.apache.lucene.search.spell.StringDistance;
 import org.apache.lucene.store.LockObtainFailedException;
 import org.apache.lucene.store.RAMDirectory;
 import org.apache.lucene.store.SimpleFSDirectory;
@@ -85,6 +86,7 @@ public class Test {
 	public static void createIndex() throws CorruptIndexException, LockObtainFailedException, IOException {
 		IndexWriter indexWriter = new IndexWriter(new SimpleFSDirectory(new File("index")), new IndexWriterConfig(Version.LUCENE_31, new StandardAnalyzer(Version.LUCENE_31)));
 		Scanner in = new Scanner(new File("data/jazzy-top-300k.dict"));
+		int i = 0;
 		
 		while(in.hasNextLine()){
 			//String[] parts = in.nextLine().split("\t");
@@ -95,13 +97,15 @@ public class Test {
 			//document.add(new Field("id", parts[0], Field.Store.YES, Field.Index.NO));
 			
 			indexWriter.addDocument(document);
+			if(i > 300000)
+				break;
 		}
 		
 		indexWriter.optimize();
 		indexWriter.close();
 	}
 	
-	public static void searchIndex() throws IOException, ParseException{
+	public static void searchIndex() throws IOException, ParseException {
 		Scanner in = new Scanner(System.in);
 		System.out.print("Loading Dictionary...");
 		//SpellChecker dict = new SpellChecker(new RAMDirectory());
@@ -129,25 +133,26 @@ public class Test {
 		} while(true);
 	}
 	
-	public static void spellIndex() throws IOException, ParseException{
+	public static void spellIndex() throws IOException, ParseException {
 		Scanner in = new Scanner(System.in);
 		System.out.print("Loading Dictionary...");
 		SpellChecker dict = new SpellChecker(new RAMDirectory());
 		IndexReader r = IndexReader.open(new SimpleFSDirectory(new File("index")));
 		dict.indexDictionary(new LuceneDictionary(r, "entity"));
+		StringDistance dist = dict.getStringDistance();
 		System.out.println("Complete!");
 		
 		do {
 			System.out.print("Enter word: ");
 			String line = in.nextLine();
 			long timer = System.nanoTime();
-			String[] similar = dict.suggestSimilar(line, 10);
+			String[] similar = dict.suggestSimilar(line, 5);
 			timer = System.nanoTime() - timer;
 			
 			System.out.println("Found " + similar.length + " matches in " + timer / 1000000 + "ms: ");
 			
 			for(String s : similar){
-				System.out.println(s);
+				System.out.println(s + " " + dist.getDistance(s, line));
 			}
 			
 			System.out.println();

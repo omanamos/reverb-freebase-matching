@@ -8,62 +8,108 @@ import analysis.Analyze;
  */
 public class Result implements Iterable<Entity>{
 
-	public static final int EXACT_STRING_MATCH = 0;
-	public static final int EXACT_SUBS_MATCH = 1;
-	public static final int EXACT_ABBRV_MATCH = 2;
-
-	public final String query;
-	public final String dirtyQuery;
-	private PriorityQueue<Entity> matches;
+	private static final double LUCENE_SCALING_FACTOR = 0.27;
+	
+	public final Query q;
+	private List<Entity> lst;
 	private Map<String, Entity> idLookup;
-
+	private Set<Match> m;
+	private Double factor;
+	
 	private Set<Entity> exactStringMatches;
+	private Set<Entity> cleanedStringMatches;
 	private Map<Entity, Integer> exactSubsMatches;
 	private Set<Entity> exactAbbrvMatches;
+	private Set<Entity> wikiMatches;
+	private Map<Entity, Double> luceneMatches;
 	
-	public Result(String query, String dirtyQuery){
-		this.query = query;
-		this.dirtyQuery = dirtyQuery;
-		this.matches = new PriorityQueue<Entity>();
+	public Result(Query q){
+		this.q = q;
+		this.m = new HashSet<Match>();
+		this.lst = new ArrayList<Entity>();
 		this.idLookup = new HashMap<String, Entity>();
 
 		this.exactStringMatches = new HashSet<Entity>();
+		this.cleanedStringMatches = new HashSet<Entity>();
 		this.exactSubsMatches = new HashMap<Entity, Integer>();
 		this.exactAbbrvMatches = new HashSet<Entity>();
+		this.wikiMatches = new HashSet<Entity>();
+		this.luceneMatches = new HashMap<Entity, Double>();
+		this.factor = 1.0;
 	}
 	
 	/**
 	 * @param e Matched Entity to add to this Result
 	 */
-	public void add(Entity e, int matchType){
-		if(!this.idLookup.containsKey(e.id)){
-			this.matches.add(e);
-			this.idLookup.put(e.id, e);
-		}
-
-		switch(matchType){
-		case EXACT_STRING_MATCH:
-			this.exactStringMatches.add(e);
-			break;
-		case EXACT_SUBS_MATCH:
-			if(!this.exactSubsMatches.containsKey(e))
-				this.exactSubsMatches.put(e, 0);
-			this.exactSubsMatches.put(e, this.exactSubsMatches.get(e) + 1);
-			break;
-		case EXACT_ABBRV_MATCH:
-			this.exactAbbrvMatches.add(e);
-			break;
+	public void add(Match m){
+		if(!this.m.contains(m)){
+			this.m.add(m);
+			if(!this.idLookup.containsKey(m.e.id) && this.factor != 1.0)
+				this.luceneMatches.put(m.e, this.factor);
+			
+			switch(m.t){
+				case EXACT:
+					this.exactStringMatches.add(m.e);
+					break;
+				case SUB:
+					if(!this.exactSubsMatches.containsKey(m.e))
+						this.exactSubsMatches.put(m.e, 0);
+					this.exactSubsMatches.put(m.e, this.exactSubsMatches.get(m.e) + 1);
+					break;
+				case ABBRV:
+					this.exactAbbrvMatches.add(m.e);
+					break;
+				case WIKI:
+					this.wikiMatches.add(m.e);
+					break;
+				case CLEANED:
+					this.cleanedStringMatches.add(m.e);
+					break;
+			}
+			
+			if(!this.idLookup.containsKey(m.e.id)){
+				this.idLookup.put(m.e.id, m.e);
+			}
 		}
 	}
 	
 	/**
 	 * @param c collection of Entities to add
 	 */
-	public void add(Collection<Entity> c, int matchType){
+	public void add(Collection<Entity> c, Query q, MatchType m){
 		if(c != null){
 			for(Entity e : c)
-				this.add(e, matchType);
+				this.add(new Match(q, e, m));
 		}
+	}
+	
+	public void sort(boolean computeScores){
+		PriorityQueue<Entity> q = new PriorityQueue<Entity>();
+		this.lst.clear();
+		for(String key : this.idLookup.keySet()){
+			Entity e = this.idLookup.get(key);
+			if(computeScores)
+				e.score = computeScore(e, this.luceneMatches.get(e));
+			q.add(this.idLookup.get(key));
+		}
+		
+		while(!q.isEmpty())
+			this.lst.add(q.poll());
+	}
+	
+	private double computeScore(Entity e, Double factor){
+		factor = factor == null ? 1.0 : LUCENE_SCALING_FACTOR * factor;
+		return factor *(
+				100 * e.normInlinks + 
+				100 * (this.exactStringMatches.contains(e) ? 1 : 0) + 
+				20 * (this.cleanedStringMatches.contains(e) ? 1 : 0) + 
+				20 * (this.exactSubsMatches.containsKey(e) && !this.exactStringMatches.contains(e) && !this.cleanedStringMatches.contains(e) ? this.exactSubsMatches.get(e) : 0) + 
+				80 * (this.exactAbbrvMatches.contains(e) && !this.exactSubsMatches.containsKey(e) && !this.exactStringMatches.contains(e) && !this.cleanedStringMatches.contains(e) ? 1 : 0) + 
+				90 * (this.wikiMatches.contains(e) ? 1 : 0));
+	}
+	
+	public void setFactor(double factor){
+		this.factor = factor;
 	}
 	
 	/**
@@ -89,7 +135,17 @@ public class Result implements Iterable<Entity>{
 	 * @return number of matches in this result
 	 */
 	public int size(){
-		return this.matches.size();
+		return this.m.size();
+	}
+	
+	public int size(int score){
+		int rtn = 0;
+		
+		for(Entity e : this.lst)
+			if(e.score >= score)
+				rtn++;
+		
+		return rtn;
 	}
 	
 	/**
@@ -101,7 +157,7 @@ public class Result implements Iterable<Entity>{
 		if(!this.idLookup.containsKey(id))
 			throw new IllegalArgumentException("No match exists for that id.");
 		int depth = 1;
-		for(Entity e : matches){
+		for(Entity e : this){
 			if(e.id.equals(id))
 				break;
 			depth++;
@@ -109,25 +165,15 @@ public class Result implements Iterable<Entity>{
 		return depth;
 	}
 	
-	/**
-	 * @return the first match added to this result
-	 * @throws IllegalArgumentException if there are no matches in this result
-	 */
-	public Entity sampleMatch(){
-		if(this.matches.isEmpty())
-			throw new IllegalStateException("No match available to sample.");
-		return this.matches.peek();
-	}
-
 	public Iterator<Entity> iterator() {
-		return this.matches.iterator();
+		return this.lst.iterator();
 	}
 	
 	/**
 	 * hashes based on the this.query
 	 */
 	public int hashCode(){
-		return this.query.hashCode();
+		return this.q.hashCode();
 	}
 	
 	/**
@@ -135,7 +181,7 @@ public class Result implements Iterable<Entity>{
 	 */
 	public boolean equals(Object other){
 		if(other instanceof Result){
-			return ((Result)other).query.equals(this.query);
+			return ((Result)other).q.equals(this.q);
 		}else{
 			return false;
 		}
@@ -146,7 +192,7 @@ public class Result implements Iterable<Entity>{
 		int cnt = 0;
 		String correctID = null; 
 		try{
-			correctID = Analyze.loadCorrectMatches().get(this.dirtyQuery);
+			correctID = Analyze.loadCorrectMatches().get(this.q.q);
 		}catch(Exception e){
 			e.printStackTrace();
 		}
@@ -155,9 +201,9 @@ public class Result implements Iterable<Entity>{
 		
 			for(Entity e : this){
 				s += "\"" + e.contents + "\"," + e.inlinks + "," + 
-					(this.exactStringMatches.contains(e) ? 1 : 0) + "," + 
+					(this.exactStringMatches.contains(e) ? 1 : 0) + "," + (this.cleanedStringMatches.contains(e) ? 1 : 0) + "," + 
 					(this.exactSubsMatches.containsKey(e) ? this.exactSubsMatches.get(e) : 0) + "," + 
-					(this.exactAbbrvMatches.contains(e) ? 1 : 0) + "," + 
+					(this.wikiMatches.contains(e) ? 1 : 0) + "," + (this.exactAbbrvMatches.contains(e) ? 1 : 0) + "," + 
 					(e.id.equals(correctID) ? 1 : 0) + "\n";
 				if(e.id.equals(correctID))
 					correctID = null;
@@ -171,11 +217,26 @@ public class Result implements Iterable<Entity>{
 				s += "\"" + e.contents + "\"," + e.inlinks + "," + 
 					(this.exactStringMatches.contains(e) ? 1 : 0) + "," + 
 					(this.exactSubsMatches.containsKey(e) ? this.exactSubsMatches.get(e) : 0) + "," + 
-					(this.exactAbbrvMatches.contains(e) ? 1 : 0) + "," + 
+					(this.wikiMatches.contains(e) ? 1 : 0) + "," + (this.exactAbbrvMatches.contains(e) ? 1 : 0) + "," + 
 					1 + "\n";
 			}
 		}
 		
 		return s;
+	}
+	
+	public String toOutputString(){
+		String rtn = "";
+		int cnt = 0;
+		
+		for(Entity e : this){
+			if(cnt < 5)
+				rtn += e + "\n";
+			else
+				break;
+			cnt++;
+		}
+		
+		return rtn;
 	}
 }
