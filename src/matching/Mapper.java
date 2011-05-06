@@ -62,7 +62,7 @@ public class Mapper {
 			
 			td.write(res.toString());
 			td.flush();
-			System.out.println(res.query + " matches: ");
+			System.out.println(res.q.orig + " matches: ");
 			System.out.println(res.toOutputString());
 			System.out.println("\t" + (100 * rvCnt / (double)rv.size()) + "%");
 			

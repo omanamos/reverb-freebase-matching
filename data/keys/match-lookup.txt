@@ -1,6 +1,6 @@
 Iran	/m/03shp	Iran	19349
 Philippines	/m/05v8c	Philippines	24505
-The Egyptian	/m/02k54	Egypt	17294
+The Egyptian	/m/025tvhm	Egyptians	913
 Williams	/m/06p0q8	Deron Williams	71
 Democrats	/m/0d075m	United States Democratic Party	10445
 Ecuador	/m/02k1b	Ecuador	9119
@@ -45,7 +45,7 @@ Gaddafi	/m/0dxvs	Muammar al-Gaddafi	662
 Feb.	/m/02xx5	February	2724
 State Farm	/m/03dnbx	State Farm Insurance	82
 Muslim Brotherhood	/m/056rs	Muslim Brotherhood	409
-Egyptian	/m/02k54	Egypt	17294
+Egyptian	/m/025tvhm	Egyptians	913
 AIG	/m/02l48d	American International Group	257
 Michigan	/m/04rrx	Michigan	15034
 New Jersey	/m/05fjf	New Jersey	17870
@@ -76,7 +76,7 @@ Egyptians	/m/025tvhm	Egyptians	913
 Tigers	/m/02d02	Detroit Tigers	6002
 Cameron	/m/0266lb	David Cameron	499
 Ingram	/m/04tdqf	Mark Ingram	37
-Iranian	/m/03shp	Iran	19349
+Iranian	/m/04nrnz	Iranian peoples	726
 Hocutt	/m/0b8x4d	Kirby Hocutt	10
 Nets	/m/0jm3b	New Jersey Nets	1743
 Boeing	/m/0178g	Boeing	2161

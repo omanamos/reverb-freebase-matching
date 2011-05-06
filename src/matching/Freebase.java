@@ -21,6 +21,7 @@ import org.apache.lucene.store.SimpleFSDirectory;
 import wrappers.Entity;
 import wrappers.MatchType;
 import wrappers.Options;
+import wrappers.Query;
 import wrappers.Result;
 
 /**
@@ -128,15 +129,17 @@ public class Freebase implements Iterable<Entity>{
 	}
 	
 	public Result getMatches(String query){
-		Result res = new Result(Utils.cleanString(query), query);
+		Query q = new Query(query);
+		Result res = new Result(q);
 		
-		loadMatches(query, res);
+		loadMatches(q, res);
+		res.sort(true);
 		
 		if(res.size(50) < 1){
 			try {
-				loadPartialMatches(query, res);
-			} catch (IOException e) {
-				e.printStackTrace();
+				loadPartialMatches(q, res);
+			} catch (IOException ex) {
+				ex.printStackTrace();
 			}
 		}
 		
@@ -144,35 +147,44 @@ public class Freebase implements Iterable<Entity>{
 		return res;
 	}
 	
-	private void loadPartialMatches(String query, Result res) throws IOException{
-		String[] similar = dict.suggestSimilar(query, 5);
+	private void loadPartialMatches(Query q, Result res) throws IOException {
+		String[] similar = this.dict.suggestSimilar(q.cleanedQ, 5);
+		
+		for(String query : similar){
+			//q = Utils.camelize(q);
+			double dist = this.dist.getDistance(query, q.cleanedQ);
+			res.setFactor(dist);
+			this.loadMatches(new Query(query), res);
+			res.setFactor(1.0);
+		}
 	}
 	
-	private void loadMatches(String query, Result res){
-		res.add(this.exactStringLookup.get(query), MatchType.EXACT);
+	private void loadMatches(Query q, Result res){
+		res.add(this.exactStringLookup.get(q.q), q, MatchType.EXACT);
 		
-		res.add(this.cleanedStringLookup.get(query), MatchType.CLEANED);
+		res.add(this.cleanedStringLookup.get(q.cleanedQ), q, MatchType.CLEANED);
 		
-		if(query.endsWith("s")){
-			String stub = query.substring(0, query.length() - 1);
-			res.add(this.exactStringLookup.get(stub), MatchType.EXACT);
-			res.add(this.exactSubsLookup.get(stub), MatchType.SUB);
+		if(q.cleanedQ.endsWith("s")){
+			String stub = q.cleanedQ.substring(0, q.cleanedQ.length() - 1);
+			Query s = new Query(stub);
+			res.add(this.exactStringLookup.get(stub), s, MatchType.EXACT);
+			res.add(this.exactSubsLookup.get(stub), s, MatchType.SUB);
 		}
 		
-		res.add(this.wikiLookup.get(query), MatchType.WIKI);
+		res.add(this.wikiLookup.get(q.cleanedQ), q, MatchType.WIKI);
 		
-		res.add(this.exactSubsLookup.get(Utils.cleanString(query)), MatchType.SUB);
+		res.add(this.exactSubsLookup.get(q.cleanedQ), q, MatchType.SUB);
 		
-		String[] parts = query.split("( |_|-|,)");
+		String[] parts = q.cleanedQ.split("( |_|-|,)");
 		if(parts.length > 1){
 			for(String word : parts){
 				if(word.length() > 3)
-					res.add(this.exactSubsLookup.get(word), MatchType.SUB);
+					res.add(this.exactSubsLookup.get(word), new Query(word), MatchType.SUB);
 			}
 		}
 		
-		if(Acronym.isAcronym(query)){
-			res.add(this.exactAbbrvLookup.get(Acronym.cleanAcronym(query)), MatchType.ABBRV);
+		if(q.isAcronym){
+			res.add(this.exactAbbrvLookup.get(Acronym.cleanAcronym(q.q)), q, MatchType.ABBRV);
 		}
 		
 		res.sort(true);
@@ -219,7 +231,7 @@ public class Freebase implements Iterable<Entity>{
 		int max = 50000;
 		
 		while(s.hasNextLine()){
-			Entity e = Entity.fromString(s.nextLine(), offset++);
+			Entity e = Entity.fromString(s.nextLine().toLowerCase(), offset++);
 			e.normInlinks = Math.min(1.0, (double)e.inlinks / (double)max);
 			fb.add(e, loadAliases);
 		}
@@ -233,9 +245,9 @@ public class Freebase implements Iterable<Entity>{
 			s = new Scanner(new File(WIKI_ALIASES));
 			while(s.hasNextLine()){
 				String[] parts = s.nextLine().split("\t");
-				Entity e = fb.find(parts[3]);
+				Entity e = fb.find(parts[3].toLowerCase());
 				if(e != null)
-					fb.add(e, parts[0]);
+					fb.addAlias(e, parts[0].toLowerCase());
 			}
 			s.close();
 			
@@ -245,7 +257,7 @@ public class Freebase implements Iterable<Entity>{
 		return fb;
 	}
 	
-	private void add(Entity e, String alias){
+	private void addAlias(Entity e, String alias){
 		if(e != null){
 			if(!this.wikiLookup.containsKey(alias))
 				this.wikiLookup.put(alias, new HashSet<Entity>());

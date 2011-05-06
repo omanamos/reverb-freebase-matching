@@ -30,17 +30,17 @@ public class Analyze {
 		Set<Result> uniqueResults = new HashSet<Result>();
 		
 		for(Result res : results){
-			if(correctMatches.containsKey(res.query) && !uniqueResults.contains(res)){
-				String correctID = correctMatches.get(res.query);
+			if(correctMatches.containsKey(res.q.orig) && !uniqueResults.contains(res)){
+				String correctID = correctMatches.get(res.q.orig);
 				if(res.hasMatch(correctID)){
 					Entity e = res.getMatch(correctID);
 					
 					int fbDepth = e.offset + 1;
 					int resDepth = res.getDepth(correctID);
 					
-					System.out.println(res.query + "\t" + fbDepth + "\t" + resDepth);
+					System.out.println(res.q.orig + "\t" + fbDepth + "\t" + resDepth);
 				}else{
-					System.out.println(res.query + "\t" + Integer.MAX_VALUE + "\t" + Integer.MAX_VALUE);
+					System.out.println(res.q.orig + "\t" + Integer.MAX_VALUE + "\t" + Integer.MAX_VALUE);
 				}
 				uniqueResults.add(res);
 			}

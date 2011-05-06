@@ -105,7 +105,7 @@ public class Test {
 		indexWriter.close();
 	}
 	
-	public static void searchIndex() throws IOException, ParseException{
+	public static void searchIndex() throws IOException, ParseException {
 		Scanner in = new Scanner(System.in);
 		System.out.print("Loading Dictionary...");
 		//SpellChecker dict = new SpellChecker(new RAMDirectory());
@@ -133,7 +133,7 @@ public class Test {
 		} while(true);
 	}
 	
-	public static void spellIndex() throws IOException, ParseException{
+	public static void spellIndex() throws IOException, ParseException {
 		Scanner in = new Scanner(System.in);
 		System.out.print("Loading Dictionary...");
 		SpellChecker dict = new SpellChecker(new RAMDirectory());
