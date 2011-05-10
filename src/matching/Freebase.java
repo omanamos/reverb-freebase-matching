@@ -20,7 +20,6 @@ import org.apache.lucene.store.SimpleFSDirectory;
 
 import wrappers.Entity;
 import wrappers.MatchType;
-import wrappers.Options;
 import wrappers.Query;
 import wrappers.Result;
 
@@ -58,11 +57,9 @@ public class Freebase implements Iterable<Entity>{
 		this.exactSubsLookup = new HashMap<String, Set<Entity>>();
 		this.wikiLookup = new HashMap<String, Set<Entity>>();
 		
-		System.out.print("Loading Lucene Index...");
 		this.dict = new SpellChecker(new RAMDirectory());
 		this.dict.indexDictionary(new LuceneDictionary(IndexReader.open(new SimpleFSDirectory(new File("index"))), "entity"));
 		this.dist = dict.getStringDistance();
-		System.out.println("Complete!");
 	}
 
 	public void add(Entity e){
@@ -222,7 +219,7 @@ public class Freebase implements Iterable<Entity>{
 		return this.entities.iterator();
 	}
 	
-	public static Freebase loadFreebaseEntities(Options opt, boolean loadAliases) throws IOException{
+	public static Freebase loadFreebaseEntities(boolean loadAliases) throws IOException{
 		System.out.print("Loading Freebase...");
 		
 		Freebase fb = new Freebase();

@@ -8,7 +8,6 @@ import matching.Mapper;
 import matching.Utils;
 
 import wrappers.Entity;
-import wrappers.Options;
 import wrappers.Result;
 
 /**
@@ -22,7 +21,7 @@ public class Analyze {
 		String fileName = "output/output-full-v5.3.txt";
 		
 		//Load in freebase
-		Freebase fb = Freebase.loadFreebaseEntities(Options.getDefaults(), false);
+		Freebase fb = Freebase.loadFreebaseEntities(false);
 		
 		Map<String, String> correctMatches = loadCorrectMatches();
 		

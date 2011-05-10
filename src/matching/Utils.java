@@ -18,6 +18,17 @@ import com.wcohen.ss.CharMatchScore;
 
 public class Utils {
 	
+	
+	public static List<String> loadReverbEntities(String fileName) throws FileNotFoundException{
+		System.out.print("Loading Reverb Entity List...");
+		List<String> rtn = new ArrayList<String>();
+		Scanner s = new Scanner(new File(fileName));
+		while(s.hasNextLine())
+			rtn.add(s.nextLine().split("\t")[0]);
+		System.out.println("Complete!");
+		return rtn;
+	}
+	
 	public static String camelize(String str){
 		String rtn = "";
 		String[] parts = str.split(" ");

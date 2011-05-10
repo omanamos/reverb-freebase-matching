@@ -3,20 +3,13 @@ package matching;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-import wrappers.Options;
 import wrappers.Result;
 
 public class Matcher {
 
 	public static void main(String[] args) throws FileNotFoundException, Exception{
-		Options opt;
-		try {
-			opt = new Options(args);
-		} catch (Exception e) {
-			return;
-		}
 		
-		Freebase fb = Freebase.loadFreebaseEntities(opt, true);
+		Freebase fb = Freebase.loadFreebaseEntities(true);
 		
 		String line = "";
 		Scanner s = new Scanner(System.in);

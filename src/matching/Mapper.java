@@ -2,32 +2,22 @@ package matching;
 
 import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 import wrappers.Entity;
-import wrappers.Options;
 import wrappers.Result;
 
 public class Mapper {
 	public static final String REVERB_ENTITIES = "input/entity_list.txt";
 
 	public static void main(String[] args) throws IOException{
-		Options opt;
-		try {
-			opt = new Options(args);
-		} catch (Exception e) {
-			return;
-		}
 		
-		Freebase fb = Freebase.loadFreebaseEntities(opt, true);
-		List<String> rv = loadReverbEntities(REVERB_ENTITIES);
+		Freebase fb = Freebase.loadFreebaseEntities(true);
+		List<String> rv = Utils.loadReverbEntities(REVERB_ENTITIES);
 
-		BufferedWriter w = new BufferedWriter(new FileWriter(new File(opt.OUTPUT)));
+		BufferedWriter w = new BufferedWriter(new FileWriter(new File("output/output.txt")));
 		BufferedWriter td = new BufferedWriter(new FileWriter(new File("data/ml/data.arff")));
 		
 		td.write("@relation thresholds\n");
@@ -87,15 +77,5 @@ public class Mapper {
 		*/
 		System.out.println();
 		System.out.println();
-	}
-	
-	public static List<String> loadReverbEntities(String fileName) throws FileNotFoundException{
-		System.out.print("Loading Reverb Entity List...");
-		List<String> rtn = new ArrayList<String>();
-		Scanner s = new Scanner(new File(fileName));
-		while(s.hasNextLine())
-			rtn.add(s.nextLine().split("\t")[0]);
-		System.out.println("Complete!");
-		return rtn;
 	}
 }

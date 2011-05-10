@@ -36,7 +36,7 @@ public class Entity implements Comparable<Entity>{
 	}
     
 	public String toString(){
-		return this.id + "\t" + this.contents + "\t" + score;
+		return this.id + "\t" + this.contents + "\t" + this.score;
 	}
 	
 	public String toOutputString(){

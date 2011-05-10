@@ -186,6 +186,19 @@ public class Result implements Iterable<Entity>{
 			return false;
 		}
 	}
+	
+	public String toString(int depth){
+		String rtn = this.q.orig;
+		int i = 0;
+		for(Entity e : this){
+			rtn += "\n\t" + e;
+			i++;
+			if(i == depth)
+				break;
+		}
+		
+		return rtn + "\n";
+	}
 
 	public String toString(){
 		String s = "";
