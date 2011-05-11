@@ -14,7 +14,7 @@ public class Mapper {
 
 	public static void main(String[] args) throws IOException{
 		
-		Freebase fb = Freebase.loadFreebaseEntities(true);
+		Freebase fb = Freebase.loadFreebase(true);
 		List<String> rv = Utils.loadReverbEntities(REVERB_ENTITIES);
 
 		BufferedWriter w = new BufferedWriter(new FileWriter(new File("output/output.txt")));
@@ -34,6 +34,7 @@ public class Mapper {
 
 		int rvCnt = 0;
 		long totalTime = 0;
+		int luceneMatches = 0;
 		
 		for(String rvEnt : rv){
 			w.write(rvEnt + "\n");
@@ -48,6 +49,7 @@ public class Mapper {
 				w.flush();
 			}
 			
+			luceneMatches += res.hasLuceneMatches() ? 1 : 0;
 			rvCnt++;
 			
 			td.write(res.toString());
@@ -64,17 +66,8 @@ public class Mapper {
 		System.out.println("\tAverage time per entry = " + timePerEntry + " seconds");
 		double entryPerSecond = 1.0 / timePerEntry;
 		System.out.println("\tProcessed " + entryPerSecond + " entries per second");
+		System.out.println("\tUsed Lucene " + luceneMatches + "(" + 100.0 * luceneMatches / (double)rv.size() + "%) times");
 		
-		/*
-		System.out.println();
-		long total = fb.c1 + fb.c2 + fb.c3 + fb.c4 + fb.c5;
-		System.out.println("Time Division:");
-		System.out.println("\tTime spent computing Substring(A,B) = " + fb.c1 / 1000000000 + "s (" + (100 * fb.c1 / total) + "%).");
-		System.out.println("\tTime spent computing Substring(B,A) = " + fb.c2 / 1000000000 + "s (" + (100 * fb.c2 / total) + "%).");
-		System.out.println("\tTime spent computing Distance(A,B) = " + fb.c3 / 1000000000 + "s (" + (100 * fb.c3 / total) + "%).");
-		System.out.println("\tTime spent computing Acronym(A,B) = " + fb.c4 / 1000000000 + "s (" + (100 * fb.c4 / total) + "%).");
-		System.out.println("\tTime spent computing Acronym(B,A) = " + fb.c5 / 1000000000 + "s (" + (100 * fb.c5 / total) + "%).");
-		*/
 		System.out.println();
 		System.out.println();
 	}

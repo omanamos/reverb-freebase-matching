@@ -1,6 +1,8 @@
 package wrappers;
 
 import java.util.*;
+
+import wrappers.Weights.Attr;
 import analysis.Analyze;
 
 /**
@@ -8,8 +10,9 @@ import analysis.Analyze;
  */
 public class Result implements Iterable<Entity>{
 
-	private static final double LUCENE_SCALING_FACTOR = 0.27;
+	private static final double LUCENE_SCALING_FACTOR = 0.2;
 	
+	public final Weights w;
 	public final Query q;
 	private List<Entity> lst;
 	private Map<String, Entity> idLookup;
@@ -23,7 +26,7 @@ public class Result implements Iterable<Entity>{
 	private Set<Entity> wikiMatches;
 	private Map<Entity, Double> luceneMatches;
 	
-	public Result(Query q){
+	public Result(Query q, Weights w){
 		this.q = q;
 		this.m = new HashSet<Match>();
 		this.lst = new ArrayList<Entity>();
@@ -36,6 +39,7 @@ public class Result implements Iterable<Entity>{
 		this.wikiMatches = new HashSet<Entity>();
 		this.luceneMatches = new HashMap<Entity, Double>();
 		this.factor = 1.0;
+		this.w = w;
 	}
 	
 	/**
@@ -99,13 +103,13 @@ public class Result implements Iterable<Entity>{
 	
 	private double computeScore(Entity e, Double factor){
 		factor = factor == null ? 1.0 : LUCENE_SCALING_FACTOR * factor;
-		return factor *(
-				100 * e.normInlinks + 
-				100 * (this.exactStringMatches.contains(e) ? 1 : 0) + 
-				20 * (this.cleanedStringMatches.contains(e) ? 1 : 0) + 
-				20 * (this.exactSubsMatches.containsKey(e) && !this.exactStringMatches.contains(e) && !this.cleanedStringMatches.contains(e) ? this.exactSubsMatches.get(e) : 0) + 
-				80 * (this.exactAbbrvMatches.contains(e) && !this.exactSubsMatches.containsKey(e) && !this.exactStringMatches.contains(e) && !this.cleanedStringMatches.contains(e) ? 1 : 0) + 
-				90 * (this.wikiMatches.contains(e) ? 1 : 0));
+		return this.w.getWeight(Attr.inlinks) * e.normInlinks + 
+				factor *(
+				this.w.getWeight(Attr.exact) * (this.exactStringMatches.contains(e) ? 1 : 0) + 
+				this.w.getWeight(Attr.cleaned) * (this.cleanedStringMatches.contains(e) ? 1 : 0) + 
+				this.w.getWeight(Attr.substr) * (this.exactSubsMatches.containsKey(e) && !this.exactStringMatches.contains(e) && !this.cleanedStringMatches.contains(e) ? this.exactSubsMatches.get(e) : 0) + 
+				this.w.getWeight(Attr.abbrv) * (this.exactAbbrvMatches.contains(e) && !this.exactSubsMatches.containsKey(e) && !this.exactStringMatches.contains(e) && !this.cleanedStringMatches.contains(e) ? 1 : 0) + 
+				this.w.getWeight(Attr.wiki) * (this.wikiMatches.contains(e) ? 1 : 0));
 	}
 	
 	public void setFactor(double factor){
@@ -118,6 +122,10 @@ public class Result implements Iterable<Entity>{
 	 */
 	public boolean hasMatch(String id){
 		return id != null && this.idLookup.containsKey(id);
+	}
+	
+	public boolean hasLuceneMatches(){
+		return !this.luceneMatches.isEmpty();
 	}
 	
 	/**

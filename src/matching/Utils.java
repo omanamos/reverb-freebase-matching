@@ -11,6 +11,7 @@ import wrappers.Match;
 import wrappers.MatchType;
 import wrappers.Query;
 import wrappers.Result;
+import wrappers.Weights;
 
 import com.wcohen.ss.AffineGap;
 import com.wcohen.ss.CharMatchScore;
@@ -145,6 +146,7 @@ public class Utils {
 	public static List<Result> parseOutputFile(File input, Freebase fb) throws FileNotFoundException{
 		System.out.print("Parsing " + input.getName() + " output...");
 		List<Result> rtn = new ArrayList<Result>();
+		Weights w = new Weights(new File(Freebase.WEIGHTS_CONFIG));
 		
 		Scanner s = new Scanner(input);
 		Result curKey = null;
@@ -163,7 +165,7 @@ public class Utils {
 					curKey.sort(false);
 					rtn.add(curKey);
 				}
-				curKey = new Result(new Query(line));
+				curKey = new Result(new Query(line), w);
 			}
 		}
 		

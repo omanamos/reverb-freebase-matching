@@ -22,6 +22,7 @@ import wrappers.Entity;
 import wrappers.MatchType;
 import wrappers.Query;
 import wrappers.Result;
+import wrappers.Weights;
 
 /**
  * This class manages and searches the set of Freebase entities.
@@ -30,7 +31,9 @@ public class Freebase implements Iterable<Entity>{
 	
 	public static final String FREEBASE_ENTITIES = "data/output.fbid-prominence.sorted";
 	public static final String WIKI_ALIASES = "data/output.wiki-aliases.sorted";
+	public static final String WEIGHTS_CONFIG = "weights.config";
 	private static final int ACRO_THRESHOLD = 20;
+	private final Weights w;
 	
 	//Lookup and storage
 	private List<Entity> entities;
@@ -60,6 +63,8 @@ public class Freebase implements Iterable<Entity>{
 		this.dict = new SpellChecker(new RAMDirectory());
 		this.dict.indexDictionary(new LuceneDictionary(IndexReader.open(new SimpleFSDirectory(new File("index"))), "entity"));
 		this.dist = dict.getStringDistance();
+		
+		this.w = new Weights(new File(WEIGHTS_CONFIG));
 	}
 
 	public void add(Entity e){
@@ -127,12 +132,12 @@ public class Freebase implements Iterable<Entity>{
 	
 	public Result getMatches(String query){
 		Query q = new Query(query);
-		Result res = new Result(q);
+		Result res = new Result(q, w);
 		
 		loadMatches(q, res);
 		res.sort(true);
 		
-		if(res.size(50) < 1){
+		if(res.size(100) < 1){
 			try {
 				loadPartialMatches(q, res);
 			} catch (IOException ex) {
@@ -219,17 +224,21 @@ public class Freebase implements Iterable<Entity>{
 		return this.entities.iterator();
 	}
 	
-	public static Freebase loadFreebaseEntities(boolean loadAliases) throws IOException{
+	public static Freebase loadFreebase(boolean loadAliases) throws IOException{
 		System.out.print("Loading Freebase...");
 		
 		Freebase fb = new Freebase();
 		Scanner s = new Scanner(new File(FREEBASE_ENTITIES));
 		int offset = 0;
-		int max = 50000;
+		double max = -1.0;
 		
 		while(s.hasNextLine()){
 			Entity e = Entity.fromString(s.nextLine().toLowerCase(), offset++);
-			e.normInlinks = Math.min(1.0, (double)e.inlinks / (double)max);
+			
+			if(max == -1.0)
+				max = Math.log(e.inlinks);
+			
+			e.normInlinks = Math.log(e.inlinks) / max;
 			fb.add(e, loadAliases);
 		}
 		s.close();

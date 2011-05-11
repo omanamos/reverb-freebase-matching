@@ -18,7 +18,7 @@ public class Main {
 		
 		BufferedWriter out = new BufferedWriter(new FileWriter(new File(opt.OUTPUT)));
 		List<String> rv = Utils.loadReverbEntities(opt.INPUT);
-		Freebase fb = Freebase.loadFreebaseEntities(true);
+		Freebase fb = Freebase.loadFreebase(true);
 		
 		for(String rvEnt : rv){
 			Result res = fb.getMatches(rvEnt);

@@ -9,7 +9,7 @@ public class Matcher {
 
 	public static void main(String[] args) throws FileNotFoundException, Exception{
 		
-		Freebase fb = Freebase.loadFreebaseEntities(true);
+		Freebase fb = Freebase.loadFreebase(true);
 		
 		String line = "";
 		Scanner s = new Scanner(System.in);
