@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.util.List;
 
 import wrappers.Options;
+import wrappers.PerformanceFactor;
 import wrappers.Result;
 
 public class Main {
@@ -21,7 +22,7 @@ public class Main {
 		Freebase fb = Freebase.loadFreebase(true);
 		
 		for(String rvEnt : rv){
-			Result res = fb.getMatches(rvEnt);
+			Result res = fb.getMatches(rvEnt, new PerformanceFactor());
 			out.write(res.toString(opt.MAX_MATCHES));
 			out.flush();
 		}

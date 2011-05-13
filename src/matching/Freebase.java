@@ -20,6 +20,7 @@ import org.apache.lucene.store.SimpleFSDirectory;
 
 import wrappers.Entity;
 import wrappers.MatchType;
+import wrappers.PerformanceFactor;
 import wrappers.Query;
 import wrappers.Result;
 import wrappers.Weights;
@@ -31,6 +32,7 @@ public class Freebase implements Iterable<Entity>{
 	
 	public static final String FREEBASE_ENTITIES = "data/output.fbid-prominence.sorted";
 	public static final String WIKI_ALIASES = "data/output.wiki-aliases.sorted";
+	public static final String SYNONYMS = "data/synonyms.txt";
 	public static final String WEIGHTS_CONFIG = "weights.config";
 	private static final int ACRO_THRESHOLD = 20;
 	private final Weights w;
@@ -130,16 +132,18 @@ public class Freebase implements Iterable<Entity>{
 		}
 	}
 	
-	public Result getMatches(String query){
+	public Result getMatches(String query, PerformanceFactor pf){
 		Query q = new Query(query);
 		Result res = new Result(q, w);
 		
-		loadMatches(q, res);
+		loadMatches(q, res, pf);
 		res.sort(true);
 		
 		if(res.size(100) < 1){
 			try {
+				pf.start();
 				loadPartialMatches(q, res);
+				pf.end(MatchType.LUCENE);
 			} catch (IOException ex) {
 				ex.printStackTrace();
 			}
@@ -153,40 +157,55 @@ public class Freebase implements Iterable<Entity>{
 		String[] similar = this.dict.suggestSimilar(q.cleanedQ, 5);
 		
 		for(String query : similar){
-			//q = Utils.camelize(q);
 			double dist = this.dist.getDistance(query, q.cleanedQ);
 			res.setFactor(dist);
-			this.loadMatches(new Query(query), res);
+			this.loadMatches(new Query(query), res, new PerformanceFactor());
 			res.setFactor(1.0);
 		}
 	}
 	
-	private void loadMatches(Query q, Result res){
-		res.add(this.exactStringLookup.get(q.q), q, MatchType.EXACT);
+	private void loadMatches(Query q, Result res, PerformanceFactor pf){
+		pf.start();
+		pf.match(MatchType.EXACT, res.add(this.exactStringLookup.get(q.q), q, MatchType.EXACT));
+		pf.end(MatchType.EXACT);
 		
-		res.add(this.cleanedStringLookup.get(q.cleanedQ), q, MatchType.CLEANED);
+		pf.start();
+		pf.match(MatchType.CLEANED, res.add(this.cleanedStringLookup.get(q.cleanedQ), q, MatchType.CLEANED));
+		pf.end(MatchType.CLEANED);
 		
 		if(q.cleanedQ.endsWith("s")){
 			String stub = q.cleanedQ.substring(0, q.cleanedQ.length() - 1);
 			Query s = new Query(stub);
-			res.add(this.exactStringLookup.get(stub), s, MatchType.EXACT);
-			res.add(this.exactSubsLookup.get(stub), s, MatchType.SUB);
+			
+			pf.start();
+			pf.match(MatchType.EXACT, res.add(this.exactStringLookup.get(stub), s, MatchType.EXACT));
+			pf.end(MatchType.EXACT);
+			
+			pf.start();
+			pf.match(MatchType.SUB, res.add(this.exactSubsLookup.get(stub), s, MatchType.SUB));
+			pf.end(MatchType.SUB);
 		}
 		
-		res.add(this.wikiLookup.get(q.cleanedQ), q, MatchType.WIKI);
+		pf.start();
+		pf.match(MatchType.WIKI, res.add(this.wikiLookup.get(q.cleanedQ), q, MatchType.WIKI));
+		pf.end(MatchType.WIKI);
 		
-		res.add(this.exactSubsLookup.get(q.cleanedQ), q, MatchType.SUB);
+		pf.start();
+		pf.match(MatchType.SUB, res.add(this.exactSubsLookup.get(q.cleanedQ), q, MatchType.SUB));
 		
 		String[] parts = q.cleanedQ.split("( |_|-|,)");
 		if(parts.length > 1){
 			for(String word : parts){
 				if(word.length() > 3)
-					res.add(this.exactSubsLookup.get(word), new Query(word), MatchType.SUB);
+					pf.match(MatchType.SUB, res.add(this.exactSubsLookup.get(word), new Query(word), MatchType.SUB));
 			}
 		}
+		pf.end(MatchType.SUB);
 		
 		if(q.isAcronym){
-			res.add(this.exactAbbrvLookup.get(Acronym.cleanAcronym(q.q)), q, MatchType.ABBRV);
+			pf.start();
+			pf.match(MatchType.ABBRV, res.add(this.exactAbbrvLookup.get(Acronym.cleanAcronym(q.q)), q, MatchType.ABBRV));
+			pf.end(MatchType.ABBRV);
 		}
 		
 		res.sort(true);
@@ -251,9 +270,8 @@ public class Freebase implements Iterable<Entity>{
 			s = new Scanner(new File(WIKI_ALIASES));
 			while(s.hasNextLine()){
 				String[] parts = s.nextLine().split("\t");
-				Entity e = fb.find(parts[3].toLowerCase());
-				if(e != null)
-					fb.addAlias(e, parts[0].toLowerCase());
+				Entity e = fb.find(parts[3]);
+				fb.addAlias(e, Utils.cleanString(parts[0].toLowerCase()));
 			}
 			s.close();
 			
@@ -263,6 +281,11 @@ public class Freebase implements Iterable<Entity>{
 		return fb;
 	}
 	
+	/**
+	 * Adds mapping between alias and Entity if e != null
+	 * @param e Entity to map to
+	 * @param alias Some alias of given Entity
+	 */
 	private void addAlias(Entity e, String alias){
 		if(e != null){
 			if(!this.wikiLookup.containsKey(alias))
@@ -270,5 +293,4 @@ public class Freebase implements Iterable<Entity>{
 			this.wikiLookup.get(alias).add(e);
 		}
 	}
-	
 }

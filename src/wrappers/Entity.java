@@ -14,7 +14,7 @@ public class Entity implements Comparable<Entity>{
 	 * depth in freebase
 	 */
 	public final Integer offset;
-	public Double score;
+	public Score score;
 	
 	public Entity(String id){
 		this(id, null, null, null);
@@ -31,7 +31,7 @@ public class Entity implements Comparable<Entity>{
 		this.offset = offset;
 		this.cleanedContents = Utils.cleanString(this.contents);
 		this.noCleaning = this.contents.equals(this.cleanedContents);
-		this.score = 0.0;
+		this.score = new Score();
 		this.normInlinks = 0.0;
 	}
     
@@ -40,7 +40,7 @@ public class Entity implements Comparable<Entity>{
 	}
 	
 	public String toOutputString(){
-		return this.id + "\t" + this.contents + "\t" + inlinks + "\t" + score;
+		return this.id + "\t" + this.contents + "\t" + this.inlinks + "\t" + score.total;
 	}
 	
 	public int hashCode(){
@@ -69,7 +69,7 @@ public class Entity implements Comparable<Entity>{
 		String[] tmp = s.trim().split("\t");
 		Entity rtn = new Entity(tmp[0], tmp[1], Integer.parseInt(tmp[2]));
 		if(tmp.length > 3)
-			rtn.score = Double.parseDouble(tmp[3]);
+			rtn.score = new Score(Double.parseDouble(tmp[3]));
 		return rtn;
 	}
 	

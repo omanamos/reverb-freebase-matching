@@ -26,7 +26,7 @@ Middle East	/m/04wsz	Middle East	7613
 Dr. Watson	/m/05zrtqm	IBM Watson	1
 CSU	/m/01nhgd	Cleveland State University	1088
 Comments	/m/01s2x	Comment	17
-American	/m/04q7gbh	Americans	6
+American	/m/09c7w0	United States	424605
 Henjak	/m/03yf8c0	Ivan Henjak	4
 Kaymer	/m/02x68s2	Martin Kaymer	17
 Libya	/m/04gqr	Libya	4393
@@ -86,7 +86,7 @@ Watson&rsquo	/m/05zrtqm	IBM Watson	1
 America	/m/09c7w0	United States	424605
 Republicans	/m/07wbk	United States Republican Party	7743
 Russia	/m/06bnz	Russia	43559
-Americans	/m/04q7gbh	Americans	6
+Americans	/m/09c7w0	United States	424605
 Google	/m/045c7b	Google	3063
 Gabbert	/m/07kjlws	Blaine Gabbert	2
 The United States	/m/09c7w0	United States	424605

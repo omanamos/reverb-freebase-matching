@@ -80,11 +80,13 @@ public class Result implements Iterable<Entity>{
 	/**
 	 * @param c collection of Entities to add
 	 */
-	public void add(Collection<Entity> c, Query q, MatchType m){
+	public int add(Collection<Entity> c, Query q, MatchType m){
 		if(c != null){
 			for(Entity e : c)
 				this.add(new Match(q, e, m));
+			return c.size();
 		}
+		return 0;
 	}
 	
 	public void sort(boolean computeScores){
@@ -101,15 +103,15 @@ public class Result implements Iterable<Entity>{
 			this.lst.add(q.poll());
 	}
 	
-	private double computeScore(Entity e, Double factor){
+	private Score computeScore(Entity e, Double factor){
 		factor = factor == null ? 1.0 : LUCENE_SCALING_FACTOR * factor;
-		return this.w.getWeight(Attr.inlinks) * e.normInlinks + 
-				factor *(
-				this.w.getWeight(Attr.exact) * (this.exactStringMatches.contains(e) ? 1 : 0) + 
-				this.w.getWeight(Attr.cleaned) * (this.cleanedStringMatches.contains(e) ? 1 : 0) + 
-				this.w.getWeight(Attr.substr) * (this.exactSubsMatches.containsKey(e) && !this.exactStringMatches.contains(e) && !this.cleanedStringMatches.contains(e) ? this.exactSubsMatches.get(e) : 0) + 
-				this.w.getWeight(Attr.abbrv) * (this.exactAbbrvMatches.contains(e) && !this.exactSubsMatches.containsKey(e) && !this.exactStringMatches.contains(e) && !this.cleanedStringMatches.contains(e) ? 1 : 0) + 
-				this.w.getWeight(Attr.wiki) * (this.wikiMatches.contains(e) ? 1 : 0));
+		return new Score(this.w.getWeight(Attr.inlinks) * e.normInlinks,
+				         factor,
+				         this.w.getWeight(Attr.exact) * (this.exactStringMatches.contains(e) ? 1 : 0),
+				         this.w.getWeight(Attr.cleaned) * (this.cleanedStringMatches.contains(e) ? 1 : 0),
+				         this.w.getWeight(Attr.substr) * (this.exactSubsMatches.containsKey(e) && !this.exactStringMatches.contains(e) && !this.cleanedStringMatches.contains(e) ? this.exactSubsMatches.get(e) : 0), 
+				         this.w.getWeight(Attr.abbrv) * (this.exactAbbrvMatches.contains(e) && !this.exactSubsMatches.containsKey(e) && !this.exactStringMatches.contains(e) && !this.cleanedStringMatches.contains(e) ? 1 : 0), 
+				         this.w.getWeight(Attr.wiki) * (this.wikiMatches.contains(e) ? 1 : 0));
 	}
 	
 	public void setFactor(double factor){
@@ -150,7 +152,7 @@ public class Result implements Iterable<Entity>{
 		int rtn = 0;
 		
 		for(Entity e : this.lst)
-			if(e.score >= score)
+			if(e.score.total >= score)
 				rtn++;
 		
 		return rtn;

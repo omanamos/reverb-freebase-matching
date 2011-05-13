@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class Weights {
 
-	public enum Attr{inlinks, exact, cleaned, substr, abbrv, wiki};
+	public enum Attr{inlinks, exact, cleaned, substr, abbrv, wiki, syn};
 	private Map<Enum<Attr>, Double> weights; 
 	
 	public Weights(File f) throws FileNotFoundException{
