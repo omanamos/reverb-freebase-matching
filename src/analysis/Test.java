@@ -24,6 +24,8 @@ import org.apache.lucene.store.RAMDirectory;
 import org.apache.lucene.store.SimpleFSDirectory;
 import org.apache.lucene.util.Version;
 
+import wrappers.Entity;
+
 import matching.*;
 
 import com.wcohen.ss.AffineGap;
@@ -40,7 +42,7 @@ public class Test {
 		do{
 			System.out.print("Enter code (1 = testAffine, 2 = testAcronym, 3 = testDistance, 4 = buildList, \n\t\t\t" +
 										 "5 = timingTests, 6 = buildJazzy, 7 = testJazzy, 8 = createIndex, \n\t\t\t" +
-										 "9 = searchIndex, 10 = spellIndex): ");
+										 "9 = searchIndex, 10 = spellIndex, 11 = naiveMatching, 12 = naiveSubstring): ");
 			try{
 				switch(Integer.parseInt(s.nextLine())){
 				case 1:
@@ -73,6 +75,12 @@ public class Test {
 				case 10:
 					spellIndex();
 					break;
+				case 11:
+					naiveMatching();
+					break;
+				case 12:
+					naiveSubstring();
+					break;
 				default:
 					throw new Exception();
 				}
@@ -81,6 +89,85 @@ public class Test {
 				e.printStackTrace();
 			}
 		} while(cont);
+	}
+	
+	public static void naiveSubstring() throws IOException{
+		List<Entity> fb = new ArrayList<Entity>();
+		BufferedWriter w = new BufferedWriter(new FileWriter(new File("output/output_naive.txt")));
+		System.out.print("Loading Freebase...");
+		
+		Scanner s = new Scanner(new File(Freebase.FREEBASE_ENTITIES));
+		int offset = 0;
+		
+		while(s.hasNextLine()){
+			Entity e = Entity.fromString(s.nextLine().toLowerCase(), offset++);
+			fb.add(e);
+		}
+		s.close();
+		
+		System.out.println("Complete!");
+		
+		List<String> rv = Utils.loadReverbEntities(Mapper.REVERB_ENTITIES);
+		long totalTime = 0;
+		int cnt = 0;
+		for(String rvEnt : rv){
+			w.write(rvEnt + "\n");
+			rvEnt = Utils.cleanString(rvEnt).toLowerCase();
+			List<Entity> matches = new ArrayList<Entity>();
+			long timer = System.nanoTime();
+			for(Entity e : fb){
+				if(e.cleanedContents.indexOf(rvEnt) != -1){
+					matches.add(e);
+					if(matches.size() == 100)
+						break;
+					//System.out.println("\t" + e);
+				}
+			}
+			totalTime += System.nanoTime() - timer;
+			
+			if(matches != null)
+				for(Entity e1 : matches)
+					w.write("\t" + e1.toOutputString() + "\n");
+			w.flush();
+			cnt++;
+			System.out.println(100.0 * cnt / (double)rv.size() + "%");
+		}
+		System.out.println("Average time per entity: " + (double)totalTime / (double)rv.size() + "ns");
+		w.close();
+	}
+	
+	public static void naiveMatching() throws IOException{
+		Map<String, List<Entity>> index = new HashMap<String, List<Entity>>();
+		BufferedWriter w = new BufferedWriter(new FileWriter(new File("output/output_naive.txt")));
+		System.out.print("Loading Freebase...");
+		
+		Scanner s = new Scanner(new File(Freebase.FREEBASE_ENTITIES));
+		int offset = 0;
+		
+		while(s.hasNextLine()){
+			Entity e = Entity.fromString(s.nextLine().toLowerCase(), offset++);
+			if(!index.containsKey(e.contents.toLowerCase()))
+				index.put(e.contents.toLowerCase(), new ArrayList<Entity>());
+			index.get(e.contents.toLowerCase()).add(e);
+		}
+		s.close();
+		
+		System.out.println("Complete!");
+		long totalTime = 0;
+		
+		List<String> rv = Utils.loadReverbEntities(Mapper.REVERB_ENTITIES);
+		for(String rvEnt : rv){
+			w.write(rvEnt + "\n");
+			long timer = System.nanoTime();
+			List<Entity> matches = index.get(rvEnt.toLowerCase());
+			totalTime += System.nanoTime() - timer;
+			if(matches != null)
+				for(Entity e : matches)
+					w.write("\t" + e.toOutputString() + "\n");
+			w.flush();
+		}
+		System.out.println("Average time per entity: " + (double)totalTime / (double)rv.size() + "ns");
+		w.close();
 	}
 	
 	public static void createIndex() throws CorruptIndexException, LockObtainFailedException, IOException {
