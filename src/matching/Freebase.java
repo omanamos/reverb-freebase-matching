@@ -169,6 +169,8 @@ public class Freebase implements Iterable<Entity>{
 		pf.match(MatchType.EXACT, res.add(this.exactStringLookup.get(q.q), q, MatchType.EXACT));
 		pf.end(MatchType.EXACT);
 		
+		//TODO: query exactStringLookup with the cleaned query
+		
 		pf.start();
 		pf.match(MatchType.CLEANED, res.add(this.cleanedStringLookup.get(q.cleanedQ), q, MatchType.CLEANED));
 		pf.end(MatchType.CLEANED);
