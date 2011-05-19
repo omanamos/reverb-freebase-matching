@@ -146,9 +146,18 @@ public class Test {
 		
 		while(s.hasNextLine()){
 			Entity e = Entity.fromString(s.nextLine().toLowerCase(), offset++);
-			if(!index.containsKey(e.contents.toLowerCase()))
-				index.put(e.contents.toLowerCase(), new ArrayList<Entity>());
-			index.get(e.contents.toLowerCase()).add(e);
+			//if(!index.containsKey(e.contents.toLowerCase()))
+			//	index.put(e.contents.toLowerCase(), new ArrayList<Entity>());
+			//index.get(e.contents.toLowerCase()).add(e);
+			String[] parts = e.cleanedContents.split("( |_|-|,)");
+			for(String word : parts){
+				if(word.length() > 3){
+					if(!index.containsKey(word))
+						index.put(word, new ArrayList<Entity>());
+					if(!index.get(word).contains(e))
+						index.get(word).add(e);
+				}
+			}
 		}
 		s.close();
 		
@@ -159,11 +168,22 @@ public class Test {
 		for(String rvEnt : rv){
 			w.write(rvEnt + "\n");
 			long timer = System.nanoTime();
-			List<Entity> matches = index.get(rvEnt.toLowerCase());
+			
+			String[] parts = Utils.cleanString(rvEnt).toLowerCase().split("( |_|-|,)");
+			List<Entity> matches = new ArrayList<Entity>();
+			for(String part : parts)
+				if(part.length() > 3){
+					List<Entity> tmp = index.get(part); 
+					if(tmp != null)
+						matches.addAll(tmp);
+				}
+			
 			totalTime += System.nanoTime() - timer;
-			if(matches != null)
+			if(matches != null){
+				Collections.sort(matches);
 				for(Entity e : matches)
 					w.write("\t" + e.toOutputString() + "\n");
+			}
 			w.flush();
 		}
 		System.out.println("Average time per entity: " + (double)totalTime / (double)rv.size() + "ns");

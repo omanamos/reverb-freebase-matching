@@ -56,7 +56,8 @@ public class Entity implements Comparable<Entity>{
 
 	@Override
 	public int compareTo(Entity other) {
-		return -this.score.compareTo(other.score);
+		int score = this.score.compareTo(other.score);
+		return score != 0 ? -score : -this.inlinks.compareTo(other.inlinks);
 	}
 	
 	public static Entity fromString(String s, Integer offset){
