@@ -45,7 +45,7 @@ public class PerformanceFactor {
 		String s = "Division of Time:\n";
 		long totalMS = this.totalTime / 1000000;
 		for(MatchType m : this.times.keySet()){
-			long ms = times.get(m) / 1000000;
+			double ms = times.get(m) / 1000000.0;
 			s += "\t" + m + " - " + ms + "ms (" + (100.0 * ms / (double)totalMS) + "%)\n";
 		}
 		s += "\nDivision of Matches:\n";

@@ -11,6 +11,7 @@ import analysis.Analyze;
 public class Result implements Iterable<Entity>{
 
 	private static final double LUCENE_SCALING_FACTOR = 0.2;
+	private static final int MAX_LUCENE_COUNT = 3;
 	
 	public final Weights w;
 	public final Query q;
@@ -99,8 +100,16 @@ public class Result implements Iterable<Entity>{
 			q.add(this.idLookup.get(key));
 		}
 		
-		while(!q.isEmpty())
-			this.lst.add(q.poll());
+		int luceneCount = 0;
+		
+		while(!q.isEmpty()){
+			Entity e = q.poll();
+			boolean isLuceneMatch = this.luceneMatches.containsKey(e);
+			if(!isLuceneMatch || luceneCount < MAX_LUCENE_COUNT){
+				this.lst.add(e);
+				luceneCount += isLuceneMatch ? 1 : 0;
+			}
+		}
 	}
 	
 	private Score computeScore(Entity e, Double factor){
@@ -198,13 +207,26 @@ public class Result implements Iterable<Entity>{
 	}
 	
 	public String toString(int depth){
-		String rtn = this.q.orig;
+		String rtn = "entity\t" + this.q.orig;
 		int i = 0;
+		Entity exact = null;
+		List<Entity> matches = new ArrayList<Entity>();
+		
 		for(Entity e : this){
-			rtn += "\n\t" + e;
-			i++;
-			if(i == depth)
-				break;
+			if(exact == null && this.exactStringMatches.contains(e) && !this.luceneMatches.containsKey(e))
+				exact = e;
+			else{
+				matches.add(e);
+				i++;
+				if(i == depth)
+					break;
+			}
+		}
+		
+		if(exact != null)
+			rtn += "\nhit exact" + exact.toOutputString();
+		for(Entity e : matches){
+			rtn += "\nhit word" + e.toOutputString();
 		}
 		
 		return rtn + "\n";

@@ -154,7 +154,12 @@ public class Freebase implements Iterable<Entity>{
 	}
 	
 	private void loadPartialMatches(Query q, Result res) throws IOException {
-		String[] similar = this.dict.suggestSimilar(q.cleanedQ, 5);
+		String[] similar;
+		try{//Need the try catch b/c some poorly extracted reverb entities have too many terms for lucene
+			similar = this.dict.suggestSimilar(q.cleanedQ, 5);
+		}catch(Exception e){
+			return;
+		}
 		
 		for(String query : similar){
 			double dist = this.dist.getDistance(query, q.cleanedQ);
@@ -246,10 +251,14 @@ public class Freebase implements Iterable<Entity>{
 	}
 	
 	public static Freebase loadFreebase(boolean loadAliases) throws IOException{
+		return loadFreebase(loadAliases, Freebase.FREEBASE_ENTITIES, Freebase.WIKI_ALIASES);
+	}
+	
+	public static Freebase loadFreebase(boolean loadAliases, String freebasePath, String wikiAliasPath) throws IOException{
 		System.out.print("Loading Freebase...");
 		
 		Freebase fb = new Freebase();
-		Scanner s = new Scanner(new File(FREEBASE_ENTITIES));
+		Scanner s = new Scanner(new File(freebasePath));
 		int offset = 0;
 		double max = -1.0;
 		
@@ -269,7 +278,7 @@ public class Freebase implements Iterable<Entity>{
 		if(loadAliases){
 			System.out.print("Loading Wiki Aliases...");
 			
-			s = new Scanner(new File(WIKI_ALIASES));
+			s = new Scanner(new File(wikiAliasPath));
 			while(s.hasNextLine()){
 				String[] parts = s.nextLine().split("\t");
 				Entity e = fb.find(parts[3]);

@@ -18,7 +18,7 @@ public class Analyze {
 
 	public static void main(String[] args) throws IOException{
 		//Ouput file to analyze
-		String INPUT = "output/output_naive.txt";
+		String INPUT = "output/output.txt";
 		
 		//Load in freebase
 		Freebase fb = Freebase.loadFreebase(false);
