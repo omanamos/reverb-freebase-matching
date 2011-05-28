@@ -1,0 +1,83 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.functions.MultilayerPerceptron -L 0.3 -M 0.2 -N 500 -V 0 -S 0 -E 20 -H a
+Relation:     thresholds-weka.filters.unsupervised.attribute.Remove-R1
+Instances:    475
+Attributes:   5
+              inlinks
+              strMatches
+              subMatches
+              abbrMatch
+              class
+Test mode:    10-fold cross-validation
+
+=== Classifier model (full training set) ===
+
+Sigmoid Node 0
+    Inputs    Weights
+    Threshold    -5.621519007179796
+    Node 2    7.073540459623918
+    Node 3    1.5570503536567946
+    Node 4    1.1729741346494649
+Sigmoid Node 1
+    Inputs    Weights
+    Threshold    5.622420602688504
+    Node 2    -7.075095715184327
+    Node 3    -1.55852326881262
+    Node 4    -1.1717967090005634
+Sigmoid Node 2
+    Inputs    Weights
+    Threshold    -6.229916379427192
+    Attrib inlinks    -24.86824851641453
+    Attrib strMatches    -13.740996479643927
+    Attrib subMatches    -2.7637922043682335
+    Attrib abbrMatch    4.75846174336157
+Sigmoid Node 3
+    Inputs    Weights
+    Threshold    -3.278231725935605
+    Attrib inlinks    -5.068892636302471
+    Attrib strMatches    -5.759671323234054
+    Attrib subMatches    -0.19777086109481543
+    Attrib abbrMatch    -1.1860407665538626
+Sigmoid Node 4
+    Inputs    Weights
+    Threshold    -6.416178035731888
+    Attrib inlinks    -14.198517916491818
+    Attrib strMatches    -9.559354055040718
+    Attrib subMatches    -1.7077806791851722
+    Attrib abbrMatch    -0.7483470206862937
+Class 0
+    Input
+    Node 0
+Class 1
+    Input
+    Node 1
+
+
+Time taken to build model: 6.12 seconds
+
+=== Stratified cross-validation ===
+=== Summary ===
+
+Correctly Classified Instances         403               84.8421 %
+Incorrectly Classified Instances        72               15.1579 %
+Kappa statistic                          0.3865
+Mean absolute error                      0.2533
+Root mean squared error                  0.3582
+Relative absolute error                 76.0191 %
+Root relative squared error             87.8678 %
+Total Number of Instances              475     
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 0.997     0.71       0.84      0.997     0.912      0.697    0
+                 0.29      0.003      0.967     0.29      0.446      0.697    1
+Weighted Avg.    0.848     0.561      0.867     0.848     0.814      0.697
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 374   1 |   a = 0
+  71  29 |   b = 1
+

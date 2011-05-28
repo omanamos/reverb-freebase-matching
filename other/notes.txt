@@ -1,0 +1,4 @@
+prominance				= k * (# inlinks)
+exact string match		= +x
+exact substring match	= +(# subs matches) * y
+abbrv match				= +z

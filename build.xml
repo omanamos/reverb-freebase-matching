@@ -1,0 +1,32 @@
+<project>
+
+  <property name="src" location="src"/>
+  <property name="bin" location="bin"/>
+  <property name="dist"  location="dist"/>
+  
+  <path id="classpath">  
+    <fileset dir="lib/dist">  
+      <include name="*.jar"/>  
+    </fileset>
+  </path>
+
+  <target name="compile" depends="clean">
+	<mkdir dir="${bin}"/>
+	<javac srcdir="${src}" destdir="${bin}">
+	  <classpath>
+		<path refid="classpath"/>
+	  </classpath>
+	</javac>
+  </target>
+
+  <target name="dist" depends="compile">
+	<mkdir dir="${dist}" />
+	<jar jarfile="${dist}/matcher.jar" basedir="${bin}" />
+  </target>
+
+  <target name="clean">
+	<delete dir="${bin}"/>
+	<delete dir="${dist}"/>
+  </target>
+
+</project>

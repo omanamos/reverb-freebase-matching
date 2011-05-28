@@ -33,6 +33,7 @@ import java.security.AccessControlException;
  * @author aim4min
  * @see EditDistance
  */
+
 public abstract class Configuration {
 
   /** used by EditDistance: the cost of having to remove a character <br/>(integer greater than 0) */

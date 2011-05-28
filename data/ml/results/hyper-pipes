@@ -1,0 +1,45 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.misc.HyperPipes 
+Relation:     thresholds-weka.filters.unsupervised.attribute.Remove-R1
+Instances:    475
+Attributes:   5
+              inlinks
+              strMatches
+              subMatches
+              abbrMatch
+              class
+Test mode:    10-fold cross-validation
+
+=== Classifier model (full training set) ===
+
+HyperPipes classifier
+
+
+Time taken to build model: 0 seconds
+
+=== Stratified cross-validation ===
+=== Summary ===
+
+Correctly Classified Instances         381               80.2105 %
+Incorrectly Classified Instances        94               19.7895 %
+Kappa statistic                          0.0916
+Mean absolute error                      0.4991
+Root mean squared error                  0.4992
+Relative absolute error                149.7923 %
+Root relative squared error            122.4377 %
+Total Number of Instances              475     
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 1         0.94       0.8       1         0.889      0.53     0
+                 0.06      0          1         0.06      0.113      0.53     1
+Weighted Avg.    0.802     0.742      0.842     0.802     0.725      0.53 
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 375   0 |   a = 0
+  94   6 |   b = 1
+

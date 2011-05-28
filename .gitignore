@@ -1,5 +1,8 @@
 *.class
 *.zip
 input/*
-bin/*
 .*
+bin/*
+mapper.jar
+index/*
+occam.data

@@ -7,7 +7,11 @@ import java.util.List;
 import java.util.Scanner;
 
 import wrappers.Entity;
+import wrappers.Match;
+import wrappers.MatchType;
+import wrappers.Query;
 import wrappers.Result;
+import wrappers.Weights;
 
 import com.wcohen.ss.AffineGap;
 import com.wcohen.ss.CharMatchScore;
@@ -15,8 +19,30 @@ import com.wcohen.ss.CharMatchScore;
 
 public class Utils {
 	
-	public static String cleanString(String str){
+	
+	public static List<String> loadReverbEntities(String fileName) throws FileNotFoundException{
+		System.out.print("Loading Reverb Entity List...");
+		List<String> rtn = new ArrayList<String>();
+		Scanner s = new Scanner(new File(fileName));
+		while(s.hasNextLine())
+			rtn.add(s.nextLine().split("\t")[0]);
+		System.out.println("Complete!");
+		return rtn;
+	}
+	
+	public static String camelize(String str){
+		String rtn = "";
+		String[] parts = str.split(" ");
 		
+		for(String s : parts){
+			s = Character.toUpperCase(s.charAt(0)) + s.substring(1);
+			rtn += s + " ";
+		}
+		
+		return rtn.substring(0, rtn.length() - 1);
+	}
+	
+	public static String cleanString(String str){
 		return str.replaceAll("(,|\\.|'|&rsquo|\\(.*\\))", "").trim();
 	}
 	
@@ -110,6 +136,7 @@ public class Utils {
 	public static List<Result> parseOutputFile(File input, Freebase fb) throws FileNotFoundException{
 		System.out.print("Parsing " + input.getName() + " output...");
 		List<Result> rtn = new ArrayList<Result>();
+		Weights w = new Weights(new File(Freebase.WEIGHTS_CONFIG));
 		
 		Scanner s = new Scanner(input);
 		Result curKey = null;
@@ -117,11 +144,18 @@ public class Utils {
 			String line = s.nextLine();
 			if(curKey != null && line.startsWith("\t")){
 				Entity e = Entity.fromOutputString(line);
-				e = fb == null ? e : fb.find(e.id);
-				curKey.add(e);
+				Entity tmp = fb.find(e.id);
+				if(tmp != null){
+					tmp.score = e.score;
+					e = tmp;
+				}
+				curKey.add(new Match(curKey.q, e, MatchType.EXACT));
 			}else if(!line.isEmpty()){
-				if(curKey != null) rtn.add(curKey);
-				curKey = new Result(line);
+				if(curKey != null){
+					curKey.sort(false);
+					rtn.add(curKey);
+				}
+				curKey = new Result(new Query(line), w);
 			}
 		}
 		

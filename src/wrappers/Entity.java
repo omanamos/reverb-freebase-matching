@@ -8,10 +8,13 @@ public class Entity implements Comparable<Entity>{
 	public final String contents;
 	public final String cleanedContents;
 	public final Integer inlinks;
+	public final boolean noCleaning;
+	public Double normInlinks;
 	/**
 	 * depth in freebase
 	 */
 	public final Integer offset;
+	public Score score;
 	
 	public Entity(String id){
 		this(id, null, null, null);
@@ -27,10 +30,17 @@ public class Entity implements Comparable<Entity>{
 		this.inlinks = inlinks;
 		this.offset = offset;
 		this.cleanedContents = Utils.cleanString(this.contents);
+		this.noCleaning = this.contents.equals(this.cleanedContents);
+		this.score = new Score();
+		this.normInlinks = 0.0;
 	}
     
 	public String toString(){
-		return this.id + "\t" + this.contents + "\t" + inlinks;
+		return this.id + "\t" + this.contents + "\t" + this.score;
+	}
+	
+	public String toOutputString(){
+		return this.id + "\t" + this.contents + "\t" + this.inlinks + "\t" + this.score.total;
 	}
 	
 	public int hashCode(){
@@ -46,17 +56,22 @@ public class Entity implements Comparable<Entity>{
 
 	@Override
 	public int compareTo(Entity other) {
-		return -this.inlinks.compareTo(other.inlinks);
+		int score = this.score.compareTo(other.score);
+		return score != 0 ? -score : -this.inlinks.compareTo(other.inlinks);
 	}
 	
 	public static Entity fromString(String s, Integer offset){
 		String[] tmp = s.split("\t");
-		return new Entity(tmp[0], tmp[2], Integer.parseInt(tmp[1]), offset);
+		Entity rtn = new Entity(tmp[0], tmp[2], Integer.parseInt(tmp[1]), offset);
+		return rtn;
 	}
 	
 	public static Entity fromOutputString(String s){
 		String[] tmp = s.trim().split("\t");
-		return new Entity(tmp[0], tmp[1], Integer.parseInt(tmp[2]));
+		Entity rtn = new Entity(tmp[0], tmp[1], Integer.parseInt(tmp[2]));
+		if(tmp.length > 3)
+			rtn.score = new Score(Double.parseDouble(tmp[3]));
+		return rtn;
 	}
 	
 }

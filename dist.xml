@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project default="create_run_jar" name="Create Runnable Jar for Project reverb-freebase-matching">
+    <!--this file was created by Eclipse Runnable JAR Export Wizard-->
+    <!--ANT 1.7 is required                                        -->
+    <target name="create_run_jar">
+        <jar destfile="C:/Users/Ryan/Desktop/Dev/workspace/reverb-freebase-matching/matcher.jar" filesetmanifest="mergewithoutmain">
+            <manifest>
+                <attribute name="Main-Class" value="matching.Main"/>
+                <attribute name="Class-Path" value="."/>
+            </manifest>
+            <fileset dir="C:/Users/Ryan/Desktop/Dev/workspace/reverb-freebase-matching/bin"/>
+            <zipfileset excludes="META-INF/*.SF" src="C:/Users/Ryan/Desktop/Dev/workspace/reverb-freebase-matching/lib/dist/commons-lang-2.6.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="C:/Users/Ryan/Desktop/Dev/workspace/reverb-freebase-matching/lib/dist/secondstring-20060615.jar"/>
+            <fileset dir="C:/Users/Ryan/Desktop/Dev/workspace/reverb-freebase-matching/lib/jazzy/bin"/>
+            <zipfileset excludes="META-INF/*.SF" src="C:/Users/Ryan/Desktop/Dev/eclipse/plugins/org.junit_3.8.2.v3_8_2_v20100427-1100/junit.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="C:/Users/Ryan/Desktop/Dev/workspace/reverb-freebase-matching/lib/dist/lucene-core.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="C:/Users/Ryan/Desktop/Dev/workspace/reverb-freebase-matching/lib/dist/lucene-spellchecker.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="C:/Users/Ryan/Desktop/Dev/workspace/reverb-freebase-matching/lib/dist/jazzy.jar"/>
+        </jar>
+    </target>
+</project>
