@@ -36,8 +36,8 @@ public class Main {
 		
 		do{
 			if(new File(opt.INPUT).exists()){
-				moveFile(opt);
 				List<String> rv = loadTuples(opt);
+				moveFile(opt);
 				int cnt = 0;
 				long timer = System.nanoTime();
 				for(String rvEnt : rv){
@@ -78,8 +78,6 @@ public class Main {
 		if(!success){
 			opt.monitor = false;
 			System.out.println("ERROR: Failed to move input file into processed folder!");
-		}else{
-			opt.INPUT = newFile.getAbsolutePath();
 		}
 	}
 	
