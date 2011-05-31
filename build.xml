@@ -2,7 +2,7 @@
 
   <property name="src" location="src"/>
   <property name="bin" location="bin"/>
-  <property name="dist"  location="dist"/>
+  <property name="dist"  location="../dist"/>
   
   <path id="classpath">  
     <fileset dir="lib/dist">  
@@ -20,8 +20,10 @@
   </target>
 
   <target name="dist" depends="compile">
+	<cd dir="${bin}" />
 	<mkdir dir="${dist}" />
-	<jar jarfile="${dist}/matcher.jar" basedir="${bin}" />
+	<jar jarfile="main.jar" basedir="." />
+	<cd dir=".." />
   </target>
 
   <target name="clean">
