@@ -217,6 +217,10 @@ public class Freebase implements Iterable<Entity>{
 		String[] parts = Utils.split(q.cleanedQ);
 		if(parts.length > 1){
 			for(String word : parts){
+				if(word.length() < 5 && Acronym.isAcronym(word)){
+					pf.match(MatchType.ABBRV, res.add(this.exactAbbrvLookup.get(Acronym.cleanAcronym(word)), new Query(word), MatchType.ABBRV));
+				}
+
 				if(word.length() > 3)
 					pf.match(MatchType.SUB, res.add(this.wordOverlapLookup.get(word), new Query(word), MatchType.SUB, this.wordOverlapWeights.get(word)));
 			}
