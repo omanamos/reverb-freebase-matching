@@ -61,7 +61,7 @@ public class Acronym {
 	 * @return true if the given string looks like an acronym, false otherwise
 	 */
 	public static boolean isAcronym(String s){
-		return s.matches("^([A-Z]\\.{0,1}){1,}$");
+		return s.matches("^([A-Z]\\.{0,1}){1,5}$");
 	}
 	
 	/**

@@ -8,7 +8,7 @@ import analysis.Analyze;
 /**
  * Wraps a set of matches found in Freebase for a given query. Allows for quick id lookup. Also provides other functionality.
  */
-public class Result implements Iterable<Entity>{
+public class Result implements Iterable<Entity>, Comparable<Result>{
 
 	private static final double LUCENE_SCALING_FACTOR = 0.2;
 	private static final int MAX_LUCENE_COUNT = 3;
@@ -22,7 +22,7 @@ public class Result implements Iterable<Entity>{
 	
 	private Set<Entity> exactStringMatches;
 	private Set<Entity> cleanedStringMatches;
-	private Map<Entity, Integer> exactSubsMatches;
+	private Map<Entity, Double> exactSubsMatches;
 	private Set<Entity> exactAbbrvMatches;
 	private Set<Entity> wikiMatches;
 	private Map<Entity, Double> luceneMatches;
@@ -35,7 +35,7 @@ public class Result implements Iterable<Entity>{
 
 		this.exactStringMatches = new HashSet<Entity>();
 		this.cleanedStringMatches = new HashSet<Entity>();
-		this.exactSubsMatches = new HashMap<Entity, Integer>();
+		this.exactSubsMatches = new HashMap<Entity, Double>();
 		this.exactAbbrvMatches = new HashSet<Entity>();
 		this.wikiMatches = new HashSet<Entity>();
 		this.luceneMatches = new HashMap<Entity, Double>();
@@ -58,8 +58,8 @@ public class Result implements Iterable<Entity>{
 					break;
 				case SUB:
 					if(!this.exactSubsMatches.containsKey(m.e))
-						this.exactSubsMatches.put(m.e, 0);
-					this.exactSubsMatches.put(m.e, this.exactSubsMatches.get(m.e) + 1);
+						this.exactSubsMatches.put(m.e, 0.0);
+					this.exactSubsMatches.put(m.e, this.exactSubsMatches.get(m.e) + m.weight);
 					break;
 				case ABBRV:
 					this.exactAbbrvMatches.add(m.e);
@@ -78,13 +78,15 @@ public class Result implements Iterable<Entity>{
 		}
 	}
 	
-	/**
-	 * @param c collection of Entities to add
-	 */
 	public int add(Collection<Entity> c, Query q, MatchType m){
+		return this.add(c, q, m, null);
+	}
+	
+	public int add(Collection<Entity> c, Query q, MatchType m, Double weight){
+		weight = weight == null ? 1.0 : weight;
 		if(c != null){
 			for(Entity e : c)
-				this.add(new Match(q, e, m));
+				this.add(new Match(q, e, m, weight));
 			return c.size();
 		}
 		return 0;
@@ -224,9 +226,9 @@ public class Result implements Iterable<Entity>{
 		}
 		
 		if(exact != null)
-			rtn += "\nhit exact" + exact.toOutputString();
+			rtn += "\nhit\texact\t" + exact.toOutputString();
 		for(Entity e : matches){
-			rtn += "\nhit word" + e.toOutputString();
+			rtn += "\nhit\tword\t" + e.toOutputString();
 		}
 		
 		return rtn + "\n";
@@ -283,5 +285,10 @@ public class Result implements Iterable<Entity>{
 		}
 		
 		return rtn;
+	}
+
+	@Override
+	public int compareTo(Result other) {
+		return this.q.compareTo(other.q);
 	}
 }

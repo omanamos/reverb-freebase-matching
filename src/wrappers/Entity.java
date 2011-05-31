@@ -5,6 +5,7 @@ import matching.Utils;
 public class Entity implements Comparable<Entity>{
 	
 	public final String id;
+	public final String orig;
 	public final String contents;
 	public final String cleanedContents;
 	public final Integer inlinks;
@@ -26,7 +27,8 @@ public class Entity implements Comparable<Entity>{
 	
     public Entity(String id, String contents, Integer inlinks, Integer offset){
 		this.id = id;
-		this.contents = contents;
+		this.orig = contents;
+		this.contents = contents.toLowerCase();
 		this.inlinks = inlinks;
 		this.offset = offset;
 		this.cleanedContents = Utils.cleanString(this.contents);
@@ -36,11 +38,11 @@ public class Entity implements Comparable<Entity>{
 	}
     
 	public String toString(){
-		return this.id + "\t" + this.contents + "\t" + this.score;
+		return this.id + "\t" + this.orig + "\t" + this.score;
 	}
 	
 	public String toOutputString(){
-		return this.id + "\t" + this.contents + "\t" + this.inlinks + "\t" + this.score.total;
+		return this.id + "\t" + this.orig + "\t" + this.inlinks + "\t" + this.score.total;
 	}
 	
 	public int hashCode(){
@@ -68,9 +70,9 @@ public class Entity implements Comparable<Entity>{
 	
 	public static Entity fromOutputString(String s){
 		String[] tmp = s.trim().split("\t");
-		Entity rtn = new Entity(tmp[0], tmp[1], Integer.parseInt(tmp[2]));
-		if(tmp.length > 3)
-			rtn.score = new Score(Double.parseDouble(tmp[3]));
+		Entity rtn = new Entity(tmp[2], tmp[3], Integer.parseInt(tmp[4]));
+		if(tmp.length > 5)
+			rtn.score = new Score(Double.parseDouble(tmp[5]));
 		return rtn;
 	}
 	

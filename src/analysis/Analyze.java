@@ -4,7 +4,6 @@ import java.io.*;
 import java.util.*;
 
 import matching.Freebase;
-import matching.Mapper;
 import matching.Utils;
 
 import wrappers.Entity;
@@ -29,7 +28,7 @@ public class Analyze {
 	}
 	
 	public static void analyze(Freebase fb, Map<String, String> correctMatches, File input) throws IOException{
-		List<Result> results = Utils.parseOutputFile(input, fb);
+		List<Result> results = Utils.parseMapperOutputFile(input, fb);
 		Set<Result> uniqueResults = new HashSet<Result>();
 		
 		for(Result res : results){
@@ -67,8 +66,11 @@ public class Analyze {
 		for(Result res : results){
 			if(correctMatches.containsKey(res.q.orig) && !uniqueResults.contains(res)){
 				String correctID = correctMatches.get(res.q.orig);
-				if(res.hasMatch(correctID))
-					numUnderThreshold += res.getDepth(correctID) < threshold ? 1 : 0;
+				if(res.hasMatch(correctID) && res.getDepth(correctID) <= threshold){
+					numUnderThreshold++;
+				}else{
+					System.out.println("Missed: " + res.q.orig);
+				}
 				uniqueResults.add(res);
 			}
 		}
