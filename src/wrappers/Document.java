@@ -30,6 +30,8 @@ public class Document implements Iterable<Tuple> {
 				String[] parts = line.split("\t");
 				
 				if(preprocessed){
+					if(parts.length != 2)
+						break;
 					counts.put(parts[0], Integer.parseInt(parts[1]));
 				}else{
 					for(String tup : parts){
