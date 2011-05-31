@@ -18,11 +18,13 @@ import org.apache.lucene.search.spell.StringDistance;
 import org.apache.lucene.store.RAMDirectory;
 import org.apache.lucene.store.SimpleFSDirectory;
 
+import wrappers.Document;
 import wrappers.Entity;
 import wrappers.MatchType;
 import wrappers.PerformanceFactor;
 import wrappers.Query;
 import wrappers.Result;
+import wrappers.Tuple;
 import wrappers.Weights;
 
 /**
@@ -35,6 +37,9 @@ public class Freebase implements Iterable<Entity>{
 	public static final String SYNONYMS = "data/synonyms.txt";
 	public static final String WEIGHTS_CONFIG = "weights.config";
 	private static final int ACRO_THRESHOLD = 20;
+	private static final int DEFAULT_LUCENE_THRESHOLD = 100;
+	
+	private final int luceneThreshold;
 	private final Weights w;
 	
 	//Lookup and storage
@@ -44,7 +49,8 @@ public class Freebase implements Iterable<Entity>{
 	//Exact Matching
 	private Map<String, Set<Entity>> exactStringLookup;
 	private Map<String, Set<Entity>> cleanedStringLookup;
-	private Map<String, Set<Entity>> exactSubsLookup;
+	private Map<String, Set<Entity>> wordOverlapLookup;
+	private Map<String, Double> wordOverlapWeights;
 	private Map<String, Set<Entity>> exactAbbrvLookup;
 	private Map<String, Set<Entity>> wikiLookup;
 	
@@ -52,14 +58,16 @@ public class Freebase implements Iterable<Entity>{
 	private SpellChecker dict;
 	private StringDistance dist;
 	
-	public Freebase() throws IOException{
+	public Freebase(int luceneThreshold) throws IOException{
+		this.luceneThreshold = luceneThreshold;
 		this.entities = new ArrayList<Entity>();
 		
 		this.idLookup = new HashMap<String, Entity>();
 		this.exactStringLookup = new HashMap<String, Set<Entity>>();
 		this.cleanedStringLookup = new HashMap<String, Set<Entity>>();
 		this.exactAbbrvLookup = new HashMap<String, Set<Entity>>();
-		this.exactSubsLookup = new HashMap<String, Set<Entity>>();
+		this.wordOverlapLookup = new HashMap<String, Set<Entity>>();
+		this.wordOverlapWeights = new HashMap<String, Double>();
 		this.wikiLookup = new HashMap<String, Set<Entity>>();
 		
 		this.dict = new SpellChecker(new RAMDirectory());
@@ -108,13 +116,13 @@ public class Freebase implements Iterable<Entity>{
 					}
 				}
 				
-				String[] parts = e.cleanedContents.split("( |_|-|,)");
+				String[] parts = Utils.split(e.cleanedContents);
 				if(parts.length > 1){
 					for(String word : parts){
 						if(word.length() > 3){
-							if(!this.exactSubsLookup.containsKey(word))
-								this.exactSubsLookup.put(word, new HashSet<Entity>());
-							this.exactSubsLookup.get(word).add(e);
+							if(!this.wordOverlapLookup.containsKey(word))
+								this.wordOverlapLookup.put(word, new HashSet<Entity>());
+							this.wordOverlapLookup.get(word).add(e);
 						}
 					}
 				}
@@ -132,6 +140,11 @@ public class Freebase implements Iterable<Entity>{
 		}
 	}
 	
+	public Double getWeight(String key){
+		Double w = this.wordOverlapWeights.get(key);
+		return w == null ? 1.0 : w;
+	}
+	
 	public Result getMatches(String query, PerformanceFactor pf){
 		Query q = new Query(query);
 		Result res = new Result(q, w);
@@ -139,7 +152,7 @@ public class Freebase implements Iterable<Entity>{
 		loadMatches(q, res, pf);
 		res.sort(true);
 		
-		if(res.size(100) < 1){
+		if(res.size(this.luceneThreshold) < 1){
 			try {
 				pf.start();
 				loadPartialMatches(q, res);
@@ -189,7 +202,7 @@ public class Freebase implements Iterable<Entity>{
 			pf.end(MatchType.EXACT);
 			
 			pf.start();
-			pf.match(MatchType.SUB, res.add(this.exactSubsLookup.get(stub), s, MatchType.SUB));
+			pf.match(MatchType.SUB, res.add(this.wordOverlapLookup.get(stub), s, MatchType.SUB, this.wordOverlapWeights.get(stub)));
 			pf.end(MatchType.SUB);
 		}
 		
@@ -198,13 +211,13 @@ public class Freebase implements Iterable<Entity>{
 		pf.end(MatchType.WIKI);
 		
 		pf.start();
-		pf.match(MatchType.SUB, res.add(this.exactSubsLookup.get(q.cleanedQ), q, MatchType.SUB));
+		pf.match(MatchType.SUB, res.add(this.wordOverlapLookup.get(q.cleanedQ), q, MatchType.SUB, this.wordOverlapWeights.get(q.cleanedQ)));
 		
-		String[] parts = q.cleanedQ.split("( |_|-|,)");
+		String[] parts = Utils.split(q.cleanedQ);
 		if(parts.length > 1){
 			for(String word : parts){
 				if(word.length() > 3)
-					pf.match(MatchType.SUB, res.add(this.exactSubsLookup.get(word), new Query(word), MatchType.SUB));
+					pf.match(MatchType.SUB, res.add(this.wordOverlapLookup.get(word), new Query(word), MatchType.SUB, this.wordOverlapWeights.get(word)));
 			}
 		}
 		pf.end(MatchType.SUB);
@@ -251,19 +264,19 @@ public class Freebase implements Iterable<Entity>{
 	}
 	
 	public static Freebase loadFreebase(boolean loadAliases) throws IOException{
-		return loadFreebase(loadAliases, Freebase.FREEBASE_ENTITIES, Freebase.WIKI_ALIASES);
+		return loadFreebase(loadAliases, "", Freebase.FREEBASE_ENTITIES, Freebase.WIKI_ALIASES, Freebase.DEFAULT_LUCENE_THRESHOLD);
 	}
 	
-	public static Freebase loadFreebase(boolean loadAliases, String freebasePath, String wikiAliasPath) throws IOException{
+	public static Freebase loadFreebase(boolean loadAliases, String inputPath, String freebasePath, String wikiAliasPath, int luceneThreshold) throws IOException{
 		System.out.print("Loading Freebase...");
 		
-		Freebase fb = new Freebase();
+		Freebase fb = new Freebase(luceneThreshold);
 		Scanner s = new Scanner(new File(freebasePath));
 		int offset = 0;
 		double max = -1.0;
 		
 		while(s.hasNextLine()){
-			Entity e = Entity.fromString(s.nextLine().toLowerCase(), offset++);
+			Entity e = Entity.fromString(s.nextLine(), offset++);
 			
 			if(max == -1.0)
 				max = Math.log(e.inlinks);
@@ -272,10 +285,20 @@ public class Freebase implements Iterable<Entity>{
 			fb.add(e, loadAliases);
 		}
 		s.close();
-		
 		System.out.println("Complete!");
 		
 		if(loadAliases){
+			System.out.print("Loading Word Weights...");
+			Document d = new Document(new File(inputPath));
+			double normMax = Math.log(d.getMax());
+			for(Tuple t : d){
+				String key = t.e;
+				Double weight = (normMax - Math.log(t.v)) / normMax;
+				if(fb.wordOverlapLookup.containsKey(key))
+					fb.wordOverlapWeights.put(key, weight);
+			}
+			System.out.println("Complete!");
+			
 			System.out.print("Loading Wiki Aliases...");
 			
 			s = new Scanner(new File(wikiAliasPath));

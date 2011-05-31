@@ -3,7 +3,7 @@ package wrappers;
 import matching.Acronym;
 import matching.Utils;
 
-public class Query {
+public class Query implements Comparable<Query>{
 
 	public final String orig;
 	public final String q;
@@ -27,5 +27,10 @@ public class Query {
 			return this.q.equals(other.q) || this.q.equals(other.cleanedQ) || this.cleanedQ.equals(other.q) || this.cleanedQ.equals(other.cleanedQ);
 		}else
 			return false;
+	}
+
+	@Override
+	public int compareTo(Query other) {
+		return this.orig.compareTo(other.orig);
 	}
 }
