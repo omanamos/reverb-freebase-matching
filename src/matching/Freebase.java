@@ -32,6 +32,7 @@ import wrappers.Weights;
  */
 public class Freebase implements Iterable<Entity>{
 	
+	public static final String WORD_WEIGHTS = "word_weights.config";
 	public static final String FREEBASE_ENTITIES = "data/output.fbid-prominence.sorted";
 	public static final String WIKI_ALIASES = "data/output.wiki-aliases.sorted";
 	public static final String SYNONYMS = "data/synonyms.txt";
@@ -264,10 +265,10 @@ public class Freebase implements Iterable<Entity>{
 	}
 	
 	public static Freebase loadFreebase(boolean loadAliases) throws IOException{
-		return loadFreebase(loadAliases, "", Freebase.FREEBASE_ENTITIES, Freebase.WIKI_ALIASES, Freebase.DEFAULT_LUCENE_THRESHOLD);
+		return loadFreebase(loadAliases, Freebase.FREEBASE_ENTITIES, Freebase.WIKI_ALIASES, Freebase.DEFAULT_LUCENE_THRESHOLD);
 	}
 	
-	public static Freebase loadFreebase(boolean loadAliases, String inputPath, String freebasePath, String wikiAliasPath, int luceneThreshold) throws IOException{
+	public static Freebase loadFreebase(boolean loadAliases, String freebasePath, String wikiAliasPath, int luceneThreshold) throws IOException{
 		System.out.print("Loading Freebase...");
 		
 		Freebase fb = new Freebase(luceneThreshold);
@@ -289,7 +290,7 @@ public class Freebase implements Iterable<Entity>{
 		
 		if(loadAliases){
 			System.out.print("Loading Word Weights...");
-			Document d = new Document(new File(inputPath));
+			Document d = new Document(new File(WORD_WEIGHTS), true);
 			double normMax = Math.log(d.getMax());
 			for(Tuple t : d){
 				String key = t.e;

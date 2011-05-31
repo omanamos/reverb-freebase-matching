@@ -32,7 +32,7 @@ public class Main {
 		
 		File output = new File(opt.OUTPUT);
 		BufferedWriter out = new BufferedWriter(new FileWriter(output));
-		Freebase fb = Freebase.loadFreebase(true, opt.INPUT, opt.FREEBASE, opt.WIKI_ALIAS, opt.LUCENE_THRESHOLD);
+		Freebase fb = Freebase.loadFreebase(true, opt.FREEBASE, opt.WIKI_ALIAS, opt.LUCENE_THRESHOLD);
 		
 		do{
 			if(new File(opt.INPUT).exists()){
@@ -73,10 +73,13 @@ public class Main {
 		if(!dest.exists() || !dest.isDirectory())
 			dest.mkdir();
 		String newName = source.getName() + "." + new java.sql.Timestamp(Calendar.getInstance().getTime().getTime());
-		boolean success = source.renameTo(new File(dest, newName));
+		File newFile = new File(dest, newName);
+		boolean success = source.renameTo(newFile);
 		if(!success){
 			opt.monitor = false;
 			System.out.println("ERROR: Failed to move input file into processed folder!");
+		}else{
+			opt.INPUT = newFile.getAbsolutePath();
 		}
 	}
 	
@@ -103,11 +106,7 @@ public class Main {
 			System.out.println("Could not find Freebase file: \"" + f.getAbsolutePath() + "\"");
 			failed = true;
 		}
-		f = new File(opt.INPUT);
-		if(!f.exists()){
-			System.out.println("Could not find Input file: \"" + f.getAbsolutePath() + "\"");
-			failed = true;
-		}
+		
 		f = new File(opt.WIKI_ALIAS);
 		if(!f.exists()){
 			System.out.println("Could not find Wiki Alias file: \"" + f.getAbsolutePath() + "\"");

@@ -19,7 +19,7 @@ public class Document implements Iterable<Tuple> {
 	private List<Tuple> sorted;
 	private int max;
 	
-	public Document(File f){
+	public Document(File f, boolean preprocessed){
 		try {
 			this.sorted = new ArrayList<Tuple>();
 			this.counts = new HashMap<String, Integer>();
@@ -28,14 +28,19 @@ public class Document implements Iterable<Tuple> {
 			while(s.hasNextLine()){
 				String line = s.nextLine().trim();
 				String[] parts = line.split("\t");
-				for(String tup : parts){
-					String[] tokens = Utils.split(tup);
-					for(String t : tokens){
-						t = t.trim().toLowerCase();
-						if(t.length() != 0){
-							if(!counts.containsKey(t))
-								counts.put(t, 0);
-							counts.put(t, counts.get(t) + 1);
+				
+				if(preprocessed){
+					counts.put(parts[0], Integer.parseInt(parts[1]));
+				}else{
+					for(String tup : parts){
+						String[] tokens = Utils.split(tup);
+						for(String t : tokens){
+							t = t.trim().toLowerCase();
+							if(t.length() != 0){
+								if(!counts.containsKey(t))
+									counts.put(t, 0);
+								counts.put(t, counts.get(t) + 1);
+							}
 						}
 					}
 				}
