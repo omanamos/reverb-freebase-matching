@@ -6,6 +6,7 @@ import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
@@ -35,8 +36,8 @@ public class Main {
 		
 		do{
 			if(new File(opt.INPUT).exists()){
-				List<String> rv = loadTuples(opt);
 				moveFile(opt);
+				List<String> rv = loadTuples(opt);
 				int cnt = 0;
 				long timer = System.nanoTime();
 				for(String rvEnt : rv){
@@ -71,7 +72,12 @@ public class Main {
 		File dest = new File("processed");
 		if(!dest.exists() || !dest.isDirectory())
 			dest.mkdir();
-		source.renameTo(new File(dest, source.getName()));
+		String newName = source.getName() + "." + new java.sql.Timestamp(Calendar.getInstance().getTime().getTime());
+		boolean success = source.renameTo(new File(dest, newName));
+		if(!success){
+			opt.monitor = false;
+			System.out.println("ERROR: Failed to move input file into processed folder!");
+		}
 	}
 	
 	private static List<String> loadTuples(Options opt) throws FileNotFoundException{
@@ -85,6 +91,7 @@ public class Main {
 		
 		List<String> rtn = new ArrayList<String>(rv);
 		Collections.sort(rtn);
+		s.close();
 		System.out.println("Complete!");
 		return rtn;
 	}

@@ -1,6 +1,6 @@
 *.class
 *.zip
-input/*
+input/occam.data
 .*
 bin/*
 mapper.jar
