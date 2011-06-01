@@ -10,6 +10,7 @@ import java.util.Calendar;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 import java.util.Set;
 
@@ -37,7 +38,8 @@ public class Main {
 		do{
 			if(new File(opt.INPUT).exists()){
 				List<String> rv = loadTuples(opt);
-				moveFile(opt);
+				if(opt.monitor)
+					moveFile(opt);
 				int cnt = 0;
 				long timer = System.nanoTime();
 				for(String rvEnt : rv){
@@ -56,7 +58,11 @@ public class Main {
 				System.out.println("Average match rate: " + 1.0 / (perEntry / 1000000000.0) + " entities per second.");
 				
 				if(opt.test){
-					System.out.println("Accuracy for top 5: " + Analyze.analyze(fb, Analyze.loadCorrectMatches(), output, 5));
+					Map<String, String> correctMatches = Analyze.loadCorrectMatches();
+					System.out.println("Accuracy for top 5: " + Analyze.analyze(fb, correctMatches, output, 5));
+					System.out.println("Accuracy for top 10: " + Analyze.analyze(fb, correctMatches, output, 10));
+					System.out.println("Accuracy for top 15: " + Analyze.analyze(fb, correctMatches, output, 15));
+					System.out.println("Accuracy for top 20: " + Analyze.analyze(fb, correctMatches, output, 20));
 				}
 			}else if(opt.monitor){
 				System.out.print(".");

@@ -13,15 +13,15 @@ import java.util.Scanner;
 import matching.Utils;
 
 
-public class Document implements Iterable<Tuple> {
+public class Document implements Iterable<Tuple<String,Integer>> {
 	
 	private Map<String, Integer> counts;
-	private List<Tuple> sorted;
-	private int max;
+	private List<Tuple<String, Integer>> sorted;
+	private int maxFreq;
 	
 	public Document(File f, boolean preprocessed){
 		try {
-			this.sorted = new ArrayList<Tuple>();
+			this.sorted = new ArrayList<Tuple<String, Integer>>();
 			this.counts = new HashMap<String, Integer>();
 			Scanner s = new Scanner(f);
 			
@@ -49,16 +49,17 @@ public class Document implements Iterable<Tuple> {
 			e.printStackTrace();
 		}
 		
-		this.max = -1;
+		this.maxFreq = -1;
 		for(String key : this.counts.keySet()){
 			int count = this.counts.get(key);
-			this.sorted.add(new Tuple(key, count));
-			this.max = Math.max(this.max, count);
+			this.sorted.add(new Tuple<String, Integer>(key, count));
+			this.maxFreq = Math.max(this.maxFreq, count);
 		}
+		Collections.sort(this.sorted);
 	}
 	
-	public int getMax(){
-		return this.max;
+	public int getMaxFreq(){
+		return this.maxFreq;
 	}
 	
 	public Integer getCount(String token){
@@ -68,7 +69,7 @@ public class Document implements Iterable<Tuple> {
 			return this.counts.get(token);
 	}
 	
-	public Iterator<Tuple> iterator(){
+	public Iterator<Tuple<String, Integer>> iterator(){
 		Collections.sort(this.sorted);
 		return this.sorted.iterator();
 	}

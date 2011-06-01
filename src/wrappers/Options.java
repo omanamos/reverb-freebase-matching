@@ -22,7 +22,7 @@ public class Options {
 		FREEBASE = "output.fbid-prominence.sorted";
 		WIKI_ALIAS = "output.wiki-aliases.sorted";
 		MAX_MATCHES = 5;
-		LUCENE_THRESHOLD = 100;
+		LUCENE_THRESHOLD = 40;
 	}
 	
 	public Options(String[] args){
@@ -116,7 +116,7 @@ public class Options {
 		System.out.println("  -f <path to freebase file sorted by prominence>: Defaults to \"output.fbid-prominence.sorted\"");
 		System.out.println("  -w <path to wiki aliases file>: Defaults to \"output.wiki-aliases.sorted\"");
 		System.out.println("  -m <max number of matches to return>: Defaults to 5");
-		System.out.println("  -l <maximum score to use Lucene on>: Defaults to 100");
+		System.out.println("  -l <maximum score to use Lucene on>: Defaults to 40");
 	}
 	
 	public static Options getDefaults(){

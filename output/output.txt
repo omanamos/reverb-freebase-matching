@@ -1,0 +1,2062 @@
+entity	AIG
+hit	word	/m/073sy3	Wu-Tang Clan affiliates	385	135.8808513572406
+hit	word	/m/02l48d	American International Group	260	132.85543073439376
+hit	word	/m/033xg_	Answers in Genesis	246	132.42885494326265
+hit	word	/m/0lj36	Antiochus III the Great	276	123.31567890109181
+hit	word	/m/01rt3g	Armed Islamic Group	180	120.02142496141758
+hit	word	/m/09l08	Albert I of Germany	151	118.66750567455604
+hit	word	/m/01l150	Antigonus II Gonatas	144	118.3016874109284
+hit	word	/m/09l0s	Albert II of Germany	140	118.08457822419855
+hit	word	/m/015530	Alexander I of Greece	81	113.86743278260414
+hit	word	/m/026xc5q	Alexandru II Ghica	31	106.46528079647162
+hit	word	/m/0bgrnw	Alice in Glamourland	22	103.82225139776178
+hit	word	/m/09lhxs	Alexander I of Georgia	21	103.46372784973408
+hit	word	/m/093dgk	Asian Indoor Games	20	103.0877085701155
+hit	word	/m/0c5r12	Allegorical interpretations of Genesis	20	103.0877085701155
+hit	word	/m/0h0z1n	AIG Tower	20	23.0877085701155
+hit	word	/m/027vl1_	AIG Retirement	15	20.87058125595337
+hit	word	/m/0clw_6	AIG Korea Insurance	14	20.338862408989637
+hit	word	/m/0ft3vg	Dow Jones-AIG Commodity Index	8	16.025978264719747
+hit	word	/m/0h3wk2	AIG Main Tower	5	12.403723060302333
+hit	word	/m/03hkgdr	AIG Emerging Market Foreign Exchange Indices	1	0.0
+entity	Aldawsari
+hit	word	/m/01f7pf	Aldabra	93	46.04325063305283
+hit	word	/m/05fbsm	Aldair	54	41.853678982789866
+hit	word	/m/0bsq50	Aldemaro Romero	97	35.25668658597855
+entity	America
+hit	exact	/m/07c5l	Americas	2995	161.69115014796176
+hit	word	/m/09c7w0	United States	431681	190.0
+hit	word	/m/0134vb	America (band)	306	144.11090603011783
+hit	word	/m/04dhc6	America (The Book)	53	130.59850956895784
+hit	word	/m/034382	America (Paul Simon song)	44	129.16424415266835
+hit	word	/m/0bfjhn	America (magazine)	38	128.03439075509056
+hit	word	/m/0bmg30	Americas (terminology)	37	127.82886213621356
+hit	word	/m/0fy_np	America (Razorlight song)	32	126.70996377453291
+hit	word	/m/02872bn	America (Leonard Bernstein song)	27	125.4005745869531
+hit	word	/m/07cghj	America (Prince song)	20	123.0877085701155
+hit	word	/m/0d3fpq	America (Neil Diamond song)	19	122.69239800018397
+hit	word	/m/07k29g	America (yacht)	18	122.27570914620865
+hit	word	/m/08l9v3	America (airplane)	14	120.33886240898964
+hit	word	/m/0ds0j6	America (Judge Dredd story)	14	120.33886240898964
+hit	word	/m/07sc5qv	America (film)	11	118.4802586428552
+hit	word	/m/027gl__	America (XM)	8	116.02597826471975
+hit	word	/m/03hc2v	America (automobile)	7	114.99686965408306
+hit	word	/m/02x3pmb	America (Bree Sharp song)	7	114.99686965408306
+hit	word	/m/0bfvfx	America (Havalina album)	6	113.80885095055763
+hit	word	/m/03crj7d	America (short story)	6	113.80885095055763
+hit	word	/m/0cfp5w	America (2002 novel)	5	112.40372306030233
+entity	American
+hit	exact	/m/04q7gbh	Americans	6	113.80885095055763
+hit	word	/m/09c7w0	United States	431681	190.0
+hit	word	/m/0j71j	Demographics of the United States	198	130.75596778906385
+hit	word	/m/03hc6s	American (1902 automobile)	9	116.93371639130207
+hit	word	/m/03hc85	American (1916 automobile)	9	116.93371639130207
+hit	word	/m/03hc62	American (1899 automobile)	8	116.02597826471975
+hit	word	/m/02w7_m7	American (1914 automobile)	8	116.02597826471975
+hit	word	/m/02w7_lx	American (1911 automobile)	5	112.40372306030233
+hit	word	/m/02860hv	AmericanEP	14	110.33886240898964
+hit	word	/m/0809228	American (cattle)	1	100.0
+entity	Americans
+hit	exact	/m/04q7gbh	Americans	6	113.80885095055763
+hit	word	/m/09c7w0	United States	431681	190.0
+entity	Anthony
+hit	word	/m/062k33	Encantadia	1108	144.02753737602796
+hit	word	/m/02z9f9y	Anthony (given name)	11	118.4802586428552
+hit	word	/m/020ydmq	Anthony, Texas	37	117.82886213621356
+hit	word	/m/02qfk4j	Anthony (editor)	4	110.68398550981317
+hit	word	/m/02qskd8	Anthony (comics)	2	105.34199275490658
+hit	word	/m/0z4s	Anthony Hopkins	753	51.05078610627834
+hit	word	/m/0m27	Anthony Eden	489	47.723710753331474
+hit	word	/m/0d4jl	Anthony Burgess	444	46.97970584167776
+hit	word	/m/0b_fw	Anthony Quinn	428	46.69685330861
+hit	word	/m/01wv9p	Marc Anthony	386	45.90084323993217
+hit	word	/m/082s1q	Opie and Anthony	376	45.698551666866564
+hit	word	/m/01r0ss	Anthony van Dyck	370	45.57457795142248
+hit	word	/m/05x6c	Piers Anthony	358	45.320482416107815
+hit	word	/m/014y6	Anthony Stewart Head	344	45.0130452705433
+hit	word	/m/0j6w5	Anthony Trollope	320	44.455679589741834
+hit	word	/m/06yw_	Susan B. Anthony	306	44.11090603011784
+hit	word	/m/014r2	Anthony the Great	304	44.0603690198103
+hit	word	/m/0lx__	Anthony of Padua	288	43.643680165834986
+hit	word	/m/0k2g0	Anthony Wayne	286	43.58997356204004
+hit	word	/m/016dgz	Anthony Perkins	280	43.426570979105136
+entity	Apollo
+hit	exact	/m/0hd7	Apollo	1543	156.57983563881203
+hit	word	/m/041lg9	Apollo (crater)	53	130.59850956895784
+hit	word	/m/069_1_	Apollo (comics)	37	127.82886213621356
+hit	word	/m/01081	Apollos	35	127.4005927143854
+hit	word	/m/05yg70	Apollo (butterfly)	20	123.0877085701155
+hit	word	/m/02vw_mf	Apollo (ballet)	15	120.87058125595337
+hit	word	/m/02p_2vn	Apollo (Marvel Comics)	14	120.33886240898964
+hit	word	/m/026bkb1	Adobe AIR	48	119.83482921527737
+hit	word	/m/07kt86	Apollo (magazine)	13	119.76772216427827
+hit	word	/m/082_1h	Apollo (band)	11	118.4802586428552
+hit	word	/m/03cw2f4	Apollo (Saint Seiya)	10	117.74571581520891
+hit	word	/m/03hlg6	Apollo (1962 automobile)	8	116.02597826471975
+hit	word	/m/05znjt5	Apollo (horse)	6	113.80885095055763
+hit	word	/m/0b57ym	Apollo (submarine communications cable)	5	112.40372306030233
+hit	word	/m/03hlgx	Apollo (1971 automobile)	5	112.40372306030233
+hit	word	/m/02853kq	Apollo (album)	5	112.40372306030233
+hit	word	/m/03hlfg	Apollo (1910 automobile)	4	110.68398550981317
+hit	word	/m/02z8by0	Apollo (1906 automobile)	4	110.68398550981317
+hit	word	/m/0q3w	Project Apollo	1087	53.88006663909671
+hit	word	/m/0hsp	Apollo 11	634	49.72507965921888
+hit	word	/m/0vs4	Apollo 17	311	44.23581745907988
+entity	Arab
+hit	exact	/m/0xff	Arab	5102	165.79650841809595
+hit	word	/m/03gzyrd	Arab (rapper)	22	123.82225139776178
+hit	word	/m/03hrj2	Arab (automobile)	7	114.99686965408306
+hit	word	/m/0bjwcj	AraB	2	105.34199275490658
+hit	word	/m/0j1z8	United Arab Emirates	4698	65.16072481695609
+hit	word	/m/090bv	1948 Arab-Israeli War	1108	54.02753737602798
+hit	word	/m/0150_4	Arab world	758	51.10179136495483
+hit	word	/m/0dv0g	Arab League	696	50.44413573981614
+hit	word	/m/012d8	Arab-Israeli conflict	621	49.56540978258072
+hit	word	/m/02gzrk	Arab citizens of Israel	474	47.4836020358393
+hit	word	/m/0gn8n	Sahrawi Arab Democratic Republic	297	43.8808332298083
+hit	word	/m/0c75f	United Arab Republic	232	41.97727754416511
+hit	word	/m/060kgt	United Arab Emirates cricket team	216	41.42655285167286
+hit	word	/m/01vg_h	Arab nationalism	208	41.13569318390461
+hit	word	/m/08qmn6	Arab states of the Persian Gulf	189	40.39744424103616
+hit	word	/m/012tkf	Shatt al-Arab	188	40.35655891195998
+hit	word	/m/029_vh	Arab Revolt	176	39.84822966248152
+hit	word	/m/0412q4	United Arab Emirates national football team	160	39.11368683483524
+hit	word	/m/035hqw	Yemen Arab Republic	158	39.01674384018827
+hit	word	/m/0150zs	Arab American	155	38.86900385677395
+hit	word	/m/03ck8x	Arab Christians	147	38.46059750381715
+entity	Arimura
+hit	word	/m/04601h	Arima	94	49.30028078336565
+hit	word	/m/054xy9	Anomura	46	43.79254257684646
+hit	word	/m/056xc6	Autoregressive integrated moving average	27	38.257717750634136
+hit	word	/m/03cm7sl	Haruko Arimura	4	10.683985509813166
+hit	word	/m/04crzq9	Koji Arimura	1	0.0
+entity	Australia
+hit	exact	/m/0chghy	Australia	87035	187.65840476075067
+hit	word	/m/09pkq0	Australia (continent)	177	139.89189474504354
+hit	word	/m/0b8r0g	Australian wine	120	126.89655952067312
+hit	word	/m/026qnh6	Australia (2008 film)	30	126.21257401085995
+hit	word	/m/02v9g3	Australia (song)	25	124.80744612060467
+hit	word	/m/0bccm9	Cusco (band)	90	124.679432206511
+hit	word	/m/02prsd4	Australia (The Shins song)	12	119.1508437054642
+hit	word	/m/01l_3l2	Australia (Howie Day album)	8	116.02597826471975
+hit	word	/m/0c8xkn	Australia (board game)	5	112.40372306030233
+hit	word	/m/09rtv7m	Australia (1989 film)	3	108.46685819565104
+hit	word	/m/04y71tm	Australia (schooner)	1	100.0
+hit	word	/m/01l6023	Australia (album)	1	100.0
+entity	Bahrain
+hit	exact	/m/0161c	Bahrain	2486	160.25559800215
+hit	word	/m/026g3ql	Bahrain (historical region)	37	127.82886213621356
+hit	word	/m/0gh58q	Bahrain Club	32	116.70996377453291
+hit	word	/m/045346	Bahrain national football team	148	38.51284764602673
+hit	word	/m/0byt_b	2006 Bahrain Grand Prix	127	37.333502963063495
+hit	word	/m/03s3q2	Bahrain International Circuit	92	34.84882070544078
+hit	word	/m/0286mxx	2007 Bahrain Grand Prix	91	34.764591818361325
+hit	word	/m/0gh57b	Bahrain Riffa Club	88	34.506236907574944
+hit	word	/m/02cp_n	Bahrain International Airport	83	34.05541445449906
+hit	word	/m/05nj2p	2005 Bahrain Grand Prix	82	33.96199674761163
+hit	word	/m/02yntp	2004 Bahrain Grand Prix	69	32.631693391278645
+hit	word	/m/04t3xn	King of Bahrain	68	32.51918239372236
+hit	word	/m/02k1kx	Bahrain Grand Prix	66	32.28910959341281
+hit	word	/m/03cymsb	2008 Bahrain Grand Prix	55	30.88398170315753
+hit	word	/m/08bq7k	Bahrain National Stadium	52	30.451707674091438
+hit	word	/m/06k1g1	Constitution of Bahrain	34	27.177189638815776
+hit	word	/m/08zp5_	Prime Minister of Bahrain	33	26.94711683850623
+hit	word	/m/08zr3z	Council of Representatives of Bahrain	31	26.465280796471614
+hit	word	/m/074v5p	Bahrain Football Association	31	26.465280796471614
+hit	word	/m/05h5m9t	Governorates of Bahrain	29	25.95129927944536
+hit	word	/m/0df674	1990s Uprising in Bahrain	29	25.95129927944536
+entity	Boeing
+hit	exact	/m/0178g	Boeing	2162	159.179401352681
+hit	word	/m/0137k8	Boeing 737	1985	58.521120856583345
+hit	word	/m/01gt7	Boeing 747	1707	57.35829751409413
+hit	word	/m/0mlk2	Boeing 727	959	52.91450561535267
+hit	word	/m/0hqnc	Boeing 707	909	52.501833892797976
+hit	word	/m/01bq4	Boeing 767	821	51.71710545424034
+hit	word	/m/0m8_b	Boeing 777	782	51.34202483444339
+hit	word	/m/013sr7	Boeing 757	679	50.253556240061606
+hit	word	/m/01sp1f	Boeing 787	432	46.768545606579444
+hit	word	/m/022r_6	Boeing 747-400	323	44.527594884093155
+hit	word	/m/03hhjbd	Boeing 737-300	294	43.802590258723725
+hit	word	/m/03kry_	Boeing Integrated Defense Systems	140	38.08457822419855
+hit	word	/m/047lggt	Boeing 737-800	134	37.746997260949136
+hit	word	/m/013w5c	Boeing 717	133	37.68926765426702
+hit	word	/m/03krzb	Boeing Commercial Airplanes	129	37.45392520147458
+hit	word	/m/06lsw	Boeing RC-135	127	37.333502963063495
+hit	word	/m/038968	Boeing Business Jet	120	36.896559520673115
+hit	word	/m/03vdvc	Boeing Stearman	116	36.63528478925853
+hit	word	/m/08wmwx	Boeing 747-8	110	36.225974458064115
+hit	word	/m/07x47j	Boeing P-12	109	36.15559162683064
+hit	word	/m/02999y	Boeing 377	104	35.79370042899802
+entity	Britain&rsquo
+hit	word	/m/034cm	Great Britain	12903	72.94714891804304
+hit	word	/m/014tss	Kingdom of Great Britain	2796	61.16126911344409
+hit	word	/m/03j38	Roman Britain	1229	54.82630971004663
+hit	word	/m/0ck4s	George II of Great Britain	1002	53.252545785326646
+hit	word	/m/0fwxz	Battle of Britain	985	53.12066865736084
+hit	word	/m/0cltv	Anne of Great Britain	945	52.8011673013385
+hit	word	/m/0cmxq	George I of Great Britain	788	51.40093110687166
+hit	word	/m/0257sg	Peerage of Great Britain	571	48.91848098287431
+hit	word	/m/0217fj	Parliament of Great Britain	571	48.91848098287431
+hit	word	/m/027b41f	A roads in Zone 3 of the Great Britain numbering scheme	499	47.8797255234928
+hit	word	/m/03sv8f	Great Britain national rugby league team	477	47.53222596025991
+hit	word	/m/019x_7	New Britain	463	47.30264274902755
+hit	word	/m/04gg6kl	A roads in Zone 6 of the Great Britain numbering scheme	458	47.2189625951567
+hit	word	/m/019qsf	Communist Party of Great Britain	426	46.660755507459264
+hit	word	/m/02fktd	Little Britain	414	46.440544341836265
+hit	word	/m/0136mc	Tate Britain	369	45.553720384007114
+hit	word	/m/01m1_t	New Britain, Connecticut	316	44.35873659509485
+hit	word	/m/01mh2b	Great Britain road numbering scheme	309	44.186095567542836
+hit	word	/m/0jxyn	Horseracing in Great Britain	307	44.13605080431852
+hit	word	/m/02586g	Captain Britain	279	43.39899718777368
+entity	Bubba Watson
+hit	exact	/m/026l9m6	Bubba Watson	16	121.36797101962634
+hit	word	/m/02snqk	Tom Watson (golfer)	436	46.839577136643804
+hit	word	/m/04jsnx	John Watson (racing driver)	355	45.25562761720398
+hit	word	/m/044wv	James D. Watson	350	45.1463085295943
+hit	word	/m/01ppxz	Mary Jane Watson	324	44.5514182924173
+hit	word	/m/014_w4	Dr. Watson	318	44.40736051951545
+hit	word	/m/04h6wf	Jude Watson	209	41.17265664303916
+hit	word	/m/03w3rl	Shane Watson	202	40.91011025640249
+hit	word	/m/0134w7	Emma Watson	179	39.97848966120123
+hit	word	/m/0m_31	Doc Watson	178	39.93531382583543
+hit	word	/m/01wl20g	Bubba Sparxxx	178	39.93531382583543
+hit	word	/m/016nnd	Charles Watson-Wentworth, 2nd Marquess of Rockingham	168	39.48970611445384
+hit	word	/m/02l4pj	Emily Watson	138	37.97368614618523
+hit	word	/m/014by0	Chris Watson	132	37.631102348319395
+hit	word	/m/02739nm	Sereno Watson	129	37.45392520147458
+hit	word	/m/052g4t	Russell Watson	114	36.50124895074159
+hit	word	/m/02j3mb	Bubba the Love Sponge	103	35.7192373718918
+hit	word	/m/04zkt5	Thomas J. Watson Research Center	98	35.3357320630727
+hit	word	/m/024twr	Diane Watson	94	35.014566157053395
+hit	word	/m/025tmv1	James Craig Watson	90	34.67943220651099
+hit	word	/m/04174b	Bubba Smith	89	34.593321070928845
+entity	CSU
+hit	word	/m/01nhgd	Cleveland State University	1088	133.8871534133487
+hit	word	/m/02d_zc	Colorado State University	868	132.14613596036784
+hit	word	/m/0fnmz	California State University	505	127.97184056179825
+hit	word	/m/02ng4z	Charles Sturt University	156	118.91856586974248
+hit	word	/m/05th6q	Central State University	120	116.89655952067312
+hit	word	/m/042kqd	Coppin State University	118	116.76702930429911
+hit	word	/m/05hfr5	Chicago State University	110	116.22597445806412
+hit	word	/m/0bwhjx8	Collapse of the Soviet Union	96	115.17682197018394
+hit	word	/m/0644g0	Charleston Southern University	76	113.37638350999714
+hit	word	/m/02zjkd	Columbus State University	75	113.2743043162557
+hit	word	/m/025xm4	Constitution of the Soviet Union	53	110.59850956895784
+hit	word	/m/066sw3	Clayton State University	36	107.61770190111524
+hit	word	/m/091tzl	Cardinal Stritch University	25	104.80744612060467
+hit	word	/m/02x8q_v	CSU Asesoft	27	25.400574586953105
+hit	word	/m/09lxb6	CSU Field House	7	14.996869654083056
+hit	word	/m/04jbc_6	CSU Sibiu	2	5.341992754906583
+entity	Cairo
+hit	exact	/m/01w2v	Cairo	4382	164.62408302734272
+hit	word	/m/042pb0	Cairo (graphics)	56	131.02284791880282
+hit	word	/m/042vlq	Cairo (operating system)	33	126.94711683850623
+hit	word	/m/090kg2	Cairo (typeface)	8	116.02597826471975
+hit	word	/m/01n3r2r	Cairo (band)	7	114.99686965408306
+hit	word	/m/05mv1f7	Cairo (film)	7	114.99686965408306
+hit	word	/m/04f1lx4	Cairo (graphic novel)	5	112.40372306030233
+hit	word	/m/0s2zq	Cairo, Illinois	326	44.598845312587024
+hit	word	/m/02w6bq	Cairo University	206	41.06123012679838
+hit	word	/m/02szf9	Cairo International Airport	126	37.27257880029171
+hit	word	/m/01z1zz	American University in Cairo	124	37.14926630628478
+hit	word	/m/05jf85	The Purple Rose of Cairo	97	35.25668658597855
+hit	word	/m/01bj1b	Cairo Conference	66	32.28910959341281
+hit	word	/m/0325y1	Miguel Cairo	65	32.1714452245806
+hit	word	/m/02vk1x	Cairo Geniza	55	30.88398170315753
+hit	word	/m/0779f0	Cairo International Stadium	54	30.74256734185969
+hit	word	/m/0rwtc	Cairo, Georgia	53	30.598509568957834
+hit	word	/m/0bh35t	Cairo International Film Festival	52	30.451707674091438
+hit	word	/m/02x6ybj	Coptic Cairo	50	30.149438875511255
+hit	word	/m/03zby9	The Streets of Cairo, or the Poor Little Country Maid	38	28.03439075509055
+hit	word	/m/05zk2v	Cape-Cairo railway	36	27.61770190111524
+entity	Cameron
+hit	word	/m/0d2c31	Cameron (company)	22	123.82225139776178
+hit	word	/m/03gtlbp	Cameron Phillips	39	118.23458035992931
+hit	word	/m/0h56lk	Cameron (surname)	9	116.93371639130207
+hit	word	/m/03d67cm	Cameron (given name)	7	114.99686965408306
+hit	word	/m/01vqnyf	Cameron Cartio	25	114.80744612060467
+hit	word	/m/03w4ns	Cameron (crater)	6	113.80885095055763
+hit	word	/m/03_gd	James Cameron	560	48.768563734011714
+hit	word	/m/0266lb	David Cameron	499	47.8797255234928
+hit	word	/m/0bksh	Cameron Diaz	413	46.42190620347558
+hit	word	/m/01vb6z	Cameron Crowe	275	43.287704763459864
+hit	word	/m/0374m3	Matt Cameron	211	41.24605592598888
+hit	word	/m/01bgpp	Thomas Fairfax, 3rd Lord Fairfax of Cameron	210	41.20944366494301
+hit	word	/m/0msck	Cameron County, Texas	207	41.09855158692968
+hit	word	/m/020xvj	Simon Cameron	149	38.56474593275854
+hit	word	/m/01n158	Cameron Mackintosh	149	38.56474593275854
+hit	word	/m/0mwwv	Cameron County, Pennsylvania	142	38.19389731180822
+hit	word	/m/05cl_p	Cameron McConville	138	37.97368614618523
+hit	word	/m/04606v	John Cameron Mitchell	129	37.45392520147458
+hit	word	/m/03106c	Kirk Cameron	123	37.08686218835607
+hit	word	/m/09bspg	Clan Cameron	120	36.896559520673115
+entity	Carney
+hit	word	/m/02qb1sy	Carney (Leon Russell album)	6	113.80885095055763
+hit	word	/m/0ttnd	Carney, Maryland	20	113.0877085701155
+hit	word	/m/01mmqyr	Carney (album)	5	112.40372306030233
+hit	word	/m/015qt5	Art Carney	209	41.17265664303916
+hit	word	/m/07zpt7	Chris Carney	79	33.67475108528168
+hit	word	/m/0879xc	David Carney	73	33.06599794767989
+hit	word	/m/057jcc	Carney Lansford	73	33.06599794767989
+hit	word	/m/06cwlx	John Michael Carney	57	31.159256195835006
+hit	word	/m/03792s	Pat Carney	49	29.993739308166113
+hit	word	/m/08dmsm	Brian Carney (rugby footballer)	47	29.672573402146813
+hit	word	/m/06d6yl	Keith Carney	46	29.5068279505342
+hit	word	/m/01w9nl	Ralph Carney	46	29.5068279505342
+hit	word	/m/01vzc0q	Harry Carney	45	29.337439451604403
+hit	word	/m/03h1g2	John C. Carney, Jr.	37	27.828862136213562
+hit	word	/m/04135q	Robert Carney	36	27.61770190111524
+hit	word	/m/060pmk	Patrick Carney	31	26.465280796471614
+hit	word	/m/0jlcs	William Harvey Carney	30	26.212574010859953
+hit	word	/m/039lm_	USS Carney (DDG-64)	26	25.109714919184857
+hit	word	/m/0c5xf3	Rodney Carney	24	24.492836460370786
+hit	word	/m/02rhd9m	Charles J. Carney	23	24.164835195627614
+entity	Chinese
+hit	word	/m/01r2l	Chinese language	7289	158.54580773327206
+hit	word	/m/01mw7r	Simplified Chinese	2205	149.33117875977052
+hit	word	/m/01nf5z	Traditional Chinese	1764	147.61144120928134
+hit	word	/m/0mmzb	Chinese character	2120	59.02821089397992
+hit	word	/m/013y54	Han Chinese	1958	58.41557246869063
+hit	word	/m/012m47	Chinese New Year	1222	54.78228832133168
+hit	word	/m/0f6rc	Chinese Civil War	1151	54.320972782082954
+hit	word	/m/02g597	Chinese martial arts	865	52.11945318776168
+hit	word	/m/02p1pl6	Chinese people	854	52.02081829750453
+hit	word	/m/015pnq	Chinese name	699	50.47728360363093
+hit	word	/m/01xw9	Chinese cuisine	659	50.02313948302266
+hit	word	/m/0d2by	Chinese American	641	49.809704925478215
+hit	word	/m/01syr	Traditional Chinese medicine	509	48.03264455732062
+hit	word	/m/0d29z	Overseas Chinese	411	46.384494156920645
+hit	word	/m/0f8p6	Chinese surname	340	44.92290545402469
+hit	word	/m/012l70	Chinese mythology	337	44.85460190688746
+hit	word	/m/02008	Chinese calendar	300	43.95828982606887
+hit	word	/m/01npqh	Chinese University of Hong Kong	295	43.82875960969486
+hit	word	/m/0hj0d	Chinese dragon	294	43.802590258723725
+hit	word	/m/0142mv	Chinese literature	286	43.58997356204004
+entity	Christchurch
+hit	exact	/m/02yc5b	Christchurch	2360	159.85473787441458
+hit	word	/m/05_9b9	Christchurch (UK Parliament constituency)	95	135.0961210604863
+hit	word	/m/09v113y	Christchurch (NZ electorate)	6	113.80885095055763
+hit	word	/m/01dg2n	Christchurch, Dorset	180	40.02142496141757
+hit	word	/m/04b1b5	Mayor of Christchurch	162	39.209425537510725
+hit	word	/m/02yd41	Christchurch International Airport	68	32.51918239372236
+hit	word	/m/09xh2s	Christchurch United	37	27.828862136213562
+hit	word	/m/0bkwcs	Christchurch Polytechnic Institute of Technology	23	24.164835195627614
+hit	word	/m/0h4xht	Christchurch Casino	22	23.82225139776178
+hit	word	/m/0b2hw9	Christchurch F.C.	21	23.46372784973409
+hit	word	/m/06cvbr	Christchurch Priory	20	23.0877085701155
+hit	word	/m/08gpcw	University of Otago Christchurch School of Medicine	19	22.692398000183967
+hit	word	/m/02789ys	Bournemouth East and Christchurch (UK Parliament constituency)	17	21.835196883909187
+hit	word	/m/09kqmk	Christchurch Boys High School	16	21.36797101962633
+hit	word	/m/06drcd	Christchurch Arts Centre	16	21.36797101962633
+hit	word	/m/09gmfs_	New Forest and Christchurch (UK Parliament constituency)	16	21.36797101962633
+hit	word	/m/0fqj5d	Christchurch, Newport	16	21.36797101962633
+hit	word	/m/0fy7wk	Christchurch Castle	14	20.338862408989637
+hit	word	/m/02_r9v	Christchurch Mansion	14	20.338862408989637
+hit	word	/m/09761m	Christchurch railway station	14	20.338862408989637
+hit	word	/m/04bgpr	Cathedral Square, Christchurch	14	20.338862408989637
+entity	Clearwire
+hit	exact	/m/0c5wjk	Clearwire	32	126.70996377453291
+entity	Comments
+hit	exact	/m/01s2x	Comment	17	121.83519688390919
+hit	word	/m/027msg3	Film Comment	56	31.02284791880281
+hit	word	/m/08b41r	Vorbis comment	21	23.46372784973409
+hit	word	/m/06gdcg	No comment	14	20.338862408989637
+hit	word	/m/05zxjdz	Comment te dire adieu	10	17.745715815208918
+hit	word	/m/02zf2l	Cash for comment affair	8	16.025978264719747
+hit	word	/m/01j5d0r	No Comment (album)	8	16.025978264719747
+hit	word	/m/07mtg5	Fair comment	8	16.025978264719747
+hit	word	/m/079jbx	Feedback comment system	7	14.996869654083056
+hit	word	/m/03cm5l1	Conditional comment	6	13.80885095055762
+hit	word	/m/04qxnl	Standard Architecture for Universal Comment Extensions	5	12.403723060302333
+hit	word	/m/0d6wx3	Comment out	4	10.683985509813166
+hit	word	/m/0dm58t	Comment on Reproductive Ethics	1	0.0
+entity	Davis
+hit	word	/m/02hyt	Davis, California	355	135.25562761720397
+hit	word	/m/03v2zj	Davis (MBTA station)	26	125.10971491918485
+hit	word	/m/0271bty	Davis (Amtrak station)	15	120.87058125595337
+hit	word	/m/0fdqxb	Davis (CTA)	13	119.76772216427827
+hit	word	/m/07sd7y	Paul Davis (Stargate)	13	109.76772216427827
+hit	word	/m/02qs7dz	Davis (automobile)	3	108.46685819565104
+hit	word	/m/053yx	Miles Davis	1740	57.505866045211896
+hit	word	/m/01h66l	Davis Cup	1153	54.33435276192971
+hit	word	/m/07vht	University of California, Davis	1066	53.72971891188989
+hit	word	/m/0h1m9	Bette Davis	920	52.59453652064969
+hit	word	/m/043q0	Jefferson Davis	845	51.93916738885888
+hit	word	/m/01bmlb	Sammy Davis, Jr.	796	51.47877890469857
+hit	word	/m/026s9v	Steve Davis	772	51.24283599483876
+hit	word	/m/0p81w	Gray Davis	336	44.83169886936042
+hit	word	/m/0k4dr	Davis-Monthan Air Force Base	319	44.43155792230055
+hit	word	/m/025ygy	Bill Davis	292	43.74998345749305
+hit	word	/m/03hbvk	Alan Davis	273	43.23145001401236
+hit	word	/m/02882_	Ziff Davis	249	42.522272650150086
+hit	word	/m/016732	Clive Davis	249	42.522272650150086
+hit	word	/m/01fwk3	Geena Davis	247	42.460120164462246
+entity	Deep Blue
+hit	exact	/m/03cb0wv	Deep Blues	2	105.34199275490658
+hit	word	/m/0d4qj	IBM Deep Blue	153	128.76891327521128
+hit	word	/m/0clnq_	Deep Blue (Doctor Who)	19	122.69239800018397
+hit	word	/m/02w70m9	Deep Blue (comics)	17	121.83519688390919
+hit	word	/m/0cgg0m	Deep Blue (Tokyo Mew Mew)	17	121.83519688390919
+hit	word	/m/03h_917	Deep Blue (musician)	9	116.93371639130207
+hit	word	/m/0bwjzz4	Deep Blue (album)	2	105.34199275490658
+hit	word	/m/02x21xt	Deep Blue Kaitei Shinwa	6	103.80885095055763
+hit	word	/m/07l4z	Toronto Blue Jays	3339	62.52909561434296
+hit	word	/m/0cfgd	Deep Purple	1542	56.574839290853596
+hit	word	/m/01lpxn	Winnipeg Blue Bombers	1330	55.43498346947594
+hit	word	/m/0jnm2	Columbus Blue Jackets	1010	53.313833316704816
+hit	word	/m/03c8dw	Blue Ribbon Schools Program	984	53.112840453075826
+hit	word	/m/015ppk	NYPD Blue	911	52.51877206765116
+hit	word	/m/0mcf4	Blue Note Records	836	51.85664215285233
+hit	word	/m/02cgp8	Blue Ridge Mountains	613	49.46548142693119
+hit	word	/m/03l9_t	Blue Heelers	580	49.03900784956086
+hit	word	/m/01qwsj	Blue Peter	545	48.559314687132975
+hit	word	/m/0bt9mm	Mobb Deep	508	48.01748847287666
+hit	word	/m/0gxby	Blue Mountains	445	46.99704413123118
+hit	word	/m/05w36w	Operation Deep Freeze	429	46.7148390027845
+entity	Democrats
+hit	word	/m/0d075m	Democratic Party (United States)	76265	176.64035684040186
+hit	word	/m/02pnpxv	Democrats (Brazil)	90	134.679432206511
+hit	word	/m/0bn7_w	The Democrats	36	117.61770190111524
+hit	word	/m/06fzb4	Democrats (Greenland)	9	116.93371639130207
+hit	word	/m/06bg4h	Demokratene	21	113.46372784973408
+hit	word	/m/05p6_t	The Democrats (Austria)	8	106.02597826471975
+hit	word	/m/01f53	Liberal Democrats (UK)	3251	62.32325507886951
+hit	word	/m/0vgs	Australian Democrats	609	49.41502712917946
+hit	word	/m/024310	Social Democrats (Denmark)	603	49.338720897344636
+hit	word	/m/03c0ts	Alliance of Liberals and Democrats for Europe	531	48.35875294069459
+hit	word	/m/02pdl	European Liberal Democrat and Reform Party	486	47.67628373316176
+hit	word	/m/016k2g	Progressive Democrats	482	47.6125902594246
+hit	word	/m/01fts4	Christian Democrats (Sweden)	254	42.67549571797007
+hit	word	/m/024f68	Christian Democrat Party of Chile	237	42.14160928093272
+hit	word	/m/025sw34	Scottish Liberal Democrats	236	42.10902205920569
+hit	word	/m/024376	Democrats of the Left	229	41.87696984025012
+hit	word	/m/0175yt	Democrats 66	216	41.42655285167286
+hit	word	/m/02lqf0	Independent Democrat Union	201	40.871862701693594
+hit	word	/m/03jt40	Democrat Party (Thailand)	128	37.39394928434608
+hit	word	/m/03c7s9	Union of Christian and Centre Democrats	120	36.896559520673115
+entity	Demonstrators
+hit	word	/m/0gnwz4	Demonstration (people)	331	60.10076714046567
+hit	word	/m/0l46k	Mathematical proof	156	52.76471996348484
+hit	word	/m/045lr3	Remonstrants	67	46.25115871899422
+hit	word	/m/0fx7lt	Persistent Munition Technology Demonstrator	11	18.480258642855198
+hit	word	/m/0g98y6	DCL Technology Demonstrator programme	10	17.745715815208918
+hit	word	/m/026t5yx	New Technologies Demonstrator Programme	5	12.403723060302333
+hit	word	/m/07fn6l	Atmospheric Reentry Demonstrator	4	10.683985509813166
+hit	word	/m/0cw8wd	Demonstrator pen	2	5.341992754906583
+hit	word	/m/08h_40	Integrated powerhead demonstrator	2	5.341992754906583
+hit	word	/m/0gnfxc	Demonstrator model	1	0.0
+entity	Dr. Watson
+hit	exact	/m/014_w4	Dr. Watson	318	144.40736051951546
+hit	word	/m/065sb5	Dr. Watson (debugger)	18	122.27570914620865
+hit	word	/m/02snqk	Tom Watson (golfer)	436	46.839577136643804
+hit	word	/m/04jsnx	John Watson (racing driver)	355	45.25562761720398
+hit	word	/m/044wv	James D. Watson	350	45.1463085295943
+hit	word	/m/01ppxz	Mary Jane Watson	324	44.5514182924173
+hit	word	/m/04h6wf	Jude Watson	209	41.17265664303916
+hit	word	/m/03w3rl	Shane Watson	202	40.91011025640249
+hit	word	/m/0134w7	Emma Watson	179	39.97848966120123
+hit	word	/m/0m_31	Doc Watson	178	39.93531382583543
+hit	word	/m/016nnd	Charles Watson-Wentworth, 2nd Marquess of Rockingham	168	39.48970611445384
+hit	word	/m/02l4pj	Emily Watson	138	37.97368614618523
+hit	word	/m/014by0	Chris Watson	132	37.631102348319395
+hit	word	/m/02739nm	Sereno Watson	129	37.45392520147458
+hit	word	/m/052g4t	Russell Watson	114	36.50124895074159
+hit	word	/m/04zkt5	Thomas J. Watson Research Center	98	35.3357320630727
+hit	word	/m/024twr	Diane Watson	94	35.014566157053395
+hit	word	/m/025tmv1	James Craig Watson	90	34.67943220651099
+hit	word	/m/0mq68	John B. Watson	89	34.593321070928845
+hit	word	/m/0680my	A.J. Watson	85	34.238919944211524
+hit	word	/m/02qm6p	James Eli Watson	81	33.86743278260415
+entity	Duann
+hit	word	/m/05d3kd	Duane Ward	257	42.765988340295976
+hit	word	/m/01qyy3	Duane Allman	195	40.638303420231644
+hit	word	/m/08vrwv	Dann Huff	165	39.35083989880856
+entity	EADS
+hit	exact	/m/0n3tb	EADS	396	146.09796054397043
+hit	word	/m/0271m6s	EADS Astrium	106	35.94050232386441
+hit	word	/m/038bp1	George Eads	62	31.807273551378195
+hit	word	/m/02t7l2	Eads Bridge	52	30.451707674091438
+hit	word	/m/01lbr6	EADS Astrium Space Transportation	48	29.83482921527737
+hit	word	/m/02w1w4	James Buchanan Eads	41	28.620003992705044
+hit	word	/m/0rbhx	Eads, Colorado	35	27.40059271438539
+hit	word	/m/045qpz	EADS Phoenix	33	26.94711683850623
+hit	word	/m/06jbsh	EADS Socata	29	25.95129927944536
+hit	word	/m/0f0h96	EADS Barracuda	19	22.692398000183967
+hit	word	/m/08q73v	Port Eads, Louisiana	14	20.338862408989637
+hit	word	/m/063d5m	Robert Eads	14	20.338862408989637
+hit	word	/m/02rrrgw	EADS Astrium Space Tourism Project	13	19.767722164278272
+hit	word	/m/03c1q6c	NEK EAD	10	17.745715815208918
+hit	word	/m/0c3lg2	EADS 3 Sigma	8	16.025978264719747
+hit	word	/m/0py_c	EADS Astrium Satellites	8	16.025978264719747
+hit	word	/m/0b8knx	Christine Eads	6	13.80885095055762
+hit	word	/m/04_05z8	Wendell Eads	6	13.80885095055762
+hit	word	/m/03qmj3l	EADS Sogerma	6	13.80885095055762
+hit	word	/m/0f1xm7	EAD-socket	5	12.403723060302333
+hit	word	/m/04cx7_9	Eads, Tennessee	4	10.683985509813166
+entity	Ecuador
+hit	exact	/m/02k1b	Ecuador	9119	170.27209793319082
+hit	word	/m/03zj_3	Ecuador national football team	429	46.7148390027845
+hit	word	/m/02rvjw	Cuenca, Ecuador	110	36.225974458064115
+hit	word	/m/041ptn	Loja, Ecuador	56	31.02284791880281
+hit	word	/m/04_2cv	Ibarra, Ecuador	44	29.16424415266836
+hit	word	/m/06bnl6	Esmeraldas, Ecuador	40	28.429701325022084
+hit	word	/m/04mxzy	National Congress of Ecuador	37	27.828862136213562
+hit	word	/m/06ktnm	LAN Ecuador	31	26.465280796471614
+hit	word	/m/0czwkx	VIP Ecuador	28	25.680855163896222
+hit	word	/m/02c0f6	Flag of Ecuador	24	24.492836460370786
+hit	word	/m/060_pl	Salinas, Ecuador	18	22.27570914620865
+hit	word	/m/08kny_	Communist Party of Ecuador	16	21.36797101962633
+hit	word	/m/0cj211	Ecuador Confederation of Free Trade Union Organizations	15	20.87058125595337
+hit	word	/m/0g5nd_	Central University of Ecuador	15	20.87058125595337
+hit	word	/m/08kp46	Marxist-Leninist Communist Party of Ecuador	14	20.338862408989637
+hit	word	/m/0f22q_	Zamora, Ecuador	13	19.767722164278272
+hit	word	/m/0g0lyz	Cordillera Occidental, Ecuador	13	19.767722164278272
+hit	word	/m/02vksx1	Ecuador national basketball team	12	19.1508437054642
+hit	word	/m/03qfnxx	Colombia-Ecuador relations	11	18.480258642855198
+hit	word	/m/060lyx	Milagro, Ecuador	11	18.480258642855198
+hit	word	/m/060pwn	Playas, Ecuador	11	18.480258642855198
+entity	Egypt
+hit	exact	/m/02k54	Egypt	17295	175.2049340178831
+hit	word	/m/08msz0	Egypt (TV serial)	10	117.74571581520891
+hit	word	/m/0280kkc	Egypt (album)	9	116.93371639130207
+hit	word	/m/0dq213	Egypt (media personality)	6	113.80885095055763
+hit	word	/m/08vjk7	Egypt (video game)	5	112.40372306030233
+hit	word	/m/0fxxff	Egypt (Chi Rho album)	2	105.34199275490658
+hit	word	/m/02rqcjv	Egypt (band)	1	100.0
+hit	word	/m/0kg9	Ancient Egypt	2506	60.31735207019088
+hit	word	/m/0hfvw	Thebes, Egypt	493	47.78649616335455
+hit	word	/m/03d31g	Eighteenth dynasty of Egypt	417	46.49618982874691
+hit	word	/m/04fg4b	Sultan of Egypt	409	46.34689961185563
+hit	word	/m/03_3z4	Egypt national football team	387	45.920783397125625
+hit	word	/m/02vk5k2	Upper Egypt	358	45.320482416107815
+hit	word	/m/01x24w	Muhammad Ali of Egypt	357	45.298924733643275
+hit	word	/m/06zddj	Ptolemaic Egypt	346	45.05772288236594
+hit	word	/m/0ny25	Memphis, Egypt	265	43.00223262926016
+hit	word	/m/0dpj6	Farouk of Egypt	227	41.80936531503314
+hit	word	/m/03x62r	Prime Minister of Egypt	198	40.755967789063845
+hit	word	/m/03d329	Nineteenth dynasty of Egypt	189	40.39744424103616
+hit	word	/m/01xf14	President of Egypt	185	40.2325851965159
+hit	word	/m/02vk5kg	Lower Egypt	170	39.58091269911811
+entity	Egyptian
+hit	exact	/m/025tvhm	Egyptians	913	152.53567309735425
+hit	word	/m/0dfv1	Egyptian hieroglyphs	605	49.36424034601273
+hit	word	/m/02sxh	Egyptian mythology	550	48.62969751836644
+hit	word	/m/0cn75	Egyptian language	544	48.5451606584421
+hit	word	/m/03jmj1	Egyptian pyramids	244	42.36594139832806
+hit	word	/m/034f9_	Egyptian Arabic	234	42.04343131048693
+hit	word	/m/092b7b	Egyptian Premier League	195	40.638303420231644
+hit	word	/m/019mn6	Egyptian Vulture	173	39.71573012745935
+hit	word	/m/019pjh	Egyptian Museum	166	39.397407209405635
+hit	word	/m/02169t	Egyptian Air Force	144	38.3016874109284
+hit	word	/m/01hb8w	Egyptian Goose	130	37.513437979487186
+hit	word	/m/0kwxx	Egyptian Islamic Jihad	126	37.27257880029171
+hit	word	/m/04phzg	Egyptian pound	114	36.50124895074159
+hit	word	/m/09x1dn	Egyptian Soccer Cup	102	35.644047834466804
+hit	word	/m/0p672	Egyptian soul	96	35.176821970183944
+hit	word	/m/06zrr2	Walk Like an Egyptian	95	35.096121060486304
+hit	word	/m/030d5b	Egyptian God Cards	95	35.096121060486304
+hit	word	/m/02pgw08	Egyptian pantheon	92	34.84882070544078
+hit	word	/m/05mr2v	Egyptian Army	92	34.84882070544078
+hit	word	/m/02ql0fy	Egyptian Slit-Faced Bat	87	34.41815747509639
+hit	word	/m/0b83kq	Egyptian fruit bat	87	34.41815747509639
+entity	Egyptians
+hit	exact	/m/025tvhm	Egyptians	913	152.53567309735425
+hit	word	/m/043d4d	Ashkali	82	123.96199674761164
+hit	word	/m/0dfv1	Egyptian hieroglyphs	605	49.36424034601273
+hit	word	/m/02sxh	Egyptian mythology	550	48.62969751836644
+hit	word	/m/0cn75	Egyptian language	544	48.5451606584421
+hit	word	/m/03jmj1	Egyptian pyramids	244	42.36594139832806
+hit	word	/m/034f9_	Egyptian Arabic	234	42.04343131048693
+hit	word	/m/092b7b	Egyptian Premier League	195	40.638303420231644
+hit	word	/m/019mn6	Egyptian Vulture	173	39.71573012745935
+hit	word	/m/019pjh	Egyptian Museum	166	39.397407209405635
+hit	word	/m/02169t	Egyptian Air Force	144	38.3016874109284
+hit	word	/m/01hb8w	Egyptian Goose	130	37.513437979487186
+hit	word	/m/0kwxx	Egyptian Islamic Jihad	126	37.27257880029171
+hit	word	/m/04phzg	Egyptian pound	114	36.50124895074159
+hit	word	/m/04jhg0x	Race of ancient Egyptians	114	36.50124895074159
+hit	word	/m/09x1dn	Egyptian Soccer Cup	102	35.644047834466804
+hit	word	/m/0p672	Egyptian soul	96	35.176821970183944
+hit	word	/m/06zrr2	Walk Like an Egyptian	95	35.096121060486304
+hit	word	/m/030d5b	Egyptian God Cards	95	35.096121060486304
+hit	word	/m/02pgw08	Egyptian pantheon	92	34.84882070544078
+hit	word	/m/05mr2v	Egyptian Army	92	34.84882070544078
+entity	Facebook
+hit	exact	/m/02y1vz	Facebook	699	150.47728360363092
+hit	word	/m/03w9q2t	Facebook Markup Lanugage	11	18.480258642855198
+hit	word	/m/02x99mb	Criticism of Facebook	1	0.0
+entity	Feb.
+hit	word	/m/02xx5	February	2727	150.96869208844902
+hit	word	/m/0gcvz6	Federation of Belgian Enterprises	41	118.62000399270505
+entity	Florida
+hit	exact	/m/02xry	Florida	24768	177.9727399265651
+hit	word	/m/0csgn9	Florida (album)	6	113.80885095055763
+hit	word	/m/05q8rtt	Florida (Barcelona Metro)	2	105.34199275490658
+hit	word	/m/026tmv5	Florida (ballet)	2	105.34199275490658
+hit	word	/m/05b0_fb	Florida (song)	1	100.0
+hit	word	/m/0f2v0	Miami, Florida	8786	69.98539785072144
+hit	word	/m/0ply0	Orlando, Florida	3860	63.64655905514108
+hit	word	/m/0n1rj	Tampa, Florida	3736	63.39491704798594
+hit	word	/m/0ggh3	Jacksonville, Florida	3423	62.72058040741454
+hit	word	/m/0gggp	University of Florida	3110	61.9815332742888
+hit	word	/m/02__x	Florida Marlins	2478	60.2307571540332
+hit	word	/m/01jq0j	Florida State University	2252	59.49372583219159
+hit	word	/m/0rj0z	Fort Lauderdale, Florida	1813	57.82260144437967
+hit	word	/m/0rkkv	Pensacola, Florida	1587	56.796528586906255
+hit	word	/m/0j8js	Florida Panthers	1533	56.529725797413974
+hit	word	/m/0ftvz	Tallahassee, Florida	1453	56.11666692353974
+hit	word	/m/0lhql	St. Petersburg, Florida	1325	55.405955689562504
+hit	word	/m/0ch45kw	Miami-Dade County, Florida	1257	54.99992305386662
+hit	word	/m/0rp46	Key West, Florida	1168	54.43396896730622
+hit	word	/m/0rh7t	Gainesville, Florida	1110	54.04143614707352
+hit	word	/m/0rql_	West Palm Beach, Florida	1026	53.43496534204366
+entity	Friday
+hit	exact	/m/0f7z4	Friday	210	141.20944366494302
+hit	word	/m/016rw2	Friday (film)	99	135.41397503415726
+hit	word	/m/02pg208	Supporting characters in A Series of Unfortunate Events	335	134.80872756634488
+hit	word	/m/0q9v2	Fridays	68	132.51918239372236
+hit	word	/m/05rcth	Fridays (Cartoon Network)	48	129.83482921527738
+hit	word	/m/0g8mt	Friday (novel)	32	126.70996377453291
+hit	word	/m/0d19qt	Friday (comics)	32	126.70996377453291
+hit	word	/m/02q4nw1	Friday (soundtrack)	17	121.83519688390919
+hit	word	/m/0g62h9	Friday (single)	13	119.76772216427827
+hit	word	/m/02rssh2	Friday (porn star)	11	118.4802586428552
+entity	Gabbert
+hit	exact	/m/0f4f4t	Gabbert	4	110.68398550981317
+hit	word	/m/03ysj9	John Gabbert Bowman	27	25.400574586953105
+hit	word	/m/07kjlws	Blaine Gabbert	2	5.341992754906583
+entity	Gadafy
+hit	word	/m/0dxvs	Muammar al-Gaddafi	662	62.91528739933954
+hit	word	/m/036c6y	Constantine P. Cavafy	111	48.29571961660886
+hit	word	/m/0f1gyw	Gadag	65	45.50477776318534
+entity	Gaddafi
+hit	word	/m/0dxvs	Muammar al-Gaddafi	662	140.05814423565852
+hit	word	/m/05jqtw	Gaddafi Stadium	148	38.51284764602673
+hit	word	/m/04gh3g	Saif al-Islam al-Gaddafi	37	27.828862136213562
+hit	word	/m/03gs42y	Gaddafi International Foundation for Charity Associations	5	12.403723060302333
+hit	word	/m/027b_k9	Al-Gaddafi International Prize for Human Rights	5	12.403723060302333
+entity	Gadhafi
+hit	word	/m/0dxvs	Muammar al-Gaddafi	662	140.05814423565852
+entity	Ghonim
+hit	word	/m/03my0k	Geonim	137	54.58430223057198
+hit	word	/m/04r911	Slonim	84	47.48104589815199
+hit	word	/m/01w7dh	Concepts in the Wheel of Time series	38	40.03439003983481
+entity	Google
+hit	exact	/m/045c7b	Google	3102	161.9616829955596
+hit	word	/m/0387r	Google search	229	131.87696984025013
+hit	word	/m/020_7p	Google (verb)	34	127.17718963881578
+entity	Grady
+hit	word	/m/01rvq17	Grady (band)	9	116.93371639130207
+hit	word	/m/0dqx7y	Grady (TV series)	8	116.02597826471975
+hit	word	/m/0my37	Grady County, Oklahoma	101	35.568117501495905
+hit	word	/m/04_223	Grady Little	100	35.491431630417836
+hit	word	/m/0nzm1	Grady County, Georgia	69	32.631693391278645
+hit	word	/m/05b_2r	Grady Sizemore	67	32.40500450604256
+hit	word	/m/03_j1_	Henry W. Grady	54	30.74256734185969
+hit	word	/m/07tgz5	Grady Johnson	46	29.5068279505342
+hit	word	/m/04g2qm	Grady Tate	42	28.805720604640673
+hit	word	/m/0c_ht8	Henry W. Grady College of Journalism and Mass Communication	41	28.620003992705044
+hit	word	/m/06d_nz	Grady Memorial Hospital	40	28.429701325022084
+hit	word	/m/02q81g	Grady Booch	35	27.40059271438539
+hit	word	/m/07d70r	Henry W. Grady High School	32	26.709963774532913
+hit	word	/m/027g1tv	James Grady	31	26.465280796471614
+hit	word	/m/06fpb6	Wayne Grady	30	26.212574010859953
+hit	word	/m/04n401	Grady McMurtry	27	25.400574586953105
+hit	word	/m/06hx10	Grady Hatton	27	25.400574586953105
+hit	word	/m/0fpklx	Grady Brewer	24	24.492836460370786
+hit	word	/m/04njy4	Grady Jackson	23	24.164835195627614
+hit	word	/m/02rqshp	H. Grady Spruce High School	21	23.46372784973409
+entity	HP
+hit	word	/m/03mnk	Hewlett-Packard	1936	148.32848830533672
+hit	word	/m/03n12	Horsepower	1063	143.70799921750694
+hit	word	/m/0g5y6	Hungarian people	2914	141.479846953525
+hit	word	/m/078ffw	Harry Potter	2010	138.6175785169025
+hit	word	/m/0jmwg	Hardcore punk	1762	137.60269830822352
+hit	word	/m/02nkkd	Hampden Park	1632	137.01201885409313
+hit	word	/m/0fvzz	Harrisburg, Pennsylvania	1624	136.97414719824818
+hit	word	/m/03p85	Himachal Pradesh	1056	133.65708061303914
+hit	word	/m/0147hf	Heian period	662	130.05814423565852
+hit	word	/m/0mb5x	Harold Pinter	638	129.77355067720714
+hit	word	/m/018jn4	Hiroshima Prefecture	531	128.3587529406946
+hit	word	/m/064293	The Huffington Post	479	127.56447231046693
+hit	word	/m/03nx3	Henry Purcell	472	127.45101481411227
+hit	word	/m/0cvkg	H.M.S. Pinafore	398	126.13678614979199
+hit	word	/m/013y5z	Hui people	391	126.0000320795368
+hit	word	/m/0fz6b	Hmong people	391	126.0000320795368
+hit	word	/m/0zxz9	Hershey, Pennsylvania	372	125.61612450193581
+hit	word	/m/0ljm	Hercule Poirot	339	124.90020480003926
+hit	word	/m/07dy5n	Hellenic Parliament	335	124.80872756634488
+hit	word	/m/02bs_m	Helmand Province	320	124.45567958974183
+entity	Haddin
+hit	word	/m/0jnwx	Aladdin (1992 film)	437	61.14294782212384
+hit	word	/m/0167bh	Aladdin	317	58.66880153062455
+hit	word	/m/057v8r	Aladdin (TV series)	129	51.73963982778684
+hit	word	/m/08brfg	Brad Haddin	94	35.014566157053395
+entity	He&rsquo
+hit	exact	/m/02p16w1	He	24	124.49283646037078
+hit	word	/m/05wbpf	He (letter)	79	133.67475108528168
+hit	word	/m/076zq5	He (surname)	35	127.4005927143854
+hit	word	/m/0d3ryn	He (kana)	15	120.87058125595337
+hit	word	/m/06149n	He (song)	14	120.33886240898964
+hit	word	/m/02zcmy	Ge (Cyrillic)	42	118.80572060464067
+hit	word	/m/0g6gfq	He (short story)	9	116.93371639130207
+hit	word	/m/09v4rp	Holocene calendar	30	116.21257401085995
+entity	Henjak
+hit	word	/m/01669b	Henan	1463	69.50285883572695
+hit	word	/m/01mwrp	Tim Henman	458	47.2189625951567
+hit	word	/m/01p1pl	Henna	72	46.29302719462656
+hit	word	/m/0d5w_x	Matt Henjak	19	22.692398000183967
+hit	word	/m/03yf8c0	Ivan Henjak	4	10.683985509813166
+entity	Hocutt
+hit	word	/m/024sv	Charles F. Hockett	36	40.47484506479627
+hit	word	/m/0r62g	Orcutt, California	33	38.947116123250495
+hit	word	/m/07ty33	Rick Honeycutt	78	33.57657311483589
+hit	word	/m/0b8x4d	Kirby Hocutt	10	17.745715815208918
+entity	Holmes
+hit	word	/m/05c55c	HOLMES2	26	115.10971491918485
+hit	word	/m/06rkl	Sherlock Holmes	1530	56.51462909042018
+hit	word	/m/0bbf1f	Katie Holmes	337	44.85460190688746
+hit	word	/m/02knb_	Oliver Wendell Holmes, Jr.	295	43.82875960969486
+hit	word	/m/02nv94	Robert Holmes (scriptwriter)	271	43.17478162298757
+hit	word	/m/02kndf	Oliver Wendell Holmes, Sr.	218	41.49758438173723
+hit	word	/m/011lpb	Larry Holmes	157	38.9678111903703
+hit	word	/m/03bhf_	Kelly Holmes	141	38.13943159779785
+hit	word	/m/01lw3kh	Rupert Holmes	133	37.68926765426702
+hit	word	/m/0n26r	Holmes County, Ohio	132	37.631102348319395
+hit	word	/m/0320v0	Priest Holmes	129	37.45392520147458
+hit	word	/m/07k10c	Eamonn Holmes	100	35.491431630417836
+hit	word	/m/01s_vp	Eleanor Holmes Norton	100	35.491431630417836
+hit	word	/m/0jj6z	Holmes County, Florida	100	35.491431630417836
+hit	word	/m/0m588	John Holmes (actor)	92	34.84882070544078
+hit	word	/m/01svhh	Mycroft Holmes	82	33.96199674761163
+hit	word	/m/08gzlg	The Adventures of Sherlock Holmes (TV series)	80	33.77169407992866
+hit	word	/m/03jkk7	David Holmes (musician)	80	33.77169407992866
+hit	word	/m/02nlhc	The Adventures of Sherlock Holmes	78	33.57657311483589
+hit	word	/m/01fvcx	David Holmes (politician)	76	33.37638350999714
+entity	Hosni Mubarak
+hit	exact	/m/0dnps	Hosni Mubarak	334	144.7856875896756
+hit	word	/m/08thcz	Jehan Mubarak	62	31.807273551378195
+hit	word	/m/09980p	Mubarak Al-Sabah	36	27.61770190111524
+hit	word	/m/08p2c_	Mubarak Hassan Shami	30	26.212574010859953
+hit	word	/m/07wjfw	Tareq Mubarak Taher	29	25.95129927944536
+hit	word	/m/03v_2c	Gamal Mubarak	28	25.680855163896222
+hit	word	/m/035txz	Muhammad ibn Mubarak ibn Hamad Al Khalifah	25	24.807446120604666
+hit	word	/m/0gfb7y	Bilal Saad Mubarak	21	23.46372784973409
+hit	word	/m/026h9y_	Qila Mubarak	21	23.46372784973409
+hit	word	/m/0gngcw	Mubarak Al-Nubi	20	23.0877085701155
+hit	word	/m/0bx9tv	Bandar Ahmad Mubarak Al Jabri	19	22.692398000183967
+hit	word	/m/027b8j6	Amad Al Hosni	19	22.692398000183967
+hit	word	/m/0470y2	Salem Mubarak Al-Yami	18	22.27570914620865
+hit	word	/m/07pdnq	Mubarak Shah	17	21.835196883909187
+hit	word	/m/06cgy1	Suzanne Mubarak	17	21.835196883909187
+hit	word	/m/06wf9d	Qutb ud din Mubarak Shah	17	21.835196883909187
+hit	word	/m/09982d	Salim Al-Mubarak Al-Sabah	16	21.36797101962633
+hit	word	/m/027cm2s	Mubarak Ali Gilani	15	20.87058125595337
+hit	word	/m/03qhx3t	Muslim Mubarak	14	20.338862408989637
+hit	word	/m/073dp0	Abdel Aziz El Mubarak	14	20.338862408989637
+hit	word	/m/0d6nnp	Yussef Mohammed Mubarak Al Shihri	14	20.338862408989637
+entity	Howard
+hit	word	/m/09r3x2	Howard (CTA)	51	130.30205507956023
+hit	word	/m/02swvc	Howard family	37	117.82886213621356
+hit	word	/m/0chh05	John Howard	1500	56.362012886371204
+hit	word	/m/083pr	William Howard Taft	1041	53.546823132288814
+hit	word	/m/0217m9	Howard University	1007	53.2909075691418
+hit	word	/m/0sx5w	Howard Stern	967	52.97852979627812
+hit	word	/m/06hmd	Robert E. Howard	945	52.8011673013385
+hit	word	/m/045bx_	The Howard Stern Show	754	51.06101419863022
+hit	word	/m/03n93	Howard Hughes	690	50.37740920648757
+hit	word	/m/0d0gzz	Howard Dean	598	49.27455011481246
+hit	word	/m/0g2lq	Ron Howard	527	48.3004776803808
+hit	word	/m/0159w5	Michael Howard	427	46.67882554259795
+hit	word	/m/02cvp8	Moe Howard	363	45.42737548136142
+hit	word	/m/03g62	Howard Hawks	342	44.96810714639262
+hit	word	/m/01tc9r	Howard Shore	290	43.697015094654276
+hit	word	/m/0cv1w	Howard County, Maryland	282	43.48142435270444
+hit	word	/m/01w_rb	Howard Cosell	276	43.31567890109181
+hit	word	/m/045g4l	Curly Howard	252	42.614571555198296
+hit	word	/m/02jxmr	James Newton Howard	249	42.522272650150086
+hit	word	/m/06g2d1	Terrence Howard	246	42.42885494326266
+entity	IBM
+hit	exact	/m/03sc8	IBM	4551	164.91572432456965
+hit	word	/m/094dy	Indigo Books and Music	66	112.2891095934128
+hit	word	/m/09xfqm	International Brotherhood of Magicians	63	111.93058604538513
+hit	word	/m/05sbd7	Isabel Briggs Myers	52	110.45170767409144
+hit	word	/m/0wqx8	Itta Bena, Mississippi	46	109.5068279505342
+hit	word	/m/034sj_	Isaac Burns Murphy	27	105.4005745869531
+hit	word	/m/086jhx	In the Bleak Midwinter	21	103.46372784973408
+hit	word	/m/0d714	IBM PC compatible	1764	57.611441209281345
+hit	word	/m/03wg7	IBM PC	1070	53.75858361400576
+hit	word	/m/0120tv	IBM DB2	209	41.17265664303916
+hit	word	/m/0d4qj	IBM Deep Blue	153	38.76891327521126
+hit	word	/m/03v6g	IBM mainframe	129	37.45392520147458
+hit	word	/m/01j92l	SCO v. IBM	112	36.36484067370938
+hit	word	/m/012v7j	IBM 7090	110	36.225974458064115
+hit	word	/m/0h0fwx	IBM token ring	108	36.084560096766275
+hit	word	/m/0gg2y	IBM POWER	97	35.25668658597855
+hit	word	/m/03qvjb	IBM Personal Computer XT	90	34.67943220651099
+hit	word	/m/09xj7	IBM System i	88	34.506236907574944
+hit	word	/m/01pvbb	IBM PCjr	85	34.238919944211524
+hit	word	/m/03xdc	IBM 3270	83	34.05541445449906
+hit	word	/m/0fmnx	IBM Selectric typewriter	73	33.06599794767989
+entity	Indonesia
+hit	exact	/m/03ryn	Indonesia	15840	174.5276618689925
+hit	word	/m/027ntn7	Indonesia (Guidebook)	12	119.1508437054642
+hit	word	/m/03sgl	Military of Indonesia	218	41.49758438173723
+hit	word	/m/017tgb	Garuda Indonesia	214	41.35486055370342
+hit	word	/m/01d8l_	Indonesia-Malaysia confrontation	211	41.24605592598888
+hit	word	/m/0413b_	Indonesia national football team	179	39.97848966120123
+hit	word	/m/09fpb2	Subdistricts of Indonesia	151	38.66750567455604
+hit	word	/m/02pzqlz	President of Indonesia	145	38.3550223397477
+hit	word	/m/077dyv	Liga Indonesia	134	37.746997260949136
+hit	word	/m/04k6c0	Communist Party of Indonesia	132	37.631102348319395
+hit	word	/m/07mdl2	A1 Team Indonesia	127	37.333502963063495
+hit	word	/m/016wnh	Provinces of Indonesia	126	37.27257880029171
+hit	word	/m/04gv5c	Padang, Indonesia	121	36.960517285710395
+hit	word	/m/01zlrv	University of Indonesia	112	36.36484067370938
+hit	word	/m/0b0bts	Regencies of Indonesia	100	35.491431630417836
+hit	word	/m/0g8xt4	Japanese occupation of Indonesia	99	35.41397503415726
+hit	word	/m/03m7h3g	Indonesia national badminton team	87	34.41815747509639
+hit	word	/m/0bdxq3	Villages of Indonesia	79	33.67475108528168
+hit	word	/m/098_g2	2005-06 A1 Grand Prix of Nations, Indonesia	72	32.959694656021824
+hit	word	/m/05rr4g	Pontianak, Indonesia	72	32.959694656021824
+hit	word	/m/026j6vv	2006-07 A1 Grand Prix of Nations, Indonesia	67	32.40500450604256
+entity	Ingram
+hit	word	/m/01jgkj2	James Ingram	182	40.10658457326791
+hit	word	/m/01mrqyy	Jack Ingram	163	39.25685255768044
+hit	word	/m/08q_l7	Jack Ingram (NASCAR)	58	31.293292034351943
+hit	word	/m/02w76d	Geoffrey Ingram Taylor	53	30.598509568957834
+hit	word	/m/02fb88	Adam Ingram (Labour politician)	50	30.149438875511255
+hit	word	/m/06ljp	Rex Ingram (director)	44	29.16424415266836
+hit	word	/m/01m0ntx	Luther Ingram	42	28.805720604640673
+hit	word	/m/02266s	Charles Ingram	39	28.234580359929307
+hit	word	/m/04tdqf	Mark Ingram	37	27.828862136213562
+hit	word	/m/0268qf1	Ingram Prisken	33	26.94711683850623
+hit	word	/m/04s5py	Ingram Micro	32	26.709963774532913
+hit	word	/m/02fbrw	Adam Ingram (SNP politician)	30	26.212574010859953
+hit	word	/m/097kbz	Jonas H. Ingram	30	26.212574010859953
+hit	word	/m/02_627	Ingram Marshall	28	25.680855163896222
+hit	word	/m/026wx49	Craig Ingram	28	25.680855163896222
+hit	word	/m/057ncj	Rex Ingram (actor)	27	25.400574586953105
+hit	word	/m/06f70r	Dan Ingram	27	25.400574586953105
+hit	word	/m/02qvzg4	Arthur Winnington-Ingram	27	25.400574586953105
+hit	word	/m/06lwy5	Kevin Ingram	26	25.109714919184857
+hit	word	/m/01ppf8g	Ingram Hill	25	24.807446120604666
+entity	Internet
+hit	exact	/m/03rlt	Internet	7273	168.52887188477354
+hit	word	/m/04pxqq	Internets	21	123.46372784973408
+entity	Iran
+hit	exact	/m/03shp	Iran	19364	176.0757962838518
+hit	word	/m/02q78vs	Iran (Muslimgauze album)	4	110.68398550981317
+hit	word	/m/09gptrj	Iran (newspaper)	3	108.46685819565104
+hit	word	/m/05mw_mj	Iran (band)	1	100.0
+hit	word	/m/03vc6	Iran-Iraq War	873	52.19040297728061
+hit	word	/m/01n_2f	Iran national football team	718	50.68397272039537
+hit	word	/m/03tlf	Iran-Contra Affair	479	47.564472310466925
+hit	word	/m/01k91x	Iran hostage crisis	351	45.168296751231374
+hit	word	/m/0h5qg	History of Iran	325	44.575168284882935
+hit	word	/m/021wn5	Majlis of Iran	296	43.85484040093331
+hit	word	/m/025qg4	Supreme Leader of Iran	266	43.03126040917361
+hit	word	/m/01h_b8	President of Iran	248	42.491259061191364
+hit	word	/m/01ct0j	Ray, Iran	201	40.871862701693594
+hit	word	/m/035p1l	Nuclear program of Iran	188	40.35655891195998
+hit	word	/m/0b9qq5	Greater Iran	182	40.10658457326791
+hit	word	/m/016l2x	Iran Air	168	39.48970611445384
+hit	word	/m/01xn4fj	Iran national under-23 football team	144	38.3016874109284
+hit	word	/m/0h7zd	Politics of Iran	140	38.08457822419855
+hit	word	/m/02vmhy	Iran Pro League	140	38.08457822419855
+hit	word	/m/0259p6	Islamic Republic of Iran Air Force	131	37.57249471640637
+hit	word	/m/0441nd	Prime Minister of Iran	123	37.08686218835607
+entity	Iranian
+hit	word	/m/01yvs_	Iranian Revolution	1027	53.44247324955995
+hit	word	/m/04nrnz	Iranian peoples	726	50.76936823626801
+hit	word	/m/099n91	Iranian languages	533	48.38772615698331
+hit	word	/m/03rmp	Indo-Iranian languages	357	45.298924733643275
+hit	word	/m/0pbty	Iranian calendar	222	41.637713086771186
+hit	word	/m/050wg_	Iranian architecture	211	41.24605592598888
+hit	word	/m/01y6s5	Iranian plateau	160	39.11368683483524
+hit	word	/m/025xc15	Iranian Constitutional Revolution	159	39.065367764608865
+hit	word	/m/06y24j	Iranian-American	145	38.3550223397477
+hit	word	/m/01d7rg	Iranian monarchy	145	38.3550223397477
+hit	word	/m/02q5j_m	2007 Iranian seizure of Royal Navy personnel	124	37.14926630628478
+hit	word	/m/0d41c0	Eastern Iranian languages	122	37.02394864342148
+hit	word	/m/06dkgp	Iranian Kurdistan	110	36.225974458064115
+hit	word	/m/02p53_r	Iranian Arabs	104	35.79370042899802
+hit	word	/m/0d41cc	Western Iranian languages	103	35.7192373718918
+hit	word	/m/06nkpw	Iranian cuisine	100	35.491431630417836
+hit	word	/m/03jv2_	Anglo-Iranian Oil Company	94	35.014566157053395
+hit	word	/m/0ccq3x	Iranian military industry	91	34.764591818361325
+hit	word	/m/02gv1f	Iranian reformists	86	34.32905976073013
+hit	word	/m/0b1rwj	Proto-Indo-Iranian	82	33.96199674761163
+entity	Israel
+hit	exact	/m/03spz	Israel	20997	176.6997742357896
+hit	word	/m/059wrp	Israel (singer)	27	125.4005745869531
+hit	word	/m/0fmf4f	Israel (song)	16	121.36797101962634
+hit	word	/m/0967c_	Israel (Bishop of Caucasian Albania)	7	114.99686965408306
+hit	word	/m/09s93	Israel Defense Forces	2169	59.20431389582009
+hit	word	/m/0f_yw4	2006 Israel-Lebanon conflict	1093	53.922489864323516
+hit	word	/m/0672d	Prime Minister of Israel	732	50.8327995939791
+hit	word	/m/01k1xh	Land of Israel	700	50.48830128450089
+hit	word	/m/0fgjl	Acre, Israel	628	49.65179670018347
+hit	word	/m/039_ym	Israel national football team	508	48.01748847287666
+hit	word	/m/0577_c	Kingdom of Israel	501	47.910553030420054
+hit	word	/m/02gzrk	Arab citizens of Israel	474	47.4836020358393
+hit	word	/m/013zfq	President of Israel	311	44.23581745907988
+hit	word	/m/039dy9	Beta Israel	234	42.04343131048693
+hit	word	/m/05lxby	Supreme Court of Israel	224	41.70683342861597
+hit	word	/m/01vv5_	Israel Central Bureau of Statistics	211	41.24605592598888
+hit	word	/m/045zl_	Israel Aerospace Industries	199	40.7947933948854
+hit	word	/m/018_n5	American Israel Public Affairs Committee	170	39.58091269911811
+hit	word	/m/02g2x6	Israel Prize	164	39.30398950251821
+hit	word	/m/04npwr	Agudat Israel	161	39.161704849710674
+hit	word	/m/0czhnw	Cabinet of Israel	157	38.9678111903703
+entity	It&rsquo
+hit	word	/m/03ytc	Information Technology	1567	146.69878642131636
+hit	word	/m/01nxb_	It (novel)	114	136.5012489507416
+hit	word	/m/032xky	It (1990 film)	66	132.2891095934128
+hit	word	/m/01nxbn	It (1927 film)	23	124.16483519562762
+hit	word	/m/04gmbhx	Big Cypress (Phish festival)	75	123.2743043162557
+hit	word	/m/02pv47	It (album)	18	122.27570914620865
+hit	word	/m/01nxcg	It (pronoun)	16	121.36797101962634
+hit	word	/m/019dbh	Impulse Tracker	54	120.74256734185968
+hit	word	/m/0475x6	.it	11	118.4802586428552
+hit	word	/m/02qzkwm	IT (XM)	6	113.80885095055763
+hit	word	/m/03m7vnt	I.T	4	110.68398550981317
+hit	word	/m/0cjljb	It (video)	2	105.34199275490658
+hit	word	/m/031tvs	IT (mod format)	2	105.34199275490658
+entity	Jackson
+hit	word	/m/0_vw8	Jackson, Tennessee	444	136.97970584167777
+hit	word	/m/042tq	Jackson, Michigan	431	136.7506849578997
+hit	word	/m/0bwhdy	Jackson (song)	29	125.95129927944537
+hit	word	/m/0rth_	Jackson, Georgia	55	120.88398170315753
+hit	word	/m/056v4x	Jackson (crater)	10	117.74571581520891
+hit	word	/m/027w104	Jackson (elm cultivar)	1	100.0
+hit	word	/m/09889g	Michael Jackson	3719	63.35976830034075
+hit	word	/m/0gbwp	Janet Jackson	1795	57.745703025791116
+hit	word	/m/0rlz	Andrew Jackson	1688	57.27203419070863
+hit	word	/m/043yj	Jackson, Mississippi	1430	55.993696622342384
+hit	word	/m/015srx	The Jackson 5	947	52.81746089399512
+hit	word	/m/0js9s	Peter Jackson	927	52.652953763193864
+hit	word	/m/0f5xn	Samuel L. Jackson	791	51.43021625847128
+hit	word	/m/01rfyc	Port Jackson	659	50.02313948302266
+hit	word	/m/040cf	Jesse Jackson	604	49.35149118436921
+hit	word	/m/0136pk	Jackson Browne	599	49.28742708765945
+hit	word	/m/07r8h	Stonewall Jackson	599	49.28742708765945
+hit	word	/m/016c8l	Alan Jackson	560	48.768563734011714
+hit	word	/m/0g5qm	Reggie Jackson	548	48.60162147108279
+hit	word	/m/04510	Jackson Pollock	439	46.89242442798906
+entity	Jacoby
+hit	word	/m/043ks	Jacob	680	66.93156447823364
+hit	word	/m/04468	Jacobin (politics)	130	51.79915260579944
+hit	word	/m/01t99n	Glen Jacobs	637	49.76146147244438
+hit	word	/m/0gzbbq	Jacoby Ellsbury	75	33.2743043162557
+hit	word	/m/07y006	Oswald Jacoby	61	31.681955888514896
+hit	word	/m/09r3l9	Joe Jacoby	42	28.805720604640673
+hit	word	/m/03mppy	Jacoby Shaddix	41	28.620003992705044
+hit	word	/m/06p3dx	Brook Jacoby	35	27.40059271438539
+hit	word	/m/08zggb	Jeff Jacoby	23	24.164835195627614
+hit	word	/m/05pm13	Jacoby transfer	22	23.82225139776178
+hit	word	/m/05wp5q	Heinrich Jacoby	18	22.27570914620865
+hit	word	/m/0ds024	Mark Jacoby	18	22.27570914620865
+hit	word	/m/05p7crv	Donald Jacoby	17	21.835196883909187
+hit	word	/m/0gwcb0	Erich Jacoby-Hawkins	16	21.36797101962633
+hit	word	/m/02qrzr3	Scott Jacoby	15	20.87058125595337
+hit	word	/m/0ddgn53	Georg Jacoby	15	20.87058125595337
+hit	word	/m/07m3g5	Johann Jacoby	12	19.1508437054642
+hit	word	/m/02v_7lg	Russell Jacoby	12	19.1508437054642
+hit	word	/m/0fnd9b	Felix Jacoby	11	18.480258642855198
+hit	word	/m/0ctz9l	Don Jacoby	11	18.480258642855198
+entity	Johnson
+hit	exact	/m/01t6ws	Johnson	76	133.37638350999714
+hit	word	/m/02899lm	Johnson (electoral district)	43	128.98706700582355
+hit	word	/m/07424f	Johnson (composer)	20	123.0877085701155
+hit	word	/m/065_zmb	Johnson (footballer)	5	112.40372306030233
+hit	word	/m/0f7fy	Lyndon B. Johnson	2620	60.66020328652188
+hit	word	/m/0c_hh	Samuel Johnson	894	52.373596883316154
+hit	word	/m/0rmg	Andrew Johnson	881	52.26070555331693
+hit	word	/m/0464kx	Jimmie Johnson	678	50.24219755494585
+hit	word	/m/095nx	Magic Johnson	640	49.79767234464841
+hit	word	/m/0227cy	Randy Johnson	549	48.61567227981696
+hit	word	/m/06h4z	Robert Johnson (musician)	515	48.122960432194134
+hit	word	/m/0182y2	Johnson Space Center	508	48.01748847287666
+hit	word	/m/013l9y	Johnson City, Tennessee	372	45.616124501935815
+hit	word	/m/01g7xn	Walter Johnson	355	45.25562761720398
+hit	word	/m/02h7gb	Jack Johnson (musician)	353	45.212085882989925
+hit	word	/m/090xrh	Dick Johnson Racing	282	43.48142435270444
+hit	word	/m/02nwzm	Brian Johnson	275	43.287704763459864
+hit	word	/m/01mt1fy	Don Johnson	261	42.885015670747435
+hit	word	/m/042zp	Johnson solid	250	42.553161935813584
+hit	word	/m/0d__g	Philip Johnson	242	42.30251004061697
+hit	word	/m/02_wvf	Michael Johnson (athlete)	216	41.42655285167286
+entity	Kamel
+hit	word	/m/01tfqd	Camel (cigarette)	206	57.06123036521696
+hit	word	/m/0pqp3	Camel (band)	190	56.43811405381146
+hit	word	/m/01x_v	Camel	150	54.616297309580865
+hit	word	/m/08470v	Abdullah Kamel Abdullah Kamel Al Kandari	31	26.465280796471614
+hit	word	/m/07wgb1	Youssef Saad Kamel	28	25.680855163896222
+hit	word	/m/02bx18	Hussein Kamel	25	24.807446120604666
+hit	word	/m/027fr6r	Stanley Kamel	24	24.492836460370786
+hit	word	/m/0cf8rw	Georg Joseph Kamel	22	23.82225139776178
+hit	word	/m/026s1bm	Hassan Kamel Al-Sabbah	16	21.36797101962633
+hit	word	/m/07h30p	Saleh Abdullah Kamel	15	20.87058125595337
+hit	word	/m/099k48	Fathi Kamel	15	20.87058125595337
+hit	word	/m/02r3t0j	Kamel Ghilas	11	18.480258642855198
+hit	word	/m/0g_vmj	Kamel Nacif Borge	11	18.480258642855198
+hit	word	/m/03h276	Saddam Kamel	10	17.745715815208918
+hit	word	/m/0g2307	Kamel Larbi	10	17.745715815208918
+hit	word	/m/02wvwty	Kamel Boughanem	9	16.933716391302074
+hit	word	/m/0gz68m	Kamel Rabat Bouralha	8	16.025978264719747
+hit	word	/m/03gvv2j	Kamel al-Budeiri	8	16.025978264719747
+hit	word	/m/028thh	Kamel al-Kilani	8	16.025978264719747
+hit	word	/m/02z3ml1	Kamel Chafni	8	16.025978264719747
+entity	Kaymer
+hit	word	/m/01k571	Kayseri	356	59.56302120705427
+hit	word	/m/07sqdd	Kayseri Erciyesspor	120	36.896559520673115
+hit	word	/m/02t_vx	David Paymer	99	35.41397503415726
+hit	word	/m/02x68s2	Martin Kaymer	17	21.835196883909187
+entity	Ken Jennings
+hit	exact	/m/038hhf	Ken Jennings	188	140.35655891195998
+hit	word	/m/07p7_g	Ken Jennings (actor)	10	117.74571581520891
+hit	word	/m/04k648	Ken Jennings (make-up artist)	7	114.99686965408306
+hit	word	/m/03c132w	Ken Jennings (Florida)	2	105.34199275490658
+hit	word	/m/09r8l	Waylon Jennings	810	51.613148597813066
+hit	word	/m/02frsp	Ken Rosewall	608	49.40236177471689
+hit	word	/m/05m6fn	Ken Schrader	557	48.72716596326801
+hit	word	/m/0b3tf	William Jennings Bryan	501	47.910553030420054
+hit	word	/m/0h1gl	Ken Griffey, Jr.	470	47.41828921735573
+hit	word	/m/048jx	Ken Livingstone	456	47.18523446055475
+hit	word	/m/029ccj	Ken Doherty	334	44.78568758967561
+hit	word	/m/0330y8	Ken Shamrock	318	44.40736051951545
+hit	word	/m/015njf	Ken Russell	298	43.906738687665126
+hit	word	/m/04dhm	Ken Kesey	274	43.2596287161762
+hit	word	/m/01xkyn	Peter Jennings	272	43.20316790353552
+hit	word	/m/049l7	Ken Loach	259	42.825731790296615
+hit	word	/m/014dm6	Ken Burns	255	42.70577813986255
+hit	word	/m/01p5m7	Ken Dryden	252	42.614571555198296
+hit	word	/m/076m5m	Ken Flach	231	41.94398649258929
+hit	word	/m/07dx7l	Ken Anderson (wrestler)	222	41.637713086771186
+hit	word	/m/02k51s	Ken Masters	181	40.06412239171442
+entity	Kennedy
+hit	word	/m/03mdk0t	Kennedy (VIVA)	57	131.159256195835
+hit	word	/m/04rhsp	Kennedy (TTC)	50	130.14943887551127
+hit	word	/m/02zcfl	Kennedy (Buffy the Vampire Slayer)	42	128.80572060464067
+hit	word	/m/069btz	Kennedy GO Station	25	114.80744612060467
+hit	word	/m/07vnw2	Kennedy (television)	3	108.46685819565104
+hit	word	/m/02phllk	Kennedy (musical artist)	3	108.46685819565104
+hit	word	/m/0d3k14	John F. Kennedy	4137	64.1806734467926
+hit	word	/m/0194xc	Ted Kennedy	1147	54.294142932685176
+hit	word	/m/0p1l2	John F. Kennedy International Airport	1030	53.46495318710072
+hit	word	/m/045z8	Kennedy Space Center	990	53.15969084936618
+hit	word	/m/06hx2	Robert F. Kennedy	900	52.425148021719906
+hit	word	/m/01q1wc	John F. Kennedy assassination	673	50.18515165084849
+hit	word	/m/01_f90	John F. Kennedy School of Government	645	49.85764826177692
+hit	word	/m/0h6mq	Jacqueline Kennedy Onassis	630	49.676301860594045
+hit	word	/m/021jng	Kennedy Center	620	49.55298936658711
+hit	word	/m/062vvj	Kennedy Space Center Launch Complex 39	286	43.58997356204004
+hit	word	/m/019s7r	Anthony Kennedy	277	43.34355186621481
+hit	word	/m/01qlg1	Joseph P. Kennedy, Sr.	239	42.20637324571506
+hit	word	/m/0n5r9	Charles Kennedy	234	42.04343131048693
+hit	word	/m/02wrrm	George Kennedy	203	40.948168933528414
+entity	Khaled
+hit	word	/m/050f73	Khaled (musician)	185	140.2325851965159
+hit	word	/m/04hfcv	Khaled (album)	18	122.27570914620865
+hit	word	/m/03cd27t	Khaled (2001 film)	11	118.4802586428552
+hit	word	/m/05q9bll	Khaled (horse)	5	112.40372306030233
+hit	word	/m/01ssf9t	DJ Khaled	242	42.30251004061697
+hit	word	/m/03mtwc	Khaled Mashud	118	36.76702930429911
+hit	word	/m/01w9l9	Khaled Mashal	91	34.764591818361325
+hit	word	/m/04zgt6	Khaled Hosseini	61	31.681955888514896
+hit	word	/m/03mtw0	Khaled Mahmud	52	30.451707674091438
+hit	word	/m/030p6j	Leila Khaled	41	28.620003992705044
+hit	word	/m/06hyvg	Khaled Mosharraf	36	27.61770190111524
+hit	word	/m/0f4p6_	Khaled Nezzar	30	26.212574010859953
+hit	word	/m/028401l	Hanan Ahmed Khaled	28	25.680855163896222
+hit	word	/m/074slq	Ahmed Khaled Towfik	27	25.400574586953105
+hit	word	/m/09fzd5	Khaled Abou El Fadl	26	25.109714919184857
+hit	word	/m/09vff0	Khaled Badra	25	24.807446120604666
+hit	word	/m/0gcltj	Khaled Ben Mustafa	24	24.492836460370786
+hit	word	/m/03dxpq	Khaled al-Harbi	21	23.46372784973409
+hit	word	/m/02sgq9	Amr Khaled	20	23.0877085701155
+hit	word	/m/0dfkc1	Khaled Aziz	20	23.0877085701155
+entity	Knopf
+hit	word	/m/06bh1w	Alfred A. Knopf	635	139.73722602336582
+hit	word	/m/0268fsv	Edwin H. Knopf	22	23.82225139776178
+hit	word	/m/02ch8r	Alfred A. Knopf (person)	21	23.46372784973409
+hit	word	/m/02rkcbm	Philip Knopf	9	16.933716391302074
+hit	word	/m/02rgwg	Jim Knopf	8	16.025978264719747
+hit	word	/m/05p23pw	Blanche Knopf	4	10.683985509813166
+hit	word	/m/06zl45f	Brent Knopf	1	0.0
+entity	Kuchar
+hit	word	/m/03jhxf	Kucha	131	54.239160985708736
+hit	word	/m/06bqc4	Auchan	59	44.758369087997266
+hit	word	/m/0266zr_	Kucha (woreda)	8	32.692644534022115
+hit	word	/m/01q61k	George Kuchar	31	26.465280796471614
+hit	word	/m/0dxcwq	Matt Kuchar	17	21.835196883909187
+hit	word	/m/0h7nc2	Tadeusz Kuchar	11	18.480258642855198
+hit	word	/m/05p4fcd	Mike Kuchar	4	10.683985509813166
+hit	word	/m/02rp7th	Dennis Kuchar	3	8.466858195651037
+hit	word	/m/0cjc9s	Waclaw Kuchar	3	8.466858195651037
+hit	word	/m/03gzsvy	Tomasz Kuchar	2	5.341992754906583
+hit	word	/m/02vl44p	Jan Krtitel Kuchar	1	0.0
+entity	Libya
+hit	exact	/m/04gqr	Libya	4395	164.64691300049807
+hit	word	/m/02zyrm	Libya (mythology)	20	123.0877085701155
+hit	word	/m/02r9fyt	Libya (satrapy)	2	105.34199275490658
+hit	word	/m/0466jp	Libya national football team	107	36.01286779879684
+hit	word	/m/0lrkg	Cyrene, Libya	96	35.176821970183944
+hit	word	/m/0gf_d_	Ancient Libya	94	35.014566157053395
+hit	word	/m/01v09v	Idris I of Libya	83	34.05541445449906
+hit	word	/m/040cpy	HIV trial in Libya	73	33.06599794767989
+hit	word	/m/0dpq0n	Darnah, Libya	36	27.61770190111524
+hit	word	/m/02pv19h	United Kingdom of Libya	33	26.94711683850623
+hit	word	/m/03cqt5n	Italian Libya	24	24.492836460370786
+hit	word	/m/09x8gy	Central Bank of Libya	23	24.164835195627614
+hit	word	/m/074s3_	Air Libya Tibesti	21	23.46372784973409
+hit	word	/m/03w7cm	Egypt-Libya Campaign	16	21.36797101962633
+hit	word	/m/024wxc	Flag of Libya	15	20.87058125595337
+hit	word	/m/02z9rcv	Agricultural Bank of Libya	12	19.1508437054642
+hit	word	/m/09k8gl	Coat of arms of Libya	8	16.025978264719747
+hit	word	/m/027nj3l	National Front for the Salvation of Libya	8	16.025978264719747
+hit	word	/m/02x3y19	Libya and nuclear technology	6	13.80885095055762
+hit	word	/m/0262x2t	Bani Walid, Libya	5	12.403723060302333
+hit	word	/m/03d5vw0	Literature of Libya	5	12.403723060302333
+entity	Libyan
+hit	word	/m/04gqr	Libya	4395	154.64691300049807
+hit	word	/m/01cm84	Libyan Airlines	103	35.7192373718918
+hit	word	/m/0dwzk4	Chadian-Libyan conflict	97	35.25668658597855
+hit	word	/m/01cs67	Libyan Desert	84	34.147713359547254
+hit	word	/m/025ds7	Libyan Islamic Fighting Group	60	31.554566765766534
+hit	word	/m/0262r1x	Libyan Premier League	58	31.293292034351943
+hit	word	/m/099cft	Libyan Arabic	53	30.598509568957834
+hit	word	/m/026n92d	Libyan Air Force	44	29.16424415266836
+hit	word	/m/024xpm	Libyan dinar	34	27.177189638815776
+hit	word	/m/02vsk47	Libyan Jird	31	26.465280796471614
+hit	word	/m/0fw5p0	Libyan-Egyptian War	25	24.807446120604666
+hit	word	/m/0cb_2_	Libyan Football Federation	23	24.164835195627614
+hit	word	/m/0262sy1	Libyan Cup	21	23.46372784973409
+hit	word	/m/0265ggw	Libyan SuperCup	18	22.27570914620865
+hit	word	/m/059h11	Libyan Navy	15	20.87058125595337
+hit	word	/m/0c1n66	Libyan Arab Air Cargo	13	19.767722164278272
+hit	word	/m/09x8nv	Libyan Arab Foreign Bank	13	19.767722164278272
+hit	word	/m/092lql	Libyan pound	12	19.1508437054642
+hit	word	/m/07v4g5	Libyan Arab Airlines Flight 114	11	18.480258642855198
+hit	word	/m/03qky5n	Libyan Sea	10	17.745715815208918
+entity	Mahan
+hit	word	/m/073tr	Shah Jahan	379	60.15979882462497
+hit	word	/m/01sc5s	Marsh Arabs	44	43.56424436724508
+hit	word	/m/012lv3	Dave Gahan	209	41.17265664303916
+hit	word	/m/01dv87	Alfred Thayer Mahan	155	38.86900385677395
+hit	word	/m/02wh01	Mahan class destroyer	59	31.425036549392527
+hit	word	/m/021056	Mahan Air	58	31.293292034351943
+hit	word	/m/0c1hzy	Kerrigan Mahan	54	30.74256734185969
+hit	word	/m/049sv8	Mahan confederacy	40	28.429701325022084
+hit	word	/m/08434p	USS Mahan (DD-364)	26	25.109714919184857
+hit	word	/m/02rz96d	Hunter Mahan	22	23.82225139776178
+hit	word	/m/0264b3n	USS Mahan (DDG-42)	22	23.82225139776178
+hit	word	/m/039ltm	USS Mahan (DDG-72)	22	23.82225139776178
+hit	word	/m/057pqy	Dennis Hart Mahan	21	23.46372784973409
+hit	word	/m/0fwp4n	Larry Mahan	21	23.46372784973409
+hit	word	/m/03tx_4	USS Mahan (DD-102)	16	21.36797101962633
+hit	word	/m/03d7d__	Dennis Mahan Michie	15	20.87058125595337
+hit	word	/m/0ksv7l	Sean Mahan	14	20.338862408989637
+hit	word	/m/02rhcx6	Bryan F. Mahan	12	19.1508437054642
+hit	word	/m/0dbg1b	Edna Mahan Correctional Facility for Women	11	18.480258642855198
+hit	word	/m/0787fg	Master Mahan	11	18.480258642855198
+entity	Michigan
+hit	exact	/m/04rrx	Michigan	15036	174.1262030207485
+hit	word	/m/04mkyy	Michigan (album)	22	123.82225139776178
+hit	word	/m/09ll9z	Michigan (video game)	7	114.99686965408306
+hit	word	/m/02rm48p	Michigan (1903 automobile)	4	110.68398550981317
+hit	word	/m/02rmqw6	Michigan (1908 automobile)	4	110.68398550981317
+hit	word	/m/02dtg	Detroit, Michigan	10528	71.37940683076278
+hit	word	/m/07szy	University of Michigan	6154	67.24131203053018
+hit	word	/m/01j_cy	Michigan State University	2685	60.8490709171546
+hit	word	/m/0wh3	Ann Arbor, Michigan	2069	58.8405433786518
+hit	word	/m/0v9qg	Grand Rapids, Michigan	1826	57.877665852260826
+hit	word	/m/04kcn	Lake Michigan	1389	55.76950094467858
+hit	word	/m/04pry	Lansing, Michigan	1160	54.381000604467445
+hit	word	/m/0m2rv	Flint, Michigan	1096	53.943614225989364
+hit	word	/m/0f67f	Kalamazoo, Michigan	964	52.95458301433118
+hit	word	/m/0fsb_6	Michigan Wolverines football	930	52.677854807331556
+hit	word	/m/0vp5f	Saginaw, Michigan	778	51.30250235574623
+hit	word	/m/015fs3	Western Michigan University	606	49.37696845205352
+hit	word	/m/07wq3	Upper Peninsula of Michigan	591	49.18380379270953
+hit	word	/m/06fd8x	Michigan Wolverines	588	49.14458301363031
+hit	word	/m/01fq7	Battle Creek, Michigan	545	48.559314687132975
+hit	word	/m/0vrmb	Dearborn, Michigan	522	48.22700842565402
+entity	Middle East
+hit	exact	/m/04wsz	Middle East	7613	168.88098667637954
+hit	word	/m/04rjz	Middle Ages	7089	68.3313867126561
+hit	word	/m/0d0t_	Middle-earth	1175	54.48001952275149
+hit	word	/m/0ddb5	Middle English	842	51.9117570465472
+hit	word	/m/01rp13	Malcolm in the Middle	681	50.27622351068418
+hit	word	/m/01j4jl	Middle school	643	49.83371387466459
+hit	word	/m/015lmb	Middle Temple	518	48.1677245452032
+hit	word	/m/03tyyn	Middle States Association of Colleges and Schools	399	46.15612584991806
+hit	word	/m/02zc7f	Middle Tennessee State University	360	45.36341771632416
+hit	word	/m/02mbpg	Early Middle Ages	344	45.0130452705433
+hit	word	/m/02j4wh	High Middle Ages	294	43.802590258723725
+hit	word	/m/03m34v	Middle Persian	278	43.37132438800245
+hit	word	/m/024gqc	Middle High German	263	42.94384699808043
+hit	word	/m/07127h	Late Middle Ages	233	42.010425407979895
+hit	word	/m/0m926	Middle distance track event	218	41.49758438173723
+hit	word	/m/01fcwy	The History of Middle-earth	210	41.20944366494301
+hit	word	/m/02_7p1	Middle Tennessee	184	40.190813460347364
+hit	word	/m/01lbc_	Middle class	176	39.84822966248152
+hit	word	/m/08ht1k	Committee for Accuracy in Middle East Reporting in America	171	39.62611439148604
+hit	word	/m/062h0g	Seishun Academy Middle School	166	39.397407209405635
+hit	word	/m/01qsfj	Middle Kingdom of Egypt	156	38.91856586974247
+entity	Mizioch
+hit	word	/m/096p6	Antioch	1067	65.16551597620924
+hit	word	/m/01l_wf	Principality of Antioch	319	44.43155792230055
+hit	word	/m/02_hxf	Mizrachi (Religious Zionism)	49	42.49373930816611
+entity	Mr. Galliano
+hit	word	/m/03d61w	Semigallians	46	41.173495411929466
+hit	word	/m/02jkh6	John Galliano	134	37.746997260949136
+hit	word	/m/04mnbw	Galliano (band)	19	37.23785297912684
+hit	word	/m/01h74_	Galliano (drink)	16	35.9134259985692
+hit	word	/m/01mghp3	Richard Galliano	24	24.492836460370786
+hit	word	/m/0tl86	Galliano, Louisiana	22	23.82225139776178
+hit	word	/m/03hmf1c	Galliano Rossini	13	19.767722164278272
+hit	word	/m/03jm0r	Banco Galliano	3	8.466858195651037
+hit	word	/m/03m6dkw	Giuseppe Galliano	2	5.341992754906583
+hit	word	/m/0415dc_	Galliano Masini	1	0.0
+hit	word	/m/06_v0qg	Giovanni de Galliano Pieroni	1	0.0
+entity	Mr. Stein
+hit	word	/m/0gs7x	Gertrude Stein	418	46.514649397945746
+hit	word	/m/01n1gc	Ben Stein	196	40.677724817979275
+hit	word	/m/0393j4	Jock Stein	135	37.80429764725544
+hit	word	/m/09g9h_	Clifford Stein	123	37.08686218835607
+hit	word	/m/0bxhd	Edith Stein	121	36.960517285710395
+hit	word	/m/0533db	Chris Stein	117	36.701438555580346
+hit	word	/m/0592n	Marc Aurel Stein	94	35.014566157053395
+hit	word	/m/05xvk4	Heinrich Friedrich Karl vom und zum Stein	91	34.764591818361325
+hit	word	/m/090p18	Joseph Stein	80	33.77169407992866
+hit	word	/m/05prcg	Kissing Jessica Stein	66	32.28910959341281
+hit	word	/m/032jxk	Stein am Rhein	61	31.681955888514896
+hit	word	/m/05dy_f	Colin Stein	59	31.425036549392527
+hit	word	/m/041mn9	Stein Eriksen	58	31.293292034351943
+hit	word	/m/01pzwx9	Schwarz Stein	58	31.293292034351943
+hit	word	/m/01rl5v	Leonid Stein	57	31.159256195835006
+hit	word	/m/07cvms	Seymour Stein	45	29.337439451604403
+hit	word	/m/0dx3vb	Godlove Stein Orth	41	28.620003992705044
+hit	word	/m/02x7b3	Rick Stein	40	28.429701325022084
+hit	word	/m/0g1pmg	Stein Mart	40	28.429701325022084
+hit	word	/m/041zj5	Stein manifold	39	28.234580359929307
+entity	Ms. Stewart
+hit	word	/m/0qf11	Rod Stewart	1384	55.7417083921791
+hit	word	/m/044qx	James Stewart (actor)	1021	53.39731569972243
+hit	word	/m/0271xk	Tony Stewart	850	51.98463575942044
+hit	word	/m/01q_l5	Jackie Stewart	582	49.06553753653617
+hit	word	/m/0jbp0	Patrick Stewart	524	48.25648022621954
+hit	word	/m/01j7rd	Jon Stewart	495	47.8176980944596
+hit	word	/m/01b370	Martha Stewart	413	46.42190620347558
+hit	word	/m/03kwtb	David A. Stewart	401	46.19466026247807
+hit	word	/m/0161hn	Charles Stewart Parnell	358	45.320482416107815
+hit	word	/m/014y6	Anthony Stewart Head	344	45.0130452705433
+hit	word	/m/01r61j	Stewart Copeland	274	43.2596287161762
+hit	word	/m/04k1p8	Stewart Grand Prix	269	43.11769346227866
+hit	word	/m/026ny8	Brigadier Lethbridge-Stewart	238	42.17405929289883
+hit	word	/m/03kwvt	Dave Stewart (baseball player)	228	41.84324170564817
+hit	word	/m/09nkfd	Sherwood Stewart	218	41.49758438173723
+hit	word	/m/013x8d	Robert Stewart, Viscount Castlereagh	206	41.06123012679838
+hit	word	/m/01qv8g	Al Stewart	203	40.948168933528414
+hit	word	/m/06b1r2	John Stewart (comics)	184	40.190813460347364
+hit	word	/m/03mrbq	Alec Stewart	181	40.06412239171442
+hit	word	/m/01z3lt	Payne Stewart	178	39.93531382583543
+entity	Mubarak
+hit	word	/m/0dnps	Hosni Mubarak	334	134.7856875896756
+hit	word	/m/08thcz	Jehan Mubarak	62	31.807273551378195
+hit	word	/m/09980p	Mubarak Al-Sabah	36	27.61770190111524
+hit	word	/m/08p2c_	Mubarak Hassan Shami	30	26.212574010859953
+hit	word	/m/07wjfw	Tareq Mubarak Taher	29	25.95129927944536
+hit	word	/m/03v_2c	Gamal Mubarak	28	25.680855163896222
+hit	word	/m/035txz	Muhammad ibn Mubarak ibn Hamad Al Khalifah	25	24.807446120604666
+hit	word	/m/0gfb7y	Bilal Saad Mubarak	21	23.46372784973409
+hit	word	/m/026h9y_	Qila Mubarak	21	23.46372784973409
+hit	word	/m/0gngcw	Mubarak Al-Nubi	20	23.0877085701155
+hit	word	/m/0bx9tv	Bandar Ahmad Mubarak Al Jabri	19	22.692398000183967
+hit	word	/m/0470y2	Salem Mubarak Al-Yami	18	22.27570914620865
+hit	word	/m/07pdnq	Mubarak Shah	17	21.835196883909187
+hit	word	/m/06cgy1	Suzanne Mubarak	17	21.835196883909187
+hit	word	/m/06wf9d	Qutb ud din Mubarak Shah	17	21.835196883909187
+hit	word	/m/09982d	Salim Al-Mubarak Al-Sabah	16	21.36797101962633
+hit	word	/m/027cm2s	Mubarak Ali Gilani	15	20.87058125595337
+hit	word	/m/03qhx3t	Muslim Mubarak	14	20.338862408989637
+hit	word	/m/073dp0	Abdel Aziz El Mubarak	14	20.338862408989637
+hit	word	/m/0d6nnp	Yussef Mohammed Mubarak Al Shihri	14	20.338862408989637
+entity	Muslim Brotherhood
+hit	exact	/m/056rs	Muslim Brotherhood	409	146.34689961185563
+hit	word	/m/01b5kq	Muslim world	508	48.01748847287666
+hit	word	/m/0q245	Pre-Raphaelite Brotherhood	418	46.514649397945746
+hit	word	/m/02kn_p	Muslim League	401	46.19466026247807
+hit	word	/m/01s87m	Brotherhood of Mutants	311	44.23581745907988
+hit	word	/m/087vpt	Muslim conquests	281	43.454046467941595
+hit	word	/m/01__k7	Irish Republican Brotherhood	249	42.522272650150086
+hit	word	/m/052nch	Sahih Muslim	223	41.672350747125755
+hit	word	/m/02cbvn	Aligarh Muslim University	190	40.43811381539288
+hit	word	/m/01rn98	Autonomous Region in Muslim Mindanao	170	39.58091269911811
+hit	word	/m/037ckb	Ahmadiyya Muslim Community	140	38.08457822419855
+hit	word	/m/03yfck	Brotherhood of Nod	139	38.02933163309587
+hit	word	/m/018dff	Brotherhood of Man	125	37.21116918090701
+hit	word	/m/024v3n	Pakistan Muslim League (Q)	108	36.084560096766275
+hit	word	/m/03zmnj	Muslim Council of Britain	106	35.94050232386441
+hit	word	/m/026843_	Inventions in the Muslim world	106	35.94050232386441
+hit	word	/m/024v2w	Pakistan Muslim League (N)	105	35.867450910036425
+hit	word	/m/07j342	Brotherhood of Evil	105	35.867450910036425
+hit	word	/m/0k5q_	Fenian Brotherhood	96	35.176821970183944
+hit	word	/m/040fyf	Indian Union Muslim League	85	34.238919944211524
+hit	word	/m/0qqlq	Aryan Brotherhood	84	34.147713359547254
+entity	Muslims
+hit	exact	/m/04y29	Muslim	9088	260.2458538412477
+hit	word	/m/01b5kq	Muslim world	508	48.01748847287666
+hit	word	/m/056rs	Muslim Brotherhood	409	46.34689961185563
+hit	word	/m/02kn_p	Muslim League	401	46.19466026247807
+hit	word	/m/02dbz_	Muslims by nationality	367	45.51183513712792
+hit	word	/m/087vpt	Muslim conquests	281	43.454046467941595
+hit	word	/m/052nch	Sahih Muslim	223	41.672350747125755
+hit	word	/m/02cbvn	Aligarh Muslim University	190	40.43811381539288
+hit	word	/m/01rn98	Autonomous Region in Muslim Mindanao	170	39.58091269911811
+hit	word	/m/037ckb	Ahmadiyya Muslim Community	140	38.08457822419855
+hit	word	/m/024v3n	Pakistan Muslim League (Q)	108	36.084560096766275
+hit	word	/m/03zmnj	Muslim Council of Britain	106	35.94050232386441
+hit	word	/m/026843_	Inventions in the Muslim world	106	35.94050232386441
+hit	word	/m/024v2w	Pakistan Muslim League (N)	105	35.867450910036425
+hit	word	/m/040fyf	Indian Union Muslim League	85	34.238919944211524
+hit	word	/m/03xq8d	Muslim ibn al-Hajjaj	81	33.86743278260415
+hit	word	/m/08pnsl	A Restatement of the History of Islam and Muslims	71	32.85190455690164
+hit	word	/m/087pxf	Muslim conquest of Egypt	70	32.742585469291974
+hit	word	/m/01yztp	Persecution of Muslims	68	32.51918239372236
+hit	word	/m/0264lmw	Muslim conquest of Syria	66	32.28910959341281
+hit	word	/m/019r2r	Black Muslim	52	30.451707674091438
+entity	Nathan McCullum
+hit	exact	/m/0g_1kn	Nathan McCullum	13	119.76772216427827
+hit	word	/m/04kb7c	John Nathan-Turner	624	49.60255137955564
+hit	word	/m/01nxzv	Nathan Lane	294	43.802590258723725
+hit	word	/m/0d5pj	Nathan Bedford Forrest	267	43.06017926657988
+hit	word	/m/05zpxh	Joe Nathan	204	40.98604058937339
+hit	word	/m/04r2jk	Nathan Astle	161	39.161704849710674
+hit	word	/m/02s_qz	Nathan Fillion	154	38.81912105184483
+hit	word	/m/03w3s8	Nathan Bracken	150	38.616297071162286
+hit	word	/m/03ph08	Nathan Robertson	144	38.3016874109284
+hit	word	/m/05g1h8	Nathan Buckley	141	38.13943159779785
+hit	word	/m/070ryw	Brendon McCullum	128	37.39394928434608
+hit	word	/m/01q1dp	Nathan Hale	123	37.08686218835607
+hit	word	/m/0h77dj	Nathan Petrelli	114	36.50124895074159
+hit	word	/m/04vpcg	Nathan Road	90	34.67943220651099
+hit	word	/m/0255js	Nathan Deal	82	33.96199674761163
+hit	word	/m/058f83	Nathan Marcus Adler	80	33.77169407992866
+hit	word	/m/050nyt	Nathan Barley	78	33.57657311483589
+hit	word	/m/03y8gb	Nathan Field	73	33.06599794767989
+hit	word	/m/032v2c	Nathan Clifford	70	32.742585469291974
+hit	word	/m/02qgdp	Lion Nathan	69	32.631693391278645
+hit	word	/m/09p1z3	Nathan Scott	68	32.51918239372236
+entity	Nets
+hit	word	/m/07fhzj	Cricket nets	17	111.83519688390919
+hit	word	/m/0jm3b	New Jersey Nets	1743	57.51914230423314
+hit	word	/m/0733w6	Chinese fishing nets (of Kochi)	18	22.27570914620865
+hit	word	/m/092blv	Master of the Nets Garden	9	16.933716391302074
+hit	word	/m/0crdymf	1992-93 New Jersey Nets season	5	12.403723060302333
+hit	word	/m/0cz9p8w	2006-07 New Jersey Nets season	5	12.403723060302333
+hit	word	/m/02rw4zn	Nothing But Nets	5	12.403723060302333
+hit	word	/m/02vpjh0	Nets-Knicks rivalry	5	12.403723060302333
+hit	word	/m/0dgpzm7	2005-06 New Jersey Nets season	5	12.403723060302333
+hit	word	/m/04pwnn	Nets to Catch the Wind	4	10.683985509813166
+hit	word	/m/08_d9d	Torpedo nets	4	10.683985509813166
+hit	word	/m/0g6tkb	Nets Magazine	1	0.0
+entity	New Jersey
+hit	exact	/m/05fjf	New Jersey	17883	175.46259844336103
+hit	word	/m/0_4_l	New Jersey (album)	71	132.85190455690164
+hit	word	/m/0hptm	Newark, New Jersey	2969	61.623953703535896
+hit	word	/m/0hm2b	New Jersey Devils	2533	60.39994281666773
+hit	word	/m/0jm3b	New Jersey Nets	1743	57.51914230423314
+hit	word	/m/0qlrh	Atlantic City, New Jersey	1734	57.479244718376
+hit	word	/m/01t0sn	New Jersey Transit	1627	56.98837088691667
+hit	word	/m/0xn7q	Jersey City, New Jersey	1617	56.94085614667234
+hit	word	/m/0fvxz	Trenton, New Jersey	1292	55.211580393906324
+hit	word	/m/0pzmf	Camden, New Jersey	1176	54.486575768536895
+hit	word	/m/0ljsz	Princeton, New Jersey	1081	53.83740859777443
+hit	word	/m/0n5j_	Bergen County, New Jersey	1074	53.78734061175886
+hit	word	/m/02733r	New Jersey Legislature	995	53.198516455187736
+hit	word	/m/0xpp5	New Brunswick, New Jersey	844	51.930041435802046
+hit	word	/m/0xrzh	Paterson, New Jersey	774	51.26277615203221
+hit	word	/m/0xszy	Elizabeth, New Jersey	765	51.1726363355136
+hit	word	/m/0xn7b	Hoboken, New Jersey	761	51.132233273353876
+hit	word	/m/0206mwr	East Rutherford, New Jersey	761	51.132233273353876
+hit	word	/m/04gq7h	New Jersey General Assembly	753	51.05078610627834
+hit	word	/m/0n5d1	Monmouth County, New Jersey	690	50.37740920648757
+hit	word	/m/01fggg	Governor of New Jersey	650	49.91716103978952
+entity	No.
+hit	exact	/m/02z8bfv	No	43	128.98706700582355
+hit	word	/m/08pzk4	No (song)	29	125.95129927944537
+hit	word	/m/04l3d6	.no	28	125.68085516389623
+hit	word	/m/082t4c	No (kana)	27	125.4005745869531
+hit	word	/m/06sr08	No (band)	17	121.83519688390919
+hit	word	/m/0gwm9v	NOS (drink)	13	119.76772216427827
+hit	word	/m/027g0t5	NOS (Software)	11	118.4802586428552
+hit	word	/m/02qkj7	Numero sign	29	115.95129927944537
+entity	North Africa
+hit	exact	/m/05g2v	North Africa	3373	162.6071753821567
+hit	word	/m/0hzlz	South Africa	26023	78.3536769637404
+hit	word	/m/0hqjh	West Africa	2130	59.06447856776159
+hit	word	/m/01mqb6	East Africa	1415	55.91242838470043
+hit	word	/m/0210tk	South Africa national rugby union team	831	51.81041006186584
+hit	word	/m/02c59t	Southern Africa	572	48.93196631694663
+hit	word	/m/02n0ld	Central Africa	510	48.04777089476914
+hit	word	/m/03zrc_	South Africa national football team	507	48.00230252420758
+hit	word	/m/06qtn	Sub-Saharan Africa	460	47.25254376574311
+hit	word	/m/0c4b8	Union of South Africa	424	46.62448783367758
+hit	word	/m/01tjqp	East London, South Africa	348	45.10214298490956
+hit	word	/m/01qspb	French West Africa	331	44.716151480751925
+hit	word	/m/0gt8x	Horn of Africa	321	44.479725994447875
+hit	word	/m/0gsrsm	West Africa Time	272	43.20316790353552
+hit	word	/m/0btbg	South West Africa	268	43.08899001585572
+hit	word	/m/01b_kn	German East Africa	246	42.42885494326266
+hit	word	/m/02d53g	Africa Province	246	42.42885494326266
+hit	word	/m/09w6n	Italian East Africa	235	42.07629646244915
+hit	word	/m/01vlnz	President of South Africa	229	41.87696984025012
+hit	word	/m/01q2bw	Scramble for Africa	227	41.80936531503314
+hit	word	/m/03f283	British South Africa Company	206	41.06123012679838
+entity	Obama
+hit	word	/m/02mjmr	Barack Obama	1672	147.1986349077589
+hit	word	/m/047qllg	Barack Obama presidential campaign, 2008	108	36.084560096766275
+hit	word	/m/025s5v9	Michelle Obama	52	30.451707674091438
+hit	word	/m/01wjz4	Obama, Fukui	36	27.61770190111524
+hit	word	/m/02rspny	I Got a Crush... on Obama	36	27.61770190111524
+hit	word	/m/02r14z4	Obama Domain	28	25.680855163896222
+hit	word	/m/02qj43v	Obama Line	24	24.492836460370786
+hit	word	/m/03qccxj	Barack Obama, Sr.	20	23.0877085701155
+hit	word	/m/0g6l3l	Ricardo Mangue Obama Nfubea	17	21.835196883909187
+hit	word	/m/0282m15	Barack Obama media controversy	13	19.767722164278272
+hit	word	/m/02x78nx	Obama Castle (Mutsu)	12	19.1508437054642
+hit	word	/m/02z1sfh	Higashi-Obama Station	8	16.025978264719747
+hit	word	/m/06_wyyq	Sarah Onyango Obama	8	16.025978264719747
+hit	word	/m/02x78b6	Obama Castle (Fukui)	8	16.025978264719747
+hit	word	/m/02x6v37	Obama Station	7	14.996869654083056
+hit	word	/m/03nncwf	Deadheads for Obama	5	12.403723060302333
+hit	word	/m/03qxqg	Obama, Nagasaki	5	12.403723060302333
+hit	word	/m/02x797j	Obama Onsen	4	10.683985509813166
+hit	word	/m/02z5w21	Obama Nishi Interchange	4	10.683985509813166
+hit	word	/m/03wd4fz	Obama Works	1	0.0
+entity	Ogilvy
+hit	word	/m/09nh5y	Ogilvy (Montreal)	12	119.1508437054642
+hit	word	/m/01pn56	Princess Alexandra, The Honourable Lady Ogilvy	216	41.42655285167286
+hit	word	/m/0bph_7	Geoff Ogilvy	91	34.764591818361325
+hit	word	/m/06snh3	Ian Ogilvy	67	32.40500450604256
+hit	word	/m/020w38	Angus Ogilvy	52	30.451707674091438
+hit	word	/m/02wvwp	James Ogilvy	40	28.429701325022084
+hit	word	/m/066zb8	James Ogilvy, 4th Earl of Findlater	38	28.03439075509055
+hit	word	/m/0gd07n	Clan Ogilvy	32	26.709963774532913
+hit	word	/m/02rn_c6	David Ogilvy, 12th Earl of Airlie	32	26.709963774532913
+hit	word	/m/03nz1b	David Ogilvy, 13th Earl of Airlie	31	26.465280796471614
+hit	word	/m/04wgtg	David Ogilvy	27	25.400574586953105
+hit	word	/m/0ddbzy	Francis Ogilvy-Grant, 6th Earl of Seafield	24	24.492836460370786
+hit	word	/m/040l8k	Bernie Ogilvy	18	22.27570914620865
+hit	word	/m/02z__8	John Ogilvy Rennie	16	21.36797101962633
+hit	word	/m/0cjm7w	Mabell Ogilvy, Countess of Airlie	14	20.338862408989637
+hit	word	/m/0chxbz	Ogilvy Renault	14	20.338862408989637
+hit	word	/m/0ddk41	John Ogilvy-Grant, 7th Earl of Seafield	14	20.338862408989637
+hit	word	/m/027cc45	Lewis Grant-Ogilvy, 5th Earl of Seafield	14	20.338862408989637
+hit	word	/m/05qsqw	Ogilvy and Mather	13	19.767722164278272
+hit	word	/m/02vvty0	Donald of Ogilvy	12	19.1508437054642
+entity	Passan
+hit	word	/m/01h5td	Passau	274	59.92629498547857
+hit	word	/m/01gmrw	Passau (district)	56	47.68951418810518
+hit	word	/m/02pdc4	Volkswagen Passat	260	42.85543073439377
+hit	word	/m/03d80f7	Jeff Passan	4	10.683985509813166
+entity	Pearson
+hit	word	/m/04khg	Lester B. Pearson	628	49.65179670018347
+hit	word	/m/06k9l7	Toronto Pearson International Airport	538	48.45968621718524
+hit	word	/m/05wrsw	David Pearson	190	40.43811381539288
+hit	word	/m/03tpjp	Pearson PLC	166	39.397407209405635
+hit	word	/m/01ns1z	Lester B. Pearson Award	158	39.01674384018827
+hit	word	/m/015yk8	Karl Pearson	153	38.76891327521126
+hit	word	/m/07p5zs	Pearson Education	117	36.701438555580346
+hit	word	/m/07spgr	Larry Pearson	114	36.50124895074159
+hit	word	/m/0834s9	Drew Pearson (American football)	81	33.86743278260415
+hit	word	/m/034ssy	Ridley Pearson	71	32.85190455690164
+hit	word	/m/01gcb6	Pearson product-moment correlation coefficient	70	32.742585469291974
+hit	word	/m/0h2xtw	Ewan Pearson	69	32.631693391278645
+hit	word	/m/01z053	John Loughborough Pearson	57	31.159256195835006
+hit	word	/m/098k_0	Sir Arthur Pearson, 1st Baronet	53	30.598509568957834
+hit	word	/m/0232fy	Drew Pearson (journalist)	50	30.149438875511255
+hit	word	/m/02vlkv0	Pearson v. Chung	49	29.993739308166113
+hit	word	/m/05g9tp	John Pearson (author)	49	29.993739308166113
+hit	word	/m/02pqlm0	Felicia Pearson	47	29.672573402146813
+hit	word	/m/07rjs7	James B. Pearson	47	29.672573402146813
+hit	word	/m/02pxqb8	J.C. Pearson	42	28.805720604640673
+entity	Perplexus
+hit	word	/m/04n7g	Lexus	347	56.19107657756794
+hit	word	/m/015pwv	Perpetua and Felicity	88	46.50623619231921
+hit	word	/m/0bfyqk	Plexus (The Rosy Crucifixion)	33	40.28044937711097
+hit	word	/m/02w0xq8	Cranopsis perplexus	8	16.025978264719747
+hit	word	/m/02wzjhk	Amphicyclotulus perplexus	3	8.466858195651037
+hit	word	/m/0bmfgy1	Conus perplexus	1	0.0
+entity	Philippines
+hit	exact	/m/05v8c	Philippines	24505	177.89046666830424
+hit	word	/m/01nwj9	President of the Philippines	930	52.677854807331556
+hit	word	/m/01b1pf	University of the Philippines	773	51.2528125223885
+hit	word	/m/0197bk	Philippine-American War	700	50.48830128450089
+hit	word	/m/01qxpk	House of Representatives of the Philippines	691	50.38857049222685
+hit	word	/m/01_sxm	Philippine Basketball Association	646	49.86958763899974
+hit	word	/m/01rqm6	Senate of the Philippines	607	49.389675571924805
+hit	word	/m/01bdhf	University of the Philippines, Diliman	461	47.26927963867371
+hit	word	/m/05hhyw	Philippine Daily Inquirer	438	46.87484889823751
+hit	word	/m/04tnyq	Supreme Court of the Philippines	417	46.49618982874691
+hit	word	/m/01h5bw	Philippine peso	391	46.0000320795368
+hit	word	/m/01nc3g	University Athletic Association of the Philippines	328	44.64598225742479
+hit	word	/m/01p_q0	Battle of the Philippine Sea	313	44.285220618353065
+hit	word	/m/01rcct	Philippine Airlines	275	43.287704763459864
+hit	word	/m/0f4531	13th Congress of the Philippines	263	42.94384699808043
+hit	word	/m/05vcg	Armed Forces of the Philippines	238	42.17405929289883
+hit	word	/m/0h6mrs	11th Congress of the Philippines	234	42.04343131048693
+hit	word	/m/0g9qz2	12th Congress of the Philippines	232	41.97727754416511
+hit	word	/m/0f7lr	Constitution of the Philippines	229	41.87696984025012
+hit	word	/m/0gj808	10th Congress of the Philippines	224	41.70683342861597
+hit	word	/m/09wbpr	Philippine Atmospheric, Geophysical and Astronomical Services Administration	223	41.672350747125755
+entity	Protesters
+hit	word	/m/01nd_n	Protest	59	121.42503654939253
+hit	word	/m/058_gs	Tax protester (United States)	126	37.27257880029171
+hit	word	/m/0fr4td	Tax protester constitutional arguments	40	28.429701325022084
+hit	word	/m/0fr508	Tax protester statutory arguments	35	27.40059271438539
+hit	word	/m/0cjh8h	Tax protester arguments	34	27.177189638815776
+hit	word	/m/0fr51_	Tax protester conspiracy arguments	10	17.745715815208918
+hit	word	/m/02q30rv	Street protester	6	13.80885095055762
+entity	Raquel
+hit	exact	/m/02vkt63	Raquel	7	114.99686965408306
+hit	word	/m/012s5j	Raquel Welch	255	42.70577813986255
+hit	word	/m/09vqy7	Wendy Raquel Robinson	39	28.234580359929307
+hit	word	/m/0h0gdl	Raquel Turner	29	25.95129927944536
+hit	word	/m/09jnt1	Raquel Carriedo-Tomas	23	24.164835195627614
+hit	word	/m/0c1406	Raquel Zimmermann	19	22.692398000183967
+hit	word	/m/05zkbxm	Raquel Kops-Jones	19	22.692398000183967
+hit	word	/m/025xbbg	Raquel Cassidy	19	22.692398000183967
+hit	word	/m/07klnc	Raquel Gibson	16	21.36797101962633
+hit	word	/m/04q14y	Alba Raquel Barros	16	21.36797101962633
+hit	word	/m/06w7yg	Raquel Castro	15	20.87058125595337
+hit	word	/m/0dqf9r	Raquel Torres	15	20.87058125595337
+hit	word	/m/027lhly	Raquel Chalfi	15	20.87058125595337
+hit	word	/m/026dmp3	Raquel Guerra	12	19.1508437054642
+hit	word	/m/01v1k2g	Raquel Rastenni	12	19.1508437054642
+hit	word	/m/02q884r	Raquel Olmedo	10	17.745715815208918
+hit	word	/m/030q34	Raquel Lee	10	17.745715815208918
+hit	word	/m/03h2_mn	El bolero de Raquel	10	17.745715815208918
+hit	word	/m/026ths5	Raquel Alessi	10	17.745715815208918
+hit	word	/m/02q0dz5	Raquel Evita Saraswati	8	16.025978264719747
+hit	word	/m/03d8q0d	Raquel Beezley	8	16.025978264719747
+entity	Reading Recovery
+hit	exact	/m/029cx5	Reading Recovery	14	120.33886240898964
+hit	word	/m/016gp5	Reading F.C.	1677	57.22164736575286
+hit	word	/m/0b_yz	Reading, Berkshire	1632	57.012018854093135
+hit	word	/m/0zlgm	Reading, Pennsylvania	772	51.24283599483876
+hit	word	/m/02f46y	University of Reading	501	47.910553030420054
+hit	word	/m/035l6k	Reading and Leeds Festivals	442	46.944911803094044
+hit	word	/m/03vp6r	Reading Company	385	45.88085135724059
+hit	word	/m/052czr	Torah reading	221	41.60291904818746
+hit	word	/m/057nbg	Reading railway station	216	41.42655285167286
+hit	word	/m/02qbsrt	Reading to Plymouth Line	119	36.83206653799225
+hit	word	/m/01m2nt	Reading, Massachusetts	115	36.56855825592994
+hit	word	/m/031pb8	Reading Phillies	103	35.7192373718918
+hit	word	/m/064r6l5	Tarot reading	103	35.7192373718918
+hit	word	/m/01s_8j	Rufus Isaacs, 1st Marquess of Reading	102	35.644047834466804
+hit	word	/m/07d0_l	Reading Racers	99	35.41397503415726
+hit	word	/m/01j60n	National Industrial Recovery Act	87	34.41815747509639
+hit	word	/m/0h59n	Reading Abbey	87	34.41815747509639
+hit	word	/m/0434g9	Reading Royals	78	33.57657311483589
+hit	word	/m/01n4k0	Reading Rainbow	77	33.477128296938254
+hit	word	/m/04bkcd	Reading West (UK Parliament constituency)	74	33.17085489112015
+hit	word	/m/069ywc	Waterloo to Reading Line	70	32.742585469291974
+entity	Republicans
+hit	word	/m/02qg15	The Republicans (Germany)	106	125.94050232386441
+hit	word	/m/07wbk	Republican Party (United States)	64459	85.34417939614033
+hit	word	/m/07wf9	Democratic-Republican Party (United States)	11115	71.79755961606664
+hit	word	/m/01spy8	National Republican Party (United States)	1917	58.25247914385475
+hit	word	/m/05sz6	Provisional Irish Republican Army	1737	57.49256687632766
+hit	word	/m/03t3s	Irish Republican Army	926	52.64463550393413
+hit	word	/m/02jvff	Republican National Convention	722	50.72678875527452
+hit	word	/m/02sk7f	North Dakota Republican Party	673	50.18515165084849
+hit	word	/m/01w5q_	Republican National Committee	553	48.67162073936474
+hit	word	/m/01__k7	Irish Republican Brotherhood	249	42.522272650150086
+hit	word	/m/030wx	French Republican Calendar	219	41.532856143330925
+hit	word	/m/07529c	Irish Republican Army (1922-1969)	209	41.17265664303916
+hit	word	/m/01zh1z	Radical Republican (USA)	197	40.716945597058505
+hit	word	/m/055k8p	Michigan Republican Party	158	39.01674384018827
+hit	word	/m/02cxdh	Republican Party of Minnesota	151	38.66750567455604
+hit	word	/m/03j040	Italian Republican Party	145	38.3550223397477
+hit	word	/m/02b06_	College Republicans	144	38.3016874109284
+hit	word	/m/02zmny	2004 Republican National Convention	142	38.19389731180822
+hit	word	/m/026v13b	Republican Party (United States) presidential primaries, 2008	139	38.02933163309587
+hit	word	/m/03j7jh	National Republican Congressional Committee	131	37.57249471640637
+entity	Russia
+hit	exact	/m/06bnz	Russia	43564	182.32464267077899
+hit	word	/m/0cdbq	Russian Empire	5912	156.93212724335393
+hit	word	/m/0ft2sq	Russia (horse)	11	118.4802586428552
+hit	word	/m/09nmqr	Arktika class icebreaker	20	113.0877085701155
+hit	word	/m/0c2sf	Peter I of Russia	1286	55.17570662957117
+hit	word	/m/0c1v2	Catherine II of Russia	1223	54.78859250692324
+hit	word	/m/05hks	Nicholas II of Russia	1137	54.22665680569929
+hit	word	/m/0r8f	Alexander I of Russia	753	51.05078610627834
+hit	word	/m/0r8y	Alexander II of Russia	727	50.77997645054576
+hit	word	/m/0clk3	Nicholas I of Russia	714	50.64091748854986
+hit	word	/m/0j9gz	Ivan IV of Russia	633	49.71291412163991
+hit	word	/m/03262k	Russia national football team	576	48.98567292074157
+hit	word	/m/012_hp	Paul I of Russia	533	48.38772615698331
+hit	word	/m/01jrl6	President of Russia	503	47.94125771826906
+hit	word	/m/0r9f	Alexander III of Russia	462	47.28597924749587
+hit	word	/m/0n1hr	Don River, Russia	351	45.168296751231374
+hit	word	/m/0276pfz	Tsardom of Russia	326	44.598845312587024
+hit	word	/m/0jlsq	Samara, Russia	326	44.598845312587024
+hit	word	/m/0c2gv	Elizabeth of Russia	290	43.697015094654276
+hit	word	/m/0dj7g7	Cup of Russia	278	43.37132438800245
+hit	word	/m/012_c_	Ivan III of Russia	276	43.31567890109181
+entity	Saleh
+hit	exact	/m/024b5t	Saleh	29	125.95129927944537
+hit	word	/m/01fkqs	Ali Abdullah Saleh	116	36.63528478925853
+hit	word	/m/03m_ym	Rajin Saleh	59	31.425036549392527
+hit	word	/m/091gr9	Akmal Saleh	44	29.16424415266836
+hit	word	/m/02w_qx4	Tariq Saleh	38	28.03439075509055
+hit	word	/m/0d9qxs	Abdallah Saleh Ali Al Ajmi	32	26.709963774532913
+hit	word	/m/04p4y2	Koumbi Saleh	29	25.95129927944536
+hit	word	/m/0bw54f	Mahamat Saleh Haroun	29	25.95129927944536
+hit	word	/m/07b6nb	Ali Saleh Kahlah al-Marri	21	23.46372784973409
+hit	word	/m/05z83j	Saleh Kebzabo	20	23.0877085701155
+hit	word	/m/0dv_j6	Abdulaziz Muhammad Saleh bin Otash	20	23.0877085701155
+hit	word	/m/0cvf45	Mohammad Ahmed Abdullah Saleh Al Hanashi	20	23.0877085701155
+hit	word	/m/0fn2jj	Yusef Abdullah Saleh Al Rabiesh	20	23.0877085701155
+hit	word	/m/0d1b7z	Saleh Selim	19	22.692398000183967
+hit	word	/m/07zvzg	Jaralla Saleh Mohammed Kahla Al Marri	19	22.692398000183967
+hit	word	/m/0fmty6	Ridah Bin Saleh Al Yazidi	19	22.692398000183967
+hit	word	/m/0fmlc0	Abdul Rahman Mohamed Saleh Naser	18	22.27570914620865
+hit	word	/m/02q2b40	Saleh Ould Hanenna	18	22.27570914620865
+hit	word	/m/0dcndm	Bessam Muhammed Saleh Al Dubaikey	16	21.36797101962633
+hit	word	/m/07bfzs	Salim Saleh	15	20.87058125595337
+hit	word	/m/02pkbst	Abdul Rachman Saleh Airport	15	20.87058125595337
+entity	Siegel
+hit	exact	/m/0c4r_x	Siegel	8	116.02597826471975
+hit	word	/m/01y8d4	Jerry Siegel	271	43.17478162298757
+hit	word	/m/09p0q	Don Siegel	183	40.148814084165934
+hit	word	/m/0134qh	Bugsy Siegel	167	39.443694834769026
+hit	word	/m/0266x3m	Sol C. Siegel	54	30.74256734185969
+hit	word	/m/0478m0	Joel Siegel	52	30.451707674091438
+hit	word	/m/05cspj	Ralph Siegel	50	30.149438875511255
+hit	word	/m/0jnqs	Eli Siegel	39	28.234580359929307
+hit	word	/m/0359_f	Carl Ludwig Siegel	39	28.234580359929307
+hit	word	/m/01pdk_	Robert Siegel	36	27.61770190111524
+hit	word	/m/05d67w	Siegel Clyne	30	26.212574010859953
+hit	word	/m/01wb7l5	Adam Siegel	28	25.680855163896222
+hit	word	/m/02r6v__	David Siegel	23	24.164835195627614
+hit	word	/m/04n4b_z	Janis Siegel	22	23.82225139776178
+hit	word	/m/0grfkw	Lee Siegel	20	23.0877085701155
+hit	word	/m/026zwzz	Betty L. Siegel	17	21.835196883909187
+hit	word	/m/049w74	Siegel upper half-space	17	21.835196883909187
+hit	word	/m/09g170	Stuart C. Siegel Center	17	21.835196883909187
+hit	word	/m/05fh7j	Barry Siegel	16	21.36797101962633
+hit	word	/m/0280ycp	Evan Siegel	16	21.36797101962633
+hit	word	/m/01pr7cp	Dan Siegel	15	20.87058125595337
+entity	State Farm
+hit	word	/m/03dnbx	State Farm Insurance	127	127.3335029630635
+hit	word	/m/0hhy	Animal Farm	356	45.277306580742014
+hit	word	/m/016stg	Alien Ant Farm	216	41.42655285167286
+hit	word	/m/066hkb	Calumet Farm	215	41.39079006612588
+hit	word	/m/0923ws	Home Farm F.C.	210	41.20944366494301
+hit	word	/m/06n_y1	Sam-Son Farm	197	40.716945597058505
+hit	word	/m/01r10b	United Farm Workers	150	38.616297071162286
+hit	word	/m/0bllms	Claiborne Farm	145	38.3550223397477
+hit	word	/m/028d74	Windfields Farm	137	37.91763596126961
+hit	word	/m/02tl57	Farm Security Administration	98	35.3357320630727
+hit	word	/m/06vrr4	Tarnak Farm incident	94	35.014566157053395
+hit	word	/m/01m8698	The Farm (band)	90	34.67943220651099
+hit	word	/m/01xt2h	Farm to Market Road	89	34.593321070928845
+hit	word	/m/022x5s	Farm Bureau	86	34.32905976073013
+hit	word	/m/0262v3k	Overbrook Farm	81	33.86743278260415
+hit	word	/m/0d8882	Southern Farm Bureau Classic	80	33.77169407992866
+hit	word	/m/02c32j	Farm Aid	77	33.477128296938254
+hit	word	/m/03j5zb	Wind farm	75	33.2743043162557
+hit	word	/m/02dylk	Dairy Farm International Holdings	67	32.40500450604256
+hit	word	/m/07x2zm	New Farm, Queensland	64	32.051956529439494
+entity	Steinhubl
+hit	word	/m/0pc8w	Steinburg	150	51.94962960976702
+hit	word	/m/018s1b	Steinfurt (district)	45	42.67077199020914
+hit	word	/m/018sr_	Steinfurt	45	42.67077199020914
+entity	TV
+hit	word	/m/07c52	Television	3657	153.23020296023648
+hit	word	/m/07d4d	Treaty of Versailles	1224	134.79489153993103
+hit	word	/m/01q260	.tv	37	127.82886213621356
+hit	word	/m/0389k0	Tony Visconti	353	125.21208588298992
+hit	word	/m/05t3df	.tv (TV channel)	21	123.46372784973408
+hit	word	/m/03931x	Terry Venables	261	122.88501567074744
+hit	word	/m/047gmrf	Tennessee Volunteers	228	121.84324170564817
+hit	word	/m/015klf	Thorstein Veblen	151	118.66750567455604
+hit	word	/m/02wx6nt	T-Virus	149	118.56474593275854
+hit	word	/m/0h3q6	Traralgon, Victoria	145	118.3550223397477
+hit	word	/m/01blmn	Turkey Vulture	142	118.19389731180823
+hit	word	/m/02x28d	Toorak, Victoria	132	117.63110234831939
+hit	word	/m/01lp9kh	Tom Verlaine	123	117.08686218835606
+hit	word	/m/01zryv	Thames Valley	120	116.89655952067312
+hit	word	/m/0pf6f	Tom Vilsack	118	116.76702930429911
+hit	word	/m/02yrx3	Transit of Venus	116	116.63528478925852
+hit	word	/m/05l_b1	Tennessee Valley	112	116.36484067370938
+hit	word	/m/07ln1	Treaty of Verdun	98	115.3357320630727
+hit	word	/m/07s7qr	Tony Vidmar	98	115.3357320630727
+hit	word	/m/029s57	Test Valley	96	115.17682197018394
+entity	Tahrir Square
+hit	word	/m/01dycg	Square Enix	2613	60.63958486597188
+hit	word	/m/0j_66	Madison Square Garden	2033	58.70526579898081
+hit	word	/m/070ny	Square Co.	1238	54.882541656393734
+hit	word	/m/0jljd	Square kilometre	915	52.55253714446826
+hit	word	/m/07qdr	Times Square	746	50.97880684364645
+hit	word	/m/0c45m	Tiananmen Square protests of 1989	660	50.03482540862173
+hit	word	/m/0gsxw	Trafalgar Square	593	49.20984052847351
+hit	word	/m/0hm_7	Red Square	295	43.82875960969486
+hit	word	/m/0m7l2	Square mile	275	43.287704763459864
+hit	word	/m/041g4z	Albert Square	269	43.11769346227866
+hit	word	/m/0bshsw	Square metre	259	42.825731790296615
+hit	word	/m/0c463	Tiananmen Square	259	42.825731790296615
+hit	word	/m/0n7zx	Leicester Square	207	41.09855158692968
+hit	word	/m/03c003	Hizb ut-Tahrir	195	40.638303420231644
+hit	word	/m/0661nyk	Pound-force per square inch	162	39.209425537510725
+hit	word	/m/02tcy8	Harvard Square	155	38.86900385677395
+hit	word	/m/03gmzy	Union Square (New York City)	141	38.13943159779785
+hit	word	/m/037sn_	Washington Square Park	133	37.68926765426702
+hit	word	/m/01wkk9	Town square	113	36.43334660438823
+hit	word	/m/01r38d	Pioneer Square, Seattle, Washington	109	36.15559162683064
+entity	The Brotherhood
+hit	word	/m/01s87m	Brotherhood of Mutants	311	134.2358174590799
+hit	word	/m/040zr37	Before I Sleep (Stargate Atlantis)	252	132.6145715551983
+hit	word	/m/0cy307	The Brotherhood (film)	20	123.0877085701155
+hit	word	/m/0dm09v	The Brotherhood (album)	9	116.93371639130207
+hit	word	/m/03d4n3y	The Brotherhood (1968 film)	4	110.68398550981317
+hit	word	/m/04ljd3j	The Brotherhood (Nineteen Eighty-Four)	2	105.34199275490658
+hit	word	/m/0q245	Pre-Raphaelite Brotherhood	418	46.514649397945746
+hit	word	/m/056rs	Muslim Brotherhood	409	46.34689961185563
+hit	word	/m/01__k7	Irish Republican Brotherhood	249	42.522272650150086
+hit	word	/m/03yfck	Brotherhood of Nod	139	38.02933163309587
+hit	word	/m/018dff	Brotherhood of Man	125	37.21116918090701
+hit	word	/m/07j342	Brotherhood of Evil	105	35.867450910036425
+hit	word	/m/0k5q_	Fenian Brotherhood	96	35.176821970183944
+hit	word	/m/0qqlq	Aryan Brotherhood	84	34.147713359547254
+hit	word	/m/04nrnm	International Brotherhood of Electrical Workers	79	33.67475108528168
+hit	word	/m/058s5n	United Brotherhood of Carpenters and Joiners of America	71	32.85190455690164
+hit	word	/m/09xfqm	International Brotherhood of Magicians	63	31.93058604538513
+hit	word	/m/02kqth	Brotherhood of Sleeping Car Porters	57	31.159256195835006
+hit	word	/m/0dnmnj	The Aryan Brotherhood in Oz	57	31.159256195835006
+hit	word	/m/03_wm6	Brotherhood of the Wolf	56	31.02284791880281
+entity	The Egyptian
+hit	exact	/m/01m75v	The Egyptian	28	125.68085516389623
+hit	word	/m/0g0kt0	The Egyptian (film)	38	128.03439075509056
+hit	word	/m/0dfv1	Egyptian hieroglyphs	605	49.36424034601273
+hit	word	/m/02sxh	Egyptian mythology	550	48.62969751836644
+hit	word	/m/0cn75	Egyptian language	544	48.5451606584421
+hit	word	/m/03jmj1	Egyptian pyramids	244	42.36594139832806
+hit	word	/m/034f9_	Egyptian Arabic	234	42.04343131048693
+hit	word	/m/092b7b	Egyptian Premier League	195	40.638303420231644
+hit	word	/m/019mn6	Egyptian Vulture	173	39.71573012745935
+hit	word	/m/019pjh	Egyptian Museum	166	39.397407209405635
+hit	word	/m/02169t	Egyptian Air Force	144	38.3016874109284
+hit	word	/m/01hb8w	Egyptian Goose	130	37.513437979487186
+hit	word	/m/0kwxx	Egyptian Islamic Jihad	126	37.27257880029171
+hit	word	/m/04phzg	Egyptian pound	114	36.50124895074159
+hit	word	/m/09x1dn	Egyptian Soccer Cup	102	35.644047834466804
+hit	word	/m/0p672	Egyptian soul	96	35.176821970183944
+hit	word	/m/06zrr2	Walk Like an Egyptian	95	35.096121060486304
+hit	word	/m/030d5b	Egyptian God Cards	95	35.096121060486304
+hit	word	/m/02pgw08	Egyptian pantheon	92	34.84882070544078
+hit	word	/m/05mr2v	Egyptian Army	92	34.84882070544078
+hit	word	/m/02ql0fy	Egyptian Slit-Faced Bat	87	34.41815747509639
+entity	The United States
+hit	word	/m/09c7w0	United States	431681	190.0
+entity	Thiesfeld
+hit	word	/m/03264g	Rob Liefeld	287	43.6168736467881
+hit	word	/m/04qt_s	Coesfeld	39	41.56791289853405
+hit	word	/m/0190qq	Coesfeld (district)	35	40.733925252990126
+entity	Thursday
+hit	exact	/m/0f7zn	Thursday	226	141.7753393592948
+hit	word	/m/01nf0c	Thursday (band)	316	144.35873659509485
+hit	word	/m/04mk52	Thursday (1998 film)	18	122.27570914620865
+hit	word	/m/016v69	Maundy Thursday	241	42.270597504518015
+hit	word	/m/02xwtn	Thursday Island	95	35.096121060486304
+hit	word	/m/047km3	Thursday Next	73	33.06599794767989
+hit	word	/m/025njm	The Man Who Was Thursday	33	26.94711683850623
+hit	word	/m/035j8p	Thursday October Christian	28	25.680855163896222
+hit	word	/m/01vk5z	Common year starting on Thursday	26	25.109714919184857
+hit	word	/m/01lnf3v	Any Given Thursday	26	25.109714919184857
+hit	word	/m/02qsjw9	Maundy Thursday (film)	25	24.807446120604666
+hit	word	/m/02phvwf	MLS Primetime Thursday	23	24.164835195627614
+hit	word	/m/0bhsv8	Sir Thursday	22	23.82225139776178
+hit	word	/m/01vkcn	Leap year starting on Thursday	20	23.0877085701155
+hit	word	/m/0581_5	Fat Thursday	20	23.0877085701155
+hit	word	/m/04vbn9	Thursday October Christian II	19	22.692398000183967
+hit	word	/m/084x_4	Sweet Thursday	19	22.692398000183967
+hit	word	/m/04yt57	On Thursday We Leave for Home	19	22.692398000183967
+hit	word	/m/0cfndj	Thursday Night Baseball	18	22.27570914620865
+hit	word	/m/09y2g_	Thursday at the Square	16	21.36797101962633
+hit	word	/m/026d58m	ESPN College Football Thursday Primetime	16	21.36797101962633
+entity	Tigers
+hit	exact	/m/07dm6	Tiger	513	238.09297258713707
+hit	word	/m/032vq2	TIGER	19	122.69239800018397
+hit	word	/m/08bpxl	Tigers Militia (Lebanon)	20	113.0877085701155
+hit	word	/m/02d02	Detroit Tigers	6003	67.04985086637504
+hit	word	/m/0bwdn	Tiger Woods	1431	55.999084155910936
+hit	word	/m/03915c	Hamilton Tiger-Cats	1241	54.90119483158907
+hit	word	/m/053mfd	Balmain Tigers	773	51.2528125223885
+hit	word	/m/01lwg3	Wests Tigers	704	50.53221517229469
+hit	word	/m/01szhj	Leicester Tigers	597	49.261651590536445
+hit	word	/m/02wkyt	Tasmanian Tigers	576	48.98567292074157
+hit	word	/m/086hg9	Auburn Tigers football	541	48.5025419334874
+hit	word	/m/0fht9f	LSU Tigers football	496	47.83325181609794
+hit	word	/m/01wnq8	Tiger Stadium (Detroit)	486	47.67628373316176
+hit	word	/m/01mgw	Crouching Tiger, Hidden Dragon	413	46.42190620347558
+hit	word	/m/04j1qk	Castleford Tigers	396	46.09796054397044
+hit	word	/m/04tyz1	Medicine Hat Tigers	391	46.0000320795368
+hit	word	/m/03v5fd	Auburn Tigers	360	45.36341771632416
+hit	word	/m/0709_z	Missouri Tigers	352	45.19022241738811
+hit	word	/m/02gtm4	Hanshin Tigers	332	44.73939996431221
+hit	word	/m/0ghv4d	Clemson Tigers	290	43.697015094654276
+hit	word	/m/01g8p4	Bengal Tiger	263	42.94384699808043
+entity	Tripoli
+hit	exact	/m/07p7g	Tripoli	1293	155.21754315355074
+hit	word	/m/01np92	Tripoli, Lebanon	280	133.42657097910512
+hit	word	/m/0cnwvr	Tripolis (Phrygia)	13	119.76772216427827
+hit	word	/m/02rzdxw	Tripoli (Pinback Single)	8	116.02597826471975
+hit	word	/m/0cnyxc	Tripolis (Pontus)	7	114.99686965408306
+hit	word	/m/0cqkqt	Tripolis (region of Phoenicia)	5	112.40372306030233
+hit	word	/m/0cqldl	Tripolis (region of Thessaly)	4	110.68398550981317
+hit	word	/m/0cp11p	Tripolis (region of Africa)	4	110.68398550981317
+hit	word	/m/0cql5p	Tripolis (Thessaly)	3	108.46685819565104
+hit	word	/m/0cp1bn	Tripolis (region of Laconia)	3	108.46685819565104
+hit	word	/m/027pwjl	Tripoli (film)	3	108.46685819565104
+hit	word	/m/0cp0tm	Tripolis (region of Arcadia)	3	108.46685819565104
+hit	word	/m/02fyn4	Tripoli, Greece	280	43.426570979105136
+hit	word	/m/01l__z	County of Tripoli	196	40.677724817979275
+hit	word	/m/0f17q_	Al Ahly Tripoli	117	36.701438555580346
+hit	word	/m/01stw6	Raymond III of Tripoli	67	32.40500450604256
+hit	word	/m/08f120	Tripoli International Airport	63	31.93058604538513
+hit	word	/m/0h2jt2	Al Madina Tripoli	57	31.159256195835006
+hit	word	/m/024gfm	Treaty of Tripoli	51	30.302055079560226
+hit	word	/m/04dcg5	Tripoli Grand Prix	51	30.302055079560226
+hit	word	/m/03cdr4	Bohemond VII of Tripoli	48	29.83482921527737
+entity	Tuesday
+hit	exact	/m/0f7_n	Tuesday	215	141.39079006612587
+hit	word	/m/01t99xh	Tuesday (band)	16	121.36797101962634
+hit	word	/m/027zkw4	Tuesday (book)	10	117.74571581520891
+hit	word	/m/02r9z4y	Tuesday (film)	5	112.40372306030233
+hit	word	/m/08ytxc	Tuesday (Trey Anastasio song)	3	108.46685819565104
+entity	Tunisia
+hit	exact	/m/07fj_	Tunisia	4238	164.3665674768653
+hit	word	/m/03_r_5	Tunisia national football team	320	44.455679589741834
+hit	word	/m/03mwlq	Tunisia Campaign	153	38.76891327521126
+hit	word	/m/02_pwl	Monastir, Tunisia	55	30.88398170315753
+hit	word	/m/075z_v	Prime Minister of Tunisia	45	29.337439451604403
+hit	word	/m/04w22c	Utica, Tunisia	40	28.429701325022084
+hit	word	/m/09yg1b	A Night in Tunisia	35	27.40059271438539
+hit	word	/m/02ddg5	Governorates of Tunisia	35	27.40059271438539
+hit	word	/m/025wf_8	Tunisia national handball team	25	24.807446120604666
+hit	word	/m/06y7x2	Tunisia Monitoring Group	23	24.164835195627614
+hit	word	/m/0df2x	Military of Tunisia	20	23.0877085701155
+hit	word	/m/02vktpy	Tunisia national basketball team	18	22.27570914620865
+hit	word	/m/025xbm	Flag of Tunisia	18	22.27570914620865
+hit	word	/m/07hmfj	Chamber of Deputies of Tunisia	17	21.835196883909187
+hit	word	/m/02pq6l6	Tunisia Coupe de la Ligue Professionel	14	20.338862408989637
+hit	word	/m/03d6bnx	Cuisine of Tunisia	14	20.338862408989637
+hit	word	/m/0ctsws	Tunisia national rugby union team	13	19.767722164278272
+hit	word	/m/02qnj28	French occupation of Tunisia	12	19.1508437054642
+hit	word	/m/06ty0z	Nafta, Tunisia	11	18.480258642855198
+hit	word	/m/02_pw5	Sahel, Tunisia	9	16.933716391302074
+hit	word	/m/03hmdh4	Ninth Tunisia Plan	9	16.933716391302074
+entity	U.S.
+hit	exact	/m/07tm8	U	196	140.67772481797928
+hit	word	/m/09c7w0	United States	431681	190.0
+hit	word	/m/0d0xs	U.S. state	21535	156.89475755737476
+hit	word	/m/07vk2	University of Sydney	1906	138.20812875674073
+hit	word	/m/02rjz5	U.C. Sampdoria	1318	135.36513223792923
+hit	word	/m/0212ny	Ukrainian SSR	878	132.23441718289564
+hit	word	/m/02vr7m	.us	57	131.159256195835
+hit	word	/m/01nl6k	University of Saskatchewan	699	130.47728360363092
+hit	word	/m/043hrw	Us Weekly	185	130.2325851965159
+hit	word	/m/01t38b	University of Sheffield	629	129.66405902012275
+hit	word	/m/07w4j	University of Sussex	559	128.75478917010182
+hit	word	/m/0553lp	Us (Peter Gabriel album)	38	128.03439075509056
+hit	word	/m/0p5wz	University of Southampton	501	127.91055303042006
+hit	word	/m/06cqj6	Unterhaltungssoftware Selbstkontrolle	424	126.62448783367758
+hit	word	/m/01ttjg	U.S. Steel	409	126.34689961185563
+hit	word	/m/029lnt	Unified Silla	399	126.15612584991806
+hit	word	/m/01bwk5	Upper Silesia	381	125.80036115871454
+hit	word	/m/0nm1q	Upton Sinclair	356	125.27730658074202
+hit	word	/m/03g0j3	Us (album)	26	125.10971491918485
+hit	word	/m/01gpkz	University of Strathclyde	332	124.73939996431221
+hit	word	/m/034_lb	Ullevaal Stadion	285	123.56297925613734
+entity	United States
+hit	exact	/m/09c7w0	United States	431681	200.0
+hit	word	/m/0bn3r6	American wine	113	126.43334660438822
+hit	word	/m/02867s0	Zeitgeist (Smashing Pumpkins album)	101	125.5681175014959
+hit	word	/m/02c9zv	SS United States	77	123.47712829693825
+hit	word	/m/07zw4p	United States Live	23	114.16483519562762
+hit	word	/m/0dvxqk	United States (TV series)	3	108.46685819565104
+entity	Van Winkle
+hit	exact	/m/03cy3ph	Van Winkle	7	114.99686965408306
+hit	word	/m/04k15	Ludwig van Beethoven	3075	61.89430830896075
+hit	word	/m/01wp8w7	Van Morrison	1363	55.62387268159218
+hit	word	/m/0ycfj	Van Halen	1174	54.473457694806356
+hit	word	/m/07_m2	Vincent van Gogh	853	52.01178857596077
+hit	word	/m/04_0m	Martin Van Buren	631	49.68852528338792
+hit	word	/m/0l1pj	Van Nuys, California	515	48.122960432194134
+hit	word	/m/020h87	Ruud van Nistelrooy	511	48.062867601762946
+hit	word	/m/01skvb	Rob Van Dam	479	47.564472310466925
+hit	word	/m/02lz1s	Jimmy Van Heusen	398	46.13678614979199
+hit	word	/m/04jxp	Ludwig Mies van der Rohe	388	45.94067209579172
+hit	word	/m/02y0jc	Ingrid van Houten-Groeneveld	383	45.840711337043274
+hit	word	/m/0m8_v	Jean-Claude Van Damme	380	45.78010657029947
+hit	word	/m/085b_	Willard Van Orman Quine	372	45.616124501935815
+hit	word	/m/01r0ss	Anthony van Dyck	370	45.57457795142248
+hit	word	/m/02y0lt	Cornelis Johannes van Houten	369	45.553720384007114
+hit	word	/m/01fvfn	Eddie Van Halen	367	45.51183513712792
+hit	word	/m/02cg1b	Dick Van Dyke	360	45.36341771632416
+hit	word	/m/0kmw	A. E. van Vogt	309	44.186095567542836
+hit	word	/m/04_zv5	Raymond van Barneveld	308	44.16111380675141
+hit	word	/m/02slyr	Paul van Dyk	305	44.08567894881723
+entity	Wael Ghonim
+hit	word	/m/02rwysg	Wael Hallaq	16	21.36797101962633
+hit	word	/m/026vdhs	Wael Gomaa	15	20.87058125595337
+hit	word	/m/05mt5gc	Wael Kfoury	13	19.767722164278272
+hit	word	/m/0gbtmm	Abdel Wael Zwaiter	13	19.767722164278272
+hit	word	/m/028sly	Wael Abdul Latif	12	19.1508437054642
+hit	word	/m/03gxn_l	Wael Abbas	8	16.025978264719747
+hit	word	/m/026vfpm	Wael Riad	7	14.996869654083056
+hit	word	/m/0267ss9	WAEL-FM	7	14.996869654083056
+hit	word	/m/02r633t	Leopold De Wael	6	13.80885095055762
+hit	word	/m/02z0k43	Wael Ayan	5	12.403723060302333
+hit	word	/m/02rc_y7	Wael El-Quabbani	3	8.466858195651037
+hit	word	/m/080c68l	Wael Jassar	3	8.466858195651037
+hit	word	/m/03d8yz4	Wael Badawy	2	5.341992754906583
+hit	word	/m/04mx78_	Wael Al-Aydy	2	5.341992754906583
+hit	word	/m/056r3nm	Wael El Hindi	1	0.0
+hit	word	/m/03cgq7n	Wael Zenga	1	0.0
+hit	word	/m/0284_kt	Cornelis de Wael	1	0.0
+hit	word	/m/07k5xg5	Wael Badr	1	0.0
+hit	word	/m/03cp1f5	Wael Abou Faour	1	0.0
+entity	Wal-Mart
+hit	exact	/m/0841v	Wal-Mart	2374	159.9003215013395
+hit	word	/m/01pchf	Shoppers Drug Mart	121	36.960517285710395
+hit	word	/m/01gk7f	Kwik-E-Mart	117	36.701438555580346
+hit	word	/m/0418y_	Criticism of Wal-Mart	106	35.94050232386441
+hit	word	/m/05d3fl	Mart Laar	79	33.67475108528168
+hit	word	/m/025w7s	Merchandise Mart	71	32.85190455690164
+hit	word	/m/063x5r	Save Mart Center	70	32.742585469291974
+hit	word	/m/04kt28	Mart Poom	68	32.51918239372236
+hit	word	/m/0csjny	Wal-Mart Canada	59	31.425036549392527
+hit	word	/m/0g1pmg	Stein Mart	40	28.429701325022084
+hit	word	/m/03m_0t	R. v. Big M Drug Mart Ltd.	37	27.828862136213562
+hit	word	/m/02q8vc2	Mart Escudero	31	26.465280796471614
+hit	word	/m/0ksh5n	Mart Crowley	31	26.465280796471614
+hit	word	/m/06z7sg	Mart Stam	29	25.95129927944536
+hit	word	/m/048m5p	Something Wall-Mart This Way Comes	26	25.109714919184857
+hit	word	/m/0l00hp	Mart Kenney	23	24.164835195627614
+hit	word	/m/013n1t	Mart, Texas	23	24.164835195627614
+hit	word	/m/08t2qk	Micro Mart	23	24.164835195627614
+hit	word	/m/026q5gg	Save Mart Supermarkets	22	23.82225139776178
+hit	word	/m/07v390	H Mart	22	23.82225139776178
+hit	word	/m/0bt2yx	Wake Up Wal-Mart	21	23.46372784973409
+entity	Washington
+hit	exact	/m/081yw	Washington	10868	171.62436431713058
+hit	word	/m/0rh6k	Washington, D.C.	28335	169.00966252593972
+hit	word	/m/0_gcm	Washington, Pennsylvania	307	134.13605080431853
+hit	word	/m/0yd75	Washington, North Carolina	155	128.86900385677396
+hit	word	/m/01n7q5	Washington, Tyne and Wear	153	128.76891327521128
+hit	word	/m/0sksk	Washington, Indiana	90	124.679432206511
+hit	word	/m/0xtfz	Washington, New Jersey	60	121.55456676576654
+hit	word	/m/0tyj_	Washington, Massachusetts	39	118.23458035992931
+hit	word	/m/0tmjx	Washington, Louisiana	35	117.4005927143854
+hit	word	/m/010nst	Washington, Virginia	31	116.46528079647162
+hit	word	/m/0z7w5	Washington, Oklahoma	29	115.95129927944537
+hit	word	/m/0270n_s	Washington (name)	7	114.99686965408306
+hit	word	/m/0cv53r	Washington (LACMTA station)	5	112.40372306030233
+hit	word	/m/04dz04v	Washington (1775)	4	110.68398550981317
+hit	word	/m/025xz_k	Washington (CTA Blue Line)	1	100.0
+hit	word	/m/01s1cg4	Washington (band)	1	100.0
+hit	word	/m/026mh99	Washington (elm cultivar)	1	100.0
+entity	Watson
+hit	exact	/m/0718m2	Watsons	19	122.69239800018397
+hit	word	/m/0680my	A.J. Watson	85	124.23891994421152
+hit	word	/m/06tj4h	Watson (crater)	1	100.0
+hit	word	/m/02snqk	Tom Watson (golfer)	436	46.839577136643804
+hit	word	/m/04jsnx	John Watson (racing driver)	355	45.25562761720398
+hit	word	/m/044wv	James D. Watson	350	45.1463085295943
+hit	word	/m/01ppxz	Mary Jane Watson	324	44.5514182924173
+hit	word	/m/014_w4	Dr. Watson	318	44.40736051951545
+hit	word	/m/04h6wf	Jude Watson	209	41.17265664303916
+hit	word	/m/03w3rl	Shane Watson	202	40.91011025640249
+hit	word	/m/0134w7	Emma Watson	179	39.97848966120123
+hit	word	/m/0m_31	Doc Watson	178	39.93531382583543
+hit	word	/m/016nnd	Charles Watson-Wentworth, 2nd Marquess of Rockingham	168	39.48970611445384
+hit	word	/m/02l4pj	Emily Watson	138	37.97368614618523
+hit	word	/m/014by0	Chris Watson	132	37.631102348319395
+hit	word	/m/02739nm	Sereno Watson	129	37.45392520147458
+hit	word	/m/052g4t	Russell Watson	114	36.50124895074159
+hit	word	/m/04zkt5	Thomas J. Watson Research Center	98	35.3357320630727
+hit	word	/m/024twr	Diane Watson	94	35.014566157053395
+hit	word	/m/025tmv1	James Craig Watson	90	34.67943220651099
+hit	word	/m/0mq68	John B. Watson	89	34.593321070928845
+entity	Watson&rsquo
+hit	exact	/m/0718m2	Watsons	19	122.69239800018397
+hit	word	/m/0680my	A.J. Watson	85	124.23891994421152
+hit	word	/m/06tj4h	Watson (crater)	1	100.0
+hit	word	/m/02snqk	Tom Watson (golfer)	436	46.839577136643804
+hit	word	/m/04jsnx	John Watson (racing driver)	355	45.25562761720398
+hit	word	/m/044wv	James D. Watson	350	45.1463085295943
+hit	word	/m/01ppxz	Mary Jane Watson	324	44.5514182924173
+hit	word	/m/014_w4	Dr. Watson	318	44.40736051951545
+hit	word	/m/04h6wf	Jude Watson	209	41.17265664303916
+hit	word	/m/03w3rl	Shane Watson	202	40.91011025640249
+hit	word	/m/0134w7	Emma Watson	179	39.97848966120123
+hit	word	/m/0m_31	Doc Watson	178	39.93531382583543
+hit	word	/m/016nnd	Charles Watson-Wentworth, 2nd Marquess of Rockingham	168	39.48970611445384
+hit	word	/m/02l4pj	Emily Watson	138	37.97368614618523
+hit	word	/m/014by0	Chris Watson	132	37.631102348319395
+hit	word	/m/02739nm	Sereno Watson	129	37.45392520147458
+hit	word	/m/052g4t	Russell Watson	114	36.50124895074159
+hit	word	/m/04zkt5	Thomas J. Watson Research Center	98	35.3357320630727
+hit	word	/m/024twr	Diane Watson	94	35.014566157053395
+hit	word	/m/025tmv1	James Craig Watson	90	34.67943220651099
+hit	word	/m/0mq68	John B. Watson	89	34.593321070928845
+entity	Williams
+hit	word	/m/03k6qy	Williams (gaming company)	222	141.63771308677119
+hit	word	/m/07w5bc	Williams Companies	42	118.80572060464067
+hit	word	/m/0qyhv	Williams, California	32	116.70996377453291
+hit	word	/m/0g_0gg	Williams (Train station)	8	116.02597826471975
+hit	word	/m/051w2m	Williams (lunar crater)	6	113.80885095055763
+hit	word	/m/0sz_f	Williams, Iowa	17	111.83519688390919
+hit	word	/m/081k8	William Shakespeare	7967	69.2312691367676
+hit	word	/m/085t7	William I of England	1580	56.76245965539718
+hit	word	/m/0cr4t	William III of England	1479	56.25335435900559
+hit	word	/m/0285jcc	Arthur William Baden Powell	1453	56.11666692353974
+hit	word	/m/09qr6	Robbie Williams	1386	55.75283744314691
+hit	word	/m/08619	William Ewart Gladstone	1211	54.7125997815424
+hit	word	/m/0dbm3	William II, German Emperor	1175	54.48001952275149
+hit	word	/m/0dzf_	Robin Williams	1098	53.95766503472355
+hit	word	/m/084nh	William Butler Yeats	1087	53.88006663909671
+hit	word	/m/083pr	William Howard Taft	1041	53.546823132288814
+hit	word	/m/083dp	William Lyon Mackenzie King	1030	53.46495318710072
+hit	word	/m/083p7	William McKinley	1027	53.44247324955995
+hit	word	/m/0146pg	John Williams	1016	53.35948122778325
+hit	word	/m/0cl_m	William Tecumseh Sherman	976	53.049926908141224
+entity	Zags
+hit	exact	/m/02rpmv7	Zag	5	112.40372306030233
+hit	word	/m/049588	Zig Zag (railway)	53	30.598509568957834
+hit	word	/m/0495qc	Zig Zag Railway	38	28.03439075509055
+hit	word	/m/03vs91	Zig and Zag (puppets)	21	23.46372784973409
+hit	word	/m/06860j	Zig and Zag (Australian performers)	18	22.27570914620865
+hit	word	/m/08mspk	Lapstone Zig Zag	18	22.27570914620865
+hit	word	/m/06xqfz	Zig-zag bridge	16	21.36797101962633
+hit	word	/m/06mfjf	Kalamunda Zig Zag	14	20.338862408989637
+hit	word	/m/0332ky	Zig-Zag (company)	14	20.338862408989637
+hit	word	/m/02z3pm5	Zig Zag (The Hooters album)	13	19.767722164278272
+hit	word	/m/0blldv	Zig Zag railway station, New South Wales	11	18.480258642855198
+hit	word	/m/01hwfp	Zig-zag in-line package	9	16.933716391302074
+hit	word	/m/072rl2	Zig Zag Girl	6	13.80885095055762
+hit	word	/m/02rzxwy	Zig Zag (video game)	6	13.80885095055762
+hit	word	/m/04qm3r	Zig Zag (character)	6	13.80885095055762
+hit	word	/m/07gx9r	Remington Zig-Zag Derringer	5	12.403723060302333
+hit	word	/m/02ryvlb	Zig Zag (Canadian TV series)	3	8.466858195651037
+hit	word	/m/06zmzfm	Assa-Zag	3	8.466858195651037
+hit	word	/m/0bs2lq4	Zig-Zag Walk	1	0.0
+hit	word	/m/04n3fzl	Zig-zag lemma	1	0.0
+hit	word	/m/0280k4n	Zig Zag (manga)	1	0.0
