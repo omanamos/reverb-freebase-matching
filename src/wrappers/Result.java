@@ -119,9 +119,9 @@ public class Result implements Iterable<Entity>, Comparable<Result>{
 		return new Score(this.w.getWeight(Attr.inlinks) * e.normInlinks,
 				         factor,
 				         this.w.getWeight(Attr.exact) * (this.exactStringMatches.contains(e) ? 1 : 0),
-				         this.w.getWeight(Attr.cleaned) * (this.cleanedStringMatches.contains(e) && !this.exactStringMatches.contains(e) && !this.exactSubsMatches.containsKey(e) && !this.exactAbbrvMatches.contains(e) ? 1 : 0),
-				         this.w.getWeight(Attr.substr) * (this.exactSubsMatches.containsKey(e) && !this.exactStringMatches.contains(e) && !this.exactAbbrvMatches.contains(e) ? this.exactSubsMatches.get(e) : 0), 
-				         this.w.getWeight(Attr.abbrv) * (this.exactAbbrvMatches.contains(e) && !this.exactStringMatches.contains(e) ? 1 : 0), 
+				         this.w.getWeight(Attr.cleaned) * (this.cleanedStringMatches.contains(e) && !this.exactStringMatches.contains(e) ? 1 : 0),
+				         this.w.getWeight(Attr.substr) * (this.exactSubsMatches.containsKey(e) && !this.exactSubsMatches.containsKey(e) && !this.exactStringMatches.contains(e) && !this.exactAbbrvMatches.contains(e) ? this.exactSubsMatches.get(e) : 0), 
+				         this.w.getWeight(Attr.abbrv) * (this.exactAbbrvMatches.contains(e) && !this.exactStringMatches.contains(e) && !this.cleanedStringMatches.contains(e) ? 1 : 0), 
 				         this.w.getWeight(Attr.wiki) * (this.wikiMatches.contains(e) ? 1 : 0));
 	}
 	

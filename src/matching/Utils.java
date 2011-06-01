@@ -6,6 +6,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import org.jsoup.Jsoup;
+import org.jsoup.safety.Whitelist;
+
 import wrappers.Entity;
 import wrappers.Match;
 import wrappers.MatchType;
@@ -19,7 +22,7 @@ public class Utils {
 	 *  STRING UTILS
 	 */
 	public static String cleanString(String str){
-		return str.replaceAll("(,|\\.|'|&rsquo|\\(.*\\))", "").trim();
+		return Jsoup.clean(str, new Whitelist()).replaceAll("(\\(.*\\)|[^\\s\\w,-])", "").trim();
 	}
 	
 	public static String[] split(String line){
@@ -64,6 +67,8 @@ public class Utils {
 				curKey = new Result(new Query(line.split("\t")[1]), w);
 			}
 		}
+		curKey.sort(false);
+		rtn.add(curKey);
 		
 		System.out.println("Complete!");
 		return rtn;

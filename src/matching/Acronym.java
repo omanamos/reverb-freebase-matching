@@ -51,7 +51,7 @@ public class Acronym {
 			return null;
 		String rtn = "";
 		for(String s : strParts)
-			if(!s.isEmpty() && !s.matches("^(OF|THE)$"))
+			if(!s.isEmpty() && !s.matches("^(OF|THE|AND)$"))
 				rtn += s.charAt(0);
 		return rtn;
 	}
@@ -61,7 +61,7 @@ public class Acronym {
 	 * @return true if the given string looks like an acronym, false otherwise
 	 */
 	public static boolean isAcronym(String s){
-		return s.matches("^([A-Z]\\.{0,1}){1,5}$");
+		return s.length() < 6 && s.matches("^([A-Z]\\.{0,1}){1,5}$");
 	}
 	
 	/**
