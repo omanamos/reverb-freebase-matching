@@ -42,7 +42,7 @@ public class Entity implements Comparable<Entity>{
 	}
 	
 	public String toOutputString(){
-		return this.id + "\t" + this.orig + "\t" + this.inlinks + "\t" + this.score.total;
+		return this.id + "\t" + this.orig + "\t" + this.inlinks + "\t" + this.score.total + "\t" + this.score;
 	}
 	
 	public int hashCode(){

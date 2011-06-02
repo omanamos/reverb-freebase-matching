@@ -32,6 +32,7 @@ import wrappers.Weights;
  */
 public class Freebase implements Iterable<Entity>{
 	
+	public static final String STOP_WORDS = "stop_words.config";
 	public static final String WORD_WEIGHTS = "word_weights.config";
 	public static final String FREEBASE_ENTITIES = "data/output.fbid-prominence.sorted";
 	public static final String WIKI_ALIASES = "data/output.wiki-aliases.sorted";
@@ -41,7 +42,7 @@ public class Freebase implements Iterable<Entity>{
 	private static final int DEFAULT_LUCENE_THRESHOLD = 40;
 	
 	private final int luceneThreshold;
-	private final Weights w;
+	private Weights w;
 	
 	//Lookup and storage
 	private List<Entity> entities;
@@ -57,7 +58,7 @@ public class Freebase implements Iterable<Entity>{
 	private Set<String> wordOverlapBlackList;
 	
 	//Other Matching
-	private Map<String, Set<Entity>> exactAbbrvLookup;
+	private Map<String, Set<Entity>> abbrvLookup;
 	private Map<String, Set<Entity>> wikiLookup;
 	
 	//Partial Matching
@@ -71,7 +72,7 @@ public class Freebase implements Iterable<Entity>{
 		this.idLookup = new HashMap<String, Entity>();
 		this.exactStringLookup = new HashMap<String, Set<Entity>>();
 		this.cleanedStringLookup = new HashMap<String, Set<Entity>>();
-		this.exactAbbrvLookup = new HashMap<String, Set<Entity>>();
+		this.abbrvLookup = new HashMap<String, Set<Entity>>();
 		
 		this.wordOverlapLookup = new HashMap<String, Set<Entity>>();
 		this.wordOverlapWeights = new HashMap<String, Double>();
@@ -139,9 +140,9 @@ public class Freebase implements Iterable<Entity>{
 				if(e.inlinks >= ACRO_THRESHOLD){
 					String acronym = Acronym.computeAcronym(e.contents);
 					if(acronym != null){
-						if(!this.exactAbbrvLookup.containsKey(acronym))
-							this.exactAbbrvLookup.put(acronym, new HashSet<Entity>());
-						this.exactAbbrvLookup.get(acronym).add(e);
+						if(!this.abbrvLookup.containsKey(acronym))
+							this.abbrvLookup.put(acronym, new HashSet<Entity>());
+						this.abbrvLookup.get(acronym).add(e);
 					}
 				}
 			}
@@ -220,20 +221,43 @@ public class Freebase implements Iterable<Entity>{
 		
 		pf.start();
 		pf.match(MatchType.SUB, res.add(this.wordOverlapLookup.get(q.cleanedQ), q, MatchType.SUB, this.wordOverlapWeights.get(q.cleanedQ)));
+		pf.end(MatchType.SUB);
+		
 		if(q.size() > 1){
 			for(Tuple<String,Boolean> word : q){
-				if(word.v){
-					pf.match(MatchType.ABBRV, res.add(this.exactAbbrvLookup.get(Acronym.cleanAcronym(word.e)), new Query(word.e), MatchType.ABBRV));
+				if(!this.wordOverlapBlackList.contains(word.e)){
+					pf.start();
+					pf.match(MatchType.SUB, res.add(this.exactStringLookup.get(word.e), new Query(word.e), MatchType.SUB, 1.5));
+					pf.end(MatchType.SUB);
+					
+					if(word.e.endsWith("s")){
+						String stub = q.cleanedQ.substring(0, q.cleanedQ.length() - 1);
+						Query s = new Query(stub);
+						
+						pf.start();
+						pf.match(MatchType.SUB, res.add(this.exactStringLookup.get(stub), s, MatchType.SUB, 1.5));
+						pf.end(MatchType.SUB);
+						
+						pf.start();
+						pf.match(MatchType.SUB, res.add(this.wordOverlapLookup.get(stub), s, MatchType.SUB, this.wordOverlapWeights.get(stub)));
+						pf.end(MatchType.SUB);
+					}
+					if(word.v){
+						pf.start();
+						pf.match(MatchType.ABBRV, res.add(this.abbrvLookup.get(Acronym.cleanAcronym(word.e)), new Query(word.e), MatchType.ABBRV));
+						pf.end(MatchType.ABBRV);
+					}
+					
+					pf.start();
+					pf.match(MatchType.SUB, res.add(this.wordOverlapLookup.get(word.e), new Query(word.e), MatchType.SUB, this.wordOverlapWeights.get(word)));
+					pf.end(MatchType.SUB);
 				}
-				
-				pf.match(MatchType.SUB, res.add(this.wordOverlapLookup.get(word.e), new Query(word.e), MatchType.SUB, this.wordOverlapWeights.get(word)));
 			}
 		}
-		pf.end(MatchType.SUB);
 		
 		if(q.isAcronym){
 			pf.start();
-			pf.match(MatchType.ABBRV, res.add(this.exactAbbrvLookup.get(Acronym.cleanAcronym(q.q)), q, MatchType.ABBRV));
+			pf.match(MatchType.ABBRV, res.add(this.abbrvLookup.get(Acronym.cleanAcronym(q.q)), q, MatchType.ABBRV));
 			pf.end(MatchType.ABBRV);
 		}
 		
@@ -272,6 +296,10 @@ public class Freebase implements Iterable<Entity>{
 		return this.entities.iterator();
 	}
 	
+	public void updateWeights(Weights w){
+		this.w = w;
+	}
+	
 	public static Freebase loadFreebase(boolean loadAliases) throws IOException{
 		return loadFreebase(loadAliases, Freebase.FREEBASE_ENTITIES, Freebase.WIKI_ALIASES, Freebase.DEFAULT_LUCENE_THRESHOLD);
 	}
@@ -286,13 +314,14 @@ public class Freebase implements Iterable<Entity>{
 			double normMax = Math.log(d.getMaxFreq());
 			
 			for(Tuple<String,Integer> t : d){
-				if(fb.wordOverlapBlackList.size() > d.size() * 0.001){
 					String key = t.e;
 					Double weight = (normMax - Math.log(t.v)) / normMax;
-					if(fb.wordOverlapLookup.containsKey(key))
-						fb.wordOverlapWeights.put(key, weight);
-				}else
-					fb.wordOverlapBlackList.add(t.e);
+					fb.wordOverlapWeights.put(key, weight);
+			}
+			
+			Scanner in = new Scanner(new File(STOP_WORDS));
+			while(in.hasNextLine()){
+				fb.wordOverlapBlackList.add(in.nextLine());
 			}
 			System.out.println("Complete!");
 		}

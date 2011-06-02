@@ -58,8 +58,8 @@ public class Analyze {
 	 * @return percent of matches in input file under given threshold
 	 * @throws FileNotFoundException
 	 */
-	public static double analyze(Freebase fb, Map<String, String> correctMatches, File input, int threshold) throws FileNotFoundException{
-		List<Result> results = Utils.parseOutputFile(input, fb);
+	public static double analyze(Freebase fb, Map<String, String> correctMatches, File input, int threshold, boolean debug) throws FileNotFoundException{
+		List<Result> results = Utils.parseOutputFile(input, fb, debug);
 		Set<Result> uniqueResults = new HashSet<Result>();
 		int numUnderThreshold = 0;
 		
@@ -68,7 +68,7 @@ public class Analyze {
 				String correctID = correctMatches.get(res.q.orig);
 				if(res.hasMatch(correctID) && res.getDepth(correctID) <= threshold){
 					numUnderThreshold++;
-				}else{
+				}else if(debug){
 					System.out.println("Missed: " + res.q.orig);
 				}
 				uniqueResults.add(res);

@@ -21,7 +21,7 @@ import wrappers.PerformanceFactor;
 import wrappers.Result;
 
 public class Main {
-	public static boolean DEBUG = false;
+	public static boolean DEBUG = true;
 	
 	public static void main(String[] args) throws IOException, InterruptedException{
 		Options opt = new Options(args);
@@ -31,13 +31,19 @@ public class Main {
 		if(checkFiles(opt))
 			return;
 		
+		Freebase fb = Freebase.loadFreebase(true, opt.FREEBASE, opt.WIKI_ALIAS, opt.LUCENE_THRESHOLD);
+		process(opt, fb, DEBUG);
+	}
+	
+	public static double process(Options opt, Freebase fb, boolean debug) throws IOException, InterruptedException{
+		double average = 0.0;
+		int total = 0;
+		
 		File output = new File(opt.OUTPUT);
 		BufferedWriter out = new BufferedWriter(new FileWriter(output));
-		Freebase fb = Freebase.loadFreebase(true, opt.FREEBASE, opt.WIKI_ALIAS, opt.LUCENE_THRESHOLD);
-		
 		do{
 			if(new File(opt.INPUT).exists()){
-				List<String> rv = loadTuples(opt);
+				List<String> rv = loadTuples(opt, debug);
 				if(opt.monitor)
 					moveFile(opt);
 				int cnt = 0;
@@ -55,14 +61,21 @@ public class Main {
 				}
 				timer = System.nanoTime() - timer;
 				double perEntry = timer / (double)cnt;
-				System.out.println("Average match rate: " + 1.0 / (perEntry / 1000000000.0) + " entities per second.");
+				
+				if(debug)
+					System.out.println("Average match rate: " + 1.0 / (perEntry / 1000000000.0) + " entities per second.");
 				
 				if(opt.test){
 					Map<String, String> correctMatches = Analyze.loadCorrectMatches();
-					System.out.println("Accuracy for top 5: " + Analyze.analyze(fb, correctMatches, output, 5));
-					System.out.println("Accuracy for top 10: " + Analyze.analyze(fb, correctMatches, output, 10));
-					System.out.println("Accuracy for top 15: " + Analyze.analyze(fb, correctMatches, output, 15));
-					System.out.println("Accuracy for top 20: " + Analyze.analyze(fb, correctMatches, output, 20));
+					double acc = Analyze.analyze(fb, correctMatches, output, 5, debug);
+					average += acc;
+					total++;
+					if(debug){
+						System.out.println("Accuracy for top 5: " + acc);
+						System.out.println("Accuracy for top 10: " + Analyze.analyze(fb, correctMatches, output, 10, debug));
+						System.out.println("Accuracy for top 15: " + Analyze.analyze(fb, correctMatches, output, 15, debug));
+						System.out.println("Accuracy for top 20: " + Analyze.analyze(fb, correctMatches, output, 20, debug));
+					}
 				}
 			}else if(opt.monitor){
 				System.out.print(".");
@@ -71,6 +84,8 @@ public class Main {
 				System.out.println("Nothing to do!");
 			}
 		} while(opt.monitor);
+		
+		return opt.test ? average / (double)total : 0.0;
 	}
 	
 	private static void moveFile(Options opt){
@@ -87,8 +102,9 @@ public class Main {
 		}
 	}
 	
-	private static List<String> loadTuples(Options opt) throws FileNotFoundException{
-		System.out.print("Loading ReVerb Strings...");
+	private static List<String> loadTuples(Options opt, boolean debug) throws FileNotFoundException{
+		if(debug)
+			System.out.print("Loading ReVerb Strings...");
 		Set<String> rv = new HashSet<String>();
 		File input = new File(opt.INPUT);
 		Scanner s = new Scanner(input);
@@ -99,11 +115,12 @@ public class Main {
 		List<String> rtn = new ArrayList<String>(rv);
 		Collections.sort(rtn);
 		s.close();
-		System.out.println("Complete!");
+		if(debug)
+			System.out.println("Complete!");
 		return rtn;
 	}
 	
-	private static boolean checkFiles(Options opt){
+	public static boolean checkFiles(Options opt){
 		boolean failed = false;
 		File f = new File(opt.FREEBASE);
 		if(!f.exists()){
@@ -124,6 +141,16 @@ public class Main {
 		f = new File(Freebase.WEIGHTS_CONFIG);
 		if(!f.exists()){
 			System.out.println("Could not find weights.config");
+			failed = true;
+		}
+		f = new File(Freebase.STOP_WORDS);
+		if(!f.exists()){
+			System.out.println("Could not find stop_words.config");
+			failed = true;
+		}
+		f = new File(Freebase.WORD_WEIGHTS);
+		if(!f.exists()){
+			System.out.println("Could not find word_weights.config");
 			failed = true;
 		}
 		return failed;

@@ -2,7 +2,6 @@ package wrappers;
 
 import java.util.*;
 
-import wrappers.Weights.Attr;
 import analysis.Analyze;
 
 /**
@@ -22,8 +21,8 @@ public class Result implements Iterable<Entity>, Comparable<Result>{
 	
 	private Set<Entity> exactStringMatches;
 	private Set<Entity> cleanedStringMatches;
-	private Map<Entity, Double> exactSubsMatches;
-	private Set<Entity> exactAbbrvMatches;
+	private Map<Entity, Double> wordOverlapMatches;
+	private Set<Entity> abbrvMatches;
 	private Set<Entity> wikiMatches;
 	private Map<Entity, Double> luceneMatches;
 	
@@ -35,8 +34,8 @@ public class Result implements Iterable<Entity>, Comparable<Result>{
 
 		this.exactStringMatches = new HashSet<Entity>();
 		this.cleanedStringMatches = new HashSet<Entity>();
-		this.exactSubsMatches = new HashMap<Entity, Double>();
-		this.exactAbbrvMatches = new HashSet<Entity>();
+		this.wordOverlapMatches = new HashMap<Entity, Double>();
+		this.abbrvMatches = new HashSet<Entity>();
 		this.wikiMatches = new HashSet<Entity>();
 		this.luceneMatches = new HashMap<Entity, Double>();
 		this.factor = 1.0;
@@ -57,12 +56,13 @@ public class Result implements Iterable<Entity>, Comparable<Result>{
 					this.exactStringMatches.add(m.e);
 					break;
 				case SUB:
-					if(!this.exactSubsMatches.containsKey(m.e))
-						this.exactSubsMatches.put(m.e, 0.0);
-					this.exactSubsMatches.put(m.e, this.exactSubsMatches.get(m.e) + m.weight);
+					if(!this.wordOverlapMatches.containsKey(m.e))
+						this.wordOverlapMatches.put(m.e, 0.0);
+					double newWeight = this.wordOverlapMatches.get(m.e) + m.weight;
+					this.wordOverlapMatches.put(m.e, newWeight);
 					break;
 				case ABBRV:
-					this.exactAbbrvMatches.add(m.e);
+					this.abbrvMatches.add(m.e);
 					break;
 				case WIKI:
 					this.wikiMatches.add(m.e);
@@ -85,8 +85,9 @@ public class Result implements Iterable<Entity>, Comparable<Result>{
 	public int add(Collection<Entity> c, Query q, MatchType m, Double weight){
 		weight = weight == null ? 1.0 : weight;
 		if(c != null){
-			for(Entity e : c)
+			for(Entity e : c){
 				this.add(new Match(q, e, m, weight));
+			}
 			return c.size();
 		}
 		return 0;
@@ -99,7 +100,7 @@ public class Result implements Iterable<Entity>, Comparable<Result>{
 			Entity e = this.idLookup.get(key);
 			if(computeScores)
 				e.score = computeScore(e, this.luceneMatches.get(e));
-			q.add(this.idLookup.get(key));
+			q.add(e);
 		}
 		
 		int luceneCount = 0;
@@ -116,13 +117,19 @@ public class Result implements Iterable<Entity>, Comparable<Result>{
 	
 	private Score computeScore(Entity e, Double factor){
 		factor = factor == null ? 1.0 : LUCENE_SCALING_FACTOR * factor;
+		boolean exactMatch = this.exactStringMatches.contains(e);
+		boolean cleanedMatch = this.cleanedStringMatches.contains(e) && !this.exactStringMatches.contains(e);
+		boolean subMatch = this.wordOverlapMatches.containsKey(e) && !this.cleanedStringMatches.contains(e) && !this.exactStringMatches.contains(e) && !this.abbrvMatches.contains(e);
+		boolean abbrvMatch = this.abbrvMatches.contains(e) && !this.exactStringMatches.contains(e) && !this.cleanedStringMatches.contains(e);
+		boolean wikiMatch = this.wikiMatches.contains(e);
+		
 		return new Score(this.w.getWeight(Attr.inlinks) * e.normInlinks,
 				         factor,
-				         this.w.getWeight(Attr.exact) * (this.exactStringMatches.contains(e) ? 1 : 0),
-				         this.w.getWeight(Attr.cleaned) * (this.cleanedStringMatches.contains(e) && !this.exactStringMatches.contains(e) ? 1 : 0),
-				         this.w.getWeight(Attr.substr) * (this.exactSubsMatches.containsKey(e) && !this.exactSubsMatches.containsKey(e) && !this.exactStringMatches.contains(e) && !this.exactAbbrvMatches.contains(e) ? this.exactSubsMatches.get(e) : 0), 
-				         this.w.getWeight(Attr.abbrv) * (this.exactAbbrvMatches.contains(e) && !this.exactStringMatches.contains(e) && !this.cleanedStringMatches.contains(e) ? 1 : 0), 
-				         this.w.getWeight(Attr.wiki) * (this.wikiMatches.contains(e) ? 1 : 0));
+				         this.w.getWeight(Attr.exact) * (exactMatch ? 1 : 0),
+				         this.w.getWeight(Attr.cleaned) * (cleanedMatch ? 1 : 0),
+				         this.w.getWeight(Attr.substr) * (subMatch ? this.wordOverlapMatches.get(e) : 0), 
+				         this.w.getWeight(Attr.abbrv) * (abbrvMatch ? 1 : 0), 
+				         this.w.getWeight(Attr.wiki) * (wikiMatch ? 1 : 0));
 	}
 	
 	public void setFactor(double factor){
@@ -249,8 +256,8 @@ public class Result implements Iterable<Entity>, Comparable<Result>{
 			for(Entity e : this){
 				s += "\"" + e.contents + "\"," + e.inlinks + "," + 
 					(this.exactStringMatches.contains(e) ? 1 : 0) + "," + (this.cleanedStringMatches.contains(e) ? 1 : 0) + "," + 
-					(this.exactSubsMatches.containsKey(e) ? this.exactSubsMatches.get(e) : 0) + "," + 
-					(this.wikiMatches.contains(e) ? 1 : 0) + "," + (this.exactAbbrvMatches.contains(e) ? 1 : 0) + "," + 
+					(this.wordOverlapMatches.containsKey(e) ? this.wordOverlapMatches.get(e) : 0) + "," + 
+					(this.wikiMatches.contains(e) ? 1 : 0) + "," + (this.abbrvMatches.contains(e) ? 1 : 0) + "," + 
 					(e.id.equals(correctID) ? 1 : 0) + "\n";
 				if(e.id.equals(correctID))
 					correctID = null;
@@ -263,8 +270,8 @@ public class Result implements Iterable<Entity>, Comparable<Result>{
 				Entity e = this.getMatch(correctID);
 				s += "\"" + e.contents + "\"," + e.inlinks + "," + 
 					(this.exactStringMatches.contains(e) ? 1 : 0) + "," + 
-					(this.exactSubsMatches.containsKey(e) ? this.exactSubsMatches.get(e) : 0) + "," + 
-					(this.wikiMatches.contains(e) ? 1 : 0) + "," + (this.exactAbbrvMatches.contains(e) ? 1 : 0) + "," + 
+					(this.wordOverlapMatches.containsKey(e) ? this.wordOverlapMatches.get(e) : 0) + "," + 
+					(this.wikiMatches.contains(e) ? 1 : 0) + "," + (this.abbrvMatches.contains(e) ? 1 : 0) + "," + 
 					1 + "\n";
 			}
 		}

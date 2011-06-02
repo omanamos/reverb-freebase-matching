@@ -42,8 +42,9 @@ public class Utils {
 		return rtn;
 	}
 	
-	public static List<Result> parseOutputFile(File input, Freebase fb) throws FileNotFoundException{
-		System.out.print("Parsing " + input.getName() + " output...");
+	public static List<Result> parseOutputFile(File input, Freebase fb, boolean debug) throws FileNotFoundException{
+		if(debug)
+			System.out.print("Parsing " + input.getName() + " output...");
 		List<Result> rtn = new ArrayList<Result>();
 		Weights w = new Weights(new File(Freebase.WEIGHTS_CONFIG));
 		
@@ -70,7 +71,8 @@ public class Utils {
 		curKey.sort(false);
 		rtn.add(curKey);
 		
-		System.out.println("Complete!");
+		if(debug)
+			System.out.println("Complete!");
 		return rtn;
 	}
 	

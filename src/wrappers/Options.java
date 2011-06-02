@@ -14,15 +14,19 @@ public class Options {
 	private enum Param{ input, output, freebase, wikiAlias, max, lucene, none };
 	
 	private Options(){
-		monitor = true;
-		test = false;
-		usage = false;
-		INPUT = "entities.txt";
-		OUTPUT = "top_matches.txt";
-		FREEBASE = "output.fbid-prominence.sorted";
-		WIKI_ALIAS = "output.wiki-aliases.sorted";
-		MAX_MATCHES = 5;
-		LUCENE_THRESHOLD = 40;
+		this(true, false, false, "entities.txt", "top_matches.txt", "output.fbid-prominence.sorted", "output.wiki-aliases.sorted", 5, 40);
+	}
+	
+	public Options(boolean monitor, boolean test, boolean usage, String input, String output, String freebase, String wiki_aliases, int max_matches, int lucene_threshold){
+		this.monitor = monitor;
+		this.test = test;
+		this.usage = usage;
+		this.INPUT = input;
+		this.OUTPUT = output;
+		this.FREEBASE = freebase;
+		this.WIKI_ALIAS = wiki_aliases;
+		this.MAX_MATCHES = max_matches;
+		this.LUCENE_THRESHOLD = lucene_threshold;
 	}
 	
 	public Options(String[] args){
