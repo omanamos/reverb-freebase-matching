@@ -2,8 +2,6 @@ package wrappers;
 
 import java.util.*;
 
-import analysis.Analyze;
-
 /**
  * Wraps a set of matches found in Freebase for a given query. Allows for quick id lookup. Also provides other functionality.
  */
@@ -178,8 +176,7 @@ public class Result implements Iterable<Entity>, Comparable<Result>{
 	
 	/**
 	 * @param id match to search for
-	 * @return depth of the match with the given id (matches are in order of when it was added to this result -> first match added has depth = 1)
-	 * @throws IllegalArgumentException if no match exists in this Result that has the given id
+	 * @return depth of the match with the given id (matches are in order of when it was added to this result -> first match added has depth = 1), -1 if it does not exist
 	 */
 	public int getDepth(String id){
 		if(!this.idLookup.containsKey(id))
@@ -241,44 +238,6 @@ public class Result implements Iterable<Entity>, Comparable<Result>{
 		return rtn + "\n";
 	}
 
-	public String toString(){
-		String s = "";
-		int cnt = 0;
-		String correctID = null; 
-		try{
-			correctID = Analyze.loadCorrectMatches().get(this.q.q);
-		}catch(Exception e){
-			e.printStackTrace();
-		}
-		
-		if(this.hasMatch(correctID)){
-		
-			for(Entity e : this){
-				s += "\"" + e.contents + "\"," + e.inlinks + "," + 
-					(this.exactStringMatches.contains(e) ? 1 : 0) + "," + (this.cleanedStringMatches.contains(e) ? 1 : 0) + "," + 
-					(this.wordOverlapMatches.containsKey(e) ? this.wordOverlapMatches.get(e) : 0) + "," + 
-					(this.wikiMatches.contains(e) ? 1 : 0) + "," + (this.abbrvMatches.contains(e) ? 1 : 0) + "," + 
-					(e.id.equals(correctID) ? 1 : 0) + "\n";
-				if(e.id.equals(correctID))
-					correctID = null;
-				cnt++;
-				if(cnt == 5)
-					break;
-			}
-			
-			if(correctID != null){
-				Entity e = this.getMatch(correctID);
-				s += "\"" + e.contents + "\"," + e.inlinks + "," + 
-					(this.exactStringMatches.contains(e) ? 1 : 0) + "," + 
-					(this.wordOverlapMatches.containsKey(e) ? this.wordOverlapMatches.get(e) : 0) + "," + 
-					(this.wikiMatches.contains(e) ? 1 : 0) + "," + (this.abbrvMatches.contains(e) ? 1 : 0) + "," + 
-					1 + "\n";
-			}
-		}
-		
-		return s;
-	}
-	
 	public String toOutputString(){
 		String rtn = "";
 		int cnt = 0;

@@ -16,8 +16,10 @@ import java.util.Set;
 
 import analysis.Analyze;
 
+import wrappers.AccMeasurements;
 import wrappers.Options;
 import wrappers.PerformanceFactor;
+import wrappers.Resources;
 import wrappers.Result;
 
 public class Main {
@@ -39,20 +41,18 @@ public class Main {
 			processLarge(opt, fb, DEBUG);
 	}
 	
-	public static double processLarge(Options opt, Freebase fb, boolean debug) throws IOException, InterruptedException{
-		double average = 0.0;
-		int total = 0;
-		
+	public static void processLarge(Options opt, Freebase fb, boolean debug) throws IOException, InterruptedException{
 		File output = new File(opt.OUTPUT);
 		BufferedWriter out = new BufferedWriter(new FileWriter(output));
 		Scanner in = new Scanner(new File(opt.INPUT));
+		
 		do{
 			if(new File(opt.INPUT).exists()){
 				int cnt = 0;
 				long timer = System.nanoTime();
 				
 				while(in.hasNextLine()){
-					String rvEnt = in.nextLine().substring(1).trim();
+					String rvEnt = in.nextLine().trim();
 					Result res = fb.getMatches(rvEnt, new PerformanceFactor());
 					out.write(res.toString(opt.MAX_MATCHES));
 					out.flush();
@@ -71,17 +71,10 @@ public class Main {
 				if(debug)
 					System.out.println("Average match rate: " + 1.0 / (perEntry / 1000000000.0) + " entities per second.");
 				
-				if(opt.test){
-					Map<String, String> correctMatches = Analyze.loadCorrectMatches();
-					double acc = Analyze.analyze(fb, correctMatches, output, 5, debug);
-					average += acc;
-					total++;
-					if(debug){
-						System.out.println("Accuracy for top 5: " + acc);
-						System.out.println("Accuracy for top 10: " + Analyze.analyze(fb, correctMatches, output, 10, debug));
-						System.out.println("Accuracy for top 15: " + Analyze.analyze(fb, correctMatches, output, 15, debug));
-						System.out.println("Accuracy for top 20: " + Analyze.analyze(fb, correctMatches, output, 20, debug));
-					}
+				if(opt.TESTING != null){
+					String[] parts = opt.TESTING.split(":");
+					Map<String, Set<String>> correctMatches = Analyze.loadCorrectMatches(parts[0]);
+					Analyze.analyze(fb, correctMatches, output, new File(parts[2]), new AccMeasurements(parts[1]), DEBUG);
 				}
 				if(opt.monitor)
 					moveFile(opt);
@@ -92,16 +85,12 @@ public class Main {
 				System.out.println("Nothing to do!");
 			}
 		} while(opt.monitor);
-		
-		return opt.test ? average / (double)total : 0.0;
 	}
 	
-	public static double process(Options opt, Freebase fb, boolean debug) throws IOException, InterruptedException{
-		double average = 0.0;
-		int total = 0;
-		
+	public static void process(Options opt, Freebase fb, boolean debug) throws IOException, InterruptedException{
 		File output = new File(opt.OUTPUT);
 		BufferedWriter out = new BufferedWriter(new FileWriter(output));
+		
 		do{
 			if(new File(opt.INPUT).exists()){
 				List<String> rv = loadTuples(opt, debug);
@@ -137,24 +126,10 @@ public class Main {
 					System.out.println(pf);
 				}
 				
-				if(opt.test){
-					Map<String, String> correctMatches = Analyze.loadCorrectMatches();
-					double acc = Analyze.analyze(fb, correctMatches, output, 5, debug);
-					average += acc;
-					total++;
-					if(debug){
-						System.out.println("Accuracy for top 1: " + Analyze.analyze(fb, correctMatches, output, 1, debug));
-						System.out.println("Accuracy for top 2: " + Analyze.analyze(fb, correctMatches, output, 2, debug));
-						System.out.println("Accuracy for top 3: " + Analyze.analyze(fb, correctMatches, output, 3, debug));
-						System.out.println("Accuracy for top 5: " + acc);
-						System.out.println("Accuracy for top 10: " + Analyze.analyze(fb, correctMatches, output, 10, debug));
-						System.out.println("Accuracy for top 15: " + Analyze.analyze(fb, correctMatches, output, 15, debug));
-						System.out.println("Accuracy for top 20: " + Analyze.analyze(fb, correctMatches, output, 20, debug));
-						System.out.println("Accuracy for top 30: " + Analyze.analyze(fb, correctMatches, output, 30, debug));
-						System.out.println("Accuracy for top 50: " + Analyze.analyze(fb, correctMatches, output, 50, debug));
-						System.out.println("Accuracy for top 100: " + Analyze.analyze(fb, correctMatches, output, 100, debug));
-						System.out.println("Accuracy for top 500: " + Analyze.analyze(fb, correctMatches, output, 500, debug));
-					}
+				if(opt.TESTING != null){
+					String[] parts = opt.TESTING.split(":");
+					Map<String, Set<String>> correctMatches = Analyze.loadCorrectMatches(parts[0]);
+					Analyze.analyze(fb, correctMatches, output, new File(parts[2]), new AccMeasurements(parts[1]), DEBUG);
 				}
 			}else if(opt.monitor){
 				System.out.print(".");
@@ -163,8 +138,6 @@ public class Main {
 				System.out.println("Nothing to do!");
 			}
 		} while(opt.monitor);
-		
-		return opt.test ? average / (double)total : 0.0;
 	}
 	
 	private static void moveFile(Options opt){
@@ -211,19 +184,31 @@ public class Main {
 			System.out.println("Could not find Wiki Alias file: \"" + f.getAbsolutePath() + "\"");
 			failed = true;
 		}
-		f = new File(Freebase.WEIGHTS_CONFIG);
+		f = new File(Resources.WEIGHTS_CONFIG);
 		if(!f.exists()){
 			System.out.println("Could not find weights.config");
 			failed = true;
 		}
-		f = new File(Freebase.STOP_WORDS);
+		f = new File(Resources.STOP_WORDS);
 		if(!f.exists()){
 			System.out.println("Could not find stop_words.config");
 			failed = true;
 		}
-		f = new File(Freebase.WORD_WEIGHTS);
+		f = new File(Resources.WORD_WEIGHTS);
 		if(!f.exists()){
 			System.out.println("Could not find word_weights.config");
+			failed = true;
+		}
+		String[] parts = opt.TESTING.split(":");
+		
+		f = new File(parts[0]);
+		if(!f.exists()){
+			System.out.println("Could not find testing input file: " + parts[0]);
+			failed = true;
+		}
+		f = new File(Resources.WORD_WEIGHTS);
+		if(!f.exists()){
+			System.out.println("Could not find testing thresholds file: " + parts[1]);
 			failed = true;
 		}
 		return failed;

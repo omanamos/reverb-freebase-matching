@@ -21,8 +21,10 @@ import org.apache.lucene.store.SimpleFSDirectory;
 import wrappers.Document;
 import wrappers.Entity;
 import wrappers.MatchType;
+import wrappers.Options;
 import wrappers.PerformanceFactor;
 import wrappers.Query;
+import wrappers.Resources;
 import wrappers.Result;
 import wrappers.Tuple;
 import wrappers.Weights;
@@ -32,14 +34,7 @@ import wrappers.Weights;
  */
 public class Freebase implements Iterable<Entity>{
 	
-	public static final String STOP_WORDS = "stop_words.config";
-	public static final String WORD_WEIGHTS = "word_weights.config";
-	public static final String FREEBASE_ENTITIES = "data/output.fbid-prominence.sorted";
-	public static final String WIKI_ALIASES = "data/output.wiki-aliases.sorted";
-	public static final String SYNONYMS = "data/synonyms.txt";
-	public static final String WEIGHTS_CONFIG = "weights.config";
 	private static final int ACRO_THRESHOLD = 20;
-	private static final int DEFAULT_LUCENE_THRESHOLD = 40;
 	
 	private final int luceneThreshold;
 	private Weights w;
@@ -84,7 +79,7 @@ public class Freebase implements Iterable<Entity>{
 		this.dict.indexDictionary(new LuceneDictionary(IndexReader.open(new SimpleFSDirectory(new File("index"))), "entity"));
 		this.dist = dict.getStringDistance();
 		
-		this.w = new Weights(new File(WEIGHTS_CONFIG));
+		this.w = new Weights(new File(Resources.WEIGHTS_CONFIG));
 	}
 
 	public void add(Entity e){
@@ -296,7 +291,7 @@ public class Freebase implements Iterable<Entity>{
 	}
 	
 	public static Freebase loadFreebase(boolean loadAliases) throws IOException{
-		return loadFreebase(loadAliases, Freebase.FREEBASE_ENTITIES, Freebase.WIKI_ALIASES, Freebase.DEFAULT_LUCENE_THRESHOLD);
+		return loadFreebase(loadAliases, Resources.DEFAULT_FREEBASE, Resources.DEFAULT_WIKI_ALIASES, Options.DEFAULT_LUCENE_THRESHOLD);
 	}
 	
 	public static Freebase loadFreebase(boolean loadAliases, String freebasePath, String wikiAliasPath, int luceneThreshold) throws IOException{
@@ -305,7 +300,7 @@ public class Freebase implements Iterable<Entity>{
 		
 		if(loadAliases){
 			System.out.print("Loading Word Weights...");
-			Document d = new Document(new File(WORD_WEIGHTS), true);
+			Document d = new Document(new File(Resources.WORD_WEIGHTS), true);
 			double normMax = Math.log(d.getMaxFreq());
 			
 			for(Tuple<String,Integer> t : d){
@@ -314,7 +309,7 @@ public class Freebase implements Iterable<Entity>{
 					fb.wordOverlapWeights.put(key, weight);
 			}
 			
-			Scanner in = new Scanner(new File(STOP_WORDS));
+			Scanner in = new Scanner(new File(Resources.STOP_WORDS));
 			while(in.hasNextLine()){
 				fb.wordOverlapBlackList.add(in.nextLine());
 			}
