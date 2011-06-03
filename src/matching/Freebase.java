@@ -150,11 +150,6 @@ public class Freebase implements Iterable<Entity>{
 		}
 	}
 	
-	public Double getWeight(String key){
-		Double w = this.wordOverlapWeights.get(key);
-		return w == null ? 1.0 : w;
-	}
-	
 	public Result getMatches(String query, PerformanceFactor pf){
 		Query q = new Query(query);
 		Result res = new Result(q, w);
@@ -225,7 +220,7 @@ public class Freebase implements Iterable<Entity>{
 		
 		if(q.size() > 1){
 			for(Tuple<String,Boolean> word : q){
-				if(!this.wordOverlapBlackList.contains(word.e)){
+				if(!this.wordOverlapBlackList.contains(word.e) && word.e.length() > 1){
 					pf.start();
 					pf.match(MatchType.SUB, res.add(this.exactStringLookup.get(word.e), new Query(word.e), MatchType.SUB, 1.5));
 					pf.end(MatchType.SUB);
@@ -249,7 +244,7 @@ public class Freebase implements Iterable<Entity>{
 					}
 					
 					pf.start();
-					pf.match(MatchType.SUB, res.add(this.wordOverlapLookup.get(word.e), new Query(word.e), MatchType.SUB, this.wordOverlapWeights.get(word)));
+					pf.match(MatchType.SUB, res.add(this.wordOverlapLookup.get(word.e), new Query(word.e), MatchType.SUB, this.wordOverlapWeights.get(word.e)));
 					pf.end(MatchType.SUB);
 				}
 			}

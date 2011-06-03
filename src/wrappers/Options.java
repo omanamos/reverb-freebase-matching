@@ -2,6 +2,7 @@ package wrappers;
 
 public class Options {
 
+	public boolean inMemory;
 	public boolean monitor;
 	public boolean test;
 	public boolean usage;
@@ -14,10 +15,11 @@ public class Options {
 	private enum Param{ input, output, freebase, wikiAlias, max, lucene, none };
 	
 	private Options(){
-		this(true, false, false, "entities.txt", "top_matches.txt", "output.fbid-prominence.sorted", "output.wiki-aliases.sorted", 5, 40);
+		this(true, true, false, false, "entities.txt", "top_matches.txt", "output.fbid-prominence.sorted", "output.wiki-aliases.sorted", 5, 40);
 	}
 	
-	public Options(boolean monitor, boolean test, boolean usage, String input, String output, String freebase, String wiki_aliases, int max_matches, int lucene_threshold){
+	public Options(boolean inMemory, boolean monitor, boolean test, boolean usage, String input, String output, String freebase, String wiki_aliases, int max_matches, int lucene_threshold){
+		this.inMemory = inMemory;
 		this.monitor = monitor;
 		this.test = test;
 		this.usage = usage;
@@ -42,14 +44,18 @@ public class Options {
 			boolean argEqualsW = arg.equals("-w");
 			boolean argEqualsM = arg.equals("-m");
 			boolean argEqualsL = arg.equals("-l");
+			boolean argEqualsD = arg.equals("-d");
 			boolean isFlag = argEqualsQ || argEqualsT || argEqualsI || 
 							 argEqualsO || argEqualsF || argEqualsW || 
-							 argEqualsM || argEqualsL;
+							 argEqualsM || argEqualsL || argEqualsD ||
+							 argEqualsH;
 			
 			if(argEqualsH && last.equals(Param.none)){
 				this.usage = true;
 				printUsage();
 				return;
+			}else if(argEqualsD && last.equals(Param.none)){
+				this.inMemory = false;
 			}else if(argEqualsQ && last.equals(Param.none)){
 				this.monitor = false;
 			}else if(argEqualsT && last.equals(Param.none)){
@@ -111,6 +117,7 @@ public class Options {
 		System.out.println("Usage: \"[options]\"");
 		System.out.println("where options include:");
 		System.out.println("  -h: Prints options available for the program.");
+		System.out.println("  -d: Doesn't load the ReVerb corpus into memory. Doesn't sort or deduplicate the corpus. Assumes arg1 per line with the first character ignored.");
 		System.out.println("  -q: Quits after one run, otherwise it will move the input file into the \"./processed\" \n\tdirectory and wait until the input file exists again.");
 		System.out.println("  -t: Analyzes the results after finished matching. Defaults to false. Looks for correct matches under \n\t\"data/keys/match-lookup.txt\", " +
 						   "with each line of the format:\n\t\"<reverb string>\\t<correct freebase id>\\t<correct freebase entity name>\\t<correct freebase inlink count>\"");

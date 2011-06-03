@@ -13,7 +13,7 @@ import wrappers.Weights;
 public class SimulatedAnnealing {
 
 	public static void main(String[] args) throws IOException, InterruptedException{
-		Options opt = new Options(false, true, false, "input/news.data", "output/output.data", Freebase.FREEBASE_ENTITIES, Freebase.WIKI_ALIASES, 5, 40);
+		Options opt = new Options(true, false, true, false, "input/news.data", "output/output.data", Freebase.FREEBASE_ENTITIES, Freebase.WIKI_ALIASES, 5, 40);
 		Freebase fb = Freebase.loadFreebase(true, opt.FREEBASE, opt.WIKI_ALIAS, opt.LUCENE_THRESHOLD);
 		
 		Weights current = new Weights(new File("weights.config"));

@@ -32,23 +32,27 @@ public class Main {
 			return;
 		
 		Freebase fb = Freebase.loadFreebase(true, opt.FREEBASE, opt.WIKI_ALIAS, opt.LUCENE_THRESHOLD);
-		process(opt, fb, DEBUG);
+		
+		if(opt.inMemory)
+			process(opt, fb, DEBUG);
+		else
+			processLarge(opt, fb, DEBUG);
 	}
 	
-	public static double process(Options opt, Freebase fb, boolean debug) throws IOException, InterruptedException{
+	public static double processLarge(Options opt, Freebase fb, boolean debug) throws IOException, InterruptedException{
 		double average = 0.0;
 		int total = 0;
 		
 		File output = new File(opt.OUTPUT);
 		BufferedWriter out = new BufferedWriter(new FileWriter(output));
+		Scanner in = new Scanner(new File(opt.INPUT));
 		do{
 			if(new File(opt.INPUT).exists()){
-				List<String> rv = loadTuples(opt, debug);
-				if(opt.monitor)
-					moveFile(opt);
 				int cnt = 0;
 				long timer = System.nanoTime();
-				for(String rvEnt : rv){
+				
+				while(in.hasNextLine()){
+					String rvEnt = in.nextLine().substring(1).trim();
 					Result res = fb.getMatches(rvEnt, new PerformanceFactor());
 					out.write(res.toString(opt.MAX_MATCHES));
 					out.flush();
@@ -56,9 +60,11 @@ public class Main {
 					cnt++;
 					if(cnt % 50000 == 0){
 						double perEntry = (System.nanoTime() - timer) / (double)cnt;
-						System.out.println("Average match rate: " + 1.0 / (perEntry / 1000000000.0) + " entities per second at " + cnt / (double)rv.size() + "%.");
+						System.out.println("Average match rate: " + 1.0 / (perEntry / 1000000000.0) + " entities per second at " + cnt + ".");
 					}
 				}
+				in.close();
+				
 				timer = System.nanoTime() - timer;
 				double perEntry = timer / (double)cnt;
 				
@@ -75,6 +81,79 @@ public class Main {
 						System.out.println("Accuracy for top 10: " + Analyze.analyze(fb, correctMatches, output, 10, debug));
 						System.out.println("Accuracy for top 15: " + Analyze.analyze(fb, correctMatches, output, 15, debug));
 						System.out.println("Accuracy for top 20: " + Analyze.analyze(fb, correctMatches, output, 20, debug));
+					}
+				}
+				if(opt.monitor)
+					moveFile(opt);
+			}else if(opt.monitor){
+				System.out.print(".");
+				Thread.sleep(10000);
+			}else{
+				System.out.println("Nothing to do!");
+			}
+		} while(opt.monitor);
+		
+		return opt.test ? average / (double)total : 0.0;
+	}
+	
+	public static double process(Options opt, Freebase fb, boolean debug) throws IOException, InterruptedException{
+		double average = 0.0;
+		int total = 0;
+		
+		File output = new File(opt.OUTPUT);
+		BufferedWriter out = new BufferedWriter(new FileWriter(output));
+		do{
+			if(new File(opt.INPUT).exists()){
+				List<String> rv = loadTuples(opt, debug);
+				PerformanceFactor pf = new PerformanceFactor();
+				
+				if(opt.monitor)
+					moveFile(opt);
+				
+				int cnt = 0;
+				long timer = System.nanoTime();
+				int luceneMatches = 0;
+				
+				for(String rvEnt : rv){
+					Result res = fb.getMatches(rvEnt, pf);
+					out.write(res.toString(opt.MAX_MATCHES));
+					out.flush();
+					
+					luceneMatches += res.hasLuceneMatches() ? 1 : 0;
+					cnt++;
+					if(cnt % 50000 == 0){
+						double perEntry = (System.nanoTime() - timer) / (double)cnt;
+						System.out.println("Average match rate: " + 1.0 / (perEntry / 1000000000.0) + " entities per second at " + cnt / (double)rv.size() + "%.");
+					}
+				}
+				
+				timer = System.nanoTime() - timer;
+				double perEntry = timer / (double)cnt;
+				
+				if(debug){
+					System.out.println("Average match rate: " + 1.0 / (perEntry / 1000000000.0) + " entities per second.");
+					System.out.println("\tUsed Lucene " + luceneMatches + "(" + 100.0 * luceneMatches / (double)rv.size() + "%) times");
+					System.out.println();
+					System.out.println(pf);
+				}
+				
+				if(opt.test){
+					Map<String, String> correctMatches = Analyze.loadCorrectMatches();
+					double acc = Analyze.analyze(fb, correctMatches, output, 5, debug);
+					average += acc;
+					total++;
+					if(debug){
+						System.out.println("Accuracy for top 1: " + Analyze.analyze(fb, correctMatches, output, 1, debug));
+						System.out.println("Accuracy for top 2: " + Analyze.analyze(fb, correctMatches, output, 2, debug));
+						System.out.println("Accuracy for top 3: " + Analyze.analyze(fb, correctMatches, output, 3, debug));
+						System.out.println("Accuracy for top 5: " + acc);
+						System.out.println("Accuracy for top 10: " + Analyze.analyze(fb, correctMatches, output, 10, debug));
+						System.out.println("Accuracy for top 15: " + Analyze.analyze(fb, correctMatches, output, 15, debug));
+						System.out.println("Accuracy for top 20: " + Analyze.analyze(fb, correctMatches, output, 20, debug));
+						System.out.println("Accuracy for top 30: " + Analyze.analyze(fb, correctMatches, output, 30, debug));
+						System.out.println("Accuracy for top 50: " + Analyze.analyze(fb, correctMatches, output, 50, debug));
+						System.out.println("Accuracy for top 100: " + Analyze.analyze(fb, correctMatches, output, 100, debug));
+						System.out.println("Accuracy for top 500: " + Analyze.analyze(fb, correctMatches, output, 500, debug));
 					}
 				}
 			}else if(opt.monitor){
@@ -102,7 +181,7 @@ public class Main {
 		}
 	}
 	
-	private static List<String> loadTuples(Options opt, boolean debug) throws FileNotFoundException{
+	public static List<String> loadTuples(Options opt, boolean debug) throws FileNotFoundException{
 		if(debug)
 			System.out.print("Loading ReVerb Strings...");
 		Set<String> rv = new HashSet<String>();
