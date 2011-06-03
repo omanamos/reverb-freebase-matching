@@ -206,15 +206,9 @@ public class Main {
 			System.out.println("Could not find Freebase file: \"" + f.getAbsolutePath() + "\"");
 			failed = true;
 		}
-		
 		f = new File(opt.WIKI_ALIAS);
 		if(!f.exists()){
 			System.out.println("Could not find Wiki Alias file: \"" + f.getAbsolutePath() + "\"");
-			failed = true;
-		}
-		f = new File(opt.FREEBASE);
-		if(!f.exists()){
-			System.out.println("Could not find Freebase file: \"" + f.getAbsolutePath() + "\"");
 			failed = true;
 		}
 		f = new File(Freebase.WEIGHTS_CONFIG);
