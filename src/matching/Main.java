@@ -74,7 +74,8 @@ public class Main {
 				if(opt.TESTING != null){
 					String[] parts = opt.TESTING.split(":");
 					Map<String, Set<String>> correctMatches = Analyze.loadCorrectMatches(parts[0]);
-					Analyze.analyze(fb, correctMatches, output, new File(parts[2]), new AccMeasurements(parts[1]), DEBUG);
+					AccMeasurements acc = new AccMeasurements(parts[1]);
+					Analyze.analyze(fb, correctMatches, output, new File(parts[2]), acc, DEBUG);
 				}
 				if(opt.monitor)
 					moveFile(opt);
@@ -199,17 +200,18 @@ public class Main {
 			System.out.println("Could not find word_weights.config");
 			failed = true;
 		}
-		String[] parts = opt.TESTING.split(":");
-		
-		f = new File(parts[0]);
-		if(!f.exists()){
-			System.out.println("Could not find testing input file: " + parts[0]);
-			failed = true;
-		}
-		f = new File(Resources.WORD_WEIGHTS);
-		if(!f.exists()){
-			System.out.println("Could not find testing thresholds file: " + parts[1]);
-			failed = true;
+		if(opt.TESTING != null){
+			String[] parts = opt.TESTING.split(":");
+			f = new File(parts[0]);
+			if(!f.exists()){
+				System.out.println("Could not find testing input file: " + parts[0]);
+				failed = true;
+			}
+			f = new File(parts[1]);
+			if(!f.exists()){
+				System.out.println("Could not find testing thresholds file: " + parts[1]);
+				failed = true;
+			}
 		}
 		return failed;
 	}

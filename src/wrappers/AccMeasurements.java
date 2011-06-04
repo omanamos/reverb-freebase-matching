@@ -33,6 +33,8 @@ public class AccMeasurements implements Iterable<Integer>{
 		this.accuracies = new HashMap<Integer, List<Double>>();
 		this.totalCorrectMatches = 0;
 		this.totalMatchesReturned = new HashMap<Integer, Integer>();
+		for(int t : this.thresholds)
+			this.totalMatchesReturned.put(t, 0);
 	}
 	
 	public void add(String rvEnt, Map<Integer, Integer> counts, int totalCorrect, int totalReturned){
@@ -82,7 +84,9 @@ public class AccMeasurements implements Iterable<Integer>{
 	public String toString(){
 		String rtn = "k threshold\t% of arg1s with any correct match\t% of arg1s with all correct matches\t% of all possible correct matches found\t% of top k that are correct";
 		this.compute();
-		for(Integer threshold : this.accuracies.keySet()){
+		List<Integer> ts = new ArrayList<Integer>(this.accuracies.keySet());
+		Collections.sort(ts);
+		for(Integer threshold : ts){
 			rtn += "\n" + threshold;
 			for(Double acc : this.accuracies.get(threshold)){
 				rtn += "\t" + acc; 

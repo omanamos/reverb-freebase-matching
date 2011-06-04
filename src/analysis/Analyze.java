@@ -44,6 +44,11 @@ public class Analyze {
 				acc.add(res.q.orig, counts, correct.size(), res.size());
 			}
 		}
+		if(debug)
+			System.out.println(acc);
+		BufferedWriter out = new BufferedWriter(new FileWriter(output));
+		out.write(acc.toString());
+		out.flush();
 	}
 	
 	public static Map<String, Set<String>> loadCorrectMatches(String path) throws FileNotFoundException{
