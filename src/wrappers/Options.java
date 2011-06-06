@@ -130,8 +130,7 @@ public class Options {
 		System.out.println("  -t <path to correct matches>:<path to thresholds file>:<path to output file>: Prints out accuracies after matching. Each line in the correct matches file should be of the format:" +
 								"\n\t\"<reverb string>\\t<correct freebase id>\"" +
 								"\n\tThe thresholds file is to specify at which thresholds that accuracy should be calculated at. It should have one threshold per line." +
-								"\n\tNote: use the -m parameter to specify the max number of matches to return as a higher number than your max" +
-								"\n\tthreshold in this file." +
+								"\n\tNote: use the -m parameter to specify the max number of matches to return as a higher number than your max threshold in this file." +
 								"\n\tThe output file is of the format, with the first line as a header:" +
 								"\n\t\"<depth threshold>\\t<% of time any of the top-k matches are correct>\\t<%of time all of the top-k matches are correct>\\t<average % of correct matches that are included at the current depth>\\t<average % of the top-k matches that are correct>");
 		
