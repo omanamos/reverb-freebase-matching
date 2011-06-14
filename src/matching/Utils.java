@@ -13,6 +13,7 @@ import wrappers.Entity;
 import wrappers.Match;
 import wrappers.MatchType;
 import wrappers.Query;
+import wrappers.Resources;
 import wrappers.Result;
 import wrappers.Weights;
 
@@ -42,10 +43,11 @@ public class Utils {
 		return rtn;
 	}
 	
-	public static List<Result> parseOutputFile(File input, Freebase fb) throws FileNotFoundException{
-		System.out.print("Parsing " + input.getName() + " output...");
+	public static List<Result> parseOutputFile(File input, Freebase fb, boolean debug) throws FileNotFoundException{
+		if(debug)
+			System.out.print("Parsing " + input.getName() + " output...");
 		List<Result> rtn = new ArrayList<Result>();
-		Weights w = new Weights(new File(Freebase.WEIGHTS_CONFIG));
+		Weights w = new Weights(new File(Resources.WEIGHTS_CONFIG));
 		
 		Scanner s = new Scanner(input);
 		Result curKey = null;
@@ -70,7 +72,8 @@ public class Utils {
 		curKey.sort(false);
 		rtn.add(curKey);
 		
-		System.out.println("Complete!");
+		if(debug)
+			System.out.println("Complete!");
 		return rtn;
 	}
 	
@@ -81,7 +84,7 @@ public class Utils {
 	public static List<Result> parseMapperOutputFile(File input, Freebase fb) throws FileNotFoundException{
 		System.out.print("Parsing " + input.getName() + " output...");
 		List<Result> rtn = new ArrayList<Result>();
-		Weights w = new Weights(new File(Freebase.WEIGHTS_CONFIG));
+		Weights w = new Weights(new File(Resources.WEIGHTS_CONFIG));
 		
 		Scanner s = new Scanner(input);
 		Result curKey = null;

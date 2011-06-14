@@ -1,28 +1,39 @@
 package wrappers;
 
 public class Options {
-
+	public static final int DEFAULT_LUCENE_THRESHOLD = 40;
+	public static final int DEFAULT_MATCH_DEPTH = 5;
+	
+	public static final String DEFAULT_OUTPUT = "top_matches.txt";
+	public static final String DEFAULT_INPUT = "entities.txt";
+	
+	public boolean inMemory;
 	public boolean monitor;
-	public boolean test;
 	public boolean usage;
 	public String INPUT;
 	public String OUTPUT;
 	public String FREEBASE;
 	public String WIKI_ALIAS;
+	public String TESTING;
 	public int MAX_MATCHES;
 	public int LUCENE_THRESHOLD;
-	private enum Param{ input, output, freebase, wikiAlias, max, lucene, none };
+	private enum Param{ input, output, freebase, wikiAlias, max, lucene, testing, none };
 	
 	private Options(){
-		monitor = true;
-		test = false;
-		usage = false;
-		INPUT = "entities.txt";
-		OUTPUT = "top_matches.txt";
-		FREEBASE = "output.fbid-prominence.sorted";
-		WIKI_ALIAS = "output.wiki-aliases.sorted";
-		MAX_MATCHES = 5;
-		LUCENE_THRESHOLD = 40;
+		this(true, true, false, DEFAULT_INPUT, DEFAULT_OUTPUT, Resources.DEFAULT_FREEBASE, Resources.DEFAULT_WIKI_ALIASES, null, DEFAULT_MATCH_DEPTH, DEFAULT_LUCENE_THRESHOLD);
+	}
+	
+	public Options(boolean inMemory, boolean monitor, boolean usage, String input, String output, String freebase, String wiki_aliases, String testing, int max_matches, int lucene_threshold){
+		this.inMemory = inMemory;
+		this.monitor = monitor;
+		this.usage = usage;
+		this.INPUT = input;
+		this.OUTPUT = output;
+		this.FREEBASE = freebase;
+		this.WIKI_ALIAS = wiki_aliases;
+		this.TESTING = testing;
+		this.MAX_MATCHES = max_matches;
+		this.LUCENE_THRESHOLD = lucene_threshold;
 	}
 	
 	public Options(String[] args){
@@ -38,18 +49,22 @@ public class Options {
 			boolean argEqualsW = arg.equals("-w");
 			boolean argEqualsM = arg.equals("-m");
 			boolean argEqualsL = arg.equals("-l");
+			boolean argEqualsD = arg.equals("-d");
 			boolean isFlag = argEqualsQ || argEqualsT || argEqualsI || 
 							 argEqualsO || argEqualsF || argEqualsW || 
-							 argEqualsM || argEqualsL;
+							 argEqualsM || argEqualsL || argEqualsD ||
+							 argEqualsH;
 			
 			if(argEqualsH && last.equals(Param.none)){
 				this.usage = true;
 				printUsage();
 				return;
+			}else if(argEqualsD && last.equals(Param.none)){
+				this.inMemory = false;
 			}else if(argEqualsQ && last.equals(Param.none)){
 				this.monitor = false;
 			}else if(argEqualsT && last.equals(Param.none)){
-				this.test = true;
+				last = Param.testing;
 			}else if(argEqualsI && last.equals(Param.none)){
 				last = Param.input;
 			}else if(argEqualsO && last.equals(Param.none)){
@@ -62,6 +77,9 @@ public class Options {
 				last = Param.max;
 			}else if(argEqualsL && last.equals(Param.none)){
 				last = Param.lucene;
+			}else if(last.equals(Param.testing) && !isFlag){
+				this.TESTING = arg;
+				last = Param.none;
 			}else if(last.equals(Param.input) && !isFlag){
 				this.INPUT = arg;
 				last = Param.none;
@@ -107,9 +125,14 @@ public class Options {
 		System.out.println("Usage: \"[options]\"");
 		System.out.println("where options include:");
 		System.out.println("  -h: Prints options available for the program.");
+		System.out.println("  -d: Doesn't load the ReVerb corpus into memory. Doesn't sort or deduplicate the corpus. Assumes arg1 per line with the first character ignored.");
 		System.out.println("  -q: Quits after one run, otherwise it will move the input file into the \"./processed\" \n\tdirectory and wait until the input file exists again.");
-		System.out.println("  -t: Analyzes the results after finished matching. Defaults to false. Looks for correct matches under \n\t\"data/keys/match-lookup.txt\", " +
-						   "with each line of the format:\n\t\"<reverb string>\\t<correct freebase id>\\t<correct freebase entity name>\\t<correct freebase inlink count>\"");
+		System.out.println("  -t <path to correct matches>:<path to thresholds file>:<path to output file>: Prints out accuracies after matching. Each line in the correct matches file should be of the format:" +
+								"\n\t\"<reverb string>\\t<correct freebase id>\"" +
+								"\n\tThe thresholds file is to specify at which thresholds that accuracy should be calculated at. It should have one threshold per line." +
+								"\n\tNote: use the -m parameter to specify the max number of matches to return as a higher number than your max threshold in this file." +
+								"\n\tThe output file is of the format, with the first line as a header:" +
+								"\n\t\"<depth threshold>\\t<% of time any of the top-k matches are correct>\\t<%of time all of the top-k matches are correct>\\t<average % of correct matches that are included at the current depth>\\t<average % of the top-k matches that are correct>");
 		
 		System.out.println("  -i <path to input file>: Defaults to \"entities.txt\"");
 		System.out.println("  -o <path to output file>: Defaults to \"top_matches.txt\"");

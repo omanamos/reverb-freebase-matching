@@ -24,7 +24,7 @@ public class Match {
 	
 	public boolean equals(Object obj){
 		if(obj instanceof Match)
-			return ((Match)obj).q.equals(this.q) && ((Match)obj).e.equals(this.e);
+			return ((Match)obj).q.equals(this.q) && ((Match)obj).e.equals(this.e) && ((Match)obj).t.equals(this.t);
 		else
 			return false;
 	}

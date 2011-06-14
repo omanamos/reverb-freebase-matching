@@ -7,14 +7,14 @@ public class PerformanceFactor {
 
 	private Map<MatchType, Long> times;
 	private long totalTime;
-	private Map<MatchType, Integer> counts;
-	private int totalCount;
+	private Map<MatchType, Long> counts;
+	private long totalCount;
 	
 	private long timer;
 	
 	public PerformanceFactor(){
 		this.times = new HashMap<MatchType, Long>();
-		this.counts = new HashMap<MatchType, Integer>();
+		this.counts = new HashMap<MatchType, Long>();
 		this.totalCount = 0;
 		this.totalTime = 0;
 		this.timer = 0;
@@ -37,7 +37,7 @@ public class PerformanceFactor {
 		this.totalCount += count;
 		
 		if(!this.counts.containsKey(m))
-			this.counts.put(m, 0);
+			this.counts.put(m, new Long(0));
 		this.counts.put(m, this.counts.get(m) + count);
 	}
 	
@@ -50,7 +50,7 @@ public class PerformanceFactor {
 		}
 		s += "\nDivision of Matches:\n";
 		for(MatchType m : this.counts.keySet()){
-			int cnt = this.counts.get(m);
+			long cnt = this.counts.get(m);
 			s += "\t" + m + " - " + cnt + " (" + (100.0 * cnt / (double)this.totalCount) + "%)\n";
 		}
 		
