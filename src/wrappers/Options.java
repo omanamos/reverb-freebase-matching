@@ -9,6 +9,7 @@ public class Options {
 	
 	public boolean inMemory;
 	public boolean monitor;
+	public boolean generateLucene;
 	public boolean usage;
 	public String INPUT;
 	public String OUTPUT;
@@ -20,10 +21,14 @@ public class Options {
 	private enum Param{ input, output, freebase, wikiAlias, max, lucene, testing, none };
 	
 	private Options(){
-		this(true, true, false, DEFAULT_INPUT, DEFAULT_OUTPUT, Resources.DEFAULT_FREEBASE, Resources.DEFAULT_WIKI_ALIASES, null, DEFAULT_MATCH_DEPTH, DEFAULT_LUCENE_THRESHOLD);
+		this(true, true, false, false, DEFAULT_INPUT, DEFAULT_OUTPUT, 
+				Resources.DEFAULT_FREEBASE, Resources.DEFAULT_WIKI_ALIASES, 
+				null, DEFAULT_MATCH_DEPTH, DEFAULT_LUCENE_THRESHOLD);
 	}
 	
-	public Options(boolean inMemory, boolean monitor, boolean usage, String input, String output, String freebase, String wiki_aliases, String testing, int max_matches, int lucene_threshold){
+	public Options(boolean inMemory, boolean monitor, boolean generateLucene, 
+				   boolean usage, String input, String output, String freebase, 
+				   String wiki_aliases, String testing, int max_matches, int lucene_threshold){
 		this.inMemory = inMemory;
 		this.monitor = monitor;
 		this.usage = usage;
@@ -43,6 +48,7 @@ public class Options {
 			boolean argEqualsH = arg.equals("-h");
 			boolean argEqualsQ = arg.equals("-q");
 			boolean argEqualsT = arg.equals("-t");
+			boolean argEqualsG = arg.equals("-g");
 			boolean argEqualsI = arg.equals("-i");
 			boolean argEqualsO = arg.equals("-o");
 			boolean argEqualsF = arg.equals("-f");
@@ -53,12 +59,14 @@ public class Options {
 			boolean isFlag = argEqualsQ || argEqualsT || argEqualsI || 
 							 argEqualsO || argEqualsF || argEqualsW || 
 							 argEqualsM || argEqualsL || argEqualsD ||
-							 argEqualsH;
+							 argEqualsH || argEqualsG;
 			
 			if(argEqualsH && last.equals(Param.none)){
 				this.usage = true;
 				printUsage();
 				return;
+			}else if(argEqualsG && last.equals(Param.none)){
+				this.generateLucene = true;
 			}else if(argEqualsD && last.equals(Param.none)){
 				this.inMemory = false;
 			}else if(argEqualsQ && last.equals(Param.none)){
@@ -126,6 +134,9 @@ public class Options {
 		System.out.println("where options include:");
 		System.out.println("  -h: Prints options available for the program.");
 		System.out.println("  -d: Doesn't load the ReVerb corpus into memory. Doesn't sort or deduplicate the corpus. Assumes arg1 per line with the first character ignored.");
+		System.out.println("  -g: Generates the Lucene Index for spell checking. Freebase file must be specified\n" +
+								 "if different from default. Puts index in ./index, which should not exist when\n" +
+								 "this option is run. Defaults to false.");
 		System.out.println("  -q: Quits after one run, otherwise it will move the input file into the \"./processed\" \n\tdirectory and wait until the input file exists again.");
 		System.out.println("  -t <path to correct matches>:<path to thresholds file>:<path to output file>: Prints out accuracies after matching. Each line in the correct matches file should be of the format:" +
 								"\n\t\"<reverb string>\\t<correct freebase id>\"" +
