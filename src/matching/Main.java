@@ -29,6 +29,10 @@ public class Main {
 		Options opt = new Options(args);
 		if(opt.usage)
 			return;
+		else if(opt.generateLucene){
+			Lucene.buildIndex(opt);
+			return;
+		}
 		
 		if(checkFiles(opt))
 			return;

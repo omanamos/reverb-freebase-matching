@@ -52,7 +52,7 @@ public class Lucene {
 		writeIndex(dict);
 	}
 	
-	public static void writeIndex(Set<String> dict) throws CorruptIndexException, LockObtainFailedException, IOException {
+	private static void writeIndex(Set<String> dict) throws CorruptIndexException, LockObtainFailedException, IOException {
 		IndexWriter indexWriter = new IndexWriter(new SimpleFSDirectory(new File("index")), new IndexWriterConfig(Version.LUCENE_31, new StandardAnalyzer(Version.LUCENE_31)));
 		
 		for(String word : dict){
